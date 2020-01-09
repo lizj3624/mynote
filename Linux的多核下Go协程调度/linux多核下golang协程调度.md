@@ -10,7 +10,11 @@
 
 **超线程（hyper-threading）**
 
-**超线程(hyper-threading)其实就是同时多线程(simultaneous multi-theading),是一项允许一个CPU执行多个控制流的技术。**它的原理很简单，就是把一颗CPU当成两颗来用，将一颗具有超线程功能的物理CPU变成两颗逻辑CPU，而逻辑CPU对操作系统来说，跟物理CPU并没有什么区别。因此，操作系统会把工作线程分派给这两颗（逻辑）CPU上去执行，让（多个或单个）应用程序的多个线程，能够同时在同一颗CPU上被执行。注意：两颗逻辑CPU共享单颗物理CPU的所有执行资源。因此，我们可以认为，**超线程技术就是对CPU的虚拟化**。Hyper-threading 使操作系统认为处理器的核心数是实际核心数的2倍，因此如果有4个核心的处理器，操作系统会认为处理器有8个核心。。超线程需要CPU、主板芯片、BIOS、OS的支持。
+超线程(hyper-threading)其实就是同时多线程(simultaneous multi-theading),是一项允许一个CPU执行多个控制流的技术。它的原理很简单，就是把一颗CPU当成两颗来用，将一颗具有超线程功能的物理CPU变成两颗逻辑CPU，而逻辑CPU对操作系统来说，跟物理CPU并没有什么区别。因此，操作系统会把工作线程分派给这两颗（逻辑）CPU上去执行，让（多个或单个）应用程序的多个线程，能够同时在同一颗CPU上被执行。注意：两颗逻辑CPU共享单颗物理CPU的所有执行资源。因此，我们可以认为，超线程技术就是对CPU的虚拟化。
+
+Hyper-threading 使操作系统认为处理器的核心数是实际核心数的2倍，因此如果有4个核心的处理器，操作系统会认为处理器有8个核心。
+
+超线程需要CPU、主板芯片、BIOS、OS的支持。
 
 
 
@@ -30,7 +34,17 @@
 
 #### 并发和并行
 
-在单核CPU上，Linux调度器通过分时机制调度进程/线程在CPU上执行，但是给使用者来看程序好像是同时执行的，这个叫做并发，而实际上CPU在同一个时刻只能有一个进程/线程执行。在多核CPU上，多个进程/线程可以在多个CPU核执行，这个叫做并行。
+在单核CPU上，Linux调度器通过分时机制调度进程/线程在CPU上执行，但是给使用者来看程序好像是同时执行的，这个叫做并发.
+
+而实际上CPU在同一个时刻只能有一个进程/线程执行。在多核CPU上，多个进程/线程可以在多个CPU核执行，这个叫做并行。
+
+引用Rob Pike的一句话：
+
+```·shell
+“Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.”
+```
+
+Vicky Katara已经在Quora上把它们之间的区别写的很好了，这里我就不去翻译了。[What is the difference between concurrency and parallelism](https://www.quora.com/What-is-the-difference-between-concurrency-and-parallelism/answer/Vicky-Katara?srid=IayD)
 
 #### taskset
 
@@ -47,9 +61,9 @@ go的协程`Goroutine`是基于底层操作系统的线程实现的，比系统�
 
 调度器的三个抽象概念：G、M、P
 
-- **G：**代表一个 goroutine，每个 goroutine 都有自己独立的栈存放当前的运行内存及状态。可以把一个G当做一个任务。
+- **G:** 代表一个 goroutine，每个 goroutine 都有自己独立的栈存放当前的运行内存及状态。可以把一个G当做一个任务。
 - **M:** 代表内核线程(Pthread)，它本身就与一个内核线程进行绑定，goroutine 运行在M上。
-- **P：**代表一个处理器，可以认为一个“有运行任务”的P占了一个CPU线程的资源，且只要处于调度的时候就有P。
+- **P:** 代表一个处理器，可以认为一个“有运行任务”的P占了一个CPU线程的资源，且只要处于调度的时候就有P。
 
 > 注：内核线程和 CPU 线程的区别，在系统里可以有上万个内核线程，但 CPU 线程并没有那么多，CPU 线程也就是 Top 命令里看到的 CPU0、CPU1、CPU2......的数量。
 
@@ -65,7 +79,7 @@ Go调度详解资料
 
 taskset绑定Go程序
 
-Go程序在1.5版本以后，默认设置系统所有的CPU核数`runtime.GOMAXPROCS(runtime.NumCPU())`，可以通过``runtime.GOMAXPROCS`，可以通过`taskset`将Go程序绑定在某几个核上，实现CPU亲和性，同时可以跟其他程序将CPU隔离开，不会相互抢占CPU资源，尽量将`taskset`绑定CPU个数与`runtime.GOMAXPROCS`设置个数一致。
+Go程序在1.5版本以后，默认设置系统所有的CPU核数`runtime.GOMAXPROCS(runtime.NumCPU())`，可以通过`runtime.GOMAXPROCS`，可以通过`taskset`将Go程序绑定在某几个核上，实现CPU亲和性，同时可以跟其他程序将CPU隔离开，不会相互抢占CPU资源，尽量将`taskset`绑定CPU个数与`runtime.GOMAXPROCS`设置个数一致。
 
 taskset绑定
 
