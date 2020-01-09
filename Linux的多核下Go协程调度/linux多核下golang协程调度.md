@@ -22,7 +22,7 @@ Hyper-threading 使操作系统认为处理器的核心数是实际核心数的2
 
 [多核 CPU 和多个 CPU 有何区别-知乎](https://www.zhihu.com/question/20998226)
 
-[LINUX内核调度算法（3）–多核系统的负载均衡]([http://www.taohui.pub/2015/01/27/linux%e5%86%85%e6%a0%b8%e8%b0%83%e5%ba%a6%e7%ae%97%e6%b3%95%ef%bc%883%ef%bc%89-%e5%a4%9a%e6%a0%b8%e7%b3%bb%e7%bb%9f%e7%9a%84%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1/](http://www.taohui.pub/2015/01/27/linux内核调度算法（3）-多核系统的负载均衡/))
+[LINUX内核调度算法（3）–多核系统的负载均衡](http://www.taohui.pub/2015/01/27/linux内核调度算法（3）-多核系统的负载均衡/)
 
 #### 进程
 
