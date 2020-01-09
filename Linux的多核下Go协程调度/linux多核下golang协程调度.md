@@ -6,9 +6,13 @@
 
 多核CPU是指将多个CPU集成到单个集成电路芯片中，因此主板的单个socket也可以适应这样的CPU，不需要去更改一些硬件结构。一个双核CPU有两个中央处理单元，操作系统看到是两个核心，不同的进程/线程可以在不同的核同时执行，加快系统的处理速度。两个核心都在同一芯片上，它们之间的通信也很快，系统也会有更小的延时。
 
-* 超线程
+![多核CPU]([https://github.com/lizj3624/mydoc/blob/master/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/%E5%A4%9A%E6%A0%B8CPU.png](https://github.com/lizj3624/mydoc/blob/master/Linux的多核下Go协程调度/pictures/多核CPU.png))
 
-    
+**超线程（hyper-threading）**
+
+**超线程(hyper-threading)其实就是同时多线程(simultaneous multi-theading),是一项允许一个CPU执行多个控制流的技术。**它的原理很简单，就是把一颗CPU当成两颗来用，将一颗具有超线程功能的物理CPU变成两颗逻辑CPU，而逻辑CPU对操作系统来说，跟物理CPU并没有什么区别。因此，操作系统会把工作线程分派给这两颗（逻辑）CPU上去执行，让（多个或单个）应用程序的多个线程，能够同时在同一颗CPU上被执行。注意：两颗逻辑CPU共享单颗物理CPU的所有执行资源。因此，我们可以认为，**超线程技术就是对CPU的虚拟化**。Hyper-threading 使操作系统认为处理器的核心数是实际核心数的2倍，因此如果有4个核心的处理器，操作系统会认为处理器有8个核心。。超线程需要CPU、主板芯片、BIOS、OS的支持。
+
+
 
 [多个CPU和多核CPU以及超线程（Hyper-Threading）](https://www.cnblogs.com/jokerjason/p/8926905.html)
 
@@ -50,6 +54,8 @@ go的协程`Goroutine`是基于底层操作系统的线程实现的，比系统�
 > 注：内核线程和 CPU 线程的区别，在系统里可以有上万个内核线程，但 CPU 线程并没有那么多，CPU 线程也就是 Top 命令里看到的 CPU0、CPU1、CPU2......的数量。
 
 go程序启动时，通过`GOMAXPROCS`设置CPU核数`P`的个数，内核线程`M`绑定在`P`上，`P`中有一个协程`G`的队列，`M`就从绑定的`P`的队列中获取`G`执行。
+
+![go的P-M-G模型]([https://github.com/lizj3624/mydoc/blob/master/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/P-M-G%E6%A8%A1%E5%9E%8B.jpg](https://github.com/lizj3624/mydoc/blob/master/Linux的多核下Go协程调度/pictures/P-M-G模型.jpg))
 
 Go调度详解资料
 
