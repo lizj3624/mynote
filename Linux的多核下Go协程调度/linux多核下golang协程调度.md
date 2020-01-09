@@ -69,12 +69,12 @@ go的协程`Goroutine`是基于底层操作系统的线程实现的，比系统�
 
 go程序启动时，通过`GOMAXPROCS`设置CPU核数`P`的个数，内核线程`M`绑定在`P`上，`P`中有一个协程`G`的队列，`M`就从绑定的`P`的队列中获取`G`执行。
 
-![go的P-M-G模型]([https://github.com/lizj3624/mydoc/blob/master/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/P-M-G%E6%A8%A1%E5%9E%8B.jpg](https://github.com/lizj3624/mydoc/blob/master/Linux的多核下Go协程调度/pictures/P-M-G模型.jpg))
+![go的P-M-G模型](https://github.com/lizj3624/mynote/blob/master/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/P-M-G%E6%A8%A1%E5%9E%8B.jpg)
 
 Go调度详解资料
 
 * [详尽干货！从源码角度看 Golang 的调度](https://mp.weixin.qq.com/s/laxAshXPQvzRhFg3RtZJOw)
-* [Goroutine调度](]https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/)
+* [Goroutine调度](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/)
 * [Goroutine 并发调度模型深度解析之手撸一个高性能 goroutine 池](https://taohuawu.club/high-performance-implementation-of-goroutine-pool)
 
 taskset绑定Go程序
