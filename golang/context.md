@@ -148,7 +148,7 @@ func watch(ctx context.Context) {
 
 * [6.1 上下文 Context](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
 
-* [[Go Context 使用和源码分析](https://segmentfault.com/a/1190000019862527)]
+* [Go Context 使用和源码分析](https://segmentfault.com/a/1190000019862527)
 
 * [理解 golang 中的 context（上下文）包](https://studygolang.com/articles/13866?fr=sidebar)
 
