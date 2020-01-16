@@ -64,28 +64,28 @@ func main() {
 import "fmt"
 
 func fibonacci(c, quit chan int) {
-	x, y := 0, 1
-	for {
-		select {
-		case c <- x:
-			x, y = y, x+y
-		case <-quit:
-			fmt.Println("quit")
-			return
-		}
+    x, y := 0, 1
+    for {
+        select {
+	case c <- x:
+	    x, y = y, x+y
+	case <-quit:
+	    fmt.Println("quit")
+	    return
 	}
+    }
 }
 
 func main() {
-	c := make(chan int)
-	quit := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println(<-c)
-		}
-		quit <- 0
-	}()
-	fibonacci(c, quit)
+    c := make(chan int)
+    quit := make(chan int)
+    go func() {
+	for i := 0; i < 10; i++ {
+	    fmt.Println(<-c)
+	}
+	quit <- 0
+    }()
+    fibonacci(c, quit)
 }
 ```
 
@@ -97,13 +97,13 @@ func main() {
 
 ```go
 for {
-	select {
-	case c <- x:
-		x, y = y, x+y
-	case <-quit:
-		fmt.Println("quit")
-		return
-	}
+    select {
+    case c <- x:
+	x, y = y, x+y
+    case <-quit:
+	fmt.Println("quit")
+	return
+    }
 }
 ```
 
@@ -154,12 +154,12 @@ func main() {
 ###timer.C
 timer2 := time.NewTimer(time.Second)
 go func() {
-	<-timer2.C
-	fmt.Println("Timer 2 expired")
+    <-timer2.C
+    fmt.Println("Timer 2 expired")
 }()
 stop2 := timer2.Stop()
 if stop2 {
-	fmt.Println("Timer 2 stopped")
+    fmt.Println("Timer 2 stopped")
 }
 ```
 
