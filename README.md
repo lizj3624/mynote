@@ -22,6 +22,8 @@
 
 [Go学习之路](https://github.com/developer-learning/learning-golang)
 
+[Golang语言社区](https://cloud.tencent.com/developer/column/2170)
+
 ## Linux
 
 * Linux kernel的内部实现
