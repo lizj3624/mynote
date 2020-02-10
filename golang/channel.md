@@ -172,3 +172,5 @@ if stop2 {
 * [Go Channel 详解](https://colobu.com/2016/04/14/Golang-Channels/)
 * [深入理解 Go Channel](http://legendtkl.com/2017/07/30/understanding-golang-channel/)
 * [6.4 Channel](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-channel/)
+* [Go中的Channel](https://www.jianshu.com/p/15c94893124c)
+
