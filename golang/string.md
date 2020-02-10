@@ -2,7 +2,7 @@
 
 字符串是Go中基础的数据类型之一，它是一段连续内存存储的，其实Go语言中的字符串其实是一个只读的字节数组。
 
-![Go字符串存储](/Users/lizunju/workspace/github/mynote/golang/pictures/2019-12-31-15777265631608-in-memory-string.png)
+![Go字符串存储](https://github.com/lizj3624/mynote/blob/master/golang/pictures/2019-12-31-15777265631608-in-memory-string.png)
 
 图片引用[这里](https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-string/)
 
