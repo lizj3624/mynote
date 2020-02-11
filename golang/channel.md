@@ -107,6 +107,8 @@ for {
 }
 ```
 
+* 问题：select监听多个channel时，同时又多个channel有数据时，select只能随机出来其中一个，那么其他channel的数据会丢失吗？
+
 #### range channel
 
 range channel 可以直接取到 channel 中的值。当我们使用 range 来操作 channel 的时候，一旦 channel 关闭，channel 内部数据读完之后循环自动结束。
@@ -173,4 +175,5 @@ if stop2 {
 * [深入理解 Go Channel](http://legendtkl.com/2017/07/30/understanding-golang-channel/)
 * [6.4 Channel](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-channel/)
 * [Go中的Channel](https://www.jianshu.com/p/15c94893124c)
+* [Go中的Channel——range和select](https://www.jianshu.com/p/fe5dd2efed5d)
 
