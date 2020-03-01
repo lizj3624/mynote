@@ -26,6 +26,8 @@
 
 [Go语言101](https://gfw.go101.org/article/101.html)
 
+[Go语言42章经](https://github.com/ffhelicopter/Go42/blob/master/SUMMARY.md)
+
 ## Linux
 
 * Linux kernel的内部实现
