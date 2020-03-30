@@ -192,4 +192,5 @@ func main() {
 
 * [defer关键字的原理](https://draveness.me/golang/docs/part2-foundation/ch05-keyword/golang-defer/)
 * [Golang之轻松化解defer的温柔陷阱](https://mp.weixin.qq.com/s/txj7jQNki_8zIArb9kSHeg)
+* [[defer 链如何被遍历](https://www.cnblogs.com/qcrao-2018/p/12550380.html)]
 
