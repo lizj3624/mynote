@@ -28,6 +28,12 @@
 
 [Go语言42章经](https://github.com/ffhelicopter/Go42/blob/master/SUMMARY.md)
 
+[Go 语言优秀资源整理，为项目落地加速](https://shockerli.net/post/go-awesome/)
+
+## Python
+
+
+
 ## Linux
 
 * Linux kernel的内部实现
@@ -37,7 +43,10 @@
 ## Vim
 
 * vim的不错的插件
+
 * vim的不错使用技巧
+
+    
 
 ## Git
 
@@ -45,13 +54,17 @@ git使用的一些技巧
 
 
 
-## HTTP/HTTPS
+## TCP/HTTP/HTTPS
 
+* TCP/UDP
 * HTTP协议
-
 * HTTPS协议
 
-    
+* HTTP2
+* HTTP3(QUIC)
+* WebSocket
+
+
 
 ## Shell
 
@@ -63,6 +76,16 @@ git使用的一些技巧
 
 * 路由
 * sdn
+
+
+
+## 经济投资
+
+
+
+## 人文社科
+
+
 
 ## Plan
 
