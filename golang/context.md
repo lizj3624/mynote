@@ -142,15 +142,10 @@ func watch(ctx context.Context) {
 ### 引用
 
 * [Go语言实战笔记（二十）| Go Context](https://www.flysnow.org/2017/05/12/go-in-action-go-context.html)
-
 * [Golang 并发 与 context标准库](https://mp.weixin.qq.com/s/FJLH4o7Y1TG9I0seiNwR_w)
-
 * [6.1 上下文 Context](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
-
 * [Go Context 使用和源码分析](https://segmentfault.com/a/1190000019862527)
-
 * [理解 golang 中的 context（上下文）包](https://studygolang.com/articles/13866?fr=sidebar)
-
 * [go context](https://blog.golang.org/context)
+* [go1.7中Context包的正确使用姿势 [译]](https://my.oschina.net/markz0928/blog/1833644)
 
-    

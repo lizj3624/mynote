@@ -432,3 +432,5 @@ func main() {
 
 * [Golang interface接口深入理解](https://juejin.im/post/5a6873fd518825734501b3c5)
 
+* [深度解密Go语言之关于 interface 的 10 个问题](https://mp.weixin.qq.com/s/EbxkBokYBajkCR-MazL0ZA)
+
