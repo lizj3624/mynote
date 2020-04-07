@@ -6,3 +6,11 @@
 * [飞雪无情的博客-Go 反射](https://www.flysnow.org/2017/06/13/go-in-action-go-reflect.html)
 * [（译）反射的法则 | 《 The Go Blog 》](https://learnku.com/articles/25154)
 
+* [Go Reflect 性能](https://colobu.com/2019/01/29/go-reflect-performance/)
+
+* [go反射实践及剖析](http://legendtkl.com/2016/08/03/go-reflect-value/)
+* [饶全成：深度解密 Go 语言之反射（上）](https://www.infoq.cn/article/aLj4lqIgyNuLgmxHQrhq)
+* [饶全成：深度解密 Go 语言之反射（下）](https://www.infoq.cn/article/s9EJ0VLVKP8sSIQYi4X8)
+
+* [Russ Cox: Go Data Structures: Interfaces](https://research.swtch.com/interfaces)
+
