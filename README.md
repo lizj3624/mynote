@@ -85,6 +85,8 @@ git使用的一些技巧
 
 ## 人文社科
 
+* [世界已滑入“马尔萨斯陷阱”-智本社](https://mp.weixin.qq.com/s/l4vAX3o7HrVQSwjOrRuOYA)
+
 
 
 ## Plan
