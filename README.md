@@ -90,8 +90,8 @@ git使用的一些技巧
 * [第五项修炼:学习型组织的艺术与实践](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%AC%AC%E4%BA%94%E9%A1%B9%E4%BF%AE%E7%82%BC%EF%BC%9A%E5%AD%A6%E4%B9%A0%E5%9E%8B%E7%BB%84%E7%BB%87%E7%9A%84%E8%89%BA%E6%9C%AF%E4%B8%8E%E5%AE%9E%E8%B7%B5.md)
 * [高瓴投资掌门人张磊的人生理念和投资哲学](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E9%AB%98%E7%93%B4%E6%8A%95%E8%B5%84%E6%8E%8C%E9%97%A8%E4%BA%BA%E5%BC%A0%E7%A3%8A%E7%9A%84%E4%BA%BA%E7%94%9F%E7%90%86%E5%BF%B5%E5%92%8C%E6%8A%95%E8%B5%84%E5%93%B2%E5%AD%A6.md)
 * [李开复：我的时间管理秘诀](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9D%8E%E5%BC%80%E5%A4%8D%EF%BC%9A%E6%88%91%E7%9A%84%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%A7%98%E8%AF%80.md)
-* [李录谈现代化-从人类文明史角度看当今中美关系走向]([https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96-%E4%BB%8E%E4%BA%BA%E7%B1%BB%E6%96%87%E6%98%8E%E5%8F%B2%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%BD%93%E4%BB%8A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E8%B5%B0%E5%90%91.pdf](https://github.com/lizj3624/mynote/blob/master/reading-notes/李录谈现代化-从人类文明史角度看当今中美关系走向.pdf))
-* [现代化十六讲-李录]([https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%9D%8E%E5%BD%95.pdf](https://github.com/lizj3624/mynote/blob/master/reading-notes/现代化十六讲-李录.pdf))
+* [李录谈现代化-从人类文明史角度看当今中美关系走向](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96-%E4%BB%8E%E4%BA%BA%E7%B1%BB%E6%96%87%E6%98%8E%E5%8F%B2%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%BD%93%E4%BB%8A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E8%B5%B0%E5%90%91.pdf)
+* [现代化十六讲-李录](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%9D%8E%E5%BD%95.pdf)
 
 
 ## Plan
