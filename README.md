@@ -93,6 +93,10 @@ git使用的一些技巧
 * [李录谈现代化-从人类文明史角度看当今中美关系走向](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96-%E4%BB%8E%E4%BA%BA%E7%B1%BB%E6%96%87%E6%98%8E%E5%8F%B2%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%BD%93%E4%BB%8A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E8%B5%B0%E5%90%91.pdf)
 * [现代化十六讲-李录](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%9D%8E%E5%BD%95.pdf)
 
+## 管理
+* [Google_OKR_Playbook_](https://github.com/lizj3624/mynote/blob/master/reading-notes/Google_OKR_Playbook_V1JS.pdf)
+* [Google_OKR_Playbook中文](https://mp.weixin.qq.com/s/A1C5BE5rBCeTGlrJm95jVw)
+
 
 ## Plan
 
