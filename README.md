@@ -80,9 +80,11 @@ git使用的一些技巧
 
 
 ## 经济投资
+
 * [斯坦福极简经济学](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E3%80%8A%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9E%81%E7%AE%80%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93.md)
 * [知止不殆-高善文(2019演讲PPT)](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%9F%A5%E6%AD%A2%E4%B8%8D%E6%AE%86_%E9%AB%98%E5%96%84%E6%96%87.pdf)
 * [知止不殆-高善文(2019演讲)](https://www.youtube.com/watch?v=zzQ3vC6svB4)
+* [拼多多黄峥致股东信](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%8B%BC%E5%A4%9A%E5%A4%9A(%E9%BB%84%E5%B3%A5)%E8%87%B4%E8%82%A1%E4%B8%9C%E4%B8%80.md)
 
 ## 人文社科
 
