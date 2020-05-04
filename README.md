@@ -85,6 +85,7 @@ git使用的一些技巧
 * [知止不殆-高善文(2019演讲PPT)](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%9F%A5%E6%AD%A2%E4%B8%8D%E6%AE%86_%E9%AB%98%E5%96%84%E6%96%87.pdf)
 * [知止不殆-高善文(2019演讲)](https://www.youtube.com/watch?v=zzQ3vC6svB4)
 * [拼多多黄峥致股东信](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%8B%BC%E5%A4%9A%E5%A4%9A(%E9%BB%84%E5%B3%A5)%E8%87%B4%E8%82%A1%E4%B8%9C%E4%B8%80.md)
+* [黄奇帆教授万字授课：中国经济受到的冲击和应对政策（独家）](https://mp.weixin.qq.com/s/2FecMSdK7HjNla-BhNFOTg)
 
 ## 人文社科
 
