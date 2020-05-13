@@ -57,8 +57,8 @@ git使用的一些技巧
 ## TCP/HTTP/HTTPS
 
 * TCP/UDP
-* HTTP协议
-* HTTPS协议
+* [HTTP协议](https://github.com/lizj3624/mynote/tree/master/http)
+* [HTTPS协议](https://github.com/lizj3624/mynote/tree/master/https)
 
 * HTTP2
 * HTTP3(QUIC)
