@@ -97,6 +97,7 @@ git使用的一些技巧
 * [现代化十六讲-李录](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%9D%8E%E5%BD%95.pdf)
 * [改变世界的老三样：货币、信贷和债务-溯元育新](https://mp.weixin.qq.com/s/h14q5BVSSWsNgU5K6bMEVw)
 * [曾国藩](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9B%BE%E5%9B%BD%E8%97%A9.md)
+* [文天祥](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%96%87%E5%A4%A9%E7%A5%A5.md)
 
 ## 管理
 * [一文看懂，什么是OKR](https://m.zjbyte.com/sbfp/finance/article?groupId=6646618488267866628&itemId=6646618488267866628&timestamp=1588043478&article_category=stock&req_id=2020042811111801001404009410848F65&group_id=6646618488267866628)
