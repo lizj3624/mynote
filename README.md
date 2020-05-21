@@ -37,16 +37,14 @@
 ## Linux
 
 * Linux kernel的内部实现
+* [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux-Performance)
 
-    
 
 ## Vim
 
 * vim的不错的插件
 
 * vim的不错使用技巧
-
-    
 
 ## Git
 
@@ -69,8 +67,6 @@ git使用的一些技巧
 ## Shell
 
 一些有意思的shell脚步
-
-
 
 ## Networking
 
