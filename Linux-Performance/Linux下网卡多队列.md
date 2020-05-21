@@ -248,8 +248,8 @@ done
 #! /bin/bash                                                                             
 for i in `seq 0 7`
 do
- ``echo` `0|``sudo` `tee` `/sys/class/net/em1/queues/rx-$i/rps_cpus >/dev/null
- ``echo` `0|``sudo` `tee` `/sys/class/net/em2/queues/rx-$i/rps_cpus >/dev/null
+    echo 0|tee  /sys/class/net/em1/queues/rx-$i/rps_cpus >/dev/null
+    echo 0|tee  /sys/class/net/em2/queues/rx-$i/rps_cpus >/dev/null
 done
 #./em.sh
 ```
@@ -342,6 +342,7 @@ cat /proc/irq/$(中断号)/smp_affinity
 * [Redis 高负载下的中断优化](https://tech.meituan.com/2018/03/16/redis-high-concurrency-optimization.html)
 * [MYSQL数据库网卡软中断不平衡问题及解决方案-褚霸](http://blog.yufeng.info/archives/2037)
 
-* [网卡多队列总结]([https://xusenqi.github.io/2018/11/23/%E7%BD%91%E5%8D%A1%E5%A4%9A%E9%98%9F%E5%88%97%E6%80%BB%E7%BB%93/](https://xusenqi.github.io/2018/11/23/网卡多队列总结/))
+* [网卡多队列总结](https://xusenqi.github.io/2018/11/23/%E7%BD%91%E5%8D%A1%E5%A4%9A%E9%98%9F%E5%88%97%E6%80%BB%E7%BB%93/)
 
 * [容器云负载均衡之三：RSS、RPS、RFS和XPS调整](https://blog.csdn.net/cloudvtech/article/details/80182074)
+
