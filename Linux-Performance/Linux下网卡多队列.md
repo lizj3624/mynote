@@ -293,11 +293,26 @@ Other:		1
 Combined:	40
 ```
 
-### CPU的格式
+### CPU的个数
 
 ```shell
 [root@localhost ~]# cat /proc/cpuinfo | grep processor | wc -l
 40
+```
+
+### 查看网卡信息
+```shell
+#常用1
+ifconfig
+
+#常用2
+lspci |grep -i 'eth'
+lspci | grep -i net
+
+#常用3
+ethtool eth0
+ethtool -p eth0
+
 ```
 
 ### 修改网卡队列数
