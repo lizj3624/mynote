@@ -57,9 +57,8 @@ git使用的一些技巧
 * TCP/UDP
 * [HTTP协议](https://github.com/lizj3624/mynote/tree/master/http)
 * [HTTPS协议](https://github.com/lizj3624/mynote/tree/master/https)
-
 * HTTP2
-* HTTP3(QUIC)
+* [HTTP3(QUIC)](https://github.com/lizj3624/mynote/blob/master/http/http3.md)
 * WebSocket
 
 
@@ -76,6 +75,7 @@ git使用的一些技巧
 ## 架构
 
 * [微服务](https://github.com/lizj3624/mynote/blob/master/microservice/microservice.md)
+* [k8s](https://github.com/lizj3624/mynote/tree/master/k8s)
 
 ## 经济投资
 
