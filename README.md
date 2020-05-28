@@ -48,7 +48,7 @@
 
 ## Git
 
-git使用的一些技巧
+* [git一些命令](https://github.com/lizj3624/mynote/blob/master/git/git-command.md)
 
 
 
@@ -76,6 +76,7 @@ git使用的一些技巧
 
 * [微服务](https://github.com/lizj3624/mynote/blob/master/microservice/microservice.md)
 * [k8s](https://github.com/lizj3624/mynote/tree/master/k8s)
+* [阿里云](https://github.com/lizj3624/mynote/blob/master/aliyun/aliyun.md)
 
 ## 经济投资
 

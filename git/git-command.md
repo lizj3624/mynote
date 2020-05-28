@@ -53,5 +53,30 @@ git commit --amend -m "提交说明"
 ```shell
 git config --global user.name "jack lee"
 git config --global user.email "jack@gmail.com"
+
+#如果你只需要修改最新的 commit ，直接使用：
+git commit --amend --author="Author Name <email@address.com>"
+
+#如果你已经修改了 git config 中的用户名和邮箱，也可以使用
+git commit --amend --reset-author --no-edit
 ```
+
+### git revert 和 git reset区别
+
+`git revert`撤销 某次操作，此次操作之前和之后的`commit`和`history`都会保留，并且把这次撤销
+作为一次最新的提交
+
+```shell
+git revert HEAD         #撤销前一次 commit
+git revert HEAD^        #撤销前前一次 commit
+git revert commitid     #撤销指定的版本，撤销也会作为一次提交进行保存。
+```
+
+`git revert`是提交一个新的版本，将需要`revert`的版本的内容再反向修改回去，
+版本会递增，不影响之前提交的内容。
+
+* `git revert` 和 `git reset`的区别 
+    1. `git revert`是用一次新的`commit`来回滚之前的`commit`，`git reset`是直接删除指定的`commit`。 
+    2. 在回滚这一操作上看，效果差不多。但是在日后继续`merge`以前的老版本时有区别。因为git revert是用一次逆向的`commit`“中和”之前的提交，因此日后合并老的`branch`时，导致这部分改变不会再次出现，但是`git reset`是之间把某些`commit`在某个`branch上`删除，因而和老的`branch`再次`merge`时，这些被回滚的`commit`应该还会被引入。 
+    3. `git reset` 是把HEAD向后移动了一下，而`git revert`是HEAD继续前进，只是新的`commit`的内容和要`revert`的内容正好相反，能够抵消要被`revert`的内容。
 

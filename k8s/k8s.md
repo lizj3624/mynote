@@ -4,3 +4,11 @@
 
 * [Kubernetes 网络化繁琐为简单](https://mp.weixin.qq.com/s/m0z1eYZz2NJ-F3feS8KRBQ)
 
+* 从零开始入门k8s-阿里
+
+    1）[K8s 资源全汇总 | K8s 大咖带你 31 堂课从零入门 K8s](https://yq.aliyun.com/articles/757946?spm=a2c4e.11153940.0.0.76a878c8YPONKw)
+
+   2）[重磅合集 | 31 篇技术文章，带你从零入门 K8s](https://yq.aliyun.com/articles/754267?spm=a2c4e.11153940.0.0.76a878c8YPONKw)
+
+   3）[从零开始入门 Kubernetes-infoq](https://www.infoq.cn/theme/44)
+
