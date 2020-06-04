@@ -42,9 +42,9 @@
 
 ## Vim
 
-* vim的不错的插件
+* [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/vim/vim.md)
 
-* vim的不错使用技巧
+* vim的不错的插件
 
 ## Git
 
