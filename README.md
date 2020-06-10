@@ -33,11 +33,14 @@
 ## Python
 
 
-
 ## Linux
 
 * Linux kernel的内部实现
 * [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux-Performance)
+
+## GDB
+* [gdb-command](https://github.com/lizj3624/mynote/blob/master/gdb/gdb-command.md)
+* [gdb-doc](https://github.com/lizj3624/mynote/blob/master/gdb/gdb.md)
 
 
 ## Vim
@@ -52,7 +55,7 @@
 
 ## TCP/HTTP/HTTPS
 
-* TCP
+* [TCP](https://github.com/lizj3624/mynote/tree/master/tcp)
 * UDP
 * [HTTP协议](https://github.com/lizj3624/mynote/tree/master/http)
 * [HTTPS协议](https://github.com/lizj3624/mynote/tree/master/https)
