@@ -1,39 +1,6 @@
-## 手工产生core文件
-```shell
-gdb -p $pid
-gcore $corename
-quit
-```
-
-## gdb中打印结构体指针
-```shell
-p (*(struct server *)0x1ff3240)
-
-p (*(struct server *)srv)
-```
-
-## gdb打印list对象信息
-```shell
-$ cat plist.gdb
-
-define plist
-
-set $p = proxy
-
-while $p
-    printf "%x, %s\n", $p, $p->id
-    set $srv = $p->srv
-
-    while $srv
-        printf "%x, %s\n", $srv, $srv->id
-        set $srv = $srv->next
-    end
-
-    set $p = $p->next
-end
-```
-### gdb中执行plist
-```shell
-source plist.gdb
-plist
-```
+* [GDB中应该知道的几个调试方法](https://coolshell.cn/articles/3643.html)
+* [GDB自动化操作的技术](https://segmentfault.com/a/1190000005367875)
+* [用Python拓展GDB（一）](https://segmentfault.com/a/1190000005718889)
+* [用Python拓展GDB（二）](https://segmentfault.com/a/1190000005732816)
+* [用Python拓展GDB（三）](https://segmentfault.com/a/1190000005750456)
+* [用Python拓展GDB（四）](https://segmentfault.com/a/1190000005772472)

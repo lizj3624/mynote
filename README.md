@@ -50,18 +50,15 @@
 
 * [git一些命令](https://github.com/lizj3624/mynote/blob/master/git/git-command.md)
 
-
-
 ## TCP/HTTP/HTTPS
 
-* TCP/UDP
+* TCP
+* UDP
 * [HTTP协议](https://github.com/lizj3624/mynote/tree/master/http)
 * [HTTPS协议](https://github.com/lizj3624/mynote/tree/master/https)
 * HTTP2
 * [HTTP3(QUIC)](https://github.com/lizj3624/mynote/blob/master/http/http3.md)
 * WebSocket
-
-
 
 ## Shell
 
@@ -85,6 +82,7 @@
 * [知止不殆-高善文(2019演讲)](https://www.youtube.com/watch?v=zzQ3vC6svB4)
 * [拼多多黄峥致股东信](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%8B%BC%E5%A4%9A%E5%A4%9A(%E9%BB%84%E5%B3%A5)%E8%87%B4%E8%82%A1%E4%B8%9C%E4%B8%80.md)
 * [黄奇帆教授万字授课：中国经济受到的冲击和应对政策（独家）](https://mp.weixin.qq.com/s/2FecMSdK7HjNla-BhNFOTg)
+* [达利欧断言：我们会看到全球化将转向“自给自足”](https://mp.weixin.qq.com/s/9FUlC4glfIkRrsbnIC5Bng)
 
 ## 人文社科
 
