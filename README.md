@@ -78,12 +78,17 @@
 * [k8s](https://github.com/lizj3624/mynote/tree/master/k8s)
 * [阿里云](https://github.com/lizj3624/mynote/blob/master/aliyun/aliyun.md)
 
+## grpc
+
+* [grpc](https://github.com/lizj3624/mynote/tree/master/grpc)
+
 ## 经济投资
 
 * [斯坦福极简经济学](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E3%80%8A%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9E%81%E7%AE%80%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93.md)
 * [知止不殆-高善文(2019演讲PPT)](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E7%9F%A5%E6%AD%A2%E4%B8%8D%E6%AE%86_%E9%AB%98%E5%96%84%E6%96%87.pdf)
 * [知止不殆-高善文(2019演讲)](https://www.youtube.com/watch?v=zzQ3vC6svB4)
 * [拼多多黄峥致股东信](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%8B%BC%E5%A4%9A%E5%A4%9A(%E9%BB%84%E5%B3%A5)%E8%87%B4%E8%82%A1%E4%B8%9C%E4%B8%80.md)
+* [黄峥：我的人生经历和创业理念](https://news.futunn.com/market/124520?auth_token=023234&clientver=10.10.1182&user_id_type=1&user_id=7315460&channel=4&clientlang=0&clienttype=13&is_visitor=0&skintype=3)
 * [黄奇帆教授万字授课：中国经济受到的冲击和应对政策（独家）](https://mp.weixin.qq.com/s/2FecMSdK7HjNla-BhNFOTg)
 * [达利欧断言：我们会看到全球化将转向“自给自足”](https://mp.weixin.qq.com/s/9FUlC4glfIkRrsbnIC5Bng)
 
