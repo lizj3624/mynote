@@ -26,6 +26,14 @@ git submodule update
 $ git clone --recursive https://github.com/chaconinc/MainProject
 ```
 
+#### 更新submodule的地址
+
+```shell
+git submodule update --remote liba
+git config -f .gitmodules submodule.liba.branch dev
+git submodule update --remote
+```
+
 ### git添加修改远端仓库地址
 
 #### 添加远端仓库地址
