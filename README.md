@@ -8,6 +8,8 @@
 
 ### Go不错的博客和公众号
 
+[go](https://github.com/lizj3624/mynote/tree/master/golang)
+
 [码农桃花源](https://qcrao91.gitbook.io/go/)
 
 [面向信仰编程](https://draveness.me/golang/)
@@ -31,10 +33,9 @@
 [Go 语言优秀资源整理，为项目落地加速](https://shockerli.net/post/go-awesome/)
 
 ## Python
-
+* [Python](https://github.com/lizj3624/mynote/tree/master/Python)
 
 ## Linux
-
 * Linux kernel的内部实现
 * [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux-Performance)
 * [Linux monit command](https://github.com/lizj3624/mynote/tree/master/Linux-Performance/Linux-monit-command.md)
@@ -45,13 +46,10 @@
 
 
 ## Vim
-
 * [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/vim/vim.md)
-
 * vim的不错的插件
 
 ## Git
-
 * [git一些命令](https://github.com/lizj3624/mynote/blob/master/git/git-command.md)
 
 ## TCP/HTTP/HTTPS
@@ -65,8 +63,8 @@
 * WebSocket
 
 ## Shell
-
 一些有意思的shell脚步
+[shell](https://github.com/lizj3624/mynote/tree/master/shell)
 
 ## Networking
 
