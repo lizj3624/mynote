@@ -37,6 +37,7 @@
 
 * Linux kernel的内部实现
 * [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux-Performance)
+* [Linux monit command](https://github.com/lizj3624/mynote/tree/master/Linux-Performance/Linux-monit-command.md)
 
 ## GDB
 * [gdb-command](https://github.com/lizj3624/mynote/blob/master/gdb/gdb-command.md)
