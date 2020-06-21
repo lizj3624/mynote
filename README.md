@@ -37,8 +37,8 @@
 
 ## Linux
 * Linux kernel的内部实现
-* [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux-Performance)
-* [Linux monit command](https://github.com/lizj3624/mynote/tree/master/Linux-Performance/Linux-monit-command.md)
+* [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux)
+* [Linux monit command](https://github.com/lizj3624/mynote/tree/master/Linux/Linux-monit-command.md)
 
 ## GDB
 * [gdb-command](https://github.com/lizj3624/mynote/blob/master/gdb/gdb-command.md)
@@ -63,13 +63,12 @@
 * WebSocket
 
 ## Shell
-一些有意思的shell脚步
-[shell](https://github.com/lizj3624/mynote/tree/master/shell)
+* [shell](https://github.com/lizj3624/mynote/tree/master/shell)
 
 ## Networking
 
-* 路由
-* sdn
+* [idc](https://github.com/lizj3624/mynote/blob/master/networking/idc-networking.md)
+* [sdn](https://github.com/lizj3624/mynote/tree/master/networking)
 
 ## 架构
 
