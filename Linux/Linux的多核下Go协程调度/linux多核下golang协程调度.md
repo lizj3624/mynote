@@ -6,7 +6,7 @@
 
 多核CPU是指将多个CPU集成到单个集成电路芯片中，因此主板的单个socket也可以适应这样的CPU，不需要去更改一些硬件结构。一个双核CPU有两个中央处理单元，操作系统看到是两个核心，不同的进程/线程可以在不同的核同时执行，加快系统的处理速度。两个核心都在同一芯片上，它们之间的通信也很快，系统也会有更小的延时。
 
-![多核CPU]((https://github.com/lizj3624/mynote/blob/master/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/%E5%A4%9A%E6%A0%B8CPU.png))
+![多核CPU](https://github.com/lizj3624/mynote/blob/master/Linux/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/%E5%A4%9A%E6%A0%B8CPU.png)
 
 **超线程（hyper-threading）**
 
@@ -69,7 +69,7 @@ go的协程`Goroutine`是基于底层操作系统的线程实现的，比系统�
 
 go程序启动时，通过`GOMAXPROCS`设置CPU核数`P`的个数，内核线程`M`绑定在`P`上，`P`中有一个协程`G`的队列，`M`就从绑定的`P`的队列中获取`G`执行。
 
-![go的P-M-G模型](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/P-M-G%E6%A8%A1%E5%9E%8B.jpg)
+![go的P-M-G模型](https://github.com/lizj3624/mynote/blob/master/Linux/Linux%E7%9A%84%E5%A4%9A%E6%A0%B8%E4%B8%8BGo%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6/pictures/P-M-G%E6%A8%A1%E5%9E%8B.jpg)
 
 Go调度详解资料
 

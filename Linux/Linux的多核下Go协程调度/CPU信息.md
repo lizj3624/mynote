@@ -26,8 +26,6 @@
     cat /proc/cpuinfo|grep "processor"|wc -l
     ```
 
-    
-
 ### 各种CPU信息说明
 
 * 处理器核数 ：processor cores，即俗称"CPU核数"，也就是每个物理CPU中core的个数，例如"Inter(R) Xeon(R) CPU E5-2680 v2 @ 2.8GHz"是10核处理器，它在每个socket上有10个"处理器核"。具有相同core id的CPU是同一个core的超线程。
