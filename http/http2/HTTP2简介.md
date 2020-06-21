@@ -232,4 +232,5 @@ HTTP/2 新增的另一个强大的新功能是，服务器可以对一个客户�
 - [“HTTP/2 推送的经验法则”](https://docs.google.com/document/d/1K0NykTXBbbbTlv60t5MyJvXjqKGsCVNYHyLEXIxYMv0/edit?hl=zh-cn) – Tom Bergan、Simon Pelchat 和 Michael Buettner 对何时以及如何使用推送的分析。
 
 * [原文](https://developers.google.com/web/fundamentals/performance/http2?hl=zh-cn)
+* [HTTP2-rfc7540](https://httpwg.org/specs/rfc7540.html)
 
