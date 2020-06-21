@@ -12,7 +12,7 @@
 
 * 第二阶段，CPU会根据scheduler对一系列软中断按照优先级进行排队处理，将数据包移动到TCP/IP协议栈和后续应用程序。
 
-![中断](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-00.png)
+![中断](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-00.png)
 
 ### 接收队列
 
@@ -30,7 +30,7 @@
 
 RSS为网卡数据传输使用多核提供了支持，RSS在硬件/驱动级别实现多队列并且使用一个hash函数对数据包进行多队列分离处理，这个hash根据源IP、目的IP、源端口和目的端口进行数据包分布选择，这样同一数据流的数据包会被放置到同一个队列进行处理并且能一定程度上保证数据处理的均衡性。
 
-![rss](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-05.png)
+![rss](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-05.png)
 
 ### RFS(Receive Flow Steering)
 
@@ -38,7 +38,7 @@ RPS 全称是 `Receive Packet Steering`, 这是Google工程师 Tom Herbert (ther
 
 RPS是和RSS类似的一个技术，区别在于RSS是网的硬件实现而RPS是内核软件实现。RPS帮助单队列网卡将其产生的SoftIRQ分派到多个CPU内核进行处理。在这个方案中，为网卡单队列分配的CPU只处理所有硬件中断，由于硬件中断的快速高效，即使在同一个CPU进行处理，影响也是有限的，而耗时的软中断处理会被分派到不同CPU进行处理，可以有效的避免处理瓶颈。
 
-![rfs](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-06.png)
+![rfs](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-06.png)
 
 ### RFS(Receive Flow Steering)
 
@@ -62,7 +62,7 @@ XPS通过创建CPU到网卡发送队列的对应关系，来保证处理发送�
 4. 经过TCP/IP协议逐层处理。
 5. 应用程序通过`read()`从`socket buffer`读取数据。
 
-![01](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-01.png)
+![01](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-01.png)
 
 ### 将网卡收到的数据包转移到主机内存（NIC与驱动交互）
 
@@ -75,7 +75,7 @@ NIC在接收到数据包之后，首先需要将数据同步到内核中，这�
 5. 网卡收到新的数据包；
 6. 网卡将新数据包通过DMA直接写到`sk_buffer`中。
 
-![02](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-02.png)
+![02](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-02.png)
 
 当驱动处理速度跟不上网卡收包速度时，驱动来不及分配缓冲区，NIC接收到的数据包无法及时写到`sk_buffer`，就会产生堆积，当NIC内部缓冲区写满后，就会丢弃部分数据，引起丢包。这部分丢包为`rx_fifo_errors`，在`/proc/net/dev`中体现为fifo字段增长，在ifconfig中体现为overruns指标增长。
 
@@ -90,13 +90,13 @@ NIC在接收到数据包之后，首先需要将数据同步到内核中，这�
 
 **当NIC把数据包通过DMA复制到内核缓冲区`sk_buffer`后，NIC立即发起一个硬件中断。CPU接收后，首先进入上半部分，网卡中断对应的中断处理程序是网卡驱动程序的一部分，之后由它发起软中断，进入下半部分，开始消费`sk_buffer`中的数据，交给内核协议栈处理。**
 
-![03](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-03.png)
+![03](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-03.png)
 
 通过中断，能够快速及时地响应网卡数据请求，但如果数据量大，那么会产生大量中断请求，CPU大部分时间都忙于处理中断，效率很低。为了解决这个问题，现在的内核及驱动都采用一种叫NAPI（new API）的方式进行数据处理，其原理可以简单理解为 中断+轮询，在数据量大时，一次中断后通过轮询接收一定数量包再返回，避免产生多次中断。
 
 整个中断过程的源码部分比较复杂，并且不同驱动的厂商及版本也会存在一定的区别
 
-![04](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-04.png)
+![04](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-04.png)
 
 ### NUMA-SMP架构
 
@@ -108,7 +108,7 @@ SMP 结构：一个物理CPU可以有多个物理Core，每个Core又可以有�
 
 下图(摘自[内核月谈](https://mp.weixin.qq.com/s/y1NSE5xdh8Nt5hlmK0E8Og))中，一个x86 CPU有4个物理Core，每个Core有两个HT(Hyper Thread)。
 
-![07](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-07.png)
+![07](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-07.png)
 
 #### NUMA 架构
 
@@ -120,7 +120,7 @@ SMP 结构：一个物理CPU可以有多个物理Core，每个Core又可以有�
 
 CPU 多层Cache的性能差异是很巨大的，比如：L1的访问时长1ns，L2的时长3ns…跨node的访问会有几十甚至上百倍的性能损耗。
 
-![smp-08](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/smp-08.png)
+![smp-08](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-08.png)
 
 #### NUMA 架构下的中断优化
 

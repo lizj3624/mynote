@@ -13,7 +13,7 @@
 * 平均负载：load
 
 ###  Linux常用监控CPU整体性能的工具
-![monitor](https://github.com/lizj3624/mynote/blob/master/Linux-Performance/pictures/linux-cpu-monitor.png)
+![monitor](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/linux-cpu-monitor.png)
 
 #### top
 
