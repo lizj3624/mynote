@@ -83,6 +83,8 @@
 
 * [grpc](https://github.com/lizj3624/mynote/tree/master/grpc)
 
+## 半导体
+
 ## 经济投资
 
 * [斯坦福极简经济学](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E3%80%8A%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9E%81%E7%AE%80%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93.md)
