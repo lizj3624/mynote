@@ -85,6 +85,12 @@
 
 ## 半导体
 
+
+
+## 英语学习
+
+* 学习英语的目的：读懂国外英文书籍，无障碍的英语沟通交流
+
 ## 经济投资
 
 * [斯坦福极简经济学](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E3%80%8A%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9E%81%E7%AE%80%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93.md)
@@ -112,6 +118,7 @@
 * [一文看懂，什么是OKR](https://m.zjbyte.com/sbfp/finance/article?groupId=6646618488267866628&itemId=6646618488267866628&timestamp=1588043478&article_category=stock&req_id=2020042811111801001404009410848F65&group_id=6646618488267866628)
 * [Google_OKR_Playbook中文](https://mp.weixin.qq.com/s/A1C5BE5rBCeTGlrJm95jVw)
 
+## 书籍
 
 ## Plan
 
