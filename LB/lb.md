@@ -8,3 +8,4 @@
 * [Maglev 负载均衡](https://zhuanlan.zhihu.com/p/101289054)
 * [腾讯云公网负载均衡技术实现详解](https://cloud.tencent.com/developer/article/1004723)
 
+* [Nginx-100讲](https://www.bilibili.com/video/BV1fg4y1z7BG/?p=3)
