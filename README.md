@@ -119,9 +119,17 @@
 * [一文看懂，什么是OKR](https://m.zjbyte.com/sbfp/finance/article?groupId=6646618488267866628&itemId=6646618488267866628&timestamp=1588043478&article_category=stock&req_id=2020042811111801001404009410848F65&group_id=6646618488267866628)
 * [Google_OKR_Playbook中文](https://mp.weixin.qq.com/s/A1C5BE5rBCeTGlrJm95jVw)
 
+
+
 ## 书籍
 
+
+
 ## 半导体、芯片、集成电路
+
+* [半导体-芯片-集成电路](https://github.com/lizj3624/mynote/tree/master/IC-Chip)
+
+
 
 ## Plan
 
