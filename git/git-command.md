@@ -88,3 +88,85 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
     2. 在回滚这一操作上看，效果差不多。但是在日后继续`merge`以前的老版本时有区别。因为git revert是用一次逆向的`commit`“中和”之前的提交，因此日后合并老的`branch`时，导致这部分改变不会再次出现，但是`git reset`是之间把某些`commit`在某个`branch上`删除，因而和老的`branch`再次`merge`时，这些被回滚的`commit`应该还会被引入。 
     3. `git reset` 是把HEAD向后移动了一下，而`git revert`是HEAD继续前进，只是新的`commit`的内容和要`revert`的内容正好相反，能够抵消要被`revert`的内容。
 
+### git获取某次commit的指定信息（作者，时间，message等）
+
+* 获取某个commit的作者
+
+    ```shell
+    $ git log --pretty=format:“%an” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+    “liurizhou”
+    ```
+
+* 获取某个commit的时间
+
+    ```shell
+    git log --pretty=format:“%cd” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+    “Wed Apr 3 10:12:33 2019 +0800”
+    ```
+
+* 获取某个commit的提交message
+
+    ```shell
+    $ git log --pretty=format:“%s” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+    “Change the length of the pre label string.”
+    ```
+
+* 其中--pretty=format:“%xx”可以指定需要的信息，其常用的选项有
+
+    ```shell
+    %H: commit hash
+    %h: 缩短的commit hash
+    %T: tree hash
+    %t: 缩短的 tree hash
+    %P: parent hashes
+    %p: 缩短的 parent hashes
+    %an: 作者名字
+    %aN: mailmap的作者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+    %ae: 作者邮箱
+    %aE: 作者邮箱 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+    %ad: 日期 (--date= 制定的格式)
+    %aD: 日期, RFC2822格式
+    %ar: 日期, 相对格式(1 day ago)
+    %at: 日期, UNIX timestamp
+    %ai: 日期, ISO 8601 格式
+    %cn: 提交者名字
+    %cN: 提交者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+    %ce: 提交者 email
+    %cE: 提交者 email (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+    %cd: 提交日期 (--date= 制定的格式)
+    %cD: 提交日期, RFC2822格式
+    %cr: 提交日期, 相对格式(1 day ago)
+    %ct: 提交日期, UNIX timestamp
+    %ci: 提交日期, ISO 8601 格式
+    %d: ref名称
+    %e: encoding
+    %s: commit信息标题
+    %f: sanitized subject line, suitable for a filename
+    %b: commit信息内容
+    %N: commit notes
+    %gD: reflog selector, e.g., refs/stash@{1}
+    %gd: shortened reflog selector, e.g., stash@{1}
+    %gs: reflog subject
+    %Cred: 切换到红色
+    %Cgreen: 切换到绿色
+    %Cblue: 切换到蓝色
+    %Creset: 重设颜色
+    %C(...): 制定颜色, as described in color.branch.* config option
+    %m: left, right or boundary mark
+    %n: 换行
+    %%: a raw %
+    %x00: print a byte from a hex code
+    %w([[,[,]]]): switch line wrapping, like the -w option of git-shortlog(1).
+    ```
+
+    
+
+* 获取commit id
+
+    ```shell
+    # 获取完整commit id
+    git rev-parse HEAD
+    
+    # 获取short commit id
+    git rev-parse --short HEAD
+    ```
