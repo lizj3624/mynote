@@ -32,28 +32,47 @@
 
 [Go 语言优秀资源整理，为项目落地加速](https://shockerli.net/post/go-awesome/)
 
+
+
 ## Python
+
 * [Python](https://github.com/lizj3624/mynote/tree/master/Python)
 
+
+
 ## Linux
+
 * Linux kernel的内部实现
 * [Linux Performance](https://github.com/lizj3624/mynote/tree/master/Linux)
 * [Linux monit command](https://github.com/lizj3624/mynote/tree/master/Linux/Linux-monit-command.md)
 
+
+
 ## GDB
+
 * [gdb-command](https://github.com/lizj3624/mynote/blob/master/gdb/gdb-command.md)
 * [gdb-doc](https://github.com/lizj3624/mynote/blob/master/gdb/gdb.md)
 
+
+
 ## Arch
+
 * [arch](https://github.com/lizj3624/mynote/tree/master/arch)
 
 
+
 ## Vim
+
 * [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/vim/vim.md)
 * vim的不错的插件
 
+
+
 ## Git
+
 * [git一些命令](https://github.com/lizj3624/mynote/blob/master/git/git-command.md)
+
+
 
 ## TCP/HTTP/HTTPS
 
@@ -66,13 +85,20 @@
 * [HTTP3(QUIC)](https://github.com/lizj3624/mynote/blob/master/http/http3.md)
 * WebSocket
 
+
+
 ## Shell
+
 * [shell](https://github.com/lizj3624/mynote/tree/master/shell)
+
+
 
 ## Networking
 
 * [idc](https://github.com/lizj3624/mynote/blob/master/networking/idc-networking.md)
 * [sdn](https://github.com/lizj3624/mynote/tree/master/networking)
+
+
 
 ## 架构
 
@@ -80,9 +106,13 @@
 * [k8s](https://github.com/lizj3624/mynote/tree/master/k8s)
 * [阿里云](https://github.com/lizj3624/mynote/blob/master/aliyun/aliyun.md)
 
+
+
 ## grpc
 
 * [grpc](https://github.com/lizj3624/mynote/tree/master/grpc)
+
+
 
 ## 半导体
 
@@ -91,6 +121,8 @@
 ## 英语学习
 
 * 学习英语的目的：读懂国外英文书籍，无障碍的英语沟通交流
+
+
 
 ## 经济投资
 
@@ -101,6 +133,8 @@
 * [黄峥：我的人生经历和创业理念](https://news.futunn.com/market/124520?auth_token=023234&clientver=10.10.1182&user_id_type=1&user_id=7315460&channel=4&clientlang=0&clienttype=13&is_visitor=0&skintype=3)
 * [黄奇帆教授万字授课：中国经济受到的冲击和应对政策（独家）](https://mp.weixin.qq.com/s/2FecMSdK7HjNla-BhNFOTg)
 * [达利欧断言：我们会看到全球化将转向“自给自足”](https://mp.weixin.qq.com/s/9FUlC4glfIkRrsbnIC5Bng)
+
+
 
 ## 人文社科
 
@@ -115,7 +149,10 @@
 * [曾国藩](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%9B%BE%E5%9B%BD%E8%97%A9.md)
 * [文天祥](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E6%96%87%E5%A4%A9%E7%A5%A5.md)
 
+
+
 ## 管理
+
 * [一文看懂，什么是OKR](https://m.zjbyte.com/sbfp/finance/article?groupId=6646618488267866628&itemId=6646618488267866628&timestamp=1588043478&article_category=stock&req_id=2020042811111801001404009410848F65&group_id=6646618488267866628)
 * [Google_OKR_Playbook中文](https://mp.weixin.qq.com/s/A1C5BE5rBCeTGlrJm95jVw)
 
@@ -128,6 +165,18 @@
 ## 半导体、芯片、集成电路
 
 * [半导体-芯片-集成电路](https://github.com/lizj3624/mynote/tree/master/IC-Chip)
+
+
+
+## 技术文档翻译
+
+* [arthurchiao.art](http://arthurchiao.art/)
+
+
+
+## 硬核技术干货
+
+* [10大高性能开发宝石，我要消灭一半程序员！](https://mp.weixin.qq.com/s?__biz=MzIyNjMxOTY0NA==&mid=2247486319&idx=1&sn=3d49360a9451916b277b2cba6fca7873&chksm=e873071cdf048e0a4f64c7445a9815e61d3b820098da6fda9e2a70d5038ed92a0e13cbfca04d&scene=158#rd)
 
 
 
