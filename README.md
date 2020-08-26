@@ -106,7 +106,7 @@
 * [k8s](https://github.com/lizj3624/mynote/tree/master/k8s)
 * [阿里云](https://github.com/lizj3624/mynote/blob/master/aliyun/aliyun.md)
 
-
+* [k8s生态周报](https://moelove.info/)
 
 ## grpc
 
