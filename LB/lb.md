@@ -7,5 +7,8 @@
 * [从Google Maglev说起，如何造一个牛逼的负载均衡？](https://zhuanlan.zhihu.com/p/22360384)
 * [Maglev 负载均衡](https://zhuanlan.zhihu.com/p/101289054)
 * [腾讯云公网负载均衡技术实现详解](https://cloud.tencent.com/developer/article/1004723)
-
 * [Nginx-100讲](https://www.bilibili.com/video/BV1fg4y1z7BG/?p=3)
+* [滴滴七层接入平台实践和探索](https://mp.weixin.qq.com/s/_hszrkyjbyQx3lTXsN6qAg)
+
+* [NGINX支持QUIC/HTTP3的实现路径和实践思考-InfoQ 公开课](https://www.bilibili.com/video/BV1hk4y1m7KE/?spm_id_from=333.788.videocard.18)
+
