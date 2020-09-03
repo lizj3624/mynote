@@ -7,8 +7,19 @@
 * [从Google Maglev说起，如何造一个牛逼的负载均衡？](https://zhuanlan.zhihu.com/p/22360384)
 * [Maglev 负载均衡](https://zhuanlan.zhihu.com/p/101289054)
 * [腾讯云公网负载均衡技术实现详解](https://cloud.tencent.com/developer/article/1004723)
-* [Nginx-100讲](https://www.bilibili.com/video/BV1fg4y1z7BG/?p=3)
 * [滴滴七层接入平台实践和探索](https://mp.weixin.qq.com/s/_hszrkyjbyQx3lTXsN6qAg)
+* [腾讯云公网负载均衡技术实现详解](https://cloud.tencent.com/developer/article/1004723)
+* [LVS 生产环境架构详解](https://cloud.tencent.com/developer/article/1005117)
+* [负载均衡原理与技术实现](https://cloud.tencent.com/developer/article/1444819)
+* [LVS负载均衡的转发机制](https://cloud.tencent.com/developer/article/1082513)
+* [揭秘UCloud的物理云网关](https://linux.cn/article-11911-1.html)
+* [优化Tengine HTTPS握手时间](https://yq.aliyun.com/articles/713567?utm_content=g_1000071501)
+* [Tengine如何查找server块](https://yq.aliyun.com/articles/715583?spm=a2c4e.11153940.0.0.653625dcoaue9n)
+* [负载均衡SLB高可用的四个层次](https://yq.aliyun.com/articles/191149?spm=a2c4e.11153940.0.0.653625dcFhjMEQ)
+* [SLB高性能与高可用技术实践全解析](https://yq.aliyun.com/articles/71183?spm=a2c4e.11153940.0.0.41781a3c8GhJ5A)
+* [负载均衡进阶：SLB常见问题解决方法](https://yq.aliyun.com/articles/222524?spm=a2c4e.11153940.0.0.41781a3c8GhJ5A)
+* [如何打造应对超大流量的高性能负载均衡？](https://yq.aliyun.com/articles/673406?spm=a2c4e.11153940.0.0.653625dcFhjMEQ)
+* [高性能负载均衡设计与实现](https://yq.aliyun.com/articles/218895?spm=a2c4e.11153940.0.0.653625dcFhjMEQ)
 
-* [NGINX支持QUIC/HTTP3的实现路径和实践思考-InfoQ 公开课](https://www.bilibili.com/video/BV1hk4y1m7KE/?spm_id_from=333.788.videocard.18)
+
 
