@@ -80,3 +80,4 @@
 ## Plan
 
 * [个人的2020年计划](https://github.com/lizj3624/mynote/blob/master/plans/2020-plan.md)
+* 青少年在线编程社区项目
