@@ -6,7 +6,7 @@
 
 ### Go
 
-* Golang
+* [Golang](https://github.com/lizj3624/mynote/tree/master/golang)
 
 ### Python
 
@@ -14,7 +14,7 @@
 
 ### Linux
 
-* Linux
+* [Linux](https://github.com/lizj3624/mynote/tree/master/Linux)
 
 ### GDB
 
@@ -36,7 +36,7 @@
 
 
 ### Networking Protocol
-
+* [网络通信涉及的协议:tcp/udp/tls/http/websocket](https://github.com/lizj3624/mynote/tree/master/protocol)
 
 ### Shell
 
@@ -48,13 +48,13 @@
 
 ### cloud native
 
-* [grpc](https://github.com/lizj3624/mynote/tree/master/grpc)
+* [云原生](https://github.com/lizj3624/mynote/tree/master/Cloud-Native)
 
 ### 技术文档翻译
 
 * [arthurchiao.art](http://arthurchiao.art/)
 
-### 硬核技术干货
+### 软件工程师必备技能
 
 * [10大高性能开发宝石，我要消灭一半程序员！](https://mp.weixin.qq.com/s?__biz=MzIyNjMxOTY0NA==&mid=2247486319&idx=1&sn=3d49360a9451916b277b2cba6fca7873&chksm=e873071cdf048e0a4f64c7445a9815e61d3b820098da6fda9e2a70d5038ed92a0e13cbfca04d&scene=158#rd)
 
@@ -65,12 +65,16 @@
 
 ## 经济投资
 
+* [经济投资](https://github.com/lizj3624/mynote/tree/master/reading-notes)
 
 ## 人文社科
+
+* [人文社科](https://github.com/lizj3624/mynote/tree/master/reading-notes)
 
 
 ## 书籍
 
+* [书籍](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92.md)
 
 ## 半导体、芯片、集成电路
 
