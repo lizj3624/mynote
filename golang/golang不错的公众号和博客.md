@@ -21,3 +21,5 @@
 * [Go语言42章经](https://github.com/ffhelicopter/Go42/blob/master/SUMMARY.md)
 
 * [Go语言优秀资源整理，为项目落地加速](https://shockerli.net/post/go-awesome/)
+
+* [Golang源码解读](https://github.com/cch123/golang-notes)
