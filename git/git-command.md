@@ -103,6 +103,10 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
     git log --pretty=format:“%cd” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
     “Wed Apr 3 10:12:33 2019 +0800”
     ```
+* 显示最新的3条记录
+    ```shell
+    git log -3 --pretty=oneline
+    ```
 
 * 获取某个commit的提交message
 
@@ -158,15 +162,12 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
     %x00: print a byte from a hex code
     %w([[,[,]]]): switch line wrapping, like the -w option of git-shortlog(1).
     ```
-
-    
-
 * 获取commit id
 
     ```shell
     # 获取完整commit id
     git rev-parse HEAD
-    
+
     # 获取short commit id
     git rev-parse --short HEAD
     ```
