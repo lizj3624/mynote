@@ -20,15 +20,13 @@
 
 * [gdb](https://github.com/lizj3624/mynote/blob/master/gdb)
 
+### Shell
 
-### Arch
-
-* [arch](https://github.com/lizj3624/mynote/tree/master/arch)
+* [shell](https://github.com/lizj3624/mynote/tree/master/shell)
 
 ### Vim
 
 * [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/vim)
-
 
 ### Git
 
@@ -38,13 +36,9 @@
 ### Networking Protocol
 * [网络通信涉及的协议:tcp/udp/tls/http/websocket](https://github.com/lizj3624/mynote/tree/master/protocol)
 
-### Shell
+### Arch
 
-* [shell](https://github.com/lizj3624/mynote/tree/master/shell)
-
-### Networking
-
-* [Networking](https://github.com/lizj3624/mynote/tree/master/networking)
+* [arch](https://github.com/lizj3624/mynote/tree/master/arch)
 
 ### cloud native
 
