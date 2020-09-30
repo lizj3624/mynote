@@ -1,3 +1,46 @@
+# 分析文章
 * [半导体封测行业102页深度研究及龙头分析](https://mp.weixin.qq.com/s/8R_ShDgPbHj4ykcM91voMw)
 
 * [必收藏！一张图看懂新材料产业规划](https://mp.weixin.qq.com/s/XX5K3agt99iV1hVQB3b1kA)
+
+# 优秀半导体公司
+
+* [唐晶量子](https://waferchina.com/)
+
+    西安唐晶量子科技有限公司成立于2017年底，2018年初入驻陕西光电子集成电路技术研究院孵化基地，依托园区提供的超净车间和厂务配套服务。拥有国际一流MOCVD外延工艺经验技术团队，主要从事GaAs基VCSEL及808/980大功率半导体激光器外延片的研发、生产及销售。致力于半导体激光器外延片的产业化。
+
+    作为一家专业的化合物半导体外延片代工厂，唐晶量子未来要走的路还很长。“唐晶量子未来希望把VCSEL和HBT等高端GaAs外延片产品做到国内领先。而我的梦想是用7-8年时间，把公司做上市，让公司全体员工从技术团队到产线工人，都享受到与公司共同成长的红利。”龚平说道。
+
+    媒体相关报道：[唐晶量子落地西安，有望做成国内一流 VCSEL 外延片供应商？](http://news.moore.ren/industry/135275.htm)
+
+    **[VCSEL]([https://zh.wikipedia.org/wiki/%E5%9E%82%E7%9B%B4%E8%85%94%E9%9D%A2%E5%B0%84%E5%9E%8B%E9%9B%B7%E5%B0%84%E5%99%A8](https://zh.wikipedia.org/wiki/垂直腔面射型雷射器))**：**垂直腔面发射激光器**（**Vertical-Cavity Surface-Emitting Laser**，简称**VCSEL**，又译**垂直共振腔面射型激光**）是一种半导体，其[激光](https://zh.wikipedia.org/wiki/雷射)垂直于顶面射出，与一般用切开的独立[芯片](https://zh.wikipedia.org/wiki/晶片)制程，激光由边缘射出的边射型激光有所不同。
+
+    **[MOCVD]([https://zh.wikipedia.org/wiki/%E6%9C%89%E6%9C%BA%E9%87%91%E5%B1%9E%E5%8C%96%E5%AD%A6%E6%B0%94%E7%9B%B8%E6%B2%89%E7%A7%AF%E6%B3%95](https://zh.wikipedia.org/wiki/有机金属化学气相沉积法))**：**有机金属化学气相沉积法**(MOCVD, Metal-organic Chemical Vapor Deposition)，是在基板上成长[半导体](https://zh.wikipedia.org/wiki/半導體)薄膜的一种方法。
+
+
+
+* [IQE](https://www.iqep.com/)
+
+* [艾迈斯半导体-ams](https://ams.com/zh/about-ams)
+
+# 优秀的频道以及公众号
+
+    1. 半导体行业观察-公众号
+
+    2. 摩尔芯球-公众号
+
+    3. 云蛋-公众号
+
+    4. 今日半导体-公众号
+
+    5. 电子工程世界--公众号
+
+    6. OpenFPGA--公众号
+
+    7. 半导体圈子
+
+    8. 今日半导体
+
+    9. 老石谈芯
+
+    10. 新材料在线
