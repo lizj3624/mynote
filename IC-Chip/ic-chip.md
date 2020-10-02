@@ -48,3 +48,7 @@
 # 优秀文章
 
 * [国内芯片70个细分领域重要代表企业 VS 国外](https://mp.weixin.qq.com/s/Uy79p3WgXrxwaOyP5G7A3w)
+
+* [一文读懂全球半导体格局](https://mp.weixin.qq.com/s/U9wm4W5skeFdBiIMstxDQA)
+
+* [芯片的未来，靠这些技术了](https://mp.weixin.qq.com/s/fAc_pW6qN63eq3fLx9zsow)
