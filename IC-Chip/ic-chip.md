@@ -1,11 +1,6 @@
-# 分析文章
-* [半导体封测行业102页深度研究及龙头分析](https://mp.weixin.qq.com/s/8R_ShDgPbHj4ykcM91voMw)
-
-* [必收藏！一张图看懂新材料产业规划](https://mp.weixin.qq.com/s/XX5K3agt99iV1hVQB3b1kA)
-
 # 优秀半导体公司
 
-* [唐晶量子](https://waferchina.com/)
+1. [唐晶量子](https://waferchina.com/)
 
     西安唐晶量子科技有限公司成立于2017年底，2018年初入驻陕西光电子集成电路技术研究院孵化基地，依托园区提供的超净车间和厂务配套服务。拥有国际一流MOCVD外延工艺经验技术团队，主要从事GaAs基VCSEL及808/980大功率半导体激光器外延片的研发、生产及销售。致力于半导体激光器外延片的产业化。
 
@@ -19,9 +14,9 @@
 
 
 
-* [IQE](https://www.iqep.com/)
+2. [IQE](https://www.iqep.com/)
 
-* [艾迈斯半导体-ams](https://ams.com/zh/about-ams)
+3. [艾迈斯半导体-ams](https://ams.com/zh/about-ams)
 
 # 优秀的频道以及公众号
 
@@ -47,8 +42,20 @@
 
 # 优秀文章
 
-* [国内芯片70个细分领域重要代表企业 VS 国外](https://mp.weixin.qq.com/s/Uy79p3WgXrxwaOyP5G7A3w)
+1. [国内芯片70个细分领域重要代表企业 VS 国外](https://mp.weixin.qq.com/s/Uy79p3WgXrxwaOyP5G7A3w)
 
-* [一文读懂全球半导体格局](https://mp.weixin.qq.com/s/U9wm4W5skeFdBiIMstxDQA)
+2. [一文读懂全球半导体格局](https://mp.weixin.qq.com/s/U9wm4W5skeFdBiIMstxDQA)
 
-* [芯片的未来，靠这些技术了](https://mp.weixin.qq.com/s/fAc_pW6qN63eq3fLx9zsow)
+3. [芯片的未来，靠这些技术了](https://mp.weixin.qq.com/s/fAc_pW6qN63eq3fLx9zsow)
+
+4. [半导体封测行业102页深度研究及龙头分析](https://mp.weixin.qq.com/s/8R_ShDgPbHj4ykcM91voMw)
+
+5. [必收藏！一张图看懂新材料产业规划](https://mp.weixin.qq.com/s/XX5K3agt99iV1hVQB3b1kA)
+
+6. [Edagit](http://edagit.com/)
+
+7. [2018年购入的芯片设计相关书籍](https://zhuanlan.zhihu.com/p/53738113)
+
+8. [国产半导体实力大阅兵](https://mp.weixin.qq.com/s/eqKVvrizMbonahEBEdWt9A)
+
+9. [第三代半导体真的会火吗？](https://mp.weixin.qq.com/s/LpC2WTbnKnOEsICNmo1y9Q)
