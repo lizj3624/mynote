@@ -7,3 +7,5 @@
 * [“万能芯片”FPGA发展的三个纪元](https://www.sdnlab.com/23909.html)
 * [FPGA深度观察（一）FPGA到底是什么？](https://zhuanlan.zhihu.com/p/53332657)
 
+* [你不一定知道的eFPGA](https://mp.weixin.qq.com/s/NU1oira7b_1R9abywY4GPQ)
+
