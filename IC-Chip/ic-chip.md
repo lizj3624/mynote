@@ -23,47 +23,39 @@
 # 优秀的频道以及公众号
 
     1. 半导体行业观察-公众号
-
+    
     2. 摩尔芯球-公众号
-
+    
     3. 云蛋-公众号
-
+    
     4. 今日半导体-公众号
-
+    
     5. 电子工程世界--公众号
-
+    
     6. OpenFPGA--公众号
-
-    7. 半导体圈子
-
-    8. 今日半导体
-
-    9. 老石谈芯
-
-    10. 新材料在线
+    
+    7. 半导体圈子--公众号
+    
+    8. 今日半导体--公众号
+    
+    9. 老石谈芯--公众号
+    
+    10. 新材料在线--公众号
 
 # 优秀文章
 
 1. [国内芯片70个细分领域重要代表企业 VS 国外](https://mp.weixin.qq.com/s/Uy79p3WgXrxwaOyP5G7A3w)
-
 2. [一文读懂全球半导体格局](https://mp.weixin.qq.com/s/U9wm4W5skeFdBiIMstxDQA)
-
 3. [芯片的未来，靠这些技术了](https://mp.weixin.qq.com/s/fAc_pW6qN63eq3fLx9zsow)
-
 4. [半导体封测行业102页深度研究及龙头分析](https://mp.weixin.qq.com/s/8R_ShDgPbHj4ykcM91voMw)
-
 5. [必收藏！一张图看懂新材料产业规划](https://mp.weixin.qq.com/s/XX5K3agt99iV1hVQB3b1kA)
-
 6. [Edagit](http://edagit.com/)
-
 7. [2018年购入的芯片设计相关书籍](https://zhuanlan.zhihu.com/p/53738113)
-
 8. [国产半导体实力大阅兵](https://mp.weixin.qq.com/s/eqKVvrizMbonahEBEdWt9A)
-
 9. [第三代半导体真的会火吗？](https://mp.weixin.qq.com/s/LpC2WTbnKnOEsICNmo1y9Q)
-
 10. [晶圆级封装前景深度解读](https://mp.weixin.qq.com/s/Vx7wMhsWYv-ZubT2Dq-rKA)
-
 11. [PCB-印刷电路板](https://www.toutiao.com/i6609498454659957255/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1602564195&app=news_article&utm_source=weixin&utm_medium=toutiao_android&use_new_style=1&req_id=202010131243150100110482331D894F8A&group_id=6609498454659957255)
-
 12. [国信半导体-十问十答：什么是第三代半导体？](https://vip.jianshiapp.com/articles/3604138)
+13. [2020年全球新材料产业发展趋势报告](https://mp.weixin.qq.com/s/JKsF8BIWAZ3WDoWWq25L3g)
+14. [超全新能源产业链全景图（30+张）](https://mp.weixin.qq.com/s/Ztcd2hPMN7G_7A3daL9XHw)
+
