@@ -10,3 +10,4 @@
 
 ## 文章
 1. [linux报文高速捕获技术对比](https://mp.weixin.qq.com/s/K94nAUkwPxpKxSmtIWmlXQ)
+2. [宋宝华：深入理解cache对写好代码至关重要（上）](https://mp.weixin.qq.com/s/-5Na7cEc4F-MxYghI4wkfw)

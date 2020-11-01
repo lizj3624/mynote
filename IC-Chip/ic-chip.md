@@ -58,4 +58,5 @@
 12. [国信半导体-十问十答：什么是第三代半导体？](https://vip.jianshiapp.com/articles/3604138)
 13. [2020年全球新材料产业发展趋势报告](https://mp.weixin.qq.com/s/JKsF8BIWAZ3WDoWWq25L3g)
 14. [超全新能源产业链全景图（30+张）](https://mp.weixin.qq.com/s/Ztcd2hPMN7G_7A3daL9XHw)
-
+15. [中日韩电子产业搏命史](https://mp.weixin.qq.com/s/ehxOzysxwRMpJwVz9Dkkog)
+16. [一个芯片产品从构想到完成电路设计是怎样的过程？](https://www.zhihu.com/question/28322269/answer/1498321730?utm_source=wechat_session&utm_medium=social&utm_oi=1164288090926637056&utm_content=group3_Answer&utm_campaign=shareopn)
