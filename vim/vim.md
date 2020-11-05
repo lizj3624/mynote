@@ -2,6 +2,8 @@
 
 [简明Vim练级攻略](https://coolshell.cn/articles/5426.html)
 
+[vimjc专注于vim配置、插件](https://vimjc.com/)
+
 ![Vim键盘图](https://github.com/lizj3624/mynote/blob/master/vim/pictures/vim键盘图.png)
 
 #### Vim的分屏功能
