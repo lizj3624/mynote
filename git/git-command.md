@@ -1,3 +1,6 @@
+# git汇总
+    [Git 的奇技淫巧](https://mp.weixin.qq.com/s/K5Xcpf1RytqrjjxwWstvdg)
+
 # 常用的git命令
 
 ### git子模块

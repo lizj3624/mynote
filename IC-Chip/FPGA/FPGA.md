@@ -8,4 +8,5 @@
 * [FPGA深度观察（一）FPGA到底是什么？](https://zhuanlan.zhihu.com/p/53332657)
 
 * [你不一定知道的eFPGA](https://mp.weixin.qq.com/s/NU1oira7b_1R9abywY4GPQ)
+* [从设计流程解读：FPGA和ASIC有何不一样？](https://mp.weixin.qq.com/s/2me4k7TaWi7CPjBXrIUgjA)
 

@@ -23,23 +23,23 @@
 # 优秀的频道以及公众号
 
     1. 半导体行业观察-公众号
-    
+
     2. 摩尔芯球-公众号
-    
+
     3. 云蛋-公众号
-    
+
     4. 今日半导体-公众号
-    
+
     5. 电子工程世界--公众号
-    
+
     6. OpenFPGA--公众号
-    
+
     7. 半导体圈子--公众号
-    
+
     8. 今日半导体--公众号
-    
+
     9. 老石谈芯--公众号
-    
+
     10. 新材料在线--公众号
 
 # 优秀文章
@@ -60,3 +60,14 @@
 14. [超全新能源产业链全景图（30+张）](https://mp.weixin.qq.com/s/Ztcd2hPMN7G_7A3daL9XHw)
 15. [中日韩电子产业搏命史](https://mp.weixin.qq.com/s/ehxOzysxwRMpJwVz9Dkkog)
 16. [一个芯片产品从构想到完成电路设计是怎样的过程？](https://www.zhihu.com/question/28322269/answer/1498321730?utm_source=wechat_session&utm_medium=social&utm_oi=1164288090926637056&utm_content=group3_Answer&utm_campaign=shareopn)
+17. [碳化硅产业深度解析](https://mp.weixin.qq.com/s/Lc0mqhFvoDXDJMan7iZ6AQ)
+18. [EUV争夺战背后](https://mp.weixin.qq.com/s/ihdWU46NX6xAVJim09epzg)
+19. [半导体硅片行业深度报告：市场广袤无垠，国产替代方兴未艾](https://mp.weixin.qq.com/s/64AxMiFqPuoV3LKjgHL9dA)
+20. [半导体行业126页深度报告：功率半导体赛道分析](https://mp.weixin.qq.com/s/UzHl-cSvYDcHPw-jHOrnQw)
+21. [一张图了解芯片到底是如何设计的！](https://mp.weixin.qq.com/s/pj5MtbnuoTqnTxtRbrmgSA)
+22. [第三代半导体SIC行业投资机会分析：10年20倍成长](https://mp.weixin.qq.com/s/Tjqt0t1O84Rg3p-1D9wTgg)
+23. [最新国内芯片70个细分领域重要代表企业 VS 国外](https://mp.weixin.qq.com/s/GwnUpNfwKfmqJnLZUL-1qg)
+24. [芯片产业链上的“命门”，国内研发人员不足千人](https://mp.weixin.qq.com/s/smIWMSl355lDW96XsJaOGQ)
+25. [半导体设备产业链164页深度解析：详解半导体前道7大类设备](https://mp.weixin.qq.com/s/e6N4ayxEbbPW2F7H51yhAA)
+26. [半导体行业126页深度报告：功率半导体赛道分析](https://mp.weixin.qq.com/s/0aCOrx0l6UTjvkk-V93d6Q)
+
