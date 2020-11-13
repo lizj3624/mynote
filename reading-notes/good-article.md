@@ -23,6 +23,9 @@
 ### 邓普顿
 * [邓普顿：正确的买入时间是在悲观情绪最严重的时刻](https://www.toutiao.com/i6721990020682498564)
 
+### 黑石-苏世民
+* [黑石创始人自述：我阅人无数，这一种人最会赚钱](https://mp.weixin.qq.com/s/Y68RGbHx1m3MjBe_Or2Afg)
+
 ## 经历方面
 
 * [华为离职副总裁徐家骏：年薪千万的工作感悟](https://mp.weixin.qq.com/s?__biz=MjM5NTA3MTM4MA==&mid=2656264281&amp;idx=1&amp;sn=4b8e359b486c87e7853d5fa768ef6375&source=41#wechat_redirect)
