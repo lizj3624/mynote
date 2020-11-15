@@ -70,4 +70,4 @@
 24. [芯片产业链上的“命门”，国内研发人员不足千人](https://mp.weixin.qq.com/s/smIWMSl355lDW96XsJaOGQ)
 25. [半导体设备产业链164页深度解析：详解半导体前道7大类设备](https://mp.weixin.qq.com/s/e6N4ayxEbbPW2F7H51yhAA)
 26. [半导体行业126页深度报告：功率半导体赛道分析](https://mp.weixin.qq.com/s/0aCOrx0l6UTjvkk-V93d6Q)
-
+27. [登顶全球前十的国产芯片公司](https://mp.weixin.qq.com/s/hxeCPrZfN-lm4hpLV9niGg)
