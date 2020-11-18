@@ -11,3 +11,5 @@
 ## 文章
 1. [linux报文高速捕获技术对比](https://mp.weixin.qq.com/s/K94nAUkwPxpKxSmtIWmlXQ)
 2. [宋宝华：深入理解cache对写好代码至关重要（上）](https://mp.weixin.qq.com/s/-5Na7cEc4F-MxYghI4wkfw)
+3. [Linux内核中reuseport的演进](https://segmentfault.com/a/1190000020524323)
+4. [Linux内核分析](http://www.wowotech.net/sort/linux_kenrel)
