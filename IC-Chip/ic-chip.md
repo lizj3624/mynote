@@ -23,23 +23,23 @@
 # 优秀的频道以及公众号
 
     1. 半导体行业观察-公众号
-
+    
     2. 摩尔芯球-公众号
-
+    
     3. 云蛋-公众号
-
+    
     4. 今日半导体-公众号
-
+    
     5. 电子工程世界--公众号
-
+    
     6. OpenFPGA--公众号
-
+    
     7. 半导体圈子--公众号
-
+    
     8. 今日半导体--公众号
-
+    
     9. 老石谈芯--公众号
-
+    
     10. 新材料在线--公众号
 
 # 优秀文章
@@ -77,3 +77,6 @@
 31. [靶材：国产替代大势，十倍空间可期](https://mp.weixin.qq.com/s/GOoTm-JHoBjSWznQ__uEOQ)
 32. [封测十强排名：中美现两大看点](https://mp.weixin.qq.com/s/lUjrJhfnpWilcFFlaS3Lsw)
 33. [第三代半导体器件的测试挑战](https://mp.weixin.qq.com/s/pV5L0fBLFLd25OOGO_84rg)
+34. [光刻机40年资本局：尼康起高楼，ASML宴宾客，美国楼塌了](https://mp.weixin.qq.com/s/nMssxE0pKgxIM4WEMrRJVg)
+35. [中国光芯片产业格局及国产替代分析](https://mp.weixin.qq.com/s/ayDVVf80hRE6FPMwtIcbmw)
+

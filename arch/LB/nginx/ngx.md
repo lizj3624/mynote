@@ -7,4 +7,5 @@
 7. [Nginx配置文件解析一](https://segmentfault.com/a/1190000016913713)
 8. [Nginx配置文件解析二](https://segmentfault.com/a/1190000016922188)
 9. [详解proxy_pass、upstream与resolver](https://www.jianshu.com/p/5caa48664da5)
+10. [Nginx源码入门指南](https://mp.weixin.qq.com/s/ec_OaZ6QFOCfotvo8eUniQ)
 

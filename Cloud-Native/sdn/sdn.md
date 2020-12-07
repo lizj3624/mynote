@@ -6,4 +6,7 @@
 
 4. [为什么集群需要 Overlay 网络](https://draveness.me/whys-the-design-overlay-network/)
 
+5. [[译] 基于 BPF/XDP 实现 K8s Service 负载均衡 (LPC, 2020)](http://arthurchiao.art/blog/cilium-k8s-service-lb-zh/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+
+6. [干货 | 携程 Cilium+BGP 云原生网络实践](https://mp.weixin.qq.com/s/vX30d4sAX2oETnNh3uZlEA)
 

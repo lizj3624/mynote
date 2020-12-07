@@ -13,3 +13,5 @@
 2. [宋宝华：深入理解cache对写好代码至关重要（上）](https://mp.weixin.qq.com/s/-5Na7cEc4F-MxYghI4wkfw)
 3. [Linux内核中reuseport的演进](https://segmentfault.com/a/1190000020524323)
 4. [Linux内核分析](http://www.wowotech.net/sort/linux_kenrel)
+5. [Linux内核网络udp数据包发送(一)](https://mp.weixin.qq.com/s/fi_p_ZJiGZzTAUrm9-kmCA)
+5. [Linux内核网络udp数据包发送(二)](https://mp.weixin.qq.com/s/uSJJASQOJwWPAkrGSS5W5g)
