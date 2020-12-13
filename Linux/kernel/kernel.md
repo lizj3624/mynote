@@ -14,4 +14,7 @@
 3. [Linux内核中reuseport的演进](https://segmentfault.com/a/1190000020524323)
 4. [Linux内核分析](http://www.wowotech.net/sort/linux_kenrel)
 5. [Linux内核网络udp数据包发送(一)](https://mp.weixin.qq.com/s/fi_p_ZJiGZzTAUrm9-kmCA)
-5. [Linux内核网络udp数据包发送(二)](https://mp.weixin.qq.com/s/uSJJASQOJwWPAkrGSS5W5g)
+6. [Linux内核网络udp数据包发送(二)](https://mp.weixin.qq.com/s/uSJJASQOJwWPAkrGSS5W5g)
+7. [Linux内核网络UDP数据包发送（三）——IP协议层分析](https://mp.weixin.qq.com/s/L_0vS1Z3gybl8nkd_lrtdA)
+8. [Linux内核网络UDP数据包发送（四）——Linux netdevice 子系统](https://mp.weixin.qq.com/s/7Z-g6f5sr9NxCi0JZLsDkA)
+9. [Linux内核网络UDP数据包发送（五）——排队规则](https://mp.weixin.qq.com/s/gOZax_-Iao5oiQrG8HfefQ)
