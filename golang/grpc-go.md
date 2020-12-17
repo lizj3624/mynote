@@ -20,4 +20,4 @@
 * [nginx grpc streaming负载均衡的排坑和思考]([http://xiaorui.cc/2019/07/27/nginx-grpc-streaming%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E6%8E%92%E5%9D%91%E5%92%8C%E6%80%9D%E8%80%83/](http://xiaorui.cc/2019/07/27/nginx-grpc-streaming负载均衡的排坑和思考/))
 * [Grpc-lb](https://github.com/grpc/grpc/blob/master/doc/load-balancing.md)
 * [gRPC服务发现&负载均衡](https://yq.aliyun.com/articles/604412)
-
+* [万字长文 | 从实践到原理，带你参透 gRPC](https://mp.weixin.qq.com/s/o-K7G9ywCdmW7et6Q4WMeA)
