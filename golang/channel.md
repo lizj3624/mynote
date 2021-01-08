@@ -177,3 +177,4 @@ if stop2 {
 * [Go中的Channel](https://www.jianshu.com/p/15c94893124c)
 * [Go中的Channel——range和select](https://www.jianshu.com/p/fe5dd2efed5d)
 * [一文读懂channel设计](https://mp.weixin.qq.com/s/hVPIi4VVyRrO8T5Zd3E11A)
+* [2020年度技术文章盘点之Channel篇](https://mp.weixin.qq.com/s/4HErPUVV9BAQahqQhoIefw)

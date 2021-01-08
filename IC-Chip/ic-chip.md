@@ -79,4 +79,4 @@
 33. [第三代半导体器件的测试挑战](https://mp.weixin.qq.com/s/pV5L0fBLFLd25OOGO_84rg)
 34. [光刻机40年资本局：尼康起高楼，ASML宴宾客，美国楼塌了](https://mp.weixin.qq.com/s/nMssxE0pKgxIM4WEMrRJVg)
 35. [中国光芯片产业格局及国产替代分析](https://mp.weixin.qq.com/s/ayDVVf80hRE6FPMwtIcbmw)
-
+36. [30家氮化镓企业盘点](https://mp.weixin.qq.com/s/2dYasFYCRVoRsOzl0IE0DA)

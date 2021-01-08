@@ -10,3 +10,4 @@
 
 6. [干货 | 携程 Cilium+BGP 云原生网络实践](https://mp.weixin.qq.com/s/vX30d4sAX2oETnNh3uZlEA)
 
+7. [UCloud 虚拟网络VPC技术演进之路](https://mp.weixin.qq.com/s/lg1TGt7M3QZe8K6QFoZBVQ)
