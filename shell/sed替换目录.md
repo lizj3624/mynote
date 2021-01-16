@@ -4,16 +4,19 @@ sed "s:${SRC_PATH}:${DST_PATH}:g" $filename
 ```
 一般情况下，`sed 's/pattern/pattern/flag'`是用`/`来进行分隔的。但这里的源字符串和替换字符串中，都带有字符`/`，如果再用`/`进行分隔，就会产生冲突。所以改用了`：`进行分隔。
 
-### 2、sed几种替换
+### 2、sed几种替换用法
 ```shell
 a="one"
 b="two"
 # 第一种：
 eval sed -i ’s/$a/$b/’ filename
-# 第二种（推荐）：
+
+# 第二种（推荐）:支持shell变量
 sed -i "s/$a/$b/" filename
+
 # 第三种：
 sed -i ’s/’$a’/’$b’/’ filename 
+
 # 第四种：
 sed -i s/$a/$b/ filename
 ```
