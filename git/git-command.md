@@ -174,3 +174,7 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
     # 获取short commit id
     git rev-parse --short HEAD
     ```
+* git status乱码
+   ```shell
+   git config --global core.quotepath false
+   ```
