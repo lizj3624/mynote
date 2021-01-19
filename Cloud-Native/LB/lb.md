@@ -46,3 +46,4 @@
 
 24. [Nginx vs Envoy vs Mosn 平滑升级原理解析](https://ms2008.github.io/2019/12/28/hot-upgrade/)
 
+25. [UDPA最新进展深度介绍](https://skyao.io/post/202002-udpa-follow-up/)
