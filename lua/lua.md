@@ -96,32 +96,13 @@ end
 
     参数列表中的三个点`...`表示该函数的参数是可变长的。
 
-4. 在lua中函数是一种"第一类值", 它们具有特定的词法域，函数跟其他传统的类型的值具有相同的权利:
+4. 函数 table.unpack
 
-* 函数可以存储在变量中或者table中
-* 函数可以作为实参传递给其他函数
-* 函数可以作为其他函数的返回值
-* 具有特定的词法域，一个函数中可以嵌套在另一个函数中，内部函数可以访问外部函数的变量
-```lua
-a = {p = print}
-a.p("Hello World")       --Hello World
-print = math.sin         --'print'现在引用math.sin的正玄函数
-a.p(print(1))            --math.sin
-sin = a.p                --sin = print
-sin(10, 20)
-
--- 将匿名函数赋值给局部变量
-local access_ok = function (f, mode)
-end
-```
-
-5. 函数 table.unpack
-
-    ```lua
-    print(table.unpack{10,20,30})       -- 10 20 30
+5. ```lua
+print(table.unpack{10,20,30})       -- 10 20 30
     a,b = table.unpack{10,2日，30}      -- a=10, b=20, 30被丢弃
     ```
-
+    
     顾名思义，函数`table.unpack`与函数`table.pack`的功能相反，`pack`把参数列表转换成`Lua`语言中一个真实的列表(一个表)， 而`unpack`则把`Lua`语言中的真实的列表(一个表) 转换成一组返回值，进而可以作为另一个函数的参数被使用。
 
 6. 正确的尾调用
@@ -236,14 +217,15 @@ print(x1, x2)                --’x1’和’x2’仍在范围内
 
 2. 控制结构
 
-    Lua将所有不是`false`和`nil`的值当作真，特别注意是：Lua语言会将`0`或者空字符也当作真
+   Lua将所有不是`false`和`nil`的值当作真，特别注意是：Lua语言会将`0`或者空字符也当作真
 
-    a、if-then-else
+   a、if-then-else
 
    ```lua
-if a < 0 then
+   if a < 0 then
     a = 0
-end
+   end
+   ```
 
 if a < b then
     return a
@@ -311,3 +293,82 @@ end
 ```
 
 e、break，return，goto，Lua里没有continue
+
+## 闭包
+
+"第一类值"意味Lua语言中的函数与其他常见类型的值具有相同权限；函数可以保持变量中，表中，当作函数参数，其他函数的返回值。
+
+"词法定界"意味着Lua语言中的函数可以访问包含自身的外部函数中的变量。
+
+### 函数是第一类值
+
+在lua中函数是一种"第一类值", 它们具有特定的词法域，函数跟其他传统的类型的值具有相同的权利:
+
+* 函数可以存储在变量中或者table中
+* 函数可以作为实参传递给其他函数
+* 函数可以作为其他函数的返回值
+* 具有特定的词法域，一个函数中可以嵌套在另一个函数中，内部函数可以访问外部函数的变量
+
+```lua
+a = {p = print}
+a.p("Hello World")       --Hello World
+print = math.sin         --'print'现在引用math.sin的正玄函数
+a.p(print(1))            --math.sin
+sin = a.p                --sin = print
+sin(10, 20)
+
+-- 将匿名函数赋值给局部变量
+local access_ok = function (f, mode)
+end
+
+-- 函数语法糖
+foo = function (x) return 2*x end
+```
+
+Lua语言中所有的函数都是匿名函数
+
+像函数sort这样以另一个函数为参数的函数，我们称之为高阶函数。
+
+```lua
+table.sort(network, function(a,b) return (a.name > b,.name) end)
+```
+
+### 非全局函数
+
+1. 局部函数，当把函数存储在局部变量中时，这个函数就称为了局部函数，一个被限定在指定作用域中使用的函数。
+
+```lua
+-- lua定义局部函数
+local function f (params)
+    body
+end
+
+-- 局部函数递归时，要提前声明局部变量
+
+local foo; foo = function (params) body end
+```
+
+### 词法定界
+
+当编写一个被其他函数B包含的函数A时，被包含的函数A可以访问包含其的函数B的所有局部变量，这种特性称为词法定界。
+
+```lua
+names = {"Peter", "Paul", "Mary"}
+grages = {Mary = 10, Paul = 7, Peter = 8}
+
+function sortbygrage(name, grades)
+    table.sort(names, function(n1, n2) return grades[n1] > grades[n2] end)
+end
+```
+
+`sort`中的匿名函数可以访问`grades`，而`grades`是包含匿名函数外的函数`sortbygrade`的形参
+
+## 位与字节
+
+1. 按位与 `&`
+2. 按位或 `|`
+3. 按位异或 `~`
+4. 逻辑右移 `>>`
+5. 逻辑左移 `<<`
+6. 按位取反 `~`
+
