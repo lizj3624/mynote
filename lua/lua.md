@@ -372,3 +372,8 @@ end
 5. 逻辑左移 `<<`
 6. 按位取反 `~`
 
+
+## 引用
+* Lua程序设计-4版本
+
+* ![OpenResty最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/lua/main.html)
