@@ -219,3 +219,165 @@ let lastName = `Jingleheimerschmidt`
     let o = new Object();
 ```
 
+### 操作符
+
+```javascript
+// 一元运算
+let age = 29
+++age
+--age
+
+age++
+age--
+//注意区别
+
+num = -num  //如果是整数，求负数
+
+// 位运算
+let num2 = ~num2;   //补数
+
+let rusult = 25 & 3;  //与运算
+let result = 25 | 3;  //或运算
+let result = 25 ^ 3;  //异或运算
+let result = result << 5;  //左移位
+let result = result >> 5;   //有符号右移
+let result = result >>> 5;  //无符号右移
+
+//boolen
+!false; //逻辑非
+let result = true && true;  //逻辑与，短路操作
+let result = true || true;  //逻辑或，短路操作
+
+let result = 34 * 35;
+let result = 34 / 11;
+
+let result = 26 % 5; 
+
+let result = 3 ** 2;  //指数
+
+let result = 3 + 2;
+
+let resutl = 4 - 2;
+
+//关系操作符
+> < <= >= 
+== !=
+
+//条件操作符
+let max = (num1 > num2) ? num1 : num2;
+
+// 赋值操作符
+let num= 2;
+
+num += 10;
+
+//逗号
+let num1 = 1, num2 = 2, num3 = 3;
+```
+
+
+
+### 语句
+
+```javascript
+// if条件
+let j = 2;
+if ( i > 5)
+   j = 5;
+else
+   j = 3;
+
+if (i > 5)
+  ...
+else if (i > 6)
+  ...
+else
+  ...
+  
+// do-while语句
+let i = 0;
+do {
+    i += 2;
+} while (i > 10);
+
+//while
+let i = 0;
+while (i < 10) {
+    i += 2;
+}
+
+//for
+let count = 10;
+for (let i = 0; i < count; i++) {
+    console.log(i);
+}
+
+// for-in
+for (const propName in window) {
+    document.write(propName);
+}
+
+for (const el of [2, 4, 6, 8]) {
+    document.write(el);
+}
+
+//break, contiunue
+
+//with
+with (location) {
+    let qs = search.substring(1);
+}
+
+//switch
+switch (i) {
+    case 25:
+        ...
+        break;
+    case 35:
+        ...
+        break;
+    default:
+        ...;
+}
+```
+
+### 函数
+
+```javascript
+function sayHi(name, message) {
+    console.log("Hello " + name + ", " + message);
+}
+```
+
+## 变量，作用域与内存
+
+`Undefined，Null，Boolean，Number，String，Symbol`这六种原始值，按值传递。
+
+引用值是保存在内存中的对象，按引用传递。
+
+引用值可以动态添加、删除、修改其属性和方法
+
+```javascript
+let person = new Object();
+person.name = "Nicholas";
+console.log(person.name);
+```
+
+原始值不可以
+
+```javascript
+let name = "Nicholas"
+name.age = 27;   //undefined
+```
+
+但是可以通过`new`创建原始值的对象
+
+```javascript
+let name2 = new String("Matt")
+name2.age = 32
+console.log(name2.age)   //32
+```
+
+函数参数按值传递
+
+`typeof`确定类型
