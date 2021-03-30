@@ -381,3 +381,86 @@ console.log(name2.age)   //32
 函数参数按值传递
 
 `typeof`确定类型
+
+### 执行上下文与作用
+
+1. 作用域链增强
+2. 变量声明
+
+### 垃圾回收
+
+1. 标记清理
+2. 引用计数
+3. 性能
+4. 内存管理
+
+## 集合引用类型
+
+### Object
+
+```javascript
+let person = new Object();
+person.name = "Nicholas";
+person.age = 29;
+
+//对象字面量，属性的名字可以使字符串或者数值，不会调用构造函数
+let persion = {
+    name: "Nicholas",
+    age: 29
+};
+
+//尽量用对象字面量表示法
+```
+
+### Array
+
+```javascript
+let colors = new Array();
+
+let colors = new Array("red", "blue", "green");
+
+let colors = new Array(3);
+
+let names = new Array("Greg");
+
+//字面量，不用调用Array的构造函数
+let colors = ["red", "blue", "green"];
+
+let names = [ ];
+
+let values = [1, 2,];
+
+//数组空位
+const options = [,,,,,];
+
+//数组索引，index从0开始
+let colors = ["red", "blue", "green"];
+
+alert(colors[0]);
+alert(colors.length);
+
+//判断是否数组
+if (value instanceof Array) {
+}
+
+//迭代器
+const a = {"foo", "bar", "baz", "qux"};
+
+//keys, values, entries返回迭代器
+const aKeys = Array.from(a.keys()); 
+const aValues = Array.from(a.values());
+const aEntries = Array.from(a.entries());
+
+for (const [idx, element] of a.entries()) {
+    alert(idx);
+    alert(element);
+};
+
+//copyWithin()，fill()
+
+//push数组末尾压入一项, pop弹出最后一项，相应的length都增减的变化
+let colors = new Array();
+let count = colors.push("red", "green");
+let item = colors.pop();
+```
+
