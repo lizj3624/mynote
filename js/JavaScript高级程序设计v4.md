@@ -462,5 +462,67 @@ for (const [idx, element] of a.entries()) {
 let colors = new Array();
 let count = colors.push("red", "green");
 let item = colors.pop();
+
+//shift()，删除数组的第一项并返回它，然后数组长度减1，使用shift()和push()，可以把数组当成队列来使用
+let colors = new Array();
+let count = colors.push("red", "green");   //从尾部插入两个元素
+alert(count);
+
+count = colors.push("black");
+alert(count);
+
+let item = colors.shift();
+alert(item);
+alert(colors.length);
+
+//排序, sort和reverse都返回调用他们的数组的引用
+let values = [1, 2, 3, 3, 5];
+values.reverse();   //逆序
+
+let values = [0, 1, 5, 15];
+values.sort();  //按照大小排序
+
+values.sort(comapre)  //compare是一个排序函数
+
+//concat，slice，splice
+//indexOf从头开始搜索，返回第一项所在的位置
+//lastIndexOf是从末尾开始，向前搜索
+//includes() boolen
+//find()，findIndex()
+//every()，filter()，forEach()，map()，some()
+
+//map
+const m = new Map();
+
+const m1 = new Map([
+    ["key1","val1"],
+    ["key2","val2"]
+]);
+
+m1.has("key1");  //boolen
+m1.get("key1");
+m1.delete("key1");
+m1.size();
+
+for (let pair of m.entries()) {
+    alert(pair);
+};
+
+for (let key of m.keys()) {
+    alert(key);
+};
+
+for (let val of m.values()) {
+    alert(val);
+};
+
+//WeakMap
+const wm = new WeakMap();
+
+//set
+const m = new Set();
+const s1 = new Set(["val1", "val2", "val3"]);
+s1.add();
+s1.has(); //boolen
 ```
 
