@@ -25,47 +25,56 @@ Podman 官网地址：https://podman.io/
 Podman 项目地址：https://github.com/containers/libpod
 
 1. 安装 Podman
-    Podman 目前已支持大多数发行版本通过软件包来进行安装，下面我们来举几个常用发行版本的例子。
+   Podman 目前已支持大多数发行版本通过软件包来进行安装，下面我们来举几个常用发行版本的例子。
 
-```shell
-## Fedora / CentOS
+   ```shell
+   ## Fedora / CentOS
+   $ sudo yum -y install podman
 
-$ sudo yum -y install podman
-Ubuntu
+   ##Ubuntu
+   $ sudo apt-get update -qq	
+   $ sudo apt-get install -qq -y software-properties-common uidmap	
+   $ sudo add-apt-repository -y ppa:projectatomic/ppa	
+   $ sudo apt-get update -qq	
+   $ sudo apt-get -qq -y install podman
 
-$ sudo apt-get update -qq	
-$ sudo apt-get install -qq -y software-properties-common uidmap	
-$ sudo add-apt-repository -y ppa:projectatomic/ppa	
-$ sudo apt-get update -qq	
-$ sudo apt-get -qq -y install podman
-MacOS
+   ##MacOS
+   $ brew cask install podman
 
-$ brew cask install podman
-RHEL 7
+   ## RHEL 7
+   $ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms	
+   $ sudo yum -y install podman
 
-$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms	
-$ sudo yum -y install podman
-Arch Linux
+   ##Arch Linux
 
-$ sudo pacman -S podman
-```
-
-更多系统的安装方法，可参考官方文档：https://github.com/containers/libpod/blob/master/install.md
+   $ sudo pacman -S podman
+   ```
+  更多系统的安装方法，可参考官方文档：https://github.com/containers/libpod/blob/master/install.md
 
 2. 使用 Podman
    使用 Podman 非常的简单，Podman 的指令跟 Docker 大多数都是相同的。下面我们来看几个常用的例子：
 
 * 运行一个容器 
-
+  ```shell
+  $ podman run -dt -p 8080:8080/tcp  \
+    -e HTTPD_VAR_RUN=/var/run/httpd  \
+    -e HTTPD_MAIN_CONF_D_PATH=/etc/httpd/conf.d \
+    -e HTTPD_MAIN_CONF_PATH=/etc/httpd/conf \
+    -e HTTPD_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/httpd/ \
+    registry.fedoraproject.org/f27/httpd /usr/bin/run-httpd
+  ```
+* 列出运行的容器
    ```shell
    podman ps -a
    ```
-
+* 分析一个运行的容器
    ```shell
    $ podman inspect -l | grep IPAddress\":	
    "SecondaryIPAddresses": null,	
    "IPAddress": "",
-   
+   ``` 
+* 查看一个运行中容器的日志
+   ```shell
    $ sudo podman logs --latest	
    10.88.0.1 - - [07/Feb/2018:15:22:11 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.55.1" "-"	
    10.88.0.1 - - [07/Feb/2018:15:22:30 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.55.1" "-"	
@@ -75,7 +84,6 @@ $ sudo pacman -S podman
    ```
 
 * 查看一个运行容器中的进程资源使用情况
-
    ```shell
    $ sudo podman top <container_id>	
      UID   PID  PPID  C STIME TTY          TIME CMD	
@@ -84,13 +92,11 @@ $ sudo pacman -S podman
    ```
 
 * 停止一个运行中的容器
-
    ```shell
    $ sudo podman stop --latest
    ```
 
 * 删除一个容器
-
    ```shell
    $ sudo podman rm --latest
    ```
@@ -106,7 +112,6 @@ $ sudo pacman -S podman
    ```
 
 * 根据检查点位置恢复容器
-
    ```shell
    $ sudo podman container restore <container_id>
    ```
@@ -138,12 +143,13 @@ $ sudo pacman -S podman
 
   其实方法很简单，现在大多数系统都已经采用`Systemd`作为守护进程管理工具。这里我们就可以使用`Systemd`来实现`Podman`开机重启容器，这里我们以启动一个`Nginx`容器为例子。
 
+  1. 首先，我们先运行一个Nginx容器。
   ```shell
-  ## 首先，我们先运行一个Nginx容器。
-   
   $ sudo podman run -t -d -p 80:80 --name nginx nginx
+  ```
     
-  ## 然后，在建立一个 Systemd 服务配置文件。
+  2. 然后，在建立一个 Systemd 服务配置文件。
+  ```shell
   $ vim /etc/systemd/system/nginx_container.service	
     
   [Unit]	
@@ -159,13 +165,16 @@ $ sudo pacman -S podman
   
   [Install]	
   WantedBy=multi-user.target
-    
-  ## 接下来，启用这个 Systemd 服务。
+  ```  
+
+  3. 接下来，启用这个 Systemd 服务。
+  ```shell
   $ sudo systemctl daemon-reload	
   $ sudo systemctl enable nginx_container.service	
   $ sudo systemctl start nginx_container.service
-    
-  服务启用成功后，我们可以通过 systemctl status 命令查看到这个服务的运行状况。
+  ``` 
+  4. 服务启用成功后，我们可以通过 systemctl status 命令查看到这个服务的运行状况。
+  ```shell
   $ sudo systemctl status nginx_container.service	
      nginx_container.service - Podman Nginx Service	
        Loaded: loaded (/etc/systemd/system/nginx_container.service; enabled; vendor preset: disabled)	
@@ -179,7 +188,8 @@ $ sudo pacman -S podman
     
     Aug 20 20:59:26 Ubuntu-dev.novalocal systemd[1]: Started Podman Nginx Service.
     之后每次系统重启后 Systemd 都会自动启动这个服务所对应的容器。
-    ```
+   ```
+   之后每次系统重启后 Systemd 都会自动启动这个服务所对应的容器。
 
 ## 其它相关工具
 `Podman`只是`OCI`容器生态系统计划中的一部分，主要专注于帮助用户维护和修改符合`OCI`规范的容器镜像。其它的组件还有`Buildah、Skopeo`等。
