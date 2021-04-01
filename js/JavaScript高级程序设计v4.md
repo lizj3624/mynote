@@ -526,3 +526,96 @@ s1.add();
 s1.has(); //boolen
 ```
 
+## 对象
+
+```javascript
+//工厂模式
+function createPerson(name, age, job) {
+    let o = new Object();
+    o.name =  name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function() {
+        console.log(this.name);
+    };
+    
+    return 0;
+}
+
+let person1 = createPerson("Nicholas", 29, "Software Engineer");
+let person2 = createPerson("Greg", 27, "Doctor");
+
+//构造函数模式
+function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function() {
+        console.log(this.name);
+    };
+}
+
+let person1 = new Person("Nicholas", 29, "Software Engineer");
+let person1 = new Person("Greg", 27, "Doctor");
+
+//将对象方法定义到构造函数外
+function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = sayName;
+}
+
+function sayName() {
+    console.log(this.name);
+}
+```
+
+构造函数与工厂模式区别
+
+* 没有显示的创建对象
+* 属性和方法直接赋值给了this
+* 没有return
+* 构造函数的函数名首字母大写
+
+## BOM
+
+BOM(Brower Object Model)描述为JavaScript的核心，BOM的核心是window对象，表示浏览器的实例，浏览器有两重身份：Global对象，浏览器窗口的JavaScript接口。
+
+* window对象
+* location对象
+* navigator对象
+* screen对象
+* history对象
+
+
+
+## DOM
+
+文档对象模型(DOM，Document Object Model)是`HTML`和`XML`文档的编程接口，`DOM`表示有多层节点构成的文档，通过它开发者可以添加、删除和修改页面的各个部分。
+
+
+
+## 事件
+
+
+
+## 模块
+
+
+
+## JavaScript库和框架
+
+1. React
+2. Angular
+3. Vue
+4. Ember
+5. Meber
+6. Backone.js
+
+通用库
+
+1. jQuery
+2. Google Closure Library
+3. Underscore.js
+4. Lodash
