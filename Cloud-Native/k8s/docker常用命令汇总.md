@@ -1,8 +1,6 @@
 ## **一、汇总：**
 
-**总的来说分为以下几种：   **
-
-****** Docker环境信息 — `docker [info|version]`
+* Docker环境信息 — `docker [info|version]`
 * 容器生命周期管理 — `docker [create|exec|run|start|stop|restart|kill|rm|pause|unpause]`
 * 容器操作运维 — `docker [ps|inspect|top|attach|wait|export|port|rename|stat]`
 * 容器rootfs命令 — `docker [commit|cp|diff]`
