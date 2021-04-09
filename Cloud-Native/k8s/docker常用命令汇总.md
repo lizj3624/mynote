@@ -1,15 +1,15 @@
 ## **一、汇总：**
 
-**总的来说分为以下几种：**
+**总的来说分为以下几种：   **
 
-Docker环境信息 — `docker [info|version]`
-容器生命周期管理 — `docker [create|exec|run|start|stop|restart|kill|rm|pause|unpause]`
-容器操作运维 — `docker [ps|inspect|top|attach|wait|export|port|rename|stat]`
-容器rootfs命令 — `docker [commit|cp|diff]`
-镜像仓库 — `docker [login|pull|push|search]`
-本地镜像管理 — `docker [build|images|rmi|tag|save|import|load]`
-容器资源管理 — `docker [volume|network]`
-系统日志信息 — `docker [events|history|logs]`
+****** Docker环境信息 — `docker [info|version]`
+* 容器生命周期管理 — `docker [create|exec|run|start|stop|restart|kill|rm|pause|unpause]`
+* 容器操作运维 — `docker [ps|inspect|top|attach|wait|export|port|rename|stat]`
+* 容器rootfs命令 — `docker [commit|cp|diff]`
+* 镜像仓库 — `docker [login|pull|push|search]`
+* 本地镜像管理 — `docker [build|images|rmi|tag|save|import|load]`
+* 容器资源管理 — `docker [volume|network]`
+* 系统日志信息 — `docker [events|history|logs]`
 
 **常用命令的含义：**
 
@@ -55,8 +55,6 @@ docker --help
 docker info  #查看系统(docker)层面信息，包括管理的images, containers数等
 docker version #查看docker的版本号，包括客户端、服务端、依赖的Go等
 ```
-
-
 
 ## **二、镜像相关**
 
@@ -133,9 +131,7 @@ docker login --username=yourhubusername --email=youremail@company.com
 docker inspect <image|container> ##查看image或container的底层信息
 ```
 
-
-
-9、镜像导入和导出
+### 9、镜像导入和导出
 
 ```shell
 ##快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也更大。
