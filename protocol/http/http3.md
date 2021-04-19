@@ -8,4 +8,5 @@
 * [跟坚哥学习QUIC系列](https://my.oschina.net/u/4703596)
 * [QUIC](https://quicwg.org/)
 * [YoMo-Quic](https://yomo.run/)
+* [QUIC专题 | 谈谈QUIC协议原理](https://mp.weixin.qq.com/s/pa5lLcNtsEYRBHrUAJYcJA)
 
