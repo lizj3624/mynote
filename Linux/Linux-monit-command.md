@@ -537,9 +537,25 @@ HT Number      : 2
  cat /proc/cpuinfo       # 查看CPU信息
  hostname                # 查看计算机名
  lspci -tv               # 列出所有PCI设备
+ lspci | grep -i ethernet #查看网卡型号
  lsusb -tv               # 列出所有USB设备
  lsmod                   # 列出加载的内核模块
  env                     # 查看环境变量
+ 
+ # 使用ethtool查看网卡, Ethtool是Linux下用于查询及设置网卡参数的命令。
+ ethtool eth0     #查询ethx网口基本设置，其中 x 是对应网卡的编号，如eth0、eth1等等
+
+ ethtool –h       #显示ethtool的命令帮助(help)
+
+ ethtool –i eth0  #查询ethX网口的相关信息
+
+ ethtool –d eth0  #查询ethX网口注册性信息
+
+ ethtool –r eth0  #重置ethX网口到自适应模式
+
+ ethtool –S eth0  #查询ethX网口收发包统计
+
+ ethtool –s eth0 [speed 10|100|1000] [duplex half|full] [autoneg on|off] #设置网口速率10/100/1000M、设置网口半/全双工、设置网口是否自协商
 ```
 
 #### 资源
