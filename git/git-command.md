@@ -178,3 +178,8 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
    ```shell
    git config --global core.quotepath false
    ```
+
+* git pull/push每次都要输入用户名密码的解决办法
+  ```shell
+  git config --global credential.helper store
+  ```
