@@ -577,6 +577,7 @@ HT Number      : 2
  hdparm -i /dev/hda            # 查看磁盘参数(仅适用于IDE设备)
  dmesg | grep IDE              # 查看启动时IDE设备检测状况
 ```
+
 #### 网络
 ```shell
  ifconfig                 # 查看所有网络接口的属性
