@@ -592,9 +592,28 @@ HT Number      : 2
 #### 用户
 ```shell
  w                         # 查看活动用户
- id <用户名>                # 查看指定用户信息
+ id <用户名>               # 查看指定用户信息
  last                      # 查看用户登录日志
  cut -d: -f1 /etc/passwd   # 查看系统所有用户
  cut -d: -f1 /etc/group    # 查看系统所有组
  crontab -l                # 查看
+
+ ##添加用户
+ #1. adduser，这个会自动创建主目录系统shell版本，提示设置密码，创建同名group
+ adduse myname --home /root/myname
+
+ #2. useradd
+
+ ## 增加sudo（root）权限
+ ## 1. 命令行  
+ sudo usermod -aG sudo username
+
+ ##2. 修改/etc/sudoers文件，在root ALL=(ALL) ALL下面复制一行同样的只不过root改成你的用户名
+
+ ##3. 修改/etc/passwd 找到自己的用户一行吧里面的用户id改成0
+```
+
+#### 主机名称
+```shell
+  sudo hostnamectl set-hostname <newhostname>   #修改主机名称
 ```
