@@ -28,14 +28,14 @@ centos7的网卡重启方法：`systemctl restart network`
 
 在virtualBox选择相应虚拟机系统->设置->网络->网卡1 ->网络地址转换(NAT)，这里表示虚拟机系统公用真机系统网络，设置完成后可以在虚拟机中上网，虚拟机可以ping通真机ip，但是真机无法ping通虚拟机，多个虚拟机之间也无法ping通。
 
-![02](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/mac-vbox/picture/mac-vx-02.jpg)
+![02](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/mac-vbox/picture/mac-vx-02.png)
 
 #### 设置virtualBox虚拟机中的网卡
 
 (设置手动添加的虚拟网卡-网卡2)
 在virtualBox选择相应虚拟机系统->设置->网络->网卡2 -> 仅主机(Host-Only)适配器，界面名称选择手动添加的虚拟网卡，完成后主机和虚拟机、虚拟机和虚拟机即可以用该虚拟网卡通信。
 
-![03](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/mac-vbox/picture/mac-vx-03.jpg)
+![03](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/mac-vbox/picture/mac-vx-03.png)
 
  
 
