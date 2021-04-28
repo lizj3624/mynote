@@ -289,8 +289,13 @@ CPU 利用率
 ##网络统计信息
 sar -n DEV 1 5  ##命令中 1 5 表示每一秒钟取 1 次值，一共取 5 次。每个网卡这 5 次取值的平均数据
 
-##CPU 利用率
+## CPU利用率
 sar -u 1 3 ##命令中 1 3 表示每一秒钟取 1 次值，一共取 3 次。
+
+## 多核CPU,具体某个核信息
+sar -P ALL 1 1
+
+sar -P 0 1 1
 
 ##索引节点，文件和其他内核表的状态
 sar -v 1 3
@@ -318,6 +323,7 @@ sar -o sarfile.log -u 1 3
 sadf -d sarfile.log
 sadf -d sarfile.log | sed 's/;/,/g' > sarfile.csv
 ```
+[sar](https://shockerli.net/post/linux-tool-sar/)
 
 #### perf
 
@@ -562,7 +568,7 @@ HT Number      : 2
 ```shell
  free -m                       # 查看内存使用量和交换区使用量
  df -h                         # 查看各分区使用情况
- du -sh <目录名>                # 查看指定目录的大小
+ du -sh <目录名>               # 查看指定目录的大小
  grep MemTotal /proc/meminfo   # 查看内存总量
  grep MemFree /proc/meminfo    # 查看空闲内存量
  uptime                        # 查看系统运行时间、用户数、负载
@@ -603,12 +609,14 @@ HT Number      : 2
  adduse myname --home /root/myname
 
  #2. useradd
+ useradd myname
 
  ## 增加sudo（root）权限
  ## 1. 命令行  
  sudo usermod -aG sudo username
 
  ##2. 修改/etc/sudoers文件，在root ALL=(ALL) ALL下面复制一行同样的只不过root改成你的用户名
+ visudo #打开sudoers文件
 
  ##3. 修改/etc/passwd 找到自己的用户一行吧里面的用户id改成0
 ```
