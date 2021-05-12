@@ -1,3 +1,5 @@
-1. [以太坊2.0 Staking Solo指南（视频）](https://mp.weixin.qq.com/s/WK81IwLxYWD5aZB9fOCThA)
-2. [科普 | 密码学货币的来历](https://mp.weixin.qq.com/s/rT7bLS9agUhz79oh1kiCdg)
-3. [以太坊源码解读](https://mindcarver.cn/)
+1. [以太坊](https://ethereum.org/zh/)
+2. [以太坊wiki-中文](https://github.com/ethereum/wiki/wiki/%5BSimplified-Chinese%5D-Ethereum-TOC)
+3. [以太坊2.0 Staking Solo指南（视频）](https://mp.weixin.qq.com/s/WK81IwLxYWD5aZB9fOCThA)
+4. [科普 | 密码学货币的来历](https://mp.weixin.qq.com/s/rT7bLS9agUhz79oh1kiCdg)
+5. [以太坊源码解读](https://mindcarver.cn/)
