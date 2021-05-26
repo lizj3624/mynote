@@ -11,6 +11,7 @@
 * Real-time
 * 运行进程队列的长度
 * 平均负载：load
+* [linux-perf](http://www.brendangregg.com/linuxperf.html)
 
 ###  Linux常用监控CPU整体性能的工具
 ![monitor](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/linux-cpu-monitor.png)
@@ -459,6 +460,8 @@ pidstat -wt -u 1 3
 
 ## 常用的命令
 strace -T -r -c -p $pid
+
+strace -o output.txt -T -tt -e trace=all -p 25130
 ```
 
 ### 查看当前CPU频率和性能模式
