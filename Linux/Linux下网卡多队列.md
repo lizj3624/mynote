@@ -32,7 +32,7 @@ RSS为网卡数据传输使用多核提供了支持，RSS在硬件/驱动级别�
 
 ![rss](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/smp-05.png)
 
-### RFS(Receive Flow Steering)
+### RPS(Receive Flow Steering)
 
 RPS 全称是 `Receive Packet Steering`, 这是Google工程师 Tom Herbert (therbert@google.com )提交的内核补丁, 在2.6.35进入Linux内核. 这个patch采用软件模拟的方式，实现了多队列网卡所提供的功能，分散了在多CPU系统上数据接收时的负载, 把软中断分到各个CPU处理，而不需要硬件支持，大大提高了网络性能。
 
