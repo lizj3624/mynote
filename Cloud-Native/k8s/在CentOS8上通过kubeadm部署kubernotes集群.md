@@ -1,3 +1,10 @@
+- [系统准备](#系统准备)
+- [安装常用包和docker-ce](#安装常用包和docker-ce)
+- [安装kubectl、kubelet、kubeadm](#安装kubectlkubeletkubeadm)
+- [初始化k8s集群](#初始化k8s集群)
+- [安装calico网络](#安装calico网络)
+- [安装kubernetes-dashboard](#安装kubernetes-dashboard)
+- [node节点服务器配置以及加入集群](#node节点服务器配置以及加入集群)
 # 系统准备
 准备三台centos8服务器，主机名与静态IP地址如下表所示（参考下边 master 节点服务器的配置）：
 
