@@ -1,3 +1,24 @@
+- [Linux CPU监控指令](#linux-cpu监控指令)
+  - [Linux衡量CPU性能的指标：](#linux衡量cpu性能的指标)
+  - [Linux常用监控CPU整体性能的工具](#linux常用监控cpu整体性能的工具)
+    - [top](#top)
+    - [mpstat](#mpstat)
+    - [vmstat](#vmstat)
+    - [iostat](#iostat)
+    - [sar](#sar)
+    - [perf](#perf)
+    - [lsof](#lsof)
+    - [pidstat](#pidstat)
+    - [strace](#strace)
+  - [查看当前CPU频率和性能模式](#查看当前cpu频率和性能模式)
+  - [查看CPU物理、逻辑核的命令](#查看cpu物理逻辑核的命令)
+  - [Linux常用的查询命令](#linux常用的查询命令)
+    - [查看一些硬件配置](#查看一些硬件配置)
+    - [资源](#资源)
+    - [磁盘和分区](#磁盘和分区)
+    - [网络](#网络)
+    - [用户](#用户)
+    - [主机名称](#主机名称)
 ## Linux CPU监控指令
 
 ### Linux衡量CPU性能的指标：
@@ -534,8 +555,6 @@ CPU Core Number   : 6
 HT Number      : 2
 *****************************
 ```
-
-
 
 ### Linux常用的查询命令
 
