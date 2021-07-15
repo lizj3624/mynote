@@ -51,6 +51,18 @@ git remote add origin(可修改) branch_Name(为空时默认为master) url
 git remote set-url origin url
 ```
 
+#### 修改远程仓库名称 
+
+```shell
+git remote rename origin destination
+```
+
+#### 删除远程仓库名称
+
+```shell
+git remote rm destination
+```
+
 ### git修改commit后提交说明
 
 ```shell
