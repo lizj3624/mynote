@@ -287,7 +287,7 @@ $ go build interface.go
 
 编译器会提醒我们：`Cat` 类型没有实现 `Duck` 接口，`Quack` 方法的接受者是指针。这两个报错对于刚刚接触 Go 语言的开发者比较难以理解，如果我们想要搞清楚这个问题，首先要知道 Go 语言在[传递参数](https://draveness.me/golang/docs/part2-foundation/ch04-basic/golang-function-call/)时都是传值的。
 
-![golang-interface-method-receive](https://github.com/lizj3624/mynote/blob/master/golang/pictures/golang-interface-method-receiver.png)
+![golang-interface-method-receive](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/golang-interface-method-receiver.png)
 
 **图实现接口的接受者类型**
 

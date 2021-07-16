@@ -20,7 +20,7 @@ arr := [...]int{4, 5, 6, 8}   #数组长度可以推导出
 * 一个数组变量表示整个数组，它不是指向第一个元素的指针（不像 C 语言的数组）
 * 当一个数组变量被赋值或者被传递的时候，实际上会复制整个数组，为了避免复制数组，你可以传递一个指向数组的指针，但是数组指针并不是数组。
 
-![数组](https://github.com/lizj3624/mynote/blob/master/golang/pictures/array.png)
+![数组](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/array.png)
 
 ### 切片的定义
 
@@ -54,7 +54,7 @@ mySlice := make([]int, 7)
 
 `mySlice`的内存分布
 
-![内存分布](https://github.com/lizj3624/mynote/blob/master/golang/pictures/slice-struct.png)
+![内存分布](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/slice-struct.png)
 
 `mySlice`的`len`和`cap`都是`7`
 
@@ -93,11 +93,11 @@ Go的切片通过`append`函数追加切片元素，追加到切片的后面，�
 
 * 当切片容量足够时直接插入
 
-    ![直接插入](https://github.com/lizj3624/mynote/blob/master/golang/pictures/slice-insert.png)
+    ![直接插入](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/slice-insert.png)
 
 * 当切片不足时，先要扩容拷贝，然后在插入
 
-    ![扩容后插入](https://github.com/lizj3624/mynote/blob/master/golang/pictures/slice-grow.png)
+    ![扩容后插入](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/slice-grow.png)
 
     当扩容时，Go有一套扩容算法，大致规则如下：
 
@@ -217,7 +217,7 @@ slice: [0 1 2 3 5 6 7 8 9 10] ret: [0 1 2 3 5 6 7 8 9 10] slice addr 0xc0000ae00
 
 ### nil切片和空切片
 
-![nil切片和空切片内存分布](https://github.com/lizj3624/mynote/blob/master/golang/pictures/slice-nil.png)
+![nil切片和空切片内存分布](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/slice-nil.png)
 
 * nil切片中指针是nil，len为0，cap也为0，只是定义切片，没有实例化
 

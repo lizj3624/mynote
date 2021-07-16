@@ -27,9 +27,9 @@ type hmap struct {
 3. `hash0` 是哈希的种子，它能为哈希函数的结果引入随机性，这个值在创建哈希表时确定，并在调用哈希函数时作为参数传入；
 4. `oldbuckets` 是哈希在扩容时用于保存之前 `buckets` 的字段，它的大小是当前 `buckets` 的一半；
 
-![Map内存数据结构图](https://github.com/lizj3624/mynote/blob/master/golang/pictures/2019-12-30-15777168478811-hmap-and-buckets.png)
+![Map内存数据结构图](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/2019-12-30-15777168478811-hmap-and-buckets.png)
 
-![Map详细数据结构图](https://github.com/lizj3624/mynote/blob/master/golang/pictures/1jjbeg6th6.jpeg)
+![Map详细数据结构图](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/1jjbeg6th6.jpeg)
 
 ### Map的创建
 

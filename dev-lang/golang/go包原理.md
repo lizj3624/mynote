@@ -6,7 +6,7 @@
 - 当一个包被导入时，如果该包还导入了其它的包，那么会先将其它包导入进来，然后再对这些包中的包级常量和变量进行初始化，接着执行init函数（如果有的话），依次类推。-
 - 等所有被导入的包都加载完毕了，就会开始对main包中的包级常量和变量进行初始化，然后执行main包中的init函数（如果存在的话），最后执行main函数。
 
-![包导入](https://github.com/lizj3624/mynote/blob/master/golang/pictures/go-import-package.jpeg)
+![包导入](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/go-import-package.jpeg)
 
 ### 2、包一些原则
 
