@@ -6,39 +6,40 @@
 
 ### Go
 
-* [Golang](https://github.com/lizj3624/mynote/tree/master/golang)
+* [Golang](https://github.com/lizj3624/mynote/tree/master/dev-lang/golang)
 
 ### Python
 
-* [Python](https://github.com/lizj3624/mynote/tree/master/Python)
+* [Python](https://github.com/lizj3624/mynote/tree/master/dev-lang/python)
 
 ### Linux
 
-* [Linux](https://github.com/lizj3624/mynote/tree/master/Linux)
+* [Linux](https://github.com/lizj3624/mynote/tree/master/linux)
 
 ### GDB
 
-* [gdb](https://github.com/lizj3624/mynote/blob/master/gdb)
+* [gdb](https://github.com/lizj3624/mynote/blob/master/coder-skill/gdb)
 
 ### Shell
 
-* [shell](https://github.com/lizj3624/mynote/tree/master/shell)
+* [shell](https://github.com/lizj3624/mynote/tree/master/linux/shell)
 
 ### Vim
 
-* [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/vim)
+* [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/coder-skill/vim)
 
 ### Git
 
-* [git一些命令](https://github.com/lizj3624/mynote/blob/master/git/git-command.md)
+* [git一些命令](https://github.com/lizj3624/mynote/blob/master/coder-skill/git)
 
 
 ### Networking Protocol
+
 * [网络通信涉及的协议:tcp/udp/tls/http/websocket](https://github.com/lizj3624/mynote/tree/master/protocol)
 
 ### Arch
 
-* [arch](https://github.com/lizj3624/mynote/tree/master/arch)
+* [系统架构](https://github.com/lizj3624/mynote/tree/master/arch)
 
 ### cloud native
 
@@ -46,12 +47,11 @@
 
 ### 软件工程师书单
 
-* [书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
+* [软件技术书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
 
 ## 英语学习
 
 * 学习英语的目的：读懂国外英文书籍，无障碍的英语沟通交流
-
 
 ## 经济投资
 
@@ -74,4 +74,5 @@
 ## Plan
 
 * [个人的2020年计划](https://github.com/lizj3624/mynote/blob/master/plans/2020-plan.md)
+
 * [个人的2021年计划](https://github.com/lizj3624/mynote/blob/master/plans/2021-plan.md)
