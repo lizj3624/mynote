@@ -65,7 +65,5 @@
 
 
 > 1. Wiki:[mRNA](https://zh.wikipedia.org/wiki/%E4%BF%A1%E4%BD%BF%E6%A0%B8%E7%B3%96%E6%A0%B8%E9%85%B8)
->
 > 2. [RNA干扰](https://zh.wikipedia.org/wiki/RNA干擾)（RNAi）
 > 3. [美国莫德纳生技公司](https://zh.wikipedia.org/wiki/美國莫德納生技公司)
-
