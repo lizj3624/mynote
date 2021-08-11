@@ -12,8 +12,6 @@
 
     **[MOCVD]([https://zh.wikipedia.org/wiki/%E6%9C%89%E6%9C%BA%E9%87%91%E5%B1%9E%E5%8C%96%E5%AD%A6%E6%B0%94%E7%9B%B8%E6%B2%89%E7%A7%AF%E6%B3%95](https://zh.wikipedia.org/wiki/有机金属化学气相沉积法))**：**有机金属化学气相沉积法**(MOCVD, Metal-organic Chemical Vapor Deposition)，是在基板上成长[半导体](https://zh.wikipedia.org/wiki/半導體)薄膜的一种方法。
 
-
-
 2. [IQE](https://www.iqep.com/)
 
 3. [艾迈斯半导体-ams](https://ams.com/zh/about-ams)
