@@ -30,6 +30,10 @@ ch := make(chan int)
 
 // 关闭
 close(ch)
+
+//判断channel是否关闭
+c, ok := <-ch    
+//如果ok为false时，说明channel已经关闭
 ```
 
 关于关闭 channel 有几点需要注意的是：
@@ -93,7 +97,7 @@ func main() {
 
 需要注意的是，nil channel上的操作会一直被阻塞，如果没有default case,只有nil channel的select会一直被阻塞。
 
-`select`语句和`switch`语句一样，它不是循环，它只会选择一个case来处理，如果想一直处理channel，你可以在外面加一个无限的for循环：
+`select`语句和`switch`语句不一样，它不是循环，它只会选择一个case来处理，如果想一直处理channel，你可以在外面加一个无限的for循环：
 
 ```go
 for {
