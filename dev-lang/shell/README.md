@@ -1,6 +1,26 @@
+- [常用的shell命令汇总](#常用的shell命令汇总)
+  - [shell](#shell)
+    - [shell中命令间逻辑运算](#shell中命令间逻辑运算)
+      - [`&&`运算符](#运算符)
+      - [`||`运算符](#运算符-1)
+    - [linux下PS1、PS2、PS3、PS4](#linux下ps1ps2ps3ps4)
+      - [PS1](#ps1)
+      - [PS2](#ps2)
+      - [PS3](#ps3)
+      - [PS4](#ps4)
+    - [条件判断](#条件判断)
+    - [cut](#cut)
+    - [date](#date)
+    - [tar](#tar)
+    - [shell中执行mysql操作](#shell中执行mysql操作)
+      - [增删改查操作](#增删改查操作)
+    - [shell简易教程](#shell简易教程)
+  - [sed](#sed)
+  - [awk](#awk)
 # 常用的shell命令汇总
 
-### shell中命令间逻辑运算&& ||
+## shell
+### shell中命令间逻辑运算
 
 #### `&&`运算符
 
@@ -106,7 +126,7 @@ Shell脚本中使用select时的提示符.
 
 PS4-`set -x`用来修改跟踪输出的前缀
 
-### 比较大小
+### 条件判断
 
 ```shell
 #整数比较：
@@ -188,9 +208,59 @@ $ cut -c 3 cut_ch.txt
 四
 ```
 
-## shell中执行mysql操作
+### date
+```shell
+## 1、获取今天日期
 
-### 增删改查操作
+$ date -d now +%Y-%m-%d   #或者
+$ date +%F
+
+#2、获取明天日期
+$ date -d next-day +%Y-%m-%d
+$ date -d tomorrow +%Y-%m-%d
+
+# 3、获取昨天日期
+$ date -d yesterday +%Y-%m-%d  #或者
+$ date -d last-day +%Y-%m-%d  #或者
+$ date -d "1 days ago" +%Y-%m-%d 
+##"n days ago"  表示n天前的那一天
+
+# 4、获取取30天前的日期
+$ date -d "30 days ago" +%Y-%m-%d  
+
+# 5、使用负数以得到相反的日期
+$ date -d 'dec 14 -2 weeks' +%F   #相对于dec 14这个日期的两周前的日期
+$ date -d '-100 days' +%F         #100天以前的日期
+$ date -d '50 days' +%F           #50天后的日期
+
+# 6、时间戳
+$ date '+%s'
+1327312578
+
+# 7、时间转换
+$ date -d "1970-01-01 956684800 sec GMT"
+Tue Apr 25 10:46:40 PDT 2000
+
+$ date -d "2000-01-01 GMT" '+%s'
+946684800
+
+# 扩展：
+$ date -d next-month +%F   #下个月今天日期
+$ date -d last-month +%F   #上个月今天日期
+$ date -d next-year +%Y    #明年日期
+$ date -d '2 weeks' +%F    #获取两星期以后的日期
+```
+
+### tar
+```shell
+#解包到指定的目录
+tar zxvf filename.tar.gz -C /specific dir
+
+# 压缩到指定目录
+tar zcvf /specific/filename.tar.gz filename
+``` 
+### shell中执行mysql操作
+#### 增删改查操作
 ```shell
 #!/usr/bin/env bash
 HOST="localhost"
@@ -284,3 +354,10 @@ do
     echo "id: $id, name: $name"
 done
 ```
+
+### shell简易教程
+[shell简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/shell%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
+## sed
+[sed教程以及常用命令](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/sed-cmd.md)
+## awk
+[awk简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/awk%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
