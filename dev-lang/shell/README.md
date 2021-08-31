@@ -1,28 +1,24 @@
-- [常用的shell命令汇总](#常用的shell命令汇总)
-  - [shell](#shell)
-    - [shell中命令间逻辑运算](#shell中命令间逻辑运算)
-      - [`&&`运算符](#运算符)
-      - [`||`运算符](#运算符-1)
-    - [linux下PS1、PS2、PS3、PS4](#linux下ps1ps2ps3ps4)
-      - [PS1](#ps1)
-      - [PS2](#ps2)
-      - [PS3](#ps3)
-      - [PS4](#ps4)
-    - [条件判断](#条件判断)
-    - [cut](#cut)
-    - [date](#date)
-    - [tar](#tar)
-    - [shell中执行mysql操作](#shell中执行mysql操作)
-      - [增删改查操作](#增删改查操作)
-    - [shell简易教程](#shell简易教程)
-  - [sed](#sed)
-  - [awk](#awk)
-# 常用的shell命令汇总
+- [shell](#shell)
+  - [shell中命令间逻辑运算](#shell中命令间逻辑运算)
+    - [`&&`运算符](#运算符)
+    - [`||`运算符](#运算符-1)
+  - [linux下PS1、PS2、PS3、PS4](#linux下ps1ps2ps3ps4)
+    - [PS1](#ps1)
+    - [PS2](#ps2)
+    - [PS3](#ps3)
+    - [PS4](#ps4)
+  - [条件判断](#条件判断)
+  - [cut](#cut)
+  - [date](#date)
+  - [tar](#tar)
+  - [shell中执行mysql操作](#shell中执行mysql操作)
+  - [shell简易教程](#shell简易教程)
+- [sed](#sed)
+- [awk](#awk)
+# shell
+## shell中命令间逻辑运算
 
-## shell
-### shell中命令间逻辑运算
-
-#### `&&`运算符
+### `&&`运算符
 
 ```shell
 command1  && command2
@@ -42,7 +38,7 @@ command1 && command2 [&& command3 ...]
 
 * 只要有一个命令返回假（命令返回值 $? == 1），后面的命令就不会被执行。
 
-#### `||`运算符
+### `||`运算符
 
 ```shell
 command1 || command2
@@ -56,11 +52,11 @@ command1 || command2
 
 * 只要有一个命令返回真（命令返回值 `$? == 0`），后面的命令就不会被执行。
 
-### linux下PS1、PS2、PS3、PS4
+## linux下PS1、PS2、PS3、PS4
 
 通过设置环境变量`PS1`、`PS2`、`PS3`以及`PS4`来自定义用户命令行的字符显示。如果要长期永久性修改提示符，可以将修改提示符的命令添加到`$HOME/.profile`或`$HOME/.bash_profile`文件中。
 
-#### PS1
+### PS1
 `PS1`是主提示符变量,也是默认提示符变量。默认值`[\u@\h \W]\$`，显示用户主机名称工作目录。
 
 基本上通过设置`PS1`来定义命令行提示字符即可，最常用的需求就是显示登录的用户名、主目录、主机名等等。
@@ -96,7 +92,7 @@ PS1变量可以使用的参数值有如下：
 | `/]` | 字符”]”                                                      |
 | `/!` | 命令行动态统计历史命令次数                                   |
 
-#### PS2
+### PS2
 
 一个非常长的命令可以通过在末尾加 `\` 使其分行显示
 PS2多行命令的默认提示符，默认值是 `>`
@@ -115,18 +111,18 @@ PS2一般使用于命令行里较长命令的换行提示信息，比如：
 
 当用 `\` 使长命令分行显示，非常易读。当然我也有的人不喜欢分行显示命令
 
-#### PS3
+### PS3
 
 Shell脚本中使用select时的提示符.
 
 你可以像下面示范的那样，用环境变量PS3定制shell脚本的select提示：
 不使用PS3的脚本输出:
 
-#### PS4
+### PS4
 
 PS4-`set -x`用来修改跟踪输出的前缀
 
-### 条件判断
+## 条件判断
 
 ```shell
 #整数比较：
@@ -155,7 +151,7 @@ PS4-`set -x`用来修改跟踪输出的前缀
 -n   字符串不为null，即长度不为0
 ```
 
-### cut
+## cut
 
 cut是一个选取命令，就是将一段数据经过分析，取出我们想要的.
 
@@ -208,7 +204,7 @@ $ cut -c 3 cut_ch.txt
 四
 ```
 
-### date
+## date
 ```shell
 ## 1、获取今天日期
 
@@ -251,7 +247,7 @@ $ date -d next-year +%Y    #明年日期
 $ date -d '2 weeks' +%F    #获取两星期以后的日期
 ```
 
-### tar
+## tar
 ```shell
 #解包到指定的目录
 tar zxvf filename.tar.gz -C /specific dir
@@ -259,8 +255,7 @@ tar zxvf filename.tar.gz -C /specific dir
 # 压缩到指定目录
 tar zcvf /specific/filename.tar.gz filename
 ``` 
-### shell中执行mysql操作
-#### 增删改查操作
+## shell中执行mysql操作
 ```shell
 #!/usr/bin/env bash
 HOST="localhost"
@@ -355,9 +350,9 @@ do
 done
 ```
 
-### shell简易教程
+## shell简易教程
 [shell简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/shell%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
-## sed
+# sed
 [sed教程以及常用命令](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/sed-cmd.md)
-## awk
+# awk
 [awk简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/awk%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
