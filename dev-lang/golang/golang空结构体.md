@@ -1,3 +1,17 @@
+- [空结构体](#空结构体)
+  - [特殊变量：zerobase](#特殊变量zerobase)
+  - [内存管理特殊处理](#内存管理特殊处理)
+  - [定义的各种姿势](#定义的各种姿势)
+    - [原生定义](#原生定义)
+    - [重定义类型](#重定义类型)
+    - [匿名嵌套类型](#匿名嵌套类型)
+    - [内置字段](#内置字段)
+  - [`struct {}` 作为 receiver](#struct--作为-receiver)
+  - [`map` & `struct{}`](#map--struct)
+  - [`chan` & `struct{}`](#chan--struct)
+  - [`slice` & `struct{}`](#slice--struct)
+  - [总结](#总结)
+# 空结构体
 golang 正常的 `struct` 就是普通的一个内存块，必定是占用一小块内存的，并且结构体的大小是要经过边界，长度的对齐的，但是“空结构体”是不占内存的，size 为 0；
 
 > 提示：以下都是基于 go1.13.3 linux/amd64 分析。
@@ -15,18 +29,16 @@ type Tp struct {
 按照内存对齐规则，这个结构体占用 8 个字节的内存。关于内存分配的基础知识可以翻看：[Golang 数据结构到底是怎么回事？gdb调一调？](http://mp.weixin.qq.com/s?__biz=MzU2MDcwNTg3OA==&mid=2247483768&idx=1&sn=5497331428066f19b2500fa6b59004ca&chksm=fc02b941cb7530574081972d30507b111a161c28ba16ed13b5beeab83744ce2088ad9627adf2&scene=21#wechat_redirect)，[golang 内存管理分析](http://mp.weixin.qq.com/s?__biz=MzU2MDcwNTg3OA==&mid=2247483858&idx=1&sn=ab90e35dbbc57ba851f89da14697b66a&chksm=fc02b9ebcb7530fdbdc01794a13f52c2166fceee481e1f3a433375f25e8a9850fa1de1d819e2&scene=21#wechat_redirect)。
 
 空结构体：
-
 ```go
 var s struct{}
 // 变量 size 是 0 ；
 fmt.Println(unsafe.Sizeof(s))
 ```
-
-该空结构体的变量占用内存 0 字节。
+该空结构体的变量占用内存 0 字节。      
 
 本质上来讲，使用空结构体的初衷只有一个：节省内存，但是更多的情况，节省的内存其实很有限，这种情况使用空结构体的考量其实是：**根本不关心结构体变量的值**。
 
-#### 特殊变量：zerobase 
+## 特殊变量：zerobase 
 
 空结构体是没有内存大小的结构体。这句话是没有错的，但是更准确的来说，其实是有一个特殊起点的，那就是 `zerobase` 变量，这是一个 `uintptr` 全局变量，占用 8 个字节。当在任何地方定义无数个 `struct {}` 类型的变量，编译器都只是把这个 `zerobase` 变量的地址给出去。换句话说，在 golang 里面，涉及到所有内存 size 为 0 的内存分配，那么就是用的同一个地址 `&zerobase` 。
 
@@ -65,7 +77,7 @@ dlv 调试分析一下：
 
 小结：空结构体的变量的内存地址都是一样的。
 
-#### 内存管理特殊处理
+## 内存管理特殊处理
 
 **mallocgc**
 
@@ -86,9 +98,9 @@ func mallocgc(size uintptr, typ *_type, needzero bool) unsafe.Pointer {
 
 有这种全局唯一的特殊的地址也方便后面一些逻辑的特殊处理。
 
-### 定义的各种姿势
+## 定义的各种姿势
 
-#### 原生定义
+### 原生定义
 
 ```go
 a := struct{}{}
@@ -96,7 +108,7 @@ a := struct{}{}
 
 `struct{}` 可以就认为是一种类型，a 变量就是 `struct {}` 类型的一种变量，地址为 `runtime.zerobase` ，大小为 0 ，不占内存。
 
-#### 重定义类型
+### 重定义类型
 
 golang 使用 `type` 关键字定义新的类型，比如：
 
@@ -106,7 +118,7 @@ type emptyStruct struct{}
 
 定义出来的 `emptyStruct` 是新的类型，具有对应的 `type` 结构，但是性质 `struct{}` 完全一致，编译器对于 `emptryStruct` 类型的内存分配，也是直接给 `zerobase` 地址的。
 
-#### 匿名嵌套类型
+### 匿名嵌套类型
 
 `struct{}` 作为一个匿名字段，内嵌其他结构体。这种情况是怎么样的？
 
@@ -129,7 +141,7 @@ type Object1 struct {
 
 记住一点，空结构体还是空结构体，类型变量本身绝对不分配内存（ size=0 ），所以编译器对以上的 `Object`，`Object1` 两种类型的处理和空结构体类型是一致的，分配地址为 `runtime.zerobase` 地址，变量大小为0，不占任何内存大小。
 
-#### 内置字段
+### 内置字段
 
 内置字段的场景没有什么特殊的，主要是地址和长度的对齐要考虑。还是只需要注意 3 个要点：
 
@@ -229,7 +241,7 @@ o4 := Object4 { }
 
 这种情况，需要先把 `struct {}` 按照前一个字段的长度分配 padding 内存，然后整个变量按照地址和长度的对齐规则不变。
 
-### `struct {}` 作为 receiver
+## `struct {}` 作为 receiver
 
 receiver 这个是 golang 里 struct 具有的基础特点。空结构体本质上作为结构体也是一样的，可以作为 receiver 来定义方法。
 
@@ -336,7 +348,7 @@ main 函数
 
 空结构体 `struct{ }` 为什么会存在的核心理由就是为了**节省内存**。当你需要一个结构体，但是却丝毫不关系里面的内容，那么就可以考虑空结构体。golang 核心的几个复合结构 `map` ，`chan` ，`slice`都能结合 `struct{}` 使用。
 
-### `map` & `struct{}`
+## `map` & `struct{}`
 
 `map` 和 `struct {}` 一般的结合姿势是这样的：
 
@@ -353,7 +365,7 @@ _, ok := m[1]
 
 你当然可以用 `map[int]bool` 这种类型来代替，功能也一样能实现，很多人考虑使用 `map[int]struct{}` 这种使用方式真的就是为了省点内存，当然大部分情况下，这种节省是不足道哉的，所以究竟要不要这样使用还是要看具体场景。
 
-### `chan` & `struct{}`
+## `chan` & `struct{}`
 
 `channel` 和 `struct{}` 结合是一个最经典的场景，`struct{}` 通常作为一个信号来传输，并不关注其中内容。chan 的分析在前几篇文章有详细说明。chan 本质的数据结构是一个管理结构加上一个 ringbuffer ，如果 `struct{}` 作为元素的话，ringbuffer 就是 0 分配的。
 
@@ -379,7 +391,7 @@ goroutine 2:
 
 这种场景我们思考下，是否一定是非 `struct{}` 不可？其实不是，而且也不多这几个字节的内存，所以这种情况真的就只是不关心 `chan` 的元素值而已，所以才用的 `struct{}`。
 
-### `slice` & `struct{}`
+## `slice` & `struct{}`
 
 形式上，`slice` 也结合 `struct{}` 。
 

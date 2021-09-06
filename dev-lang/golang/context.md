@@ -10,7 +10,6 @@
 Go控制并发有两种经典的方式，一种是`WaitGroup`，另外一种就是`Context`。
 
 ## 初识context
-
 上面说的这种场景是存在的，比如一个网络请求`Request`，每个`Request`都需要开启一个`goroutine`做一些事情，这些`goroutine`又可能会开启其他的`goroutine`。所以我们需要一种可以跟踪`goroutine`的方案，才可以达到控制他们的目的，这就是`Go`语言为我们提供的`Context`，称之为上下文非常贴切，它就是`goroutine`的上下文。
 
 如下是`context`控制多个`goroutine`的例子
@@ -138,13 +137,11 @@ func watch(ctx context.Context) {
 ```
 
 ## Context 使用原则
-
 1. 不要把`Context`放在结构体中，要以参数的方式传递
 2. 以`Context`作为参数的函数方法，应该把`Context`作为第一个参数，放在第一位。
 3. 给一个函数方法传递`Context`的时候，不要传递`nil`，如果不知道传递什么，就使用`context.TODO`
 4. `Context`的`Value`相关方法应该传递必须的数据，不要什么数据都使用这个传递
 5. `Context`是线程安全的，可以放心的在多个`goroutine`中传递
-
 
 ## 引用
 

@@ -1,7 +1,14 @@
-最近在油管上面看了一个视频：[Understanding nil](https://link.jianshu.com/?t=https://www.youtube.com/watch?v=ynoY2xz-F8s)，挺有意思，这篇文章就对视频做一个归纳总结，代码示例都是来自于视频。
+- [nil是什么](#nil是什么)
+- [nil有什么用](#nil有什么用)
+  - [pointers](#pointers)
+  - [slices](#slices)
+  - [map](#map)
+  - [channel](#channel)
+  - [interface](#interface)
+- [总结](#总结)
+> 最近在油管上面看了一个视频：[Understanding nil](https://link.jianshu.com/?t=https://www.youtube.com/watch?v=ynoY2xz-F8s)，挺有意思，这篇文章就对视频做一个归纳总结，代码示例都是来自于视频。
 
 # nil是什么
-
 相信写过Golang的程序员对下面一段代码是非常非常熟悉的了：
 
 ```go

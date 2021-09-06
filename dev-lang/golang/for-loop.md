@@ -1,8 +1,10 @@
-## Go中的循环
+- [Go中的循环](#go中的循环)
+  - [标准的for循环](#标准的for循环)
+  - [for-range循环](#for-range循环)
+# Go中的循环
 
 Go中没有`while`和`do...while`的循环语句，使用`for`循环
-
-### 标准的for循环
+## 标准的for循环
 
 * for的死循环
 
@@ -30,26 +32,26 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-### for-range循环
+## for-range循环
 
 在Go中`for-range`循环遍历比较常见，它可以遍历数组、切片、map、channel。
 
 ```go
-### slice
+// slice
 s := make([]string, 0, 10)
 s = apppend(a, "hello")
 for k, v := range s {
     fmt.Printf("k: %d, v: %s\n", k, v)
 }
 
-### map，遍历是无序的
+// map，遍历是无序的
 m := make(map[string]int, 10)
 m["1"] = 1
 for k, v := range m {
     fmt.Printf("k: %s, v: %d\n", k, v)
 }
 
-### channel
+// channel
 queue := make(chan string, 2)
 queue <- "one"
 queue <- "two"
@@ -80,4 +82,3 @@ $ go run main.go
 ```
 
 输出结构都是`3`，是因为`v`是副本，`&v`只是变量的地址，遍历时每次给变量`v`赋值，因此变量`v`是最后`3`的值，将`&v`修改`&arr[i]`
-

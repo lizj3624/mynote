@@ -1,5 +1,19 @@
-## Golang对JSON的编码
-
+- [golang对JSON处理](#golang对json处理)
+  - [golang对JSON的编码](#golang对json的编码)
+  - [基本结构编码](#基本结构编码)
+  - [复合结构编码](#复合结构编码)
+  - [嵌套结构编码](#嵌套结构编码)
+    - [空接口编码](#空接口编码)
+    - [编码成json就是null](#编码成json就是null)
+  - [Struct Tag字段重命名](#struct-tag字段重命名)
+    - [横杆`-`忽略字段](#横杆-忽略字段)
+      - [`omitempty`可选字段](#omitempty可选字段)
+    - [`string`选项](#string选项)
+  - [总结](#总结)
+  - [golang对JSON的解码](#golang对json的解码)
+  - [引用](#引用)
+# golang对JSON处理
+## golang对JSON的编码
 golang提供了encoding/json的标准库用于编码json，大致需要两步：
 
 1. 首先定义json结构体。
@@ -7,7 +21,7 @@ golang提供了encoding/json的标准库用于编码json，大致需要两步：
 
 定义结构体的时候，只有字段名是大写的，才会被编码到json当中。
 
-### 基本结构编码
+## 基本结构编码
 
 ```go
 type Account struct {
@@ -40,7 +54,7 @@ func main() {
 {"Email":"rsj217@gmail.com","Money":100.5}
 ```
 
-### 复合结构编码
+## 复合结构编码
 
 相比字串，数字等基本数据结构，slice切片，map图则是复合结构。这些结构编码也类似。不过map的key必须是字串，而value必须是同一类型的数据。
 
@@ -93,7 +107,7 @@ func main() {
 }
 ```
 
-### 嵌套结构编码
+## 嵌套结构编码
 
 slice和map可以匹配json的数组和对象，当前提是对象的value是同类型的情况。更通用的做法，对象的key可以是string，但是其值可以是多种结构。golang可以通过定义结构体实现这种构造。
 
@@ -143,7 +157,7 @@ func main(){
 }
 ```
 
-#### 空接口编码
+### 空接口编码
 
 通过定义嵌套的结构体Account，实现了key与value不一样的结构。golang的数组或切片，其类型也是一样的，如果遇到不同数据类型的数组，则需要借助空结构来实现：
 
@@ -177,7 +191,7 @@ user := User{
 
 使用空接口，也可以定义像结构体实现那种不同value类型的字典结构。当空接口没有初始化其值的时候，零值是 nil。
 
-#### 编码成json就是null
+### 编码成json就是null
 
 ```go
 type User struct {
@@ -231,7 +245,7 @@ func main() {
 
 可以看到 Extra返回的并不是一个空的切片，而是null。同时Level字段实现了向字典的嵌套结构.
 
-### Struct Tag字段重命名
+## Struct Tag字段重命名
 
 golang提供了`struct tag`的方式可以重命名结构字段的输出形式。
 
@@ -260,7 +274,7 @@ func main() {
 {"email":"rsj217@gmail.com","pass_word":"123456","money":100.5}
 ```
 
-#### 横杆`-`忽略字段
+### 横杆`-`忽略字段
 
 ```go
 type Account struct {
@@ -310,7 +324,7 @@ func main() {
 {"email":"rsj217@gmail.com","money":100.5}
 ```
 
-#### `string`选项
+### `string`选项
 
 golang是静态类型语言，对于类型定义的是不能动态修改。在json处理当中，struct tag的string可以起到部分动态类型的效果。有时候输出的json希望是数字的字符串，而定义的字段是数字类型，那么就可以使用string选项。
 
@@ -339,14 +353,14 @@ func main() {
 
 可以看到输出为 `money: "100.5"`， money字段输出的值是字串，但是定义结构体中是`float64`
 
-### 总结
+## 总结
 
 总体原则分两步，首先定义需要编码的结构，然后调用encoding/json标准库的Marshal方法生成json byte数组，转换成string类型即可。
 
 * 定义对应的结构体
 * 调用`func Marshal(v interface{}) ([]byte, error)`
 
-## Golang对JSON的解码
+## golang对JSON的解码
 
 与编码`json`的`Marshal`类似，`Golang`解析`json`也提供了`Unmarshal`方法。对于解析`json`，也大致分两步，首先定义结构，然后调用Unmarshal方法序列化。
 
@@ -415,11 +429,8 @@ type Account struct {
 
 * [Golang处理JSON（一）--- 编码](https://www.jianshu.com/p/f3c2105bd06b)
 * [Golang处理JSON（二）--- 解码](https://www.jianshu.com/p/31757e530144)
-
 * [[JSON and Go](https://blog.golang.org/json)]
 * [JSON and Go中文](https://sanyuesha.com/2018/05/07/go-json/)
-
 * [Go struct tag深入理解](https://my.oschina.net/renhc/blog/2045683)
-
 * [StructTag](https://golang.org/pkg/reflect/#StructTag)
 

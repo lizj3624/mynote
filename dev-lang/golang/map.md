@@ -1,8 +1,14 @@
-## GO Map详解
-
+- [go Map](#go-map)
+  - [Map的数据结构](#map的数据结构)
+  - [Map的创建](#map的创建)
+    - [字面量定义](#字面量定义)
+    - [make关键字定义](#make关键字定义)
+    - [Map的使用](#map的使用)
+  - [引用](#引用)
+# go Map
 Go Map是`k/v`的数据结构，内部主要是通过`Hash`实现的，`Map`的`key`可以是**内置类型**，也可以是**结构类型**，只要可以使用 `==` 运算符做比较，都可以作为`key`。**切片**、**函数**以及**包含切片的结构类型**，这些类型由于具有引用语义，不能作为`key`，使用这些类型会造成编译错误。
 
-### Map的数据结构
+## Map的数据结构
 
 Map的底层数据结构，如下引用"理解Golang哈希表Map的原理"
 
@@ -31,9 +37,9 @@ type hmap struct {
 
 ![Map详细数据结构图](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/pictures/1jjbeg6th6.jpeg)
 
-### Map的创建
+## Map的创建
 
-#### 字面量定义
+### 字面量定义
 
 ```go
 hash := map[string]int{
@@ -43,7 +49,7 @@ hash := map[string]int{
 }
 ```
 
-#### make关键字定义
+### make关键字定义
 
 ```go
 hash := make(map[string]int, 3)
@@ -69,8 +75,7 @@ hash["4"] = 4
 delete(hash, "4")
 ```
 
-### 引用
-
+## 引用
 * [深度解密Go语言之map](https://mp.weixin.qq.com/s/2CDpE5wfoiNXm1agMAq4wA)
 * [理解Golang哈希表Map的原理](https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-hashmap/)
 * [深入理解Go map：初始化和访问元素](https://cloud.tencent.com/developer/article/1422446)

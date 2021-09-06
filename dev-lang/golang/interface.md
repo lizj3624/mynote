@@ -1,8 +1,18 @@
-## 深入理解Go Interface
-
+- [深入理解Go Interface](#深入理解go-interface)
+  - [鸭子类型](#鸭子类型)
+  - [Go的interface](#go的interface)
+    - [Go接口的特点](#go接口的特点)
+      - [泛型编程](#泛型编程)
+      - [多态](#多态)
+      - [隐藏方法的具体实现](#隐藏方法的具体实现)
+    - [指针和结构体实现接口](#指针和结构体实现接口)
+    - [空接口](#空接口)
+    - [判断interface类型](#判断interface类型)
+  - [引用](#引用)
+# 深入理解Go Interface
 Golang中提高的Interface（接口）类型可以实现类似面向对象的多态的特性，和Java的面向对象编程不同的是Golang不强制"面向对象"，它使用一种[鸭子类型](https://zh.wikipedia.org/wiki/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B)的方式让动态类型称为可能。
 
-### 鸭子类型
+## 鸭子类型
 
 在 Go 中没有 `implements` 和 `extends` 这种关键字，这对我们而言反倒轻松了一些，它认为 Go 的接口就像鸭子测试里的描述：
 
@@ -14,7 +24,7 @@ Golang中提高的Interface（接口）类型可以实现类似面向对象的�
 
 任何拥有这样的正确的 “走” 和 “叫” 方法的对象都可被函数接受的这种行为引出了以上表述，这种决定类型的方式因此得名。
 
-### Go的interface
+## Go的interface
 
 在`Go` 中，`interface` 是一组`method`的集合，是`duck-type programming`的一种体现。不关心属性（数据），只关心行为（方法）。具体使用中你可以自定义自己的`struct`，并提供特定的`interface`里面的`method`就可以把它当成`interface`来使用。下面是一种`interface`的典型用法，定义函数的时候参数定义成`interface`，调用函数的时候就可以做到非常的灵活。
 
@@ -421,7 +431,7 @@ func main() {
 
 灵活高效的 interface 动态类型,使 Go 语言在保持强静态类型的安全和高效的同时，也能灵活安全地在不同相容类型之间转换
 
-### 引用
+## 引用
 
 * [[浅入浅出Go 语言接口的原理](https://draveness.me/golang/docs/part2-foundation/ch04-basic/golang-interface/)]
 * [深入理解 Go Interface](http://legendtkl.com/2017/06/12/understanding-golang-interface/)

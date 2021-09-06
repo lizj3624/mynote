@@ -1,12 +1,18 @@
+- [rune](#rune)
+  - [举例说明](#举例说明)
+    - [例子1](#例子1)
+    - [例子2](#例子2)
+# rune
 我们知道golang的数据类型有布尔型，字符串型，数字类型，派生类型。rune它属于数字类型，类似in32。 官方解释：
 
 > // rune is an alias for int32 and is equivalent to int32 in all ways. It is // used, by convention, to distinguish character values from integer values. type rune = int32 翻译成中文：rune是int32的别名，在所有方面都等同于int32。它是按惯例，用于区分字符值和整数值。
 
 看了官解我还没有了解其真正含义，`rune`一般用在哪？现在我通过2个例子来讲一下`rune`的使用。
 
-### 举例说明
+## 举例说明
 
-#### 例子1：字符串截取
+### 例子1
+字符串截取    
 
 如我们要指定截取字符串的长度，因为`golang`的`string`底层就是一个`byte`数组，我们直接取数组的前N个即可完成这个需求
 
@@ -45,7 +51,8 @@ fmt.Println(string(s[:4])) //取前4个，取出后转成string
 //结果：小手25
 ```
 
-#### 例子2：在N个字符串找到找没有重复字符，且字符串总长度最长的那个
+### 例子2
+在N个字符串找到找没有重复字符，且字符串总长度最长的那个
 
 ```golang
 ss := []string{

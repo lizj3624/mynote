@@ -1,3 +1,14 @@
+- [go vendor](#go-vendor)
+    - [vendor 特性](#vendor-特性)
+    - [vendor 使用建议](#vendor-使用建议)
+    - [govendor 简介](#govendor-简介)
+    - [govendor 使用](#govendor-使用)
+    - [govendor 子命令](#govendor-子命令)
+    - [govendor 状态参数](#govendor-状态参数)
+    - [Go modules](#go-modules)
+    - [参考](#参考)
+> 目前go1.11后使用go modules，vendor不在使用
+# go vendor
 [govendor](https://github.com/kardianos/govendor) 是一个基于 vendor 机制实现的 Go 包依赖管理命令行工具。与原生 vendor 无侵入性融合，也支持从其他依赖管理工具迁移，可以很方便的实现同一个包在不同项目中不同版本、以及无相互侵入的开发和管理。
 ### vendor 特性
 最开始的时候，Go 并没有提供较为妥当的包管理工具。从 1.5 版本开始提供了 vendor 特性，但需要手动设置环境变量 `GO15VENDOREXPERIMENT=1`。
