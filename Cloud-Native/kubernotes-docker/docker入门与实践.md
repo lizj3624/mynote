@@ -134,3 +134,47 @@ docker port nostalgic_morse 5000
 docker run -d -P --name web --link db:db 扛aining/webapp py七hon app.py
 ```
 ## Dockerfile创建镜像
+```shell
+docker file
+```
+
+# 进阶
+## 核心技术
+### 基础架构
+1. 服务端
+   * dockerd：为客户端提供RESTful API，响应来自客户端的请求，采用模块化的架构，通过专门的Engine模块来分发管理各个来自客户端的任务。
+   * docker-proxy：是dockerd的子进程，当需要进行容器端口映射时，docker-proxy完成网络映射配置
+   * containerd：是dockerd的子进程，提供gRPC接口响应来自dockerd的请求，对下管理runC镜像和容器环境。
+   * containerd-shim：是containerd的子进程，为runC容器提供支持，同时作为容器内进程的根进程
+> runC是从docker公司开源的libcontainer项目演化而来的，目前加入OCI(Open Containers Initiative)，支持容器相关的技术栈，同时正在实现跨OS
+![arch](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/pictures/docker-arch.jpg)
+2. 客户端
+docker命令就是客户端
+
+3. 镜像仓库
+docker hub
+
+### 命名空间
+命名空间(namespace)是Linux内核的一个强大特性，为容器虚拟化的实现提供极大便利，每个容器都可以拥有自己单独的命名空间。
+实现了内存、CPU、网络IO、硬盘IO、存储空间，还有文件系统、网络、PID、UID、IPC等相互隔离
+1. 进程命名空间
+2. IPC命名空间
+3. 网络命名空间
+4. 挂载命名空间
+5. UTS命名空间
+6. 用户命名空间
+
+### 控制组
+控制组(CGroups)是Linux内核的一个特性
+1. 资源限制
+2. 优先级
+3. 资源审计
+4. 隔离
+5. 控制
+
+### 联合文件系统
+联合文件系统(UnionFS)是一种轻量级的高性能分层文件系统，它支持将文件系统中的修改信息作为一次提交，并层层叠加，同时可以将不同目录挂载到同一个虚拟文件系统下，应用看到的挂载的最终结果。是docker镜像的技术基础
+
+### Linux网络虚拟化
+docker中网络接口默认是虚拟接口.
+![arch](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/pictures/docker-net.jpg)
