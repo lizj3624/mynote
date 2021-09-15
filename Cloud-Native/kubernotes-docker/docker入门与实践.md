@@ -146,8 +146,9 @@ docker file
    * docker-proxy：是dockerd的子进程，当需要进行容器端口映射时，docker-proxy完成网络映射配置
    * containerd：是dockerd的子进程，提供gRPC接口响应来自dockerd的请求，对下管理runC镜像和容器环境。
    * containerd-shim：是containerd的子进程，为runC容器提供支持，同时作为容器内进程的根进程
-> runC是从docker公司开源的libcontainer项目演化而来的，目前加入OCI(Open Containers Initiative)，支持容器相关的技术栈，同时正在实现跨OS
-![arch](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/pictures/docker-arch.jpg)
+> runC是从docker公司开源的libcontainer项目演化而来的，目前加入OCI(Open Containers Initiative)，支持容器相关的技术栈，同时正在实现跨OS    
+
+![arch](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/pictures/docker-arch.jpg)
 2. 客户端
 docker命令就是客户端
 
@@ -176,5 +177,6 @@ docker hub
 联合文件系统(UnionFS)是一种轻量级的高性能分层文件系统，它支持将文件系统中的修改信息作为一次提交，并层层叠加，同时可以将不同目录挂载到同一个虚拟文件系统下，应用看到的挂载的最终结果。是docker镜像的技术基础
 
 ### Linux网络虚拟化
-docker中网络接口默认是虚拟接口.docker服务启动时首先在主机上自动创建一个docker0虚拟网桥，实际上是一个Linux网桥。网桥可以理解为一个软件交换机，负责挂载其上的接口之间进行包转发。同时，Docker随机分配一个本地未占用的私有网段中的一个地址给docker0接口，比如`172.17.0.0、16`，掩码为`255.255.0.0.`，此后启动的容器的网口也会自动分配一个该网段的地址。当创建一个Docker容器的时候，同时会创建了一对`veth pair`互联接口。当向任一个接口发送包时，另外一个接口自动收到相同的包。互联接口的一端位于容器内，即`eth0`；另一端在本地并被挂载到`docker0`网桥，名称以`veth`开头。通过这种方式，主机可以与容器通信，容器之间也可以相互通信。如此一来，Docker就创建了在主机和所有容器之间一个虚拟共享网络。
-![arch](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/pictures/docker-net.jpg)
+docker中网络接口默认是虚拟接口.docker服务启动时首先在主机上自动创建一个docker0虚拟网桥，实际上是一个Linux网桥。网桥可以理解为一个软件交换机，负责挂载其上的接口之间进行包转发。同时，Docker随机分配一个本地未占用的私有网段中的一个地址给docker0接口，比如`172.17.0.0、16`，掩码为`255.255.0.0.`，此后启动的容器的网口也会自动分配一个该网段的地址。当创建一个Docker容器的时候，同时会创建了一对`veth pair`互联接口。当向任一个接口发送包时，另外一个接口自动收到相同的包。互联接口的一端位于容器内，即`eth0`；另一端在本地并被挂载到`docker0`网桥，名称以`veth`开头。通过这种方式，主机可以与容器通信，容器之间也可以相互通信。如此一来，Docker就创建了在主机和所有容器之间一个虚拟共享网络。    
+
+![arch](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/pictures/docker-net.jpg)
