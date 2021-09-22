@@ -3,6 +3,8 @@
   - [创建POD](#创建pod)
   - [标签](#标签)
   - [命名空间](#命名空间)
+- [副本机制](#副本机制)
+- [服务service](#服务service)
 # Pod：运行于kubernetes中的容器
 ## 介绍POD
 Pod是一组并置的容器，是kubernetes调度和管理的最小单位
@@ -140,3 +142,10 @@ kubectl delete ns custom-namespace
 # 删除当前命名空间下所有POD，保留ns
 kubectl delete po --all
 ```
+
+# 副本机制
+```shell
+# ReplicaSet
+```
+
+# 服务service
