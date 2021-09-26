@@ -1,24 +1,24 @@
-- [shell](#shell)
-  - [shell中命令间逻辑运算](#shell中命令间逻辑运算)
-    - [`&&`运算符](#运算符)
-    - [`||`运算符](#运算符-1)
-  - [linux下PS1、PS2、PS3、PS4](#linux下ps1ps2ps3ps4)
-    - [PS1](#ps1)
-    - [PS2](#ps2)
-    - [PS3](#ps3)
-    - [PS4](#ps4)
-  - [条件判断](#条件判断)
-  - [cut](#cut)
-  - [date](#date)
-  - [tar](#tar)
-  - [shell中执行mysql操作](#shell中执行mysql操作)
-  - [shell简易教程](#shell简易教程)
+- [shell中命令间逻辑运算](#shell中命令间逻辑运算)
+  - [`&&`运算符](#运算符)
+  - [`||`运算符](#运算符-1)
+- [linux下PS1、PS2、PS3、PS4](#linux下ps1ps2ps3ps4)
+  - [PS1](#ps1)
+  - [PS2](#ps2)
+  - [PS3](#ps3)
+  - [PS4](#ps4)
+- [条件判断](#条件判断)
+- [cut](#cut)
+- [date](#date)
+- [tar](#tar)
+- [shell中执行mysql操作](#shell中执行mysql操作)
+- [shell中map](#shell中map)
+- [shell的数组](#shell的数组)
+- [shell简易教程](#shell简易教程)
 - [sed](#sed)
 - [awk](#awk)
-# shell
-## shell中命令间逻辑运算
+# shell中命令间逻辑运算
 
-### `&&`运算符
+## `&&`运算符
 
 ```shell
 command1  && command2
@@ -38,7 +38,7 @@ command1 && command2 [&& command3 ...]
 
 * 只要有一个命令返回假（命令返回值 $? == 1），后面的命令就不会被执行。
 
-### `||`运算符
+## `||`运算符
 
 ```shell
 command1 || command2
@@ -52,11 +52,11 @@ command1 || command2
 
 * 只要有一个命令返回真（命令返回值 `$? == 0`），后面的命令就不会被执行。
 
-## linux下PS1、PS2、PS3、PS4
+# linux下PS1、PS2、PS3、PS4
 
 通过设置环境变量`PS1`、`PS2`、`PS3`以及`PS4`来自定义用户命令行的字符显示。如果要长期永久性修改提示符，可以将修改提示符的命令添加到`$HOME/.profile`或`$HOME/.bash_profile`文件中。
 
-### PS1
+## PS1
 `PS1`是主提示符变量,也是默认提示符变量。默认值`[\u@\h \W]\$`，显示用户主机名称工作目录。
 
 基本上通过设置`PS1`来定义命令行提示字符即可，最常用的需求就是显示登录的用户名、主目录、主机名等等。
@@ -92,7 +92,7 @@ PS1变量可以使用的参数值有如下：
 | `/]` | 字符”]”                                                      |
 | `/!` | 命令行动态统计历史命令次数                                   |
 
-### PS2
+## PS2
 
 一个非常长的命令可以通过在末尾加 `\` 使其分行显示
 PS2多行命令的默认提示符，默认值是 `>`
@@ -111,18 +111,18 @@ PS2一般使用于命令行里较长命令的换行提示信息，比如：
 
 当用 `\` 使长命令分行显示，非常易读。当然我也有的人不喜欢分行显示命令
 
-### PS3
+## PS3
 
 Shell脚本中使用select时的提示符.
 
 你可以像下面示范的那样，用环境变量PS3定制shell脚本的select提示：
 不使用PS3的脚本输出:
 
-### PS4
+## PS4
 
 PS4-`set -x`用来修改跟踪输出的前缀
 
-## 条件判断
+# 条件判断
 
 ```shell
 #整数比较：
@@ -151,7 +151,7 @@ PS4-`set -x`用来修改跟踪输出的前缀
 -n   字符串不为null，即长度不为0
 ```
 
-## cut
+# cut
 
 cut是一个选取命令，就是将一段数据经过分析，取出我们想要的.
 
@@ -204,7 +204,7 @@ $ cut -c 3 cut_ch.txt
 四
 ```
 
-## date
+# date
 ```shell
 ## 1、获取今天日期
 
@@ -247,7 +247,7 @@ $ date -d next-year +%Y    #明年日期
 $ date -d '2 weeks' +%F    #获取两星期以后的日期
 ```
 
-## tar
+# tar
 ```shell
 #解包到指定的目录
 tar zxvf filename.tar.gz -C /specific dir
@@ -255,7 +255,7 @@ tar zxvf filename.tar.gz -C /specific dir
 # 压缩到指定目录
 tar zcvf /specific/filename.tar.gz filename
 ``` 
-## shell中执行mysql操作
+# shell中执行mysql操作
 ```shell
 #!/usr/bin/env bash
 HOST="localhost"
@@ -350,7 +350,95 @@ do
 done
 ```
 
-## shell简易教程
+# shell中map
+在使用map时，需要先声明，否则结果可能与预期不同，array可以不声明
+```shell
+declare -A myMap
+myMap["my03"]="03"
+
+declare -A myMap=(["my01"]="01" ["my02"]="02")
+
+# 1）输出所有的key
+#若未使用declare声明map，则此处将输出0，与预期输出不符，此处输出语句格式比arry多了一个！
+echo ${!myMap[@]}
+
+#2）输出所有value
+#与array输出格式相同
+echo ${myMap[@]}
+
+#3）输出map长度
+#与array输出格式相同
+echo ${#myMap[@]}
+
+#1)遍历，根据key找到对应的value
+for key in ${!myMap[*]};do
+    echo $key
+    echo ${myMap[$key]}
+done
+
+#2)遍历所有的key
+for key in ${!myMap[@]};do
+    echo $key
+    echo ${myMap[$key]}
+done
+
+#3)遍历所有的value
+for val in ${myMap[@]};do
+    echo $val
+done
+```
+
+# shell的数组
+Bash Shell 只支持一维数组（不支持多维数组），初始化时不需要定义数组大小，数组元素的下标由0开始，Shell 数组用括号来表示，元素用"空格"符号分割开，语法格式如下：
+```shell
+# 定义 array_name=(value1 value2 ... valuen)
+my_array=(A B "C" D)
+array_name[0]=value0
+array_name[1]=value1
+array_name[2]=value2
+
+# 读取数组
+my_array=(A B "C" D)
+
+echo "第一个元素为: ${my_array[0]}"
+echo "第二个元素为: ${my_array[1]}"
+echo "第三个元素为: ${my_array[2]}"
+echo "第四个元素为: ${my_array[3]}"
+
+# 获取数组中的所有元素
+my_array[0]=A
+my_array[1]=B
+my_array[2]=C
+my_array[3]=D
+
+echo "数组的元素为: ${my_array[*]}"
+echo "数组的元素为: ${my_array[@]}"
+
+# 数组的长度
+my_array[0]=A
+my_array[1]=B
+my_array[2]=C
+my_array[3]=D
+
+echo "数组元素个数为: ${#my_array[*]}"
+echo "数组元素个数为: ${#my_array[@]}"
+
+# 变量数组
+for(( i=0;i<${#array[@]};i++)) 
+#${#array[@]}获取数组长度用于循环
+do
+    echo ${array[i]};
+done;
+
+for element in ${array[@]}
+#也可以写成for element in ${array[*]}
+do
+    echo $element
+done
+```
+
+
+# shell简易教程
 [shell简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/shell%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
 # sed
 [sed教程以及常用命令](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/sed-cmd.md)
