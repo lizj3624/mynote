@@ -13,6 +13,7 @@
 - [shell中执行mysql操作](#shell中执行mysql操作)
 - [shell中map](#shell中map)
 - [shell的数组](#shell的数组)
+- [shell的split](#shell的split)
 - [shell简易教程](#shell简易教程)
 - [sed](#sed)
 - [awk](#awk)
@@ -436,7 +437,37 @@ do
     echo $element
 done
 ```
+# shell的split
+```shell
+# 方法1
+IN="bla@some.com;john@home.com"
 
+mails=$(echo $IN | tr ";" "\n")
+
+for addr in $mails
+do
+    echo "> [$addr]"
+done
+
+# 方法2
+IN="bla@some.com;john@home.com"
+
+OIFS=$IFS
+IFS=';'
+mails2=$IN
+for x in $mails2
+do
+    echo "> [$x]"
+done
+
+IFS=$OIFS
+
+# 方法3
+IFS=';' read -ra ADDR <<< "$IN"
+for i in "${ADDR[@]}"; do
+    echo "$i"
+done
+```
 
 # shell简易教程
 [shell简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/shell%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
