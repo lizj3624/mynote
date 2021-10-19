@@ -5,4 +5,4 @@
    3. [软件行业的云端重构 / 美股 SaaS 与云计算投资策略全解析](https://mp.weixin.qq.com/s/waSzklJqO7lRgFIaFLUYmQ)
 
 ## 2. 国内云计算(IaaS/PaaS/SaaS)    
-   [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/19O-d19_q7WcemVqzKr0qlj89UaTXY_b27gKcpINHCZY/edit?usp=sharing)
+   1. [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/19O-d19_q7WcemVqzKr0qlj89UaTXY_b27gKcpINHCZY/edit?usp=sharing)
