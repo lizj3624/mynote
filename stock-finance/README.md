@@ -4,5 +4,9 @@
    2. [福布斯cloud 100](https://www.forbes.com/cloud100/#6a84985b5f94)
    3. [软件行业的云端重构 / 美股 SaaS 与云计算投资策略全解析](https://mp.weixin.qq.com/s/waSzklJqO7lRgFIaFLUYmQ)
 
-## 2. 国内云计算(IaaS/PaaS/SaaS)    
+## 二、 国内云计算(IaaS/PaaS/SaaS)    
    1. [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/19O-d19_q7WcemVqzKr0qlj89UaTXY_b27gKcpINHCZY/edit?usp=sharing)
+
+## 三、 股票价值分析
+   1. [股票价值分析](https://github.com/lizj3624/mynote/blob/master/stock-finance/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90.md)
+   
