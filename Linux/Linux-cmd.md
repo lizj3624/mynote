@@ -1,5 +1,4 @@
-- [Linux CPU监控指令](#linux-cpu监控指令)
-  - [Linux衡量CPU性能的指标：](#linux衡量cpu性能的指标)
+- [Linux衡量性能的指标](#linux衡量性能的指标)
   - [Linux常用监控CPU整体性能的工具](#linux常用监控cpu整体性能的工具)
     - [top](#top)
     - [mpstat](#mpstat)
@@ -12,16 +11,20 @@
     - [strace](#strace)
   - [查看当前CPU频率和性能模式](#查看当前cpu频率和性能模式)
   - [查看CPU物理、逻辑核的命令](#查看cpu物理逻辑核的命令)
-  - [Linux常用的查询命令](#linux常用的查询命令)
+- [Linux常用的查询命令](#linux常用的查询命令)
     - [查看一些硬件配置](#查看一些硬件配置)
     - [资源](#资源)
     - [磁盘和分区](#磁盘和分区)
     - [网络](#网络)
     - [用户](#用户)
     - [主机名称](#主机名称)
-## Linux CPU监控指令
+- [Linux常用的rpm命令](#linux常用的rpm命令)
+- [Linux常用查看glibc命令](#linux常用查看glibc命令)
 
-### Linux衡量CPU性能的指标：
+## Linux衡量性能的指标
+
+###  Linux常用监控CPU整体性能的工具
+![monitor](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/linux-cpu-monitor.png)
 
 * 用户使用CPU：实时运行的进程、nice
 * 系统使用CPU：用于I/O管理的中断和驱动、用于内存管理的页面交换、用于进程管理的进程开始和上下文切换
@@ -33,10 +36,7 @@
 * 运行进程队列的长度
 * 平均负载：load
 * [linux-perf](http://www.brendangregg.com/linuxperf.html)
-
-###  Linux常用监控CPU整体性能的工具
-![monitor](https://github.com/lizj3624/mynote/blob/master/Linux/pictures/linux-cpu-monitor.png)
-
+  
 #### top
 
 **top**，观察系统整体CPU使用率、平均负载、软硬中断等性能指标，其中wa指标有明显变化。
@@ -556,7 +556,7 @@ HT Number      : 2
 *****************************
 ```
 
-### Linux常用的查询命令
+## Linux常用的查询命令
 
 #### 查看一些硬件配置
 ```shell
@@ -646,4 +646,58 @@ HT Number      : 2
 #### 主机名称
 ```shell
   sudo hostnamectl set-hostname <newhostname>   #修改主机名称
+```
+
+## Linux常用的rpm命令
+```shell
+# 1、查询系统已安装的rpm包
+rpm -aq|grep rpm
+
+# 2、查询系统中一个已知的文件属于哪个rpm包
+rpm -qf /etc/zypp/zypp.conf 
+libzypp-9.34.0-0.7.15
+
+# 3、 查询已安装的软件包的相关文件的安装路径
+# rpm -ql 软件名
+rpm -ql libzypp-9.34.0-0.7.15
+
+# 4、查询一个已安装软件包的信息
+#rpm -qi 软件名
+rpm -qi libzypp-9.34.0-0.7.15
+
+# 5、查看已安装软件的配置文件
+#rpm -qc 软件名
+rpm -qc libzypp-9.34.0-0.7.15
+
+# 6、查看已安装软件的文档的安装位置
+#rpm -qd 软件名
+rpm -qd libzypp-9.34.0-0.7.15
+
+# 7、查看已安装软件所依赖的软件包及文件
+rpm -qR gcc43-4.3.4_20091019-0.37.30
+
+## 查看系统未安装软件相关命令
+# 1、查看软件包的详细信息
+rpm -qpi rzsz-0.12.20-934.22.x86_64.rpm
+
+# 2、查看软件包所包含的目录和文件
+rpm -qpl rzsz-0.12.20-934.22.x86_64.rpm
+
+# 3、查看软件包的文档所在的位置
+rpm -qpd rzsz-0.12.20-934.22.x86_64.rpm 
+
+# 4、查看软件包的配置文件（若没有，则标准输出就为空）
+rpm -qpc rzsz-0.12.20-934.22.x86_64.rpm
+
+# 5、查看软件包的依赖关系
+rpm -qpR rzsz-0.12.20-934.22.x86_64.rpm
+```
+
+## Linux常用查看glibc命令
+```shell
+# 查看安装glibc
+rpm -qa | grep glibc
+
+# 查看已安装的 gblic 版本
+strings /lib64/libc.so.6 | grep GLIBC
 ```
