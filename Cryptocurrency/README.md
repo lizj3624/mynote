@@ -6,6 +6,8 @@
 
 3. [awesome-blockchain-cn](https://github.com/lizj3624/awesome-blockchain-cn)
 
+4. [区块链开发者入门指南](https://learnblockchain.cn/article/3026?utm_source=tuicool&utm_medium=referral)
+
 ## 比特币
 
 1. [精通比特币2版](https://github.com/lizj3624/MasterBitcoin2CN)
