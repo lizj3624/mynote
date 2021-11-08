@@ -70,6 +70,10 @@
 
 * [半导体-芯片-集成电路](https://github.com/lizj3624/mynote/tree/master/IC-Chip)
 
+## 儒释道
+
+* [儒释道](https://github.com/lizj3624/mynote/blob/master/%E5%84%92%E9%87%8A%E9%81%93/README.md)
+
 
 ## Plan
 
