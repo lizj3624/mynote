@@ -74,8 +74,6 @@
 
 * [儒释道](https://github.com/lizj3624/mynote/blob/master/%E5%84%92%E9%87%8A%E9%81%93/README.md)
 
-
-
 ## Plan
 
 * [个人的2020年计划](https://github.com/lizj3624/mynote/blob/master/plans/2020-plan.md)
