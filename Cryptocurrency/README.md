@@ -10,7 +10,9 @@
 
 ## 比特币
 
-1. [精通比特币2版](https://github.com/lizj3624/MasterBitcoin2CN)
+1. [比特币白皮书中文版-比特币：一种点对点的电子现金系统](http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html) 
+
+2. [精通比特币2版](https://github.com/lizj3624/MasterBitcoin2CN)
 
 ## 以太坊
 
