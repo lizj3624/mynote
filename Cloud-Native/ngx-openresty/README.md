@@ -1,3 +1,54 @@
+# Nginx
+1. [ngx相关模块解析](http://wangfakang.github.io/)
+
+2. [ngx wrr算法详解](https://tenfy.cn/2018/11/12/smooth-weighted-round-robin/)
+
+3. [阿里巴巴七层流量入口负载均衡算法演变之路](https://www.upyun.com/tech/article/503/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E4%B8%83%E5%B1%82%E6%B5%81%E9%87%8F%E5%85%A5%E5%8F%A3%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AE%97%E6%B3%95%E6%BC%94%E5%8F%98%E4%B9%8B%E8%B7%AF.html)
+
+4. [LNMPR源码研究-Nginx源码分析](https://segmentfault.com/blog/nginx-internal)
+
+5. [Nginx-100讲](https://www.bilibili.com/video/BV1fg4y1z7BG/?p=3)
+
+6. [NGINX支持QUIC/HTTP3的实现路径和实践思考-InfoQ 公开课](https://www.bilibili.com/video/BV1hk4y1m7KE/?spm_id_from=333.788.videocard.18)
+
+7. [Nginx配置文件解析一](https://segmentfault.com/a/1190000016913713)
+
+8. [Nginx配置文件解析二](https://segmentfault.com/a/1190000016922188)
+
+9. [详解proxy_pass、upstream与resolver](https://www.jianshu.com/p/5caa48664da5)
+
+10. [Nginx源码入门指南](https://mp.weixin.qq.com/s/ec_OaZ6QFOCfotvo8eUniQ)
+
+# OpenResty
+1. [OpenResty](https://github.com/openresty/openresty)
+
+2. [OpenResty最佳实践](https://github.com/moonbingbing/openresty-best-practices)
+
+3. [resty资源推荐](https://blog.csdn.net/ai2000ai/article/details/95313081)
+
+4. [OpenResty核心和精髓](https://www.cnblogs.com/liekkas01/category/1724861.html)
+
+5. [OpenResty精华整理](https://yxudong.github.io/tags/OpenResty/)
+
+## ngx_lua
+1. [ngx_lua中的协程调度一](https://my.oschina.net/u/2539854/blog/846628)
+
+2. [ngx_lua中的协程调度二](https://my.oschina.net/u/2539854/blog/847271)
+
+3. [ngx_lua中的协程调度三](https://my.oschina.net/u/2539854/blog/849069)
+
+4. [ngx_lua中的协程调度四](https://my.oschina.net/u/2539854/blog/849959)
+
+5. [ngx_lua中的协程调度五](https://my.oschina.net/u/2539854/blog/853012)
+
+6. [ngx_lua中的协程调度六](https://my.oschina.net/u/2539854/blog/853894)
+
+7. [ngx_lua的代码缓存](https://my.oschina.net/u/2539854/blog/1635599)
+
+# Lua
+1. [Walk On LuaJIT](https://cloud.tencent.com/developer/article/1541574)
+
+# LB
 1. [L4负载均衡的设计与实现](https://mp.weixin.qq.com/s/KuKCKFuu4PYd-pcHrkCC6w)
 
 2. [现代网络负载均衡与代理（上）](https://www.infoq.cn/article/modern-network-load-balancing-and-proxying-1)
