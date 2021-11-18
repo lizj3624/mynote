@@ -4,75 +4,61 @@
 
 ## 软件技术
 
-### Go
+1. [Golang](https://github.com/lizj3624/mynote/tree/master/dev-lang/golang)
 
-* [Golang](https://github.com/lizj3624/mynote/tree/master/dev-lang/golang)
+2. Python](https://github.com/lizj3624/mynote/tree/master/dev-lang/python)
 
-### Python
+3. [Linux](https://github.com/lizj3624/mynote/tree/master/linux)
 
-* [Python](https://github.com/lizj3624/mynote/tree/master/dev-lang/python)
+4. [gdb](https://github.com/lizj3624/mynote/blob/master/coder-skill/gdb)
 
-### Linux
+5. [shell](https://github.com/lizj3624/mynote/tree/master/linux/shell)
 
-* [Linux](https://github.com/lizj3624/mynote/tree/master/linux)
+6. [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/coder-skill/vim)
 
-### GDB
+7. [git一些命令](https://github.com/lizj3624/mynote/blob/master/coder-skill/git)
 
-* [gdb](https://github.com/lizj3624/mynote/blob/master/coder-skill/gdb)
+### 网络Protocol
 
-### Shell
+1. [网络协议](https://github.com/lizj3624/mynote/tree/master/protocol)
 
-* [shell](https://github.com/lizj3624/mynote/tree/master/linux/shell)
+### 架构 
 
-### Vim
+1. [系统架构](https://github.com/lizj3624/mynote/tree/master/arch)
 
-* [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/coder-skill/vim)
+### 云原生
 
-### Git
-
-* [git一些命令](https://github.com/lizj3624/mynote/blob/master/coder-skill/git)
-
-
-### Networking Protocol
-
-* [网络通信涉及的协议:tcp/udp/tls/http/websocket](https://github.com/lizj3624/mynote/tree/master/protocol)
-
-### Arch
-
-* [系统架构](https://github.com/lizj3624/mynote/tree/master/arch)
-
-### cloud native
-
-* [云原生](https://github.com/lizj3624/mynote/tree/master/Cloud-Native)
+1. [云原生](https://github.com/lizj3624/mynote/tree/master/Cloud-Native)
 
 ### 软件工程师书单
 
-* [软件技术书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
+*1. [软件技术书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
 
 ## 英语学习
 
-* 学习英语的目的：读懂国外英文书籍，无障碍的英语沟通交流
+1. 学习英语的目的：读懂国外英文书籍，无障碍的英语沟通交流
 
 ## 经济投资
 
-* [经济投资](https://github.com/lizj3624/mynote/tree/master/reading-notes)
+1. [经济投资](https://github.com/lizj3624/mynote/tree/master/reading-notes)
 
-## 人文社科
+2. [股票投资](https://github.com/lizj3624/mynote/tree/master/stock-finance)
 
-* [人文社科](https://github.com/lizj3624/mynote/tree/master/reading-notes)
+## 阅读书单 
 
+1. [阅读书单](https://github.com/lizj3624/mynote/tree/master/reading-notes)
 
-## 书籍
+## 半导体芯片
 
-* [书籍](https://github.com/lizj3624/mynote/blob/master/reading-notes/%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92.md)
-
-## 半导体、芯片、集成电路
-
-* [半导体-芯片-集成电路](https://github.com/lizj3624/mynote/tree/master/IC-Chip)
+1. [半导体-芯片-集成电路](https://github.com/lizj3624/mynote/tree/master/IC-Chip)
 
 ## 儒释道
 
-* [儒释道](https://github.com/lizj3624/mynote/blob/master/%E5%84%92%E9%87%8A%E9%81%93/README.md)
+1. [儒释道](https://github.com/lizj3624/mynote/blob/master/%E5%84%92%E9%87%8A%E9%81%93/README.md)
+
+## 区块链
+
+1. [区块链](https://github.com/lizj3624/mynote/tree/master/blockchain)
 
 ## Plan
 
