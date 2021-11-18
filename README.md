@@ -6,7 +6,7 @@
 
 1. [Golang](https://github.com/lizj3624/mynote/tree/master/dev-lang/golang)
 
-2. Python](https://github.com/lizj3624/mynote/tree/master/dev-lang/python)
+2. [Python](https://github.com/lizj3624/mynote/tree/master/dev-lang/python)
 
 3. [Linux](https://github.com/lizj3624/mynote/tree/master/linux)
 
@@ -28,11 +28,11 @@
 
 ### 云原生
 
-1. [云原生](https://github.com/lizj3624/mynote/tree/master/Cloud-Native)
+1. [云原生](https://github.com/lizj3624/mynote/tree/master/cloudnative)
 
 ### 软件工程师书单
 
-*1. [软件技术书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
+1. [软件技术书单](https://github.com/lizj3624/mynote/tree/master/coder-skills)
 
 ## 英语学习
 
