@@ -19,7 +19,7 @@
    9. [Gartner IT公司分析](https://www.gartner.com/reviews/home)
 
 ## 二、 国内云计算(IaaS/PaaS/SaaS)    
-   1. [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/19O-d19_q7WcemVqzKr0qlj89UaTXY_b27gKcpINHCZY/edit?usp=sharing)
+   1. [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/1zIVKqSiUuIQXJSiehbN0xD4ueWit8xzYH_BIpjmh9XM/edit#gid=0)
 
 ## 三、 股票价值分析
    1. [股票价值分析](https://github.com/lizj3624/mynote/blob/master/stock-finance/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90.md)
