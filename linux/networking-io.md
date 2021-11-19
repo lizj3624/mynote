@@ -37,7 +37,7 @@ Unix/Linux系统下IO主要分为磁盘IO，网络IO，我今天主要说一下�
 
 阻塞式I/O(`blocking I/O`)是最简单的一种，默认情况下，`socket` 套接字的系统调用都是阻塞的，我以`recv/recvfrom` 理解一下网络IO的模型。当应用层的系统调用`recv/recvfrom`时，开启Linux的系统调用，开始准备数据，然后将数据从内核态复制到用户态，然后通知应用程序获取数据，整个过程都是阻塞的。两个阶段都会被阻塞。
 
-![阻塞IO](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/zuse.png)
+![阻塞IO](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/zuse.png)
 
 > 图片来源于《Unix网络编程卷1》
 
@@ -55,7 +55,7 @@ Unix/Linux系统下IO主要分为磁盘IO，网络IO，我今天主要说一下�
 ioctl(fd, FIONBIO, &nb);
 ```
 
-![非阻塞I/O](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/nonblocking.png)
+![非阻塞I/O](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/nonblocking.png)
 
 > 图片来源于《Unix网络编程卷1》
 
@@ -67,7 +67,7 @@ ioctl(fd, FIONBIO, &nb);
 
 在`Linux`下有三个`I/O`多路复用的函数`Select、Poll、Epoll`，但是它们都是同步`IO`，因为它们都需要在数据准备好后，读写数据是阻塞的。
 
-![I/O多路复用](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/duolu.png)
+![I/O多路复用](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/duolu.png)
 
 > 图片来源于《Unix网络编程卷1》
 
@@ -77,7 +77,7 @@ ioctl(fd, FIONBIO, &nb);
 
 信号驱动式`I/O`是通过信号的方式通知数据准备好，然后再讲数据拷贝到应用层，拷贝阶段也是阻塞的。
 
-![信号驱动式I/O](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/signel.png)
+![信号驱动式I/O](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/signel.png)
 
 > 图片来源于《Unix网络编程卷1》
 
@@ -87,7 +87,7 @@ ioctl(fd, FIONBIO, &nb);
 
 进程调用`read/readfrom`时，内核立刻返回，进程不会阻塞，进程可以去干其他的事情，当内核通知进程数据已经完成后，进程直接可以处理数据，不需要再拷贝数据，因为内核已经将数据从内核态拷贝到用户态，进程可以直接处理数据。
 
-![AIO](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/AIO.png)
+![AIO](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/AIO.png)
 
 > 图片来源于《Unix网络编程卷1》
 
@@ -107,7 +107,7 @@ An asynchronous I/O operation does not cause the requesting process to be blocke
 
 从这个官方定义中，不管是`Blocking I/O`还是`Non-Blocking I/O`，其实都是`synchronous I/O`。因为它们一定都会阻塞在第二阶段拷贝数据那里。只有异步IO才是异步的。
 
-![异步同步IO](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/aio-sio.jpg)
+![异步同步IO](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/aio-sio.jpg)
 
 > 图片来源于知乎
 
@@ -179,7 +179,7 @@ int epoll_wait(int epfd, struct epoll_event * events, int maxevents, int timeout
 
 #### 详细对比
 
-![IO多路复用](https://github.com/lizj3624/mydoc/blob/master/Linux/pictures/m-IO-diff.png)
+![IO多路复用](https://github.com/lizj3624/mydoc/blob/master/linux/pictures/m-IO-diff.png)
 
 ### Nginx中Epoll+非阻塞IO
 
