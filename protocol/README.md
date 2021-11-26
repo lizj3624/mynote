@@ -30,6 +30,10 @@
 
 4. [传输层安全协议（TLS）1.2版](https://blog.csdn.net/u011130578/article/details/50628857)
 
+5. [AES-GCM加密简介](https://juejin.cn/post/6844904122676690951)
+
+6. [什么是AES-GCM加密算法](https://blog.csdn.net/T0mato_/article/details/53160772)
+
 ## HTTP/HTTPS/HTTP2/HTTP3
 
 1. [了解一下HTTP协议](https://mp.weixin.qq.com/s/1Yc_uxMjyLF5kWoJsWFMcA)
