@@ -56,7 +56,7 @@ TLS1.2协议中有两种类型的握手RSA和DH
 
 #### RSA
 
-![RSA握手-cloudflare](https://github.com/lizj3624/mydoc/blob/master/https/picture/ssl_handshake_rsa.jpg)
+![RSA握手-cloudflare](https://github.com/lizj3624/mynote/tree/master/protocol/pictures/ssl_handshake_rsa.jpg)
 
 * **Client Hello**：Client端发送内容：Client支持TLS版本、Client的随机数，支持加密套件，一些选项SNI、Session ID、Session Ticket等
 * **Server Hello**：Server端接受到"Client Hello"后，发送Server Hello，主要内容Server的随机数、根据Client的加密套件选出的一组密钥套件以及Server的证书，证书中包含Server的公钥以及支持的域名，然后在发送ServerHelloDone
@@ -72,7 +72,7 @@ RSA的握手协商最核心的是用Server的公钥加密**Pre_Master_Secret**�
 
 #### DH
 
-![DH握手-cloudflare](https://github.com/lizj3624/mydoc/blob/master/https/picture/ssl_handshake_diffie_hellman.jpg)
+![DH握手-cloudflare](https://github.com/lizj3624/mynote/tree/master/protocol/pictures/ssl_handshake_diffie_hellman.jpg)
 
 DH的大致交换算法：
 
