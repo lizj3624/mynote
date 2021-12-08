@@ -8,6 +8,8 @@
 
 4. [区块链开发者入门指南](https://learnblockchain.cn/article/3026?utm_source=tuicool&utm_medium=referral)
 
+5. [登链开发社区](https://learnblockchain.cn/)
+
 ## 比特币
 
 1. [bitcoin](https://bitcoin.org/zh_CN/)
