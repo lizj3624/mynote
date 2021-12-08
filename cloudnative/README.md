@@ -7,6 +7,8 @@
 
 4. [云原生技术及未来发展趋势探讨](https://github.com/lizj3624/mynote/blob/master/Cloud-Native/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF%E6%8E%A2%E8%AE%A8.md)
 
+5. [Facebook 流量路由最佳实践：从公网入口到内网业务的全路径 XDP/BPF 基础设施](https://mp.weixin.qq.com/s/MEhCqUNNI1lpl7rFkCbySQ)
+
 # docker
 
 # kubernetes
