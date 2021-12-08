@@ -10,6 +10,8 @@
 
 5. [登链开发社区](https://learnblockchain.cn/)
 
+6. [比特币布道者](http://btc.mom/)
+
 ## 比特币
 
 1. [bitcoin](https://bitcoin.org/zh_CN/)
