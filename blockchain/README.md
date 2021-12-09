@@ -54,6 +54,8 @@
 
 15. [以太坊code](https://github.com/ethereum)
 
+16. [精通以太坊](https://github.com/lizj3624/ethereum_book)
+
 ## DEFI
 
 1. [defi pluse](https://defipulse.com/)
