@@ -10,13 +10,9 @@
 
    5. [全球CDN服务排名](https://www.cdnperf.com/)
 
-   6. [cloudflare分析-01](https://reprints2.forrester.com/#/assets/2/976/RES159092/report)
+   6. [软件行业的云端重构/美股SaaS与云计算投资策略全解析](https://mp.weixin.qq.com/s/waSzklJqO7lRgFIaFLUYmQ)
 
-   7. [cloudflare分析-02](https://getfishtank.ca/blog/cloudflare-recognized-as-industry-leader-by-forrester-and-gartner)
-
-   8. [软件行业的云端重构/美股SaaS与云计算投资策略全解析](https://mp.weixin.qq.com/s/waSzklJqO7lRgFIaFLUYmQ)
-
-   9. [Gartner IT公司分析](https://www.gartner.com/reviews/home)
+   7. [Gartner IT公司分析](https://www.gartner.com/reviews/home)
 
 ## 二、 国内云计算(IaaS/PaaS/SaaS)    
    1. [国内云计算公司一览表](https://docs.google.com/spreadsheets/d/1zIVKqSiUuIQXJSiehbN0xD4ueWit8xzYH_BIpjmh9XM/edit#gid=0)
