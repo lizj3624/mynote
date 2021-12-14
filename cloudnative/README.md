@@ -27,3 +27,14 @@
 4. [envoy](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/envoy)
 
 5. [mosn](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/mosn)
+
+# 多云管理
+
+> 基础即代码(infra as code)
+1. [Terraform](https://github.com/hashicorp/terraform)
+
+2. [Crossplane](https://github.com/crossplane/crossplane)
+
+3. [Pulumi](https://github.com/pulumi/pulumi)
+
+4. [Crossplane vs Terraform](https://cloud.tencent.com/developer/article/1801830)
