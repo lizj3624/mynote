@@ -27,8 +27,34 @@
 
    8. [开发语言排名](https://www.tiobe.com/tiobe-index/)
 
+## 四、不错的财经公众号
+   
+    1. [灰岩金融科技](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzODg2NDQyMA==&scene=124#wechat_redirect)
 
-## 四、股票价值分析
+    2. [在苍茫中传灯](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5MjUwMTY3MQ==&scene=124#wechat_redirect)
+
+    3. [美股研究社](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI4Mzc0ODQxOQ==&scene=124#wechat_redirect)
+
+    4. [海外独角兽](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2OTY0MDk0NQ==&scene=124#wechat_redirect)
+
+    5. [计算机文艺复兴](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3MDI4OTc0Ng==&scene=124#wechat_redirect)
+
+    6. [价值称重机](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI2MjQ4NDY4Ng==&scene=124#wechat_redirect)
+    
+    7. [美股百科](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5OTAxNzU0OQ==&scene=124#wechat_redirect)
+
+    8. [猛兽财经](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3NTE4MTU3MQ==&scene=124#wechat_redirect)
+
+    9. [走马财经](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIwNjYxNDkwMA==&scene=124#wechat_redirect)
+
+    10. [INDIGO 的数字镜像](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA5Mzk3OTc3OQ==&scene=124#wechat_redirect)
+
+    11. [机器阅读-雪球](https://xueqiu.com/u/1854210216)
+
+    12. [Oli是只布偶猫-雪球](https://xueqiu.com/u/1211182832)
+
+
+## 五、股票价值分析
 
 ### Shopify 电商独立建站的SaaS巨头
 
@@ -100,3 +126,5 @@
 1. [业绩股价再度暴涨近20%，多云融合趋势下的MongoDB(上)](https://www.laohu8.com/post/606879167?lang=zh_CN&invite=HYBRW)
 
 2. [业绩股价再度暴涨近20%，多云融合趋势下的MongoDB(下)](https://www.laohu8.com/post/606879778?lang=zh_CN&invite=HYBRW)
+
+3. [MongoDB中文社区](https://mongoing.com/)
