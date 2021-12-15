@@ -28,9 +28,9 @@
    8. [开发语言排名](https://www.tiobe.com/tiobe-index/)
 
 
-## 四、 股票价值分析
+## 四、股票价值分析
 
-### Shopify 电商独立建站的SaaS巨头
+    ### Shopify 电商独立建站的SaaS巨头
 
     1. [Shopify财务报表](https://investors.shopify.com/financial-reports/default.aspx#sec) 
 
@@ -40,7 +40,7 @@
 
     4. [Shopify与中国电商SaaS们的同与不同（深度）](https://mp.weixin.qq.com/s/CIW6nekW34KkRl7nOGZORA)
 
-### Cloudflare CDN，网络安全，边缘节点巨头
+    ### Cloudflare CDN，网络安全，边缘节点巨头
 
     1. [市值247亿的边缘计算公司Cloudflare，未来能颠覆AWS等公有云巨头吗？](https://mp.weixin.qq.com/s/PQxncT8Uwwrt37ZwMae8wQ)
 
@@ -50,11 +50,11 @@
 
     4. [cloudflare分析-02](https://getfishtank.ca/blog/cloudflare-recognized-as-industry-leader-by-forrester-and-gartner)
 
-### Fastly CDN, 边缘计算重要的玩家
+    ### Fastly CDN, 边缘计算重要的玩家
 
     1. [将CDN提速10倍后，Fastly押注边缘计算](https://mp.weixin.qq.com/s/eBirZZn_DRWrho91Wgl_fQ)
 
-### DigitalOcean 简单易用的IaaS和PaaS云基础设施提供商
+    ### DigitalOcean 简单易用的IaaS和PaaS云基础设施提供商
 
     1. [DigitalOcean：云计算赢家](https://mp.weixin.qq.com/s/u9IiKyXO2fOS0UjU05EjPw)
 
@@ -66,7 +66,7 @@
 
     5. [美股IPO:美国云主机厂商DigitalOcean拟在美股IPO筹集1亿美元](http://www.mengshoucaijing.com/meigudaxin/3942.html)
 
-### CrowdStrike 云安全巨头
+    ### CrowdStrike 云安全巨头
 
     1. [网络安全独角兽CrowdStrike IPO分析](https://www.secrss.com/articles/11405)
 
@@ -74,11 +74,11 @@
 
     3. [CRWD，两年4倍的网安王者](https://cj.sina.com.cn/articles/view/5115326071/130e5ae7702001hxul)
 
-### Zscaler
+    ### Zscaler
 
     1. [云安全服务与接入领头羊](https://mp.weixin.qq.com/s/vagnj3wP6-HMwE3iNHcjnA)
 
-### Okta
+    ### Okta
 
     1. [大涨十倍后，云IAM霸主Okta，能跻身千亿美金市值的公司吗？](https://www.laohu8.com/post/889079757?lang=zh_CN&invite=HYBRW)
 
@@ -90,11 +90,12 @@
 
     5. [Okta 的长期前景越来越好](https://0xzx.com/2021090601201712935.html)
 
-### HashiCorp
+    ### HashiCorp
     > 基础设施即代码(infra as code)
+
     1. [HashiCorp上市招股书摘要](https://mp.weixin.qq.com/s/Bfzo0scGsGOatWmk5qWKFg)
 
-### MongoDB
+    ### MongoDB
 
     1. [业绩股价再度暴涨近20%，多云融合趋势下的MongoDB(上)](https://www.laohu8.com/post/606879167?lang=zh_CN&invite=HYBRW)
 
