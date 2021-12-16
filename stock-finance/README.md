@@ -128,3 +128,7 @@
 2. [业绩股价再度暴涨近20%，多云融合趋势下的MongoDB(下)](https://www.laohu8.com/post/606879778?lang=zh_CN&invite=HYBRW)
 
 3. [MongoDB中文社区](https://mongoing.com/)
+
+### Snowflake
+
+1. [Snowflake：史上最大云服务IPO，在巨头身旁勇闯天涯](https://www.laohu8.com/post/975861557)
