@@ -17,6 +17,14 @@
 
 # dev-ops
 
+1. [CentOS8.2部署安装saltstack](https://www.cnblogs.com/lianglab/p/14146896.html)
+
+2. [SaltStack学习](https://www.jianshu.com/p/624b9cf51c64) 
+
+3. [SaltStack 自动化运维实战](https://blog.51cto.com/guanhaizhan/2476465)
+
+4. [Saltstack自动化](https://www.361way.com/saltstack-nodegroup/3126.html)
+
 # 云原生网关
 1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/ngx-openresty)
 
