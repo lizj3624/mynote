@@ -485,6 +485,7 @@ done
 
 # shell简易教程
 [shell简易教程](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/shell%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.md)
+[运维必知必会：Bash Shell 脚本的实践指南](https://mp.weixin.qq.com/s/SsnILIBqDyo24YIflbFNDw)
 # sed
 [sed教程以及常用命令](https://github.com/lizj3624/mynote/blob/master/dev-lang/shell/sed-cmd.md)
 # awk
