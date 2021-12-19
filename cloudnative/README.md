@@ -25,6 +25,8 @@
 
 4. [Saltstack自动化](https://www.361way.com/saltstack-nodegroup/3126.html)
 
+5. [SaltStack自动化运维](https://blog.csdn.net/mzh_csdn/category_10302339.html)
+
 # 云原生网关
 1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/ngx-openresty)
 
