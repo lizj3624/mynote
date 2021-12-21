@@ -43,6 +43,8 @@
 > 基础即代码(infra as code)
 1. [Terraform](https://github.com/hashicorp/terraform)
 
+   - [Terraform介绍-中文版](https://lonegunmanb.github.io/introduction-terraform/)
+
 2. [Crossplane](https://github.com/crossplane/crossplane)
 
 3. [Pulumi](https://github.com/pulumi/pulumi)
