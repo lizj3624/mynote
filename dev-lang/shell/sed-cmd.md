@@ -60,3 +60,14 @@ cat word.txt | sed 's/\s\+/,/g'
 ```shell
  sed -e 's/11/22/g' -e 's/33/44/g' my.txt
 ```
+
+# 4. 根据key替换value
+```json
+{
+    "wafCoreTimeout": 5
+}
+```
+
+```shell
+sed -i '/wafCoreTimeout/s/5/10/g' /export/servers/jfe/conf/localconfs/waf.json
+```
