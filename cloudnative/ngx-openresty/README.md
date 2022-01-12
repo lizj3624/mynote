@@ -19,6 +19,10 @@
 
 10. [Nginx源码入门指南](https://mp.weixin.qq.com/s/ec_OaZ6QFOCfotvo8eUniQ)
 
+11. [百万并发下nginx的优化之道](https://www.taohui.tech/2018/09/19/nginx/%E5%88%86%E4%BA%AB%E6%88%91%E5%9C%A8%E7%AC%AC%E5%8D%81%E5%B1%8Agops%E7%9A%84ppt%E3%80%8A%E7%99%BE%E4%B8%87%E5%B9%B6%E5%8F%91%E4%B8%8Bnginx%E7%9A%84%E4%BC%98%E5%8C%96%E4%B9%8B%E9%81%93%E3%80%8B/)
+
+12. [腾讯云亿级QPS弹性负载均衡系统演进](https://mp.weixin.qq.com/s/vaABAtXQDMcMAFYL_ieR9Q)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
