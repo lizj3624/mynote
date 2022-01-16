@@ -120,6 +120,8 @@
 
 5. [Okta 的长期前景越来越好](https://0xzx.com/2021090601201712935.html)
 
+6. [IDaaS身份即服务背后的基石](https://mp.weixin.qq.com/s/YT5Cvgtle31ef-Tw6CeXRw)
+
 ### HashiCorp
 > 基础设施即代码(infra as code)
 
