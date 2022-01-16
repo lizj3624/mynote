@@ -11,3 +11,7 @@
 5. [Linux Tcp协议栈大神-dog250](https://blog.csdn.net/dog250)
 
 6. [Linux操作系统原理](https://blog.csdn.net/jmilk/category_9332025.html)
+
+7. [Linux调度系统全景指南](https://mp.weixin.qq.com/s/ddQFmr4D3Ul33Ag4bsG0Yg)
+
+8. [深入理解 CPU 的调度原理](https://mp.weixin.qq.com/s/rsBGgyAlaMdLHffLaDYrBA)
