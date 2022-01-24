@@ -138,3 +138,7 @@
 ### Snowflake
 
 1. [Snowflake：史上最大云服务IPO，在巨头身旁勇闯天涯](https://www.laohu8.com/post/975861557)
+
+### Sea
+
+1. [Sea的印钞机Garena](https://singledoggy.investments/2021/09/04/garena/)
