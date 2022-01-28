@@ -9,6 +9,8 @@
 
 5. [Facebook 流量路由最佳实践：从公网入口到内网业务的全路径 XDP/BPF 基础设施](https://mp.weixin.qq.com/s/MEhCqUNNI1lpl7rFkCbySQ)
 
+6. [容器网络|深入理解Cilium](https://mp.weixin.qq.com/s/UUrqaJXzR_NcA4ZngHiU9w)
+
 # docker
 
 # kubernetes
