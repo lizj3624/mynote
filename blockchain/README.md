@@ -12,6 +12,8 @@
 
 6. [比特币布道者](http://btc.mom/)
 
+7. [币界网](https://www.528btc.com/)
+
 ## 比特币
 
 1. [bitcoin](https://bitcoin.org/zh_CN/)
@@ -57,6 +59,10 @@
 16. [精通以太坊](https://github.com/lizj3624/ethereum_book)
 
 17. [go-ethereum源码分析](https://github.com/ZtesoftCS/go-ethereum-code-analysis)
+
+18. [以太坊101-zh](https://learnblockchain.cn/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A101)
+
+19. [以太坊101-en](https://kauri.io/#collections/Ethereum%20101/ethereum-101-part-1-what-is-ethereum/)
 
 ## DEFI
 
