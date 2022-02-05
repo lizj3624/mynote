@@ -56,6 +56,8 @@
 
 16. [精通以太坊](https://github.com/lizj3624/ethereum_book)
 
+17. [go-ethereum源码分析](https://github.com/ZtesoftCS/go-ethereum-code-analysis)
+
 ## DEFI
 
 1. [defi pluse](https://defipulse.com/)
