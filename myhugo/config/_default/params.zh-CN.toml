@@ -1,41 +1,24 @@
-Description = "欢迎来到凡梦星尘空间站，个人主要专注于程序开发，产品，售前及大数据解决方案。"
-Keywords =  "博客, 程序员, 架构师, 思考, 读书, 笔记, 技术, 分享, 大数据, 产品"
-Subtitle = "没有伞的孩子要学会努力奔跑!"
+Description = "欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"
+Keywords =  "云计算, 软件开发, 架构师, 思考, 读书, 笔记, 技术, 投资, 加密货币, 区块链"
+Subtitle = "幸福和富有的过一生!"
 AuthorImg = "/img/avatar.png"
-AuthorName = "凡梦星尘"
-Introduce = "再平凡的人也有属于他自己的梦想!"
-DateFormat = "2006-01-02"
-YearFormat = "2006年"
-MonthFormat = "01-02"
+AuthorName = "lizj3624"
+Introduce = "幸福和富有的过一生!" 
+DateFormat = "2022-02-07"
+YearFormat = "2022年"
+MonthFormat = "02-07"
 
 [Footer]
   StorageLink = "https://www.ucloud.cn/"
   StorageName = "UCloud云存储"
   ICPLink = "http://beian.miit.gov.cn"
-  ICPNo = "粤ICP备18047355号"
 
 [[Socials]]
   Name = "GitHub"
   Icon = "github"
-  URL = "https://github.com/elkan1788/"
+  URL = "https://github.com/lizj3624/"
 
 [[Socials]]
   Name = "知乎"
   Icon = "globe"
-  URL = "https://www.zhihu.com/people/fan-meng-xing-chen-1"
-
-[[Links]]
-  Name = "Nutz"
-  Permalink = "https://nutzam.com/"
-
-[[Links]]
-  Name = "JFinal"
-  Permalink = "https://jfinal.com/"
-
-[[Links]]
-  Name = "Wendal"
-  Permalink = "http://wendal.net/"
-
-[[Links]]
-  Name = "廖雪峰"
-  Permalink = "https://www.liaoxuefeng.com/"
+  URL = "https://www.zhihu.com/people/li-zun-ju"
