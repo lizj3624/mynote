@@ -31,6 +31,14 @@
 
    10. [美股SaaS的“40法则”：原理及应用](https://zhuanlan.zhihu.com/p/166328530)
 
+   11. [美股总市值](https://siblisresearch.com/data/us-stock-market-value/)
+
+   12. [全球股票动态](https://www.stockq.org/)
+
+   13. [宏观数据分析-财经M平方](https://sc.macromicro.me/)
+
+   14. [全球金融市场动态](https://cn.investing.com/markets/)
+
 ## 四、不错的财经公众号
    
 1. [灰岩金融科技](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzODg2NDQyMA==&scene=124#wechat_redirect)
