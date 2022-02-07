@@ -1,12 +1,12 @@
 ---
 title: "美国上市公司总市值已近50万亿美金"
-date: 2022-02-07T21:29:21+08:00
+date: "2022-02-07"
 tags:
   - 宏观
   - 美股
-draft: true
 ---
-![us-stock-cap](https://github.com/lizj3624/mynote/blob/master/stock-finance/pictures/us-stock-cap.png)
+
+![us-stock-cap](./us-stock-cap.png)
 
 根据Siblis Research 的数据显示：
 
