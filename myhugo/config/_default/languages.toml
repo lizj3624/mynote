@@ -1,11 +1,11 @@
 [zh-CN]
-  title = "幸福和富有过一生"
+  title = "幸福和富有的过一生"
   languageName = "中文"
   weight = 1
   contentdir = "content/zh-CN"
 
 [en]
-  title = "Loving life and dreams."
+  title = "Happy and prosperous life."
   languageName = "English"
   weight = 2
   contentdir = "content/en"

@@ -8,11 +8,6 @@ DateFormat = "2022-02-07"
 YearFormat = "2022年"
 MonthFormat = "02-07"
 
-[Footer]
-  StorageLink = "https://www.ucloud.cn/"
-  StorageName = "UCloud云存储"
-  ICPLink = "http://beian.miit.gov.cn"
-
 [[Socials]]
   Name = "GitHub"
   Icon = "github"
