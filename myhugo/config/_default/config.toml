@@ -31,6 +31,9 @@ ignoreErrors = ["error-remote-getjson"]
   changefreq = "weekly"
   priority = 0.5
 
+[params]
+    dateFormat = "02 Jan 2006"
+
 [outputFormats]
   [outputFormats.SearchIndex]
     mediaType = "application/xml"
