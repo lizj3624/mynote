@@ -6,9 +6,9 @@ tags:
   - 财报
 ---
 
-![cloudflare](./cloudflare.png)
+> 2022年2月10号盘后，Cloudflare发布了Q4财报和全年财报，信息如下
 
-> 2022年2月10号，盘后，Cloudflare发布了Q4财报和全年财报
+![cloudflare](./cloudflare.png)
 
 ### Cloudflare 2021年Q4财报亮点
 
