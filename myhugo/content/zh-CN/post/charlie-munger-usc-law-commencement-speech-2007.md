@@ -8,6 +8,10 @@ tags:
 
 > 查理·芒格(Charlie Munger)于2007年5月在南加州法学院毕业典礼上的演讲。
 > [演讲实录-中英文](https://www.youtube.com/watch?v=_iqhrvhwG0Q)
+> 芒格学院翻译的[中文版本](https://www.madewill.com/master/how-to-live-effectively.html)
+
+![查理·芒格](./Charlie-Munger.jpeg)
+查理·芒格
 
 ## 演讲要点：
 
@@ -20,10 +24,6 @@ tags:
 4、如果你真的想要在某个领域做得很出色，那么你必须对它有强烈的兴趣，也一定要非常勤奋。
 
 5、要拥有自己真正的能力，而不是鹦鹉学舌的知识。
-
-![查理·芒格](./Charlie-Munger.jpeg)
-
-查理·芒格
 
 ## **以下是演讲正文**：
 
