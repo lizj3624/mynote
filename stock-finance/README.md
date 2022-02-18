@@ -31,13 +31,15 @@
 
    10. [美股SaaS的“40法则”：原理及应用](https://zhuanlan.zhihu.com/p/166328530)
 
-   11. [美股总市值](https://siblisresearch.com/data/us-stock-market-value/)
+   11. [SaaS的资本指数](https://www.saas-capital.com/the-saas-capital-index/)
 
-   12. [全球股票动态](https://www.stockq.org/)
+   12. [美股总市值](https://siblisresearch.com/data/us-stock-market-value/)
 
-   13. [宏观数据分析-财经M平方](https://sc.macromicro.me/)
+   13. [全球股票动态](https://www.stockq.org/)
 
-   14. [全球金融市场动态](https://cn.investing.com/markets/)
+   14. [宏观数据分析-财经M平方](https://sc.macromicro.me/)
+
+   15. [全球金融市场动态](https://cn.investing.com/markets/)
 
 ## 四、不错的财经公众号
    
@@ -150,3 +152,7 @@
 ### Sea
 
 1. [Sea的印钞机Garena](https://singledoggy.investments/2021/09/04/garena/)
+
+### Salesforce
+
+1. [Salesforce20年研习录：钉钉、飞书和企业微信们要走的路还很长](https://www.laohu8.com/post/638953723?lang=zh_CN&invite=HYBRW)
