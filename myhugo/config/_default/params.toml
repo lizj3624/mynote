@@ -10,7 +10,7 @@
   Enable = true
   Module = "Waline"
   LiveReId = "Your LiveReId"
-  WalineSerURL = "Your WalineSerURL"
+  WalineSerURL = "lizj3624-comment.vercel.app"
 
 [LeanCloud]
   AppId = "Your LCAppId"
