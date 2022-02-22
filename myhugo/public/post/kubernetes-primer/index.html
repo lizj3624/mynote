@@ -1,0 +1,449 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
+<title> Kubernetes入门 - 幸福和富有的过一生 </title>
+<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
+<meta name=author content="lizj3624">
+<meta property="og:title" content="Kubernetes入门">
+<meta property="og:site_name" content="幸福和富有的过一生">
+<meta property="og:image" content="/img/author.jpg">
+<meta name=title content="Kubernetes入门 - 幸福和富有的过一生">
+<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=/css/main.css rel=stylesheet type=text/css>
+<link href=/css/syntax.css rel=stylesheet type=text/css>
+</head>
+<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
+<div class="container one-collumn sidebar-position-left page-home">
+<div class=headband></div>
+<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=header-inner> <div class=site-brand-container>
+<div class=site-nav-toggle>
+<div class=toggle role=button style=opacity:1;top:0>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+</div>
+</div>
+<div class=site-meta>
+<div class=multi-lang-switch>
+<i class="fa fa-fw fa-language" style=margin-right:5px></i>
+<a class=lang-link id=zh-cn href=#>中文</a>
+</div>
+<div class=custom-logo-site-title>
+<a href=/ class=brand rel=start>
+<span class=logo-line-before><i></i></span>
+<span class=site-title>幸福和富有的过一生</span>
+<span class=logo-line-after><i></i></span>
+</a>
+</div>
+<p class=site-subtitle>幸福和富有的过一生!</p>
+</div>
+<div class=site-nav-right>
+<div class="toggle popup-trigger" style=opacity:1;top:0>
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class=site-nav>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a href=/ rel=section>
+<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
+</a>
+</li>
+<li class=menu-item>
+<a href=/post rel=section>
+<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
+</a>
+</li>
+<li class=menu-item>
+<a href=/about.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
+</a>
+</li>
+<li class=menu-item>
+<a href=/404.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
+</a>
+</li>
+<li class="menu-item menu-item-search">
+<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
+</li>
+</ul>
+<div class=site-search>
+<div class="popup search-popup local-search-popup">
+<div class="local-search-header clearfix">
+<span class=search-icon><i class="fa fa-search"></i> </span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
+<div class=local-search-input-wrapper>
+<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
+</div>
+</div>
+<div id=local-search-result></div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id=main class=main>
+<div class=main-inner>
+<div class=content-wrap>
+<div id=content class=content>
+<section id=posts class=posts-expand>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-primer/ itemprop=url>
+Kubernetes入门
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-02-22">
+2022-02-22
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>kubernetes</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>1633 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>4分钟</span>
+</span>
+<span id=/post/kubernetes-primer/ class=leancloud_visitors data-flag-title=Kubernetes入门>
+|
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+<blockquote>
+<p>以容器(docker)和容器编排(kubernetes)的云原生技术栈在后端开发中越来越重要，每个技术童鞋都有必要熟悉这个技术栈</p>
+</blockquote>
+<h1 id=kubernetes入门>kubernetes入门</h1>
+<h2 id=kubernetes的核心组件>kubernetes的核心组件</h2>
+<p><a href=./components-of-kubernetes.svg>arch</a></p>
+<h3 id=api-server>API Server</h3>
+<pre><code>API server 的核心功能是提供k8s各类资源对象(如Pod、RC、Service)的增删改查及Watch等HTTP REST接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个集群的数据总线和数据中心，运行在master节点。 
+通常还具有以下功能。
+
+- 集群管理的API入口
+- 资源配额控制的入口
+- 提供了完备的集群安全机制。
+
+通常我们会通过kubectl命令与API server进行交互，提供restful API，所以说也可以通过代码方式直接调用k8s的API server。
+</code></pre>
+<h3 id=控制器管理器controller-manager>控制器管理器(controller-manager)</h3>
+<pre><code>controller-manager作为集群内部的管理控制中心，负责集群内部的Node、Pod、Endpoint、Namespace、ServiceAccount、ResourceQuota等的管理，意为控制器，运行在master节点。
+
+- ReplicaSet Controller(副本控制器): 管理控制 pod 副本（服务集群）的数量，以使其永远与预期设定的数量保持一致。
+- Endpoint Controller(节点控制器): Endpoint用来表示kubernetes集群中Service对应的后端Pod副本的访问地址，Endpoint Controller则是用来生成和维护Endpoints对象的控制器，其主要负责监听Service和对应Pod副本变化。
+- Deployment Controller(部署控制器): Deployment中文意思为部署、调度，通过Deployment我们能操作RS（ReplicaSet）
+- StatefulSet Controller(状态控制器): StatefulSet的出现是K8S为了解决 “有状态” 应用落地而产生的，Stateful这个单词本身就是“有状态”的意思 
+- DaemonSet Controller(收回控制器): Daemon本身就是守护进程的意思，那么很显然DaemonSet就是K8S里实现守护进程机制的控制器
+- Job Controller(任务控制器): 在K8S里运行批处理任务我们用Job即可
+- CronJob Controller(cronjob控制器): 定时任务
+</code></pre>
+<h3 id=调度器scheduler>调度器(scheduler)</h3>
+<pre><code>kube-scheduler意为调度器，在集群承担了&quot;承上启下&quot;的重要功能，“承上”指的是它负责接收 Controller -manager创建的新Pod。为其安排一个可以安置的node;“启下”指的是安置完成之后，目前Node上的kubelet服务进程接管后继续工作，负责Pod生命周期中的下半生。
+</code></pre>
+<h3 id=kubelet>kubelet</h3>
+<pre><code>一个在集群中每个节点(node)上运行的代理。 它保证容器(containers)都 运行在 Pod 中。 kubelet 接收一组通过各类机制提供给它的 PodSpecs，确保这些 PodSpecs 中描述的容器处于运行状态且健康。
+</code></pre>
+<h3 id=kube-proxy>kube-proxy</h3>
+<pre><code>kube-proxy 是集群中每个节点上运行的网络代理， 实现 Kubernetes 服务(Service) 概念的一部分。
+</code></pre>
+<h3 id=etcd>etcd</h3>
+<pre><code>存储数据
+</code></pre>
+<h2 id=kubernetes的请求流程>kubernetes的请求流程</h2>
+<p><a href=./k8s-arch.jpg>arch</a></p>
+<h3 id=pod>Pod</h3>
+<pre><code>- Pod可以理解为是一组功能相同的容器，装的是docker创建的容器，也就是用来封装容器的一个容器；
+- Pod 是一个虚拟化分组，有自己的IP地址和主机名hostname，利用namespace 进行资源隔离，相当于一台独立沙箱环境；
+- Pod 相当于一台独立主机，内部可以封装一个或多个容器(通常是一组相关的容器)，内部容器之间访问采用 localhost。
+</code></pre>
+<p><a href=./pod.png>arch</a></p>
+<pre><code>&gt; Pod可以理解为豌豆荚
+</code></pre>
+<h3 id=service>Service</h3>
+<pre><code>Kubernetes Service定义了这样一种抽象：逻辑上的一组Pod，一种可以访问它们的策略——通常称为微服务。 Service 所针对的 Pods 集合通常是通过选择算符(标签选择器)来确定的
+Pod经常被创建和销毁，IP地址不固定，Service定义一组逻辑上的Pod，通过kube-proxy对外输出一下固定的VIP:Port，称为cluster IP，请求通过这个cluster IP调用服务。
+</code></pre>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/kubernetes rel=tag title=kubernetes>#kubernetes#</a>
+<a href=/tags/k8s rel=tag title=k8s>#k8s#</a>
+<a href=/tags/cloudnative rel=tag title=cloudnative>#cloudnative#</a>
+</div>
+<div class=addthis_inline_share_toolbox></div>
+<div class=post-nav>
+<div class=article-copyright>
+<div class=article-copyright-img>
+<img src=/img/qq_qrcode.png width=129px height=129px>
+<div style=text-align:center>QQ扫一扫交流</div>
+</div>
+<div class=article-copyright-info>
+<p>
+<span>声明：</span>Kubernetes入门
+</p>
+<p>
+<span>链接：</span>https://lizj3624.github.io/post/kubernetes-primer/
+</p>
+<p>
+<span>作者：</span>lizj3624
+</p>
+<p>
+<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
+</p>
+</div>
+</div>
+<div class=clear></div>
+</div>
+<div class=reward-qr-info>
+<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
+<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>赏</span>
+</button>
+<div id=QR style=display:none>
+<div id=wechat style=display:inline-block>
+<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
+<p>微信打赏</p>
+</div>
+<div id=alipay style=display:inline-block>
+<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
+<p>支付宝打赏</p>
+</div>
+</div>
+</div>
+<div class=post-nav>
+<div class="post-nav-next post-nav-item">
+</div>
+<div class="post-nav-prev post-nav-item">
+<a href=https://lizj3624.github.io/post/docker-cmd/ rel=prev title=Docker常用的命令>
+Docker常用的命令
+<i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+<div id=wcomments></div>
+</footer>
+</article>
+</section>
+</div>
+</div>
+<div class=sidebar-toggle>
+<div class=sidebar-toggle-line-wrap>
+<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+</div>
+<aside id=sidebar class=sidebar>
+<div class=sidebar-inner>
+<ul class="sidebar-nav motion-element">
+<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
+文章目录
+</li>
+<li class=sidebar-nav-overview data-target=site-overview>
+站点概览
+</li>
+</ul>
+<section class="site-overview sidebar-panel">
+<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
+<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
+<p class=site-author-name itemprop=name>lizj3624</p>
+<p class="site-description motion-element" itemprop=description>
+幸福和富有的过一生!
+</p>
+</div>
+<nav class="site-state motion-element">
+<div class="site-state-item site-state-posts">
+<a href=/post/>
+<span class=site-state-item-count>17</span>
+<span class=site-state-item-name>日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href=/categories/>
+<span class=site-state-item-count>5</span>
+<span class=site-state-item-name>分类</span>
+</a>
+</div>
+<div class="site-state-item site-state-tags">
+<a href=/tags/>
+<span class=site-state-item-count>25</span>
+<span class=site-state-item-name>标签</span>
+</a>
+</div>
+</nav>
+<div class="links-of-author motion-element">
+<span class=links-of-author-item>
+<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
+<i class="fa fa-fw fa-github"></i>
+GitHub
+</a>
+</span>
+<span class=links-of-author-item>
+<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
+<i class="fa fa-fw fa-globe"></i>
+知乎
+</a>
+</span>
+</div>
+<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
+<div class=tagcloud-of-blogroll-title>
+<i class="fa fa-fw fa-tags"></i>
+标签云
+</div>
+<ul class=tagcloud-of-blogroll-list>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/docker>Docker</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/markdown>Markdown</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/buzz>Buzz</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudflare>Cloudflare</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudnative>Cloudnative</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/css>Css</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/emoji>Emoji</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/faamg>Faamg</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+<div class=post-toc>
+<div class=post-toc-content><nav id=TableOfContents>
+<ul>
+<li><a href=#kubernetes的核心组件>kubernetes的核心组件</a>
+<ul>
+<li><a href=#api-server>API Server</a></li>
+<li><a href=#控制器管理器controller-manager>控制器管理器(controller-manager)</a></li>
+<li><a href=#调度器scheduler>调度器(scheduler)</a></li>
+<li><a href=#kubelet>kubelet</a></li>
+<li><a href=#kube-proxy>kube-proxy</a></li>
+<li><a href=#etcd>etcd</a></li>
+</ul>
+</li>
+<li><a href=#kubernetes的请求流程>kubernetes的请求流程</a>
+<ul>
+<li><a href=#pod>Pod</a></li>
+<li><a href=#service>Service</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=footer-inner>
+<div class=copyright>
+<span class=copyright-year>
+&copy; 2010 - 2022
+</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span>
+</div>
+<div class=powered-info>
+<span class=powered-by>
+Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
+</span>
+<span class=separator-line>/</span>
+<span class=theme-info>
+Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
+</a>
+</span>
+</div>
+<div class=vistor-info>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv>
+<i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span>
+<span class=separator-line>/</span>
+<span class=site-pv>
+<i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span>
+</span>
+</div>
+<div class=license-info>
+<span class=storage-info>
+Storage by
+<a href style=font-weight:700 target=_blank></a>
+</span>
+<span class=separator-line>/</span>
+<span class=license-num>
+<a href target=_blank></a>
+</span>
+</div>
+</div>
+</footer>
+<div class=back-to-top>
+<i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span>
+</div>
+</div>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript src=/js/scrollspy.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
+<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
