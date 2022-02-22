@@ -15,7 +15,7 @@ toc: true
 # kubernetes入门
 
 ## kubernetes的核心组件
-[arch](./components-of-kubernetes.svg)
+![arch](./components-of-kubernetes.svg)
 
 ### API Server
 
@@ -57,14 +57,14 @@ toc: true
     存储数据
 
 ## kubernetes的请求流程
-[arch](./k8s-arch.jpg)
+![arch](./k8s-arch.jpg)
 
 ### Pod
     - Pod可以理解为是一组功能相同的容器，装的是docker创建的容器，也就是用来封装容器的一个容器；
     - Pod 是一个虚拟化分组，有自己的IP地址和主机名hostname，利用namespace 进行资源隔离，相当于一台独立沙箱环境；
     - Pod 相当于一台独立主机，内部可以封装一个或多个容器(通常是一组相关的容器)，内部容器之间访问采用 localhost。
 
-[arch](./pod.png)
+![arch](./pod.png)
 
     > Pod可以理解为豌豆荚
 

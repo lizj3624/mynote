@@ -128,7 +128,7 @@ Kubernetes入门
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1633 字</span>
+<span class=leancloud-world-count>1630 字</span>
 </span>
 <span>
 |
@@ -150,7 +150,7 @@ Kubernetes入门
 </blockquote>
 <h1 id=kubernetes入门>kubernetes入门</h1>
 <h2 id=kubernetes的核心组件>kubernetes的核心组件</h2>
-<p><a href=./components-of-kubernetes.svg>arch</a></p>
+<p><img src=./components-of-kubernetes.svg alt=arch></p>
 <h3 id=api-server>API Server</h3>
 <pre><code>API server 的核心功能是提供k8s各类资源对象(如Pod、RC、Service)的增删改查及Watch等HTTP REST接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个集群的数据总线和数据中心，运行在master节点。 
 通常还具有以下功能。
@@ -185,13 +185,13 @@ Kubernetes入门
 <pre><code>存储数据
 </code></pre>
 <h2 id=kubernetes的请求流程>kubernetes的请求流程</h2>
-<p><a href=./k8s-arch.jpg>arch</a></p>
+<p><img src=./k8s-arch.jpg alt=arch></p>
 <h3 id=pod>Pod</h3>
 <pre><code>- Pod可以理解为是一组功能相同的容器，装的是docker创建的容器，也就是用来封装容器的一个容器；
 - Pod 是一个虚拟化分组，有自己的IP地址和主机名hostname，利用namespace 进行资源隔离，相当于一台独立沙箱环境；
 - Pod 相当于一台独立主机，内部可以封装一个或多个容器(通常是一组相关的容器)，内部容器之间访问采用 localhost。
 </code></pre>
-<p><a href=./pod.png>arch</a></p>
+<p><img src=./pod.png alt=arch></p>
 <pre><code>&gt; Pod可以理解为豌豆荚
 </code></pre>
 <h3 id=service>Service</h3>
