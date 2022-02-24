@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Kubernetes入门</title><url>https://lizj3624.github.io/post/kubernetes-primer/</url><categories><category>kubernetes</category></categories><tags><tag>kubernetes</tag><tag>k8s</tag><tag>cloudnative</tag></tags><content type="html"> 以容器(docker)和容器编排(kubernetes)的云原生技术栈在后端开发中越来越重要，每个技术童鞋都有必要熟悉这个技术栈
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>区块链加密货币入门</title><url>https://lizj3624.github.io/post/blockchain/</url><categories><category>blockchain</category></categories><tags><tag>blockchain</tag><tag>bitcoin</tag><tag>cryptocurrency</tag></tags><content type="html"> 2008年10月31号加密hacker中本聪发表了比特币白皮书，2009年1月3日，创世区块诞生，比特币诞生， 区块链和加密货币的大门被打开，区块链加密货币经过10多年的发展已经被很多人所接受，现在还是发展初级阶段，未来大有可为，从现在开始学习区块链技术，今年争取拥有加密货币资产。
+Bitcoin 比特币是有加密hacker中本聪由2009年1月3号创建。
+比特币白皮书
+精通比特币
+Ethereum 以太坊是由维塔利克·布特林(V神)2013年提出的，发表了以太坊白皮书，支持智能合约。
+以太坊白皮书
+精通以太坊
+IPFS 星际文件系统(IPFS)是一个旨在实现文件的分布式存储、共享和持久化的网络传输协议，文件币(filecoin)。
+IPFS Polkadot 波卡是由以太坊前CTO，以太坊黄皮书作者Gavin Wood博士创建，支持跨链。
+波卡 Solana solana NFT NFT(非同质化代币)是一种被称为区块链数字账本上的数据单位，每个代币可以代表一个独特的数字资料，作为虚拟商品所有权的电子认证或证书。
+OpenSea
+NFT School
+NFT Storage
+DeFi 去中心化金融（英语：Decentralized finance，俗称DeFi）是一种创建于区块链上的金融，它不依赖券商、交易所或银行等金融机构提供金融工具，而是利用区块链上的智能合约（例如以太坊）进行金融活动。
+DeFi Pulse
+Compound
+ENS 以太坊域名服务（Ethereum Name Service）是一个基于以太坊区块链的分布式、开放和可扩展的命名系统。 通俗地说，ENS就是区块链中的域名系统。 ENS 域名让人们没有必要再复制或输入冗长的区块链地址。
+ENS
+ENS中文介绍</content></entry><entry><title>Kubernetes入门</title><url>https://lizj3624.github.io/post/kubernetes-primer/</url><categories><category>kubernetes</category></categories><tags><tag>kubernetes</tag><tag>k8s</tag><tag>cloudnative</tag></tags><content type="html"> 以容器(docker)和容器编排(kubernetes)的云原生技术栈在后端开发中越来越重要，每个技术童鞋都有必要熟悉这个技术栈
 kubernetes入门 kubernetes的核心组件 API Server API server 的核心功能是提供k8s各类资源对象(如Pod、RC、Service)的增删改查及Watch等HTTP REST接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个集群的数据总线和数据中心，运行在master节点。 通常还具有以下功能。
 集群管理的API入口 资源配额控制的入口 提供了完备的集群安全机制。 通常我们会通过kubectl命令与API server进行交互，提供restful API，所以说也可以通过代码方式直接调用k8s的API server。
 控制器管理器(controller-manager) controller-manager作为集群内部的管理控制中心，负责集群内部的Node、Pod、Endpoint、Namespace、ServiceAccount、ResourceQuota等的管理，意为控制器，运行在master节点。
