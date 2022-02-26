@@ -1,0 +1,531 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
+<title> OpenResty中的lua协程 - 幸福和富有的过一生 </title>
+<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
+<meta name=author content="lizj3624">
+<meta property="og:title" content="OpenResty中的lua协程">
+<meta property="og:site_name" content="幸福和富有的过一生">
+<meta property="og:image" content="/img/author.jpg">
+<meta name=title content="OpenResty中的lua协程 - 幸福和富有的过一生">
+<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=/css/main.css rel=stylesheet type=text/css>
+<link href=/css/syntax.css rel=stylesheet type=text/css>
+</head>
+<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
+<div class="container one-collumn sidebar-position-left page-home">
+<div class=headband></div>
+<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=header-inner> <div class=site-brand-container>
+<div class=site-nav-toggle>
+<div class=toggle role=button style=opacity:1;top:0>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+</div>
+</div>
+<div class=site-meta>
+<div class=multi-lang-switch>
+<i class="fa fa-fw fa-language" style=margin-right:5px></i>
+<a class=lang-link id=zh-cn href=#>中文</a>
+</div>
+<div class=custom-logo-site-title>
+<a href=/ class=brand rel=start>
+<span class=logo-line-before><i></i></span>
+<span class=site-title>幸福和富有的过一生</span>
+<span class=logo-line-after><i></i></span>
+</a>
+</div>
+<p class=site-subtitle>幸福和富有的过一生!</p>
+</div>
+<div class=site-nav-right>
+<div class="toggle popup-trigger" style=opacity:1;top:0>
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class=site-nav>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a href=/ rel=section>
+<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
+</a>
+</li>
+<li class=menu-item>
+<a href=/post rel=section>
+<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
+</a>
+</li>
+<li class=menu-item>
+<a href=/about.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
+</a>
+</li>
+<li class=menu-item>
+<a href=/404.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
+</a>
+</li>
+<li class="menu-item menu-item-search">
+<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
+</li>
+</ul>
+<div class=site-search>
+<div class="popup search-popup local-search-popup">
+<div class="local-search-header clearfix">
+<span class=search-icon><i class="fa fa-search"></i> </span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
+<div class=local-search-input-wrapper>
+<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
+</div>
+</div>
+<div id=local-search-result></div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id=main class=main>
+<div class=main-inner>
+<div class=content-wrap>
+<div id=content class=content>
+<section id=posts class=posts-expand>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/ngx_lua/ itemprop=url>
+OpenResty中的lua协程
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-02-26">
+2022-02-26
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/openresty itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>OpenResty</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>nginx</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/ngx_lua itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>ngx_lua</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>2220 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>5分钟</span>
+</span>
+<span id=/post/ngx_lua/ class=leancloud_visitors data-flag-title=OpenResty中的lua协程>
+|
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+<blockquote>
+<p><a href=http://openresty.org/cn/>OpenResty</a>是一个基于<code>nginx</code>与<code>Lua</code>的高性能<code>Web</code>平台，其内部集成了大量精良的<code>Lua</code>库、第三方模块以及大多数的依赖项。
+用于方便地搭建能够处理超高并发、扩展性极高的动态Web应用、Web服务和动态网关。 <br>
+研究和学习ngx_lua以及lua协程对理解OpenResty源码很有帮助, 收集一些ngx_lua源码讲解的文章。</p>
+</blockquote>
+<h2 id=ngx_lua>ngx_lua</h2>
+<p>nginx是事件驱动的异步处理方式，Lua语言本身是同步处理，但是Lua原生支持协程，给nginx与Lua的结合提供了机会。</p>
+<p>nginx可以同时处理数以万计的网络连接，Lua可以同时存在很多协程，简单一点想，对每个到来的网络连接，创建一个新的协程去处理，处理完毕后释放协程。
+和Apache为每个连接fork一个进程处理的流程十分相似，只不过多个进程换成了多个协程。</p>
+<p>协程相比较进程占用资源很小，协程之间的切换性能消耗非常小，几乎就相当于函数调用一样。以同步的方式写程序，实现了异步处理的效率。当然实际的编程实现并没有多进程那么简单。</p>
+<p>在Lua中，每个协程对应有一个<code>lua_State</code>结构体， 这个结构体中保存了协程的所有信息。所有的协程共享一个<code>global_State</code>结构体，这个结构体保存全局相关的一些信息，主要是所有需要垃圾回收的对象。</p>
+<p>通常创建Lua执行环境都是从<code>lua_open</code>(即<code>luaL_newstate</code>)开始, <code>lua_open</code>会创建一个<code>global_State</code>结构，创建一个协程作为主协程<code>ngx_http_lua_module</code>是在读取配置后的<code>postconfiguration</code>阶段创建Lua环境的，
+除此之外还做了一个额外的操作，主要是创建了名为ngx，类型为table的全局变量，所有Lua与nginx的交互都是通过ngx这个全局变量来实现的，如ngx.sleep, ngx.socket等方法都在这个的table中。</p>
+<p>nginx中请求的处理是分阶段的，<code>ngx_http_lua_module</code>在多个阶段挂载了回调函数，这里ngx_lua的图.
+<img src=./ngx_lua.jpg alt=01></p>
+<p>在rewrite, access 等多个阶段，都有相应的*_by_lua*处理。</p>
+<p>这里以access阶段为例。先通过<code>ngx_http_lua_get_lua_vm</code>获取主协程的<code>lua_State</code>结构体L，再通过<code>ngx_http_lua_cache_loadbuffer</code>获取解析后的lua代码，
+然后通过<code>ngx_http_lua_access_by_chunk</code>执行lua代码。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
+<span style=color:#00a000>ngx_http_lua_access_handler_inline</span>(ngx_http_request_t <span style=color:#666>*</span>r)
+{
+    ngx_int_t                  rc;
+    lua_State                 <span style=color:#666>*</span>L;
+    ngx_http_lua_loc_conf_t   <span style=color:#666>*</span>llcf;
+
+    llcf <span style=color:#666>=</span> ngx_http_get_module_loc_conf(r, ngx_http_lua_module);
+
+    L <span style=color:#666>=</span> ngx_http_lua_get_lua_vm(r, <span style=color:#a2f>NULL</span>);
+
+    <span style=color:#080;font-style:italic>/*  load Lua inline script (w/ cache) sp = 1 */</span>
+    rc <span style=color:#666>=</span> ngx_http_lua_cache_loadbuffer(r<span style=color:#666>-&gt;</span>connection<span style=color:#666>-&gt;</span>log, L,
+                                       llcf<span style=color:#666>-&gt;</span>access_src.value.data,
+                                       llcf<span style=color:#666>-&gt;</span>access_src.value.len,
+                                       llcf<span style=color:#666>-&gt;</span>access_src_key,
+                                       (<span style=color:#a2f;font-weight:700>const</span> <span style=color:#0b0;font-weight:700>char</span> <span style=color:#666>*</span>) llcf<span style=color:#666>-&gt;</span>access_chunkname);
+
+    <span style=color:#a2f;font-weight:700>if</span> (rc <span style=color:#666>!=</span> NGX_OK) {
+        <span style=color:#a2f;font-weight:700>return</span> NGX_HTTP_INTERNAL_SERVER_ERROR;
+    }
+
+    <span style=color:#a2f;font-weight:700>return</span> ngx_http_lua_access_by_chunk(L, r);
+}
+</code></pre></div><p>在balancer_by_lua*, header_filter_by_lua*, body_filter_by_lua, log_by_lua阶段中，直接在主协程中执行代码，而在access，content等其他几个阶段中，会创建一个新的协程去执行此阶段的lua代码。表现在API层面，两者的区别就是能否执行ngx.sleep, ngx.socket, ngx.thread这几个命令。</p>
+<p>Lua中的协程可以随时挂起，一段时间后继续运行。在access等阶段会新建协程， 新的协程只处理一个请求，可以方便的挂起来，不会影响其他的协程。而在log阶段没有创建新的协程，主协程是不能执行ngx.sleep等阻塞操作的。</p>
+<p>Lua中的协程也是GC对象，会被系统进行垃圾回收时销毁掉，为了保证挂起的协程不会被GC掉，ngx_http_lua_module在全局的注册表中创建了一个table，新创建的协程保存在table中，协程执行完毕后从table中注销，GC时就会将已注销的协程回收掉。</p>
+<p>ngx_http_lua_module初始Lua运行环境时，执行ngx_http_lua_init_registry函数，在注册表创建了几个table，key为ngx_http_lua_coroutines_key的table保存所有的协程。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> <span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_http_lua_init_registry</span>(lua_State <span style=color:#666>*</span>L, ngx_log_t <span style=color:#666>*</span>log)
+{
+    ngx_log_debug0(NGX_LOG_DEBUG_HTTP, log, <span style=color:#666>0</span>,
+                   <span style=color:#b44>&#34;lua initializing lua registry&#34;</span>);
+
+    <span style=color:#080;font-style:italic>/* register a table to anchor lua coroutines reliably:
+</span><span style=color:#080;font-style:italic>     **/</span>
+    lua_pushlightuserdata(L, <span style=color:#666>&amp;</span>ngx_http_lua_coroutines_key);
+    lua_createtable(L, <span style=color:#666>0</span>, <span style=color:#666>32</span> <span style=color:#080;font-style:italic>/* nrec */</span>);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+
+    <span style=color:#080;font-style:italic>/* create the registry entry for the Lua request ctx data table */</span>
+    lua_pushliteral(L, ngx_http_lua_ctx_tables_key);
+    lua_createtable(L, <span style=color:#666>0</span>, <span style=color:#666>32</span> <span style=color:#080;font-style:italic>/* nrec */</span>);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+
+    <span style=color:#080;font-style:italic>/* create the registry entry for the Lua socket connection pool table */</span>
+    lua_pushlightuserdata(L, <span style=color:#666>&amp;</span>ngx_http_lua_socket_pool_key);
+    lua_createtable(L, <span style=color:#666>0</span>, <span style=color:#666>8</span> <span style=color:#080;font-style:italic>/* nrec */</span>);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+
+<span style=color:#080>#if (NGX_PCRE)
+</span><span style=color:#080></span>    <span style=color:#080;font-style:italic>/* create the registry entry for the Lua precompiled regex object cache */</span>
+    lua_pushlightuserdata(L, <span style=color:#666>&amp;</span>ngx_http_lua_regex_cache_key);
+    lua_createtable(L, <span style=color:#666>0</span>, <span style=color:#666>16</span> <span style=color:#080;font-style:italic>/* nrec */</span>);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+<span style=color:#080>#endif
+</span><span style=color:#080></span>
+    lua_pushlightuserdata(L, <span style=color:#666>&amp;</span>ngx_http_lua_code_cache_key);
+    lua_createtable(L, <span style=color:#666>0</span>, <span style=color:#666>8</span> <span style=color:#080;font-style:italic>/* nrec */</span>);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+
+}
+</code></pre></div><p>nginx中处理请求都是围绕<code>ngx_http_request_t</code>结构体进行了，一个<code>ngx_http_request_t</code>结构体代表了当前正在处理的一个请求。
+<code>ngx_http_lua_module</code>处理Lua脚本时要与nginx进行交互，也要通过这个结构体实现。
+为此在创建新的协程后，将相关联的<code>ngx_http_request_t</code>的指针保存在了lua_State的全局变量中。</p>
+<p>如下所示，通过<code>ngx_http_lua_set_req</code>将请求与协程关联。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> ngx_inline <span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_http_lua_set_req</span>(lua_State <span style=color:#666>*</span>L, ngx_http_request_t <span style=color:#666>*</span>r)
+{
+    lua_pushlightuserdata(L, r);
+    lua_setglobal(L, ngx_http_lua_req_key);
+}
+</code></pre></div><p>通过<code>ngx_http_lua_get_req</code>从<code>lua_State</code>中获取协程关联的请求。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> ngx_inline ngx_http_request_t <span style=color:#666>*</span>
+<span style=color:#00a000>ngx_http_lua_get_req</span>(lua_State <span style=color:#666>*</span>L)
+{
+    ngx_http_request_t    <span style=color:#666>*</span>r;
+
+    lua_getglobal(L, ngx_http_lua_req_key);
+    r <span style=color:#666>=</span> lua_touserdata(L, <span style=color:#666>-</span><span style=color:#666>1</span>);
+    lua_pop(L, <span style=color:#666>1</span>);
+
+    <span style=color:#a2f;font-weight:700>return</span> r;
+}
+</code></pre></div><p>下面这个是<code>ngx.get_method</code>的API的实现，很简单的逻辑，通过<code>ngx_http_lua_get_req</code>获取请求的<code>ngx_http_request_t</code>结构体，
+从结构体中把代表请求方法字符串返回。<code>ngx_http_lua_module</code>提供的API大都通过这种方式来实现。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> <span style=color:#0b0;font-weight:700>int</span>
+<span style=color:#00a000>ngx_http_lua_ngx_req_get_method</span>(lua_State <span style=color:#666>*</span>L)
+{
+    <span style=color:#0b0;font-weight:700>int</span>                      n;
+    ngx_http_request_t      <span style=color:#666>*</span>r;
+
+    n <span style=color:#666>=</span> lua_gettop(L);
+    <span style=color:#a2f;font-weight:700>if</span> (n <span style=color:#666>!=</span> <span style=color:#666>0</span>) {
+        <span style=color:#a2f;font-weight:700>return</span> luaL_error(L, <span style=color:#b44>&#34;only one argument expected but got %d&#34;</span>, n);
+    }
+
+    r <span style=color:#666>=</span> ngx_http_lua_get_req(L);
+    <span style=color:#a2f;font-weight:700>if</span> (r <span style=color:#666>==</span> <span style=color:#a2f>NULL</span>) {
+        <span style=color:#a2f;font-weight:700>return</span> luaL_error(L, <span style=color:#b44>&#34;request object not found&#34;</span>);
+    }
+
+    ngx_http_lua_check_fake_request(L, r);
+
+    lua_pushlstring(L, (<span style=color:#0b0;font-weight:700>char</span> <span style=color:#666>*</span>) r<span style=color:#666>-&gt;</span>method_name.data, r<span style=color:#666>-&gt;</span>method_name.len);
+    <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>1</span>;
+}
+</code></pre></div><h2 id=引用参考文章>引用参考文章</h2>
+<ol>
+<li>
+<p><a href=https://www.qlee.in/openresty/2017/02/23/nginx-lua-coroutine/>ngx_lua中的lua协程</a></p>
+</li>
+<li>
+<p><a href=https://www.cnblogs.com/liekkas01/category/1724861.html>OpenResty讲解</a></p>
+</li>
+<li>
+<p><a href="https://my.oschina.net/u/2539854?tab=newest&catalogId=5646800">OpenResty中ngx_lua</a></p>
+</li>
+</ol>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/openresty rel=tag title=OpenResty>#OpenResty#</a>
+<a href=/tags/nginx rel=tag title=nginx>#nginx#</a>
+<a href=/tags/ngx_lua rel=tag title=ngx_lua>#ngx_lua#</a>
+</div>
+<div class=addthis_inline_share_toolbox></div>
+<div class=post-nav>
+<div class=article-copyright>
+<div class=article-copyright-img>
+<img src=/img/qq_qrcode.png width=129px height=129px>
+<div style=text-align:center>QQ扫一扫交流</div>
+</div>
+<div class=article-copyright-info>
+<p>
+<span>声明：</span>OpenResty中的lua协程
+</p>
+<p>
+<span>链接：</span>https://lizj3624.github.io/post/ngx_lua/
+</p>
+<p>
+<span>作者：</span>lizj3624
+</p>
+<p>
+<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
+</p>
+</div>
+</div>
+<div class=clear></div>
+</div>
+<div class=reward-qr-info>
+<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
+<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>赏</span>
+</button>
+<div id=QR style=display:none>
+<div id=wechat style=display:inline-block>
+<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
+<p>微信打赏</p>
+</div>
+<div id=alipay style=display:inline-block>
+<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
+<p>支付宝打赏</p>
+</div>
+</div>
+</div>
+<div class=post-nav>
+<div class="post-nav-next post-nav-item">
+</div>
+<div class="post-nav-prev post-nav-item">
+<a href=https://lizj3624.github.io/post/ngx-epoll/ rel=prev title="nginx epoll惊群">
+nginx epoll惊群
+<i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+<div id=wcomments></div>
+</footer>
+</article>
+</section>
+</div>
+</div>
+<div class=sidebar-toggle>
+<div class=sidebar-toggle-line-wrap>
+<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+</div>
+<aside id=sidebar class=sidebar>
+<div class=sidebar-inner>
+<ul class="sidebar-nav motion-element">
+<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
+文章目录
+</li>
+<li class=sidebar-nav-overview data-target=site-overview>
+站点概览
+</li>
+</ul>
+<section class="site-overview sidebar-panel">
+<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
+<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
+<p class=site-author-name itemprop=name>lizj3624</p>
+<p class="site-description motion-element" itemprop=description>
+幸福和富有的过一生!
+</p>
+</div>
+<nav class="site-state motion-element">
+<div class="site-state-item site-state-posts">
+<a href=/post/>
+<span class=site-state-item-count>20</span>
+<span class=site-state-item-name>日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href=/categories/>
+<span class=site-state-item-count>10</span>
+<span class=site-state-item-name>分类</span>
+</a>
+</div>
+<div class="site-state-item site-state-tags">
+<a href=/tags/>
+<span class=site-state-item-count>32</span>
+<span class=site-state-item-name>标签</span>
+</a>
+</div>
+</nav>
+<div class="links-of-author motion-element">
+<span class=links-of-author-item>
+<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
+<i class="fa fa-fw fa-github"></i>
+GitHub
+</a>
+</span>
+<span class=links-of-author-item>
+<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
+<i class="fa fa-fw fa-globe"></i>
+知乎
+</a>
+</span>
+</div>
+<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
+<div class=tagcloud-of-blogroll-title>
+<i class="fa fa-fw fa-tags"></i>
+标签云
+</div>
+<ul class=tagcloud-of-blogroll-list>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/docker>Docker</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/markdown>Markdown</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/nginx>Nginx</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/bitcoin>Bitcoin</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/blockchain>Blockchain</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/buzz>Buzz</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudflare>Cloudflare</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudnative>Cloudnative</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+<div class=post-toc>
+<div class=post-toc-content><nav id=TableOfContents>
+<ul>
+<li><a href=#ngx_lua>ngx_lua</a></li>
+<li><a href=#引用参考文章>引用参考文章</a></li>
+</ul>
+</nav></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=footer-inner>
+<div class=copyright>
+<span class=copyright-year>
+&copy; 2010 - 2022
+</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span>
+</div>
+<div class=powered-info>
+<span class=powered-by>
+Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
+</span>
+<span class=separator-line>/</span>
+<span class=theme-info>
+Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
+</a>
+</span>
+</div>
+<div class=vistor-info>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv>
+<i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span>
+<span class=separator-line>/</span>
+<span class=site-pv>
+<i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span>
+</span>
+</div>
+<div class=license-info>
+<span class=storage-info>
+Storage by
+<a href style=font-weight:700 target=_blank></a>
+</span>
+<span class=separator-line>/</span>
+<span class=license-num>
+<a href target=_blank></a>
+</span>
+</div>
+</div>
+</footer>
+<div class=back-to-top>
+<i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span>
+</div>
+</div>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript src=/js/scrollspy.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
+<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
