@@ -16,7 +16,8 @@ static ngx_inline void ngx_http_lua_set_req(lua_State *L, ngx_http_request_t *r)
 static ngx_inline ngx_http_request_t * ngx_http_lua_get_req(lua_State *L) { ngx_http_request_t *r; lua_getglobal(L, ngx_http_lua_req_key); r = lua_touserdata(L, -1); lua_pop(L, 1); return r; } 下面这个是ngx.get_method的API的实现，很简单的逻辑，通过ngx_http_lua_get_req获取请求的ngx_http_request_t结构体， 从结构体中把代表请求方法字符串返回。ngx_http_lua_module提供的API大都通过这种方式来实现。
 static int ngx_http_lua_ngx_req_get_method(lua_State *L) { int n; ngx_http_request_t *r; n = lua_gettop(L); if (n != 0) { return luaL_error(L, "only one argument expected but got %d", n); } r = ngx_http_lua_get_req(L); if (r == NULL) { return luaL_error(L, "request object not found"); } ngx_http_lua_check_fake_request(L, r); lua_pushlstring(L, (char *) r->method_name.data, r->method_name.len); return 1; } 引用参考文章 ngx_lua中的lua协程
 OpenResty讲解
-OpenResty中ngx_lua</content></entry><entry><title>nginx epoll惊群</title><url>https://lizj3624.github.io/post/ngx-epoll/</url><categories><category>nginx</category><category>epoll</category></categories><tags><tag>nginx</tag><tag>epoll</tag></tags><content type="html"> nginx是目前比较流行的高性能的负载均衡，反向代理，静态web服务器，它的高性能主要是基于epoll(Linux)的事件框架。
+OpenResty中ngx_lua
+OpenResty精华整理</content></entry><entry><title>nginx epoll惊群</title><url>https://lizj3624.github.io/post/ngx-epoll/</url><categories><category>nginx</category><category>epoll</category></categories><tags><tag>nginx</tag><tag>epoll</tag></tags><content type="html"> nginx是目前比较流行的高性能的负载均衡，反向代理，静态web服务器，它的高性能主要是基于epoll(Linux)的事件框架。
 nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现。 还有epoll存在惊群的问题，看看nginx是如何解决的这个问题的。 从网络上收集整理一些资料，在此汇总一下，以便查阅。
 惊群现象 首先，我们看看维基百科对惊群的定义,简而言之， 惊群现象（thundering herd）就是当多个进程和线程在同时阻塞等待同一个事件时，如果这个事件发生，会唤醒所有的进程， 但最终只可能有一个进程/线程对该事件进行处理，其他进程/线程会在失败后重新休眠，这种性能浪费就是惊群。
 accept惊群 考虑如下场景：

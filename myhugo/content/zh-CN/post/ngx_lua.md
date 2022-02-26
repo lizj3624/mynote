@@ -170,3 +170,5 @@ ngx_http_lua_ngx_req_get_method(lua_State *L)
 2. [OpenResty讲解](https://www.cnblogs.com/liekkas01/category/1724861.html)
 
 3. [OpenResty中ngx_lua](https://my.oschina.net/u/2539854?tab=newest&catalogId=5646800)
+
+4. [OpenResty精华整理](https://yxudong.github.io/categories/OpenResty/)
