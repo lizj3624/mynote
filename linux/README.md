@@ -15,3 +15,5 @@
 7. [Linux调度系统全景指南](https://mp.weixin.qq.com/s/ddQFmr4D3Ul33Ag4bsG0Yg)
 
 8. [深入理解 CPU 的调度原理](https://mp.weixin.qq.com/s/rsBGgyAlaMdLHffLaDYrBA)
+
+9. [深挖Linux内核新特性](https://github.com/0voice/kernel_new_features)
