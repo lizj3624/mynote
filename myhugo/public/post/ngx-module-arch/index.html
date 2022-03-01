@@ -1,0 +1,642 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
+<title> nginx源码分析-模块化架构 - 幸福和富有的过一生 </title>
+<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
+<meta name=author content="lizj3624">
+<meta property="og:title" content="nginx源码分析-模块化架构">
+<meta property="og:site_name" content="幸福和富有的过一生">
+<meta property="og:image" content="/img/author.jpg">
+<meta name=title content="nginx源码分析-模块化架构 - 幸福和富有的过一生">
+<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=/css/main.css rel=stylesheet type=text/css>
+<link href=/css/syntax.css rel=stylesheet type=text/css>
+</head>
+<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
+<div class="container one-collumn sidebar-position-left page-home">
+<div class=headband></div>
+<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=header-inner> <div class=site-brand-container>
+<div class=site-nav-toggle>
+<div class=toggle role=button style=opacity:1;top:0>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+</div>
+</div>
+<div class=site-meta>
+<div class=multi-lang-switch>
+<i class="fa fa-fw fa-language" style=margin-right:5px></i>
+<a class=lang-link id=zh-cn href=#>中文</a>
+</div>
+<div class=custom-logo-site-title>
+<a href=/ class=brand rel=start>
+<span class=logo-line-before><i></i></span>
+<span class=site-title>幸福和富有的过一生</span>
+<span class=logo-line-after><i></i></span>
+</a>
+</div>
+<p class=site-subtitle>幸福和富有的过一生!</p>
+</div>
+<div class=site-nav-right>
+<div class="toggle popup-trigger" style=opacity:1;top:0>
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class=site-nav>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a href=/ rel=section>
+<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
+</a>
+</li>
+<li class=menu-item>
+<a href=/post rel=section>
+<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
+</a>
+</li>
+<li class=menu-item>
+<a href=/about.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
+</a>
+</li>
+<li class=menu-item>
+<a href=/404.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
+</a>
+</li>
+<li class="menu-item menu-item-search">
+<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
+</li>
+</ul>
+<div class=site-search>
+<div class="popup search-popup local-search-popup">
+<div class="local-search-header clearfix">
+<span class=search-icon><i class="fa fa-search"></i> </span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
+<div class=local-search-input-wrapper>
+<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
+</div>
+</div>
+<div id=local-search-result></div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id=main class=main>
+<div class=main-inner>
+<div class=content-wrap>
+<div id=content class=content>
+<section id=posts class=posts-expand>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/ngx-module-arch/ itemprop=url>
+nginx源码分析-模块化架构
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-03-01">
+2022-03-01
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/nginx%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90 itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>nginx源码分析</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>2816 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>6分钟</span>
+</span>
+<span id=/post/ngx-module-arch/ class=leancloud_visitors data-flag-title=nginx源码分析-模块化架构>
+|
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+<blockquote>
+<p>从源码角度分析一下nginx的模块化设计架构，主要通过nginx-1.15.8源码以及陶辉写的《深入理解Nginx模块开发与架构解析》进行分析的。</p>
+</blockquote>
+<h2 id=nginx模块的数据结构>nginx模块的数据结构</h2>
+<h3 id=nginx模块化的设计主要体现在ngx_module_t的数据结构>nginx模块化的设计主要体现在<code>ngx_module_t</code>的数据结构</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>struct</span> ngx_module_s {
+    ngx_uint_t            ctx_index;
+    ngx_uint_t            index;
+
+    <span style=color:#0b0;font-weight:700>char</span>                 <span style=color:#666>*</span>name;
+
+    ngx_uint_t            spare0;
+    ngx_uint_t            spare1;
+
+    ngx_uint_t            version;
+    <span style=color:#a2f;font-weight:700>const</span> <span style=color:#0b0;font-weight:700>char</span>           <span style=color:#666>*</span>signature;
+
+    <span style=color:#0b0;font-weight:700>void</span>                 <span style=color:#666>*</span>ctx;
+    ngx_command_t        <span style=color:#666>*</span>commands;
+    ngx_uint_t            type;
+
+    ngx_int_t           (<span style=color:#666>*</span>init_master)(ngx_log_t <span style=color:#666>*</span>log);
+
+    ngx_int_t           (<span style=color:#666>*</span>init_module)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+
+    ngx_int_t           (<span style=color:#666>*</span>init_process)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+    ngx_int_t           (<span style=color:#666>*</span>init_thread)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+    <span style=color:#0b0;font-weight:700>void</span>                (<span style=color:#666>*</span>exit_thread)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+    <span style=color:#0b0;font-weight:700>void</span>                (<span style=color:#666>*</span>exit_process)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+
+    <span style=color:#0b0;font-weight:700>void</span>                (<span style=color:#666>*</span>exit_master)(ngx_cycle_t <span style=color:#666>*</span>cycle);
+
+    uintptr_t             spare_hook0;
+    uintptr_t             spare_hook1;
+    uintptr_t             spare_hook2;
+    uintptr_t             spare_hook3;
+    uintptr_t             spare_hook4;
+    uintptr_t             spare_hook5;
+    uintptr_t             spare_hook6;
+    uintptr_t             spare_hook7;
+};
+
+<span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> ngx_module_s          ngx_module_t;
+</code></pre></div><h4 id=主要字段说明>主要字段说明</h4>
+<ul>
+<li><code>ctx_index</code>表示当前模块在这类(<code>type</code>类型)模块中的序号。它非常重要，Nginx的模块化设计非常依赖于各个模块的顺序，它们即用于表达优先级，也用于表明每个模块的位置，以便nginx框架快速获得某个模块的数据。</li>
+</ul>
+<p><code>ctx_index</code>赋值主要在<code>ngx_count_modules</code>函数处理的。</p>
+<ul>
+<li><code>index</code>表示当前模块在nginx所有模块<code>ngx_modules</code>中的序号，nginx在启动时会根据<code>ngx_modules</code>数组设置各个模块的<code>index</code>值</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
+<span style=color:#00a000>ngx_preinit_modules</span>(<span style=color:#0b0;font-weight:700>void</span>)
+{
+    ngx_uint_t  i;
+
+    <span style=color:#a2f;font-weight:700>for</span> (i <span style=color:#666>=</span> <span style=color:#666>0</span>; ngx_modules[i]; i<span style=color:#666>++</span>) {
+        ngx_modules[i]<span style=color:#666>-&gt;</span>index <span style=color:#666>=</span> i;
+        ngx_modules[i]<span style=color:#666>-&gt;</span>name <span style=color:#666>=</span> ngx_module_names[i];
+    }
+
+    ngx_modules_n <span style=color:#666>=</span> i;
+    ngx_max_module <span style=color:#666>=</span> ngx_modules_n <span style=color:#666>+</span> NGX_MAX_DYNAMIC_MODULES;
+
+    <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+}
+</code></pre></div><ul>
+<li><code>ctx</code></li>
+</ul>
+<p><code>ctx</code>用于指向一类模块的上下文结构体，指向这类特定模块的公共接口，只对HTTP模块，主要<code>ngx_http_module_t</code>结构体，后面会介绍这个结构体</p>
+<ul>
+<li><code>commands</code></li>
+</ul>
+<p>模块所支持的指令。</p>
+<ul>
+<li><code>type</code></li>
+</ul>
+<p>模块的类型, 与<code>ctx</code>密切相关，主要有这种类型<code>NGX_HTTP_MODULE、NGX_CORE_MODULE、NGX_CONF_MODULE、NGX_EVENT_MODULE、NGX_MAIL_MODULE、NGX_STREAM_MODULE</code></p>
+<ul>
+<li><code>init_master</code></li>
+</ul>
+<p>代码中好像没有调用，貌似做保留用，从字面上来，应该是master进程启动时调用。</p>
+<ul>
+<li><code>init_module</code></li>
+</ul>
+<p>每个模块如果设置这个回调函数，初始化时调用。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
+<span style=color:#00a000>ngx_init_modules</span>(ngx_cycle_t <span style=color:#666>*</span>cycle)
+{
+    ngx_uint_t  i;
+
+    <span style=color:#a2f;font-weight:700>for</span> (i <span style=color:#666>=</span> <span style=color:#666>0</span>; cycle<span style=color:#666>-&gt;</span>modules[i]; i<span style=color:#666>++</span>) {
+        <span style=color:#a2f;font-weight:700>if</span> (cycle<span style=color:#666>-&gt;</span>modules[i]<span style=color:#666>-&gt;</span>init_module) {
+            <span style=color:#a2f;font-weight:700>if</span> (cycle<span style=color:#666>-&gt;</span>modules[i]<span style=color:#666>-&gt;</span>init_module(cycle) <span style=color:#666>!=</span> NGX_OK) {
+                <span style=color:#a2f;font-weight:700>return</span> NGX_ERROR;
+            }
+        }
+    }
+
+    <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+}
+</code></pre></div><p><code>ngx_init_modules</code>函数主要是由master进程fork子进程前的<code>ngx_init_cycle</code>调用</p>
+<ul>
+<li><code>init_process</code></li>
+</ul>
+<p>子进程for完成后调用。主要由<code>ngx_worker_process_init</code>调用，而<code>ngx_worker_process_init</code>主要有fork子进程后的<code>ngx_worker_process_cycle</code>调用。</p>
+<p><code>ngx_master_process_cycle</code>&ndash;><code>ngx_start_worker_processes</code>&ndash;><code>ngx_worker_process_cycle</code>&ndash;><code>ngx_worker_process_init</code>&ndash;><code>cycle->modules[i]->init_process(cycle)</code></p>
+<ul>
+<li><code>init_thread</code></li>
+</ul>
+<p>多线程模式下调用，nginx已经支持多线程模式，但是再这里暂不讨论。</p>
+<ul>
+<li><code>exit_thread</code></li>
+</ul>
+<p>多线程模式下调用，nginx已经支持多线程模式，但是再这里暂不讨论。</p>
+<ul>
+<li><code>exit_process</code></li>
+</ul>
+<p>woker子进程时调用。</p>
+<ul>
+<li><code>exit_master</code></li>
+</ul>
+<p>master进程时调用。</p>
+<p>模块的数据结构中的初始化回调函数<code>init_module、init_process、exit_process、exit_master</code>是由nginx框架调用的，跟HTTP框架无关，因此HTTP模块时可以设置为<code>NULL</code>，HTTP模块主要设置<code>ctx</code>和<code>commands</code>,
+针对HTTP模块来说，<code>ctx</code>指向<code>ngx_http_moduel_t</code>的数据结构，<code>commands</code>被赋值于<code>ngx_command_t</code>的结构体。我们通过<a href=https://github.com/openresty/lua-nginx-module>lua-nginx-module</a>的模块代码。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_module_t ngx_http_lua_module <span style=color:#666>=</span> {
+    NGX_MODULE_V1,                                       <span style=color:#080;font-style:italic>// ngx_module_t数据结构的前7个字段，通过一个宏定义统一赋值
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#666>&amp;</span>ngx_http_lua_module_ctx,   <span style=color:#080;font-style:italic>/*  module context */</span>    <span style=color:#080;font-style:italic>//ctx字段, 主要是ngx_http_module_t指针
+</span><span style=color:#080;font-style:italic></span>    ngx_http_lua_cmds,          <span style=color:#080;font-style:italic>/*  module directives */</span> <span style=color:#080;font-style:italic>//commands字段, 只要是ngx_command_t结构体
+</span><span style=color:#080;font-style:italic></span>    NGX_HTTP_MODULE,            <span style=color:#080;font-style:italic>/*  module type */</span>       <span style=color:#080;font-style:italic>//type字段
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  init master */</span>       <span style=color:#080;font-style:italic>//init_master回调函数
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  init module */</span>       <span style=color:#080;font-style:italic>//init_module回调函数
+</span><span style=color:#080;font-style:italic></span>    ngx_http_lua_init_worker,   <span style=color:#080;font-style:italic>/*  init process */</span>      <span style=color:#080;font-style:italic>//init_process回调函数
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  init thread */</span>       <span style=color:#080;font-style:italic>//init_thread回调函数 
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  exit thread */</span>       <span style=color:#080;font-style:italic>//exit_thread回调函数
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  exit process */</span>      <span style=color:#080;font-style:italic>//exit_process回调函数
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f>NULL</span>,                       <span style=color:#080;font-style:italic>/*  exit master */</span>       <span style=color:#080;font-style:italic>//exit_master回调函数
+</span><span style=color:#080;font-style:italic></span>    NGX_MODULE_V1_PADDING                                <span style=color:#080;font-style:italic>//其他字段剩余字段统一宏定义赋值
+</span><span style=color:#080;font-style:italic></span>};
+</code></pre></div><p><code>ctx</code>的数据结构在<code>ngx_module_t</code>中是<code>void</code>类型，可以是任何指针类型，在HTTP模块主要是<code>ngx_http_module_t</code>的数据结构指针，其他模块可能是其他类型，我们先从HTTP模块分析</p>
+<h3 id=http模块的ctx数据结构>HTTP模块的ctx数据结构</h3>
+<p>HTTP模块的ctx主要是<code>ngx_http_module_t</code>的结构体指针，我们来看一下这个结构体</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> {
+    ngx_int_t   (<span style=color:#666>*</span>preconfiguration)(ngx_conf_t <span style=color:#666>*</span>cf);                        <span style=color:#080;font-style:italic>//解析配置前调用
+</span><span style=color:#080;font-style:italic></span>    ngx_int_t   (<span style=color:#666>*</span>postconfiguration)(ngx_conf_t <span style=color:#666>*</span>cf);                       <span style=color:#080;font-style:italic>//完成配置解析后调用
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#0b0;font-weight:700>void</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>create_main_conf)(ngx_conf_t <span style=color:#666>*</span>cf);                        <span style=color:#080;font-style:italic>//main级别(http{}块配置项)中的全局配置时，回调函数创建存储全局配置的结构体 
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#0b0;font-weight:700>char</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>init_main_conf)(ngx_conf_t <span style=color:#666>*</span>cf, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>conf);              <span style=color:#080;font-style:italic>//main级别配置项的初始化
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#0b0;font-weight:700>void</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>create_srv_conf)(ngx_conf_t <span style=color:#666>*</span>cf);                         <span style=color:#080;font-style:italic>//srv级别(server{}块)的配置时，回调函数创建存储配置的结构体
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#0b0;font-weight:700>char</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>merge_srv_conf)(ngx_conf_t <span style=color:#666>*</span>cf, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>prev, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>conf);  <span style=color:#080;font-style:italic>//srv级别初始化回调函数
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#0b0;font-weight:700>void</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>create_loc_conf)(ngx_conf_t <span style=color:#666>*</span>cf);                         <span style=color:#080;font-style:italic>//loc级别(location{})的配置时，回调函数创建存储配置的结构体
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#0b0;font-weight:700>char</span>       <span style=color:#666>*</span>(<span style=color:#666>*</span>merge_loc_conf)(ngx_conf_t <span style=color:#666>*</span>cf, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>prev, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>conf);  <span style=color:#080;font-style:italic>//用于合并srv级别和loc级别同名配置项
+</span><span style=color:#080;font-style:italic></span>} ngx_http_module_t;
+</code></pre></div><p>这8个回调函数在HTTP模块的调用顺序可能跟定义顺序不一致，实际顺序应该如下：</p>
+<ol>
+<li>
+<p>create_main_conf</p>
+</li>
+<li>
+<p>create_srv_conf</p>
+</li>
+<li>
+<p>creat_loc_conf</p>
+</li>
+<li>
+<p>preconfiguration</p>
+</li>
+<li>
+<p>init_main_conf</p>
+</li>
+<li>
+<p>init_srv_conf</p>
+</li>
+<li>
+<p>init_loc_conf</p>
+</li>
+<li>
+<p>postconfiguration</p>
+</li>
+</ol>
+<p>这8个函数都在<code>ngx_http_block</code>函数中调用</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> <span style=color:#0b0;font-weight:700>char</span> <span style=color:#666>*</span>
+<span style=color:#00a000>ngx_http_block</span>(ngx_conf_t <span style=color:#666>*</span>cf, ngx_command_t <span style=color:#666>*</span>cmd, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>conf)
+{
+    ...
+    <span style=color:#080;font-style:italic>//初始化ngx_http_conf_ctx_t的ctx，ctx-&gt;main_conf，ctx-&gt;srv_conf，ctx-&gt;loc_conf
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#080;font-style:italic>//调用逐个Http模块的create_main_conf，create_srv_conf，create_loc_conf
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#080;font-style:italic>//调用preconfiguration
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#080;font-style:italic>//调用http{}块的配置
+</span><span style=color:#080;font-style:italic></span>    rv <span style=color:#666>=</span> ngx_conf_parse(cf, <span style=color:#a2f>NULL</span>);
+
+    <span style=color:#080;font-style:italic>//调用各个模块的init_main_conf，init_srv_conf，init_loc_conf
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#080;font-style:italic>//调用各个模块的postconfiguration
+</span><span style=color:#080;font-style:italic></span>
+    ...
+}
+</code></pre></div><p>我们来看一下<a href=https://github.com/openresty/lua-nginx-module>lua-nginx-module</a>的<code>ngx_http_module_t</code></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_http_module_t ngx_http_lua_module_ctx <span style=color:#666>=</span> {
+    <span style=color:#a2f>NULL</span>,                             <span style=color:#080;font-style:italic>/*  preconfiguration */</span>
+    ngx_http_lua_init,                <span style=color:#080;font-style:italic>/*  postconfiguration */</span>
+
+    ngx_http_lua_create_main_conf,    <span style=color:#080;font-style:italic>/*  create main configuration */</span>
+    ngx_http_lua_init_main_conf,      <span style=color:#080;font-style:italic>/*  init main configuration */</span>
+
+    ngx_http_lua_create_srv_conf,     <span style=color:#080;font-style:italic>/*  create server configuration */</span>
+    ngx_http_lua_merge_srv_conf,      <span style=color:#080;font-style:italic>/*  merge server configuration */</span>
+
+    ngx_http_lua_create_loc_conf,     <span style=color:#080;font-style:italic>/*  create location configuration */</span>
+    ngx_http_lua_merge_loc_conf       <span style=color:#080;font-style:italic>/*  merge location configuration */</span>
+};
+</code></pre></div><p>除了<code>preconfiguration</code>为<code>NULL</code>，其他都赋值了相应的回调函数。</p>
+<h3 id=指令数据结构>指令数据结构</h3>
+<p>指令用于定义模块的配置文件的指令参数，主要是<code>ngx_command_t</code>的数据结构</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>struct</span> ngx_command_s {
+    ngx_str_t             name;   <span style=color:#080;font-style:italic>//指令名称，比如gzip
+</span><span style=color:#080;font-style:italic></span>    ngx_uint_t            type;   <span style=color:#080;font-style:italic>//类型，出现的位置，比如http{}，server{}, loc{}
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#0b0;font-weight:700>char</span>               <span style=color:#666>*</span>(<span style=color:#666>*</span>set)(ngx_conf_t <span style=color:#666>*</span>cf, ngx_command_t <span style=color:#666>*</span>cmd, <span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>conf);  <span style=color:#080;font-style:italic>//解析指令的回调函数
+</span><span style=color:#080;font-style:italic></span>    ngx_uint_t            conf; <span style=color:#080;font-style:italic>//在配置文件中偏移量
+</span><span style=color:#080;font-style:italic></span>    ngx_uint_t            offset; <span style=color:#080;font-style:italic>//通常用于预设的解析方法配置项，这是配置模块的一个优秀设计，需要conf配合使用
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#0b0;font-weight:700>void</span>                 <span style=color:#666>*</span>post;   <span style=color:#080;font-style:italic>//配置读取后的处理方法
+</span><span style=color:#080;font-style:italic></span>};
+
+<span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> ngx_command_s         ngx_command_t;
+</code></pre></div><p>我们来看一下<a href=https://github.com/openresty/lua-nginx-module>lua-nginx-module</a>的<code>ngx_command_t</code>，这个模块的指令太多，我截取一部分看一下</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>static</span> ngx_command_t ngx_http_lua_cmds[] <span style=color:#666>=</span> {
+    ...
+    <span style=color:#080;font-style:italic>/* access_by_lua &#34;&lt;inline script&gt;&#34; */</span>
+    { ngx_string(<span style=color:#b44>&#34;access_by_lua&#34;</span>),
+      NGX_HTTP_MAIN_CONF<span style=color:#666>|</span>NGX_HTTP_SRV_CONF<span style=color:#666>|</span>NGX_HTTP_LOC_CONF<span style=color:#666>|</span>NGX_HTTP_LIF_CONF
+                        <span style=color:#666>|</span>NGX_CONF_TAKE1,
+      ngx_http_lua_access_by_lua,
+      NGX_HTTP_LOC_CONF_OFFSET,
+      <span style=color:#666>0</span>,
+      (<span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>) ngx_http_lua_access_handler_inline },
+
+    <span style=color:#080;font-style:italic>/* access_by_lua_block { &lt;inline script&gt; } */</span>
+    { ngx_string(<span style=color:#b44>&#34;access_by_lua_block&#34;</span>),
+      NGX_HTTP_MAIN_CONF<span style=color:#666>|</span>NGX_HTTP_SRV_CONF<span style=color:#666>|</span>NGX_HTTP_LOC_CONF<span style=color:#666>|</span>NGX_HTTP_LIF_CONF
+                        <span style=color:#666>|</span>NGX_CONF_BLOCK<span style=color:#666>|</span>NGX_CONF_NOARGS,
+      ngx_http_lua_access_by_lua_block,
+      NGX_HTTP_LOC_CONF_OFFSET,
+      <span style=color:#666>0</span>,
+      (<span style=color:#0b0;font-weight:700>void</span> <span style=color:#666>*</span>) ngx_http_lua_access_handler_inline },
+    ...
+    ngx_null_command
+}
+</code></pre></div><p>指令<code>accee_by_lua</code>的set函数<code>ngx_http_lua_access_by_lua</code>，post函数<code>ngx_http_lua_access_handler_inline</code></p>
+<h2 id=总结>总结</h2>
+<p>开发nginx第三方模块时，要严格<code>ngx_module_t</code>格式定义模块，只有这样nginx框架才能调用这个三方模块。</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/nginx%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90 rel=tag title=nginx源码分析>#nginx源码分析#</a>
+<a href=/tags/nginx rel=tag title=nginx>#nginx#</a>
+</div>
+<div class=addthis_inline_share_toolbox></div>
+<div class=post-nav>
+<div class=article-copyright>
+<div class=article-copyright-img>
+<img src=/img/qq_qrcode.png width=129px height=129px>
+<div style=text-align:center>QQ扫一扫交流</div>
+</div>
+<div class=article-copyright-info>
+<p>
+<span>声明：</span>nginx源码分析-模块化架构
+</p>
+<p>
+<span>链接：</span>https://lizj3624.github.io/post/ngx-module-arch/
+</p>
+<p>
+<span>作者：</span>lizj3624
+</p>
+<p>
+<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
+</p>
+</div>
+</div>
+<div class=clear></div>
+</div>
+<div class=reward-qr-info>
+<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
+<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>赏</span>
+</button>
+<div id=QR style=display:none>
+<div id=wechat style=display:inline-block>
+<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
+<p>微信打赏</p>
+</div>
+<div id=alipay style=display:inline-block>
+<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
+<p>支付宝打赏</p>
+</div>
+</div>
+</div>
+<div class=post-nav>
+<div class="post-nav-next post-nav-item">
+</div>
+<div class="post-nav-prev post-nav-item">
+<a href=https://lizj3624.github.io/post/warren-buffett-letter-2021/ rel=prev title=沃伦.巴菲特致股东的信-2021>
+沃伦.巴菲特致股东的信-2021
+<i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+<div id=wcomments></div>
+</footer>
+</article>
+</section>
+</div>
+</div>
+<div class=sidebar-toggle>
+<div class=sidebar-toggle-line-wrap>
+<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+</div>
+<aside id=sidebar class=sidebar>
+<div class=sidebar-inner>
+<ul class="sidebar-nav motion-element">
+<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
+文章目录
+</li>
+<li class=sidebar-nav-overview data-target=site-overview>
+站点概览
+</li>
+</ul>
+<section class="site-overview sidebar-panel">
+<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
+<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
+<p class=site-author-name itemprop=name>lizj3624</p>
+<p class="site-description motion-element" itemprop=description>
+幸福和富有的过一生!
+</p>
+</div>
+<nav class="site-state motion-element">
+<div class="site-state-item site-state-posts">
+<a href=/post/>
+<span class=site-state-item-count>22</span>
+<span class=site-state-item-name>日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href=/categories/>
+<span class=site-state-item-count>13</span>
+<span class=site-state-item-name>分类</span>
+</a>
+</div>
+<div class="site-state-item site-state-tags">
+<a href=/tags/>
+<span class=site-state-item-count>35</span>
+<span class=site-state-item-name>标签</span>
+</a>
+</div>
+</nav>
+<div class="links-of-author motion-element">
+<span class=links-of-author-item>
+<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
+<i class="fa fa-fw fa-github"></i>
+GitHub
+</a>
+</span>
+<span class=links-of-author-item>
+<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
+<i class="fa fa-fw fa-globe"></i>
+知乎
+</a>
+</span>
+</div>
+<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
+<div class=tagcloud-of-blogroll-title>
+<i class="fa fa-fw fa-tags"></i>
+标签云
+</div>
+<ul class=tagcloud-of-blogroll-list>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/nginx>Nginx</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/docker>Docker</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/markdown>Markdown</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/bitcoin>Bitcoin</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/blockchain>Blockchain</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/buzz>Buzz</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudflare>Cloudflare</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudnative>Cloudnative</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+<div class=post-toc>
+<div class=post-toc-content><nav id=TableOfContents>
+<ul>
+<li><a href=#nginx模块的数据结构>nginx模块的数据结构</a>
+<ul>
+<li><a href=#nginx模块化的设计主要体现在ngx_module_t的数据结构>nginx模块化的设计主要体现在<code>ngx_module_t</code>的数据结构</a></li>
+<li><a href=#http模块的ctx数据结构>HTTP模块的ctx数据结构</a></li>
+<li><a href=#指令数据结构>指令数据结构</a></li>
+</ul>
+</li>
+<li><a href=#总结>总结</a></li>
+</ul>
+</nav></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=footer-inner>
+<div class=copyright>
+<span class=copyright-year>
+&copy; 2010 - 2022
+</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span>
+</div>
+<div class=powered-info>
+<span class=powered-by>
+Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
+</span>
+<span class=separator-line>/</span>
+<span class=theme-info>
+Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
+</a>
+</span>
+</div>
+<div class=vistor-info>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv>
+<i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span>
+<span class=separator-line>/</span>
+<span class=site-pv>
+<i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span>
+</span>
+</div>
+<div class=license-info>
+<span class=storage-info>
+Storage by
+<a href style=font-weight:700 target=_blank></a>
+</span>
+<span class=separator-line>/</span>
+<span class=license-num>
+<a href target=_blank></a>
+</span>
+</div>
+</div>
+</footer>
+<div class=back-to-top>
+<i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span>
+</div>
+</div>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript src=/js/scrollspy.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
+<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
