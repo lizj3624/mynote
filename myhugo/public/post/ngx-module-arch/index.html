@@ -190,11 +190,15 @@ nginx源码分析-模块化架构
 <span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> ngx_module_s          ngx_module_t;
 </code></pre></div><h4 id=主要字段说明>主要字段说明</h4>
 <ul>
-<li><code>ctx_index</code>表示当前模块在这类(<code>type</code>类型)模块中的序号。它非常重要，Nginx的模块化设计非常依赖于各个模块的顺序，它们即用于表达优先级，也用于表明每个模块的位置，以便nginx框架快速获得某个模块的数据。</li>
-</ul>
+<li>
+<p><code>ctx_index</code>表示当前模块在这类(<code>type</code>类型)模块中的序号。它非常重要，Nginx的模块化设计非常依赖于各个模块的顺序，它们即用于表达优先级，也用于表明每个模块的位置，以便nginx框架快速获得某个模块的数据。</p>
+</li>
+<li>
 <p><code>ctx_index</code>赋值主要在<code>ngx_count_modules</code>函数处理的。</p>
-<ul>
-<li><code>index</code>表示当前模块在nginx所有模块<code>ngx_modules</code>中的序号，nginx在启动时会根据<code>ngx_modules</code>数组设置各个模块的<code>index</code>值</li>
+</li>
+<li>
+<p><code>index</code>表示当前模块在nginx所有模块<code>ngx_modules</code>中的序号，nginx在启动时会根据<code>ngx_modules</code>数组设置各个模块的<code>index</code>值</p>
+</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
 <span style=color:#00a000>ngx_preinit_modules</span>(<span style=color:#0b0;font-weight:700>void</span>)

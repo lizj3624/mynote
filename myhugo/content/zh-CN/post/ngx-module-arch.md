@@ -59,7 +59,7 @@ typedef struct ngx_module_s          ngx_module_t;
 
 - `ctx_index`表示当前模块在这类(`type`类型)模块中的序号。它非常重要，Nginx的模块化设计非常依赖于各个模块的顺序，它们即用于表达优先级，也用于表明每个模块的位置，以便nginx框架快速获得某个模块的数据。
 
-`ctx_index`赋值主要在`ngx_count_modules`函数处理的。
+- `ctx_index`赋值主要在`ngx_count_modules`函数处理的。
 
 - `index`表示当前模块在nginx所有模块`ngx_modules`中的序号，nginx在启动时会根据`ngx_modules`数组设置各个模块的`index`值
 ```c
