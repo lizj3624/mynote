@@ -278,7 +278,8 @@ DeFi Pulse
 Compound
 ENS 以太坊域名服务（Ethereum Name Service）是一个基于以太坊区块链的分布式、开放和可扩展的命名系统。 通俗地说，ENS就是区块链中的域名系统。 ENS 域名让人们没有必要再复制或输入冗长的区块链地址。
 ENS
-ENS中文介绍</content></entry><entry><title>Kubernetes入门</title><url>https://lizj3624.github.io/post/kubernetes-primer/</url><categories><category>kubernetes</category></categories><tags><tag>kubernetes</tag><tag>k8s</tag><tag>cloudnative</tag></tags><content type="html"> 以容器(docker)和容器编排(kubernetes)的云原生技术栈在后端开发中越来越重要，每个技术童鞋都有必要熟悉这个技术栈
+ENS中文介绍
+Web3.0 图片引用indigo公众号</content></entry><entry><title>Kubernetes入门</title><url>https://lizj3624.github.io/post/kubernetes-primer/</url><categories><category>kubernetes</category></categories><tags><tag>kubernetes</tag><tag>k8s</tag><tag>cloudnative</tag></tags><content type="html"> 以容器(docker)和容器编排(kubernetes)的云原生技术栈在后端开发中越来越重要，每个技术童鞋都有必要熟悉这个技术栈
 kubernetes入门 kubernetes的核心组件 API Server API server 的核心功能是提供k8s各类资源对象(如Pod、RC、Service)的增删改查及Watch等HTTP REST接口，成为集群内各个功能模块之间数据交互和通信的中心枢纽，是整个集群的数据总线和数据中心，运行在master节点。 通常还具有以下功能。
 集群管理的API入口 资源配额控制的入口 提供了完备的集群安全机制。 通常我们会通过kubectl命令与API server进行交互，提供restful API，所以说也可以通过代码方式直接调用k8s的API server。
 控制器管理器(controller-manager) controller-manager作为集群内部的管理控制中心，负责集群内部的Node、Pod、Endpoint、Namespace、ServiceAccount、ResourceQuota等的管理，意为控制器，运行在master节点。
