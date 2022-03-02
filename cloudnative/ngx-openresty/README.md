@@ -34,6 +34,8 @@
 
 5. [OpenResty精华整理](https://yxudong.github.io/tags/OpenResty/)
 
+6. [OpenResty核心开发分享](https://segmentfault.com/u/doujiang24)
+
 ## ngx_lua
 1. [ngx_lua中的协程调度一](https://my.oschina.net/u/2539854/blog/846628)
 
