@@ -19,6 +19,8 @@
 
 1. [eBPF和Wasm：探索服务网格数据平面的未来](https://mp.weixin.qq.com/s/LpCDeMT1Omqzf_DV9ypyJA)
 
+2. [eBPF在网易轻舟云原生的应用实践](https://mp.weixin.qq.com/s/KSUeLH6rBAiUnrDEexIiqw)
+
 # dev-ops
 
 1. [CentOS8.2部署安装saltstack](https://www.cnblogs.com/lianglab/p/14146896.html)
