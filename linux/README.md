@@ -17,3 +17,7 @@
 8. [深入理解 CPU 的调度原理](https://mp.weixin.qq.com/s/rsBGgyAlaMdLHffLaDYrBA)
 
 9. [深挖Linux内核新特性](https://github.com/0voice/kernel_new_features)
+
+10. [bcc](https://openanolis.cn/sig/tracing/doc/325645985396671617)
+
+11. [基于BCC进行性能追踪](https://blog.gmem.cc/bcc)
