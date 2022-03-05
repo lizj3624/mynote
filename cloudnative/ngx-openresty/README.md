@@ -53,6 +53,8 @@
 
 7. [ngx_lua的代码缓存](https://my.oschina.net/u/2539854/blog/1635599)
 
+8. [ngx_lua的协程](https://my.oschina.net/u/2539854/blog/845149)
+
 # Lua
 1. [Walk On LuaJIT](https://cloud.tencent.com/developer/article/1541574)
 
