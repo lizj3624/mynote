@@ -31,19 +31,19 @@ toc: true
   //rewrite阶段调用
   rewrite_by_lua*
 
-  //access阶段调用
+  //access阶段调用, 指令运行于nginx access阶段的末尾，因此总是在allow和deny这样的指令之后运行
   access_by_lua*
 
-  //content阶段调用
+  //content阶段调用, 所有请求处理阶段中最为重要的一个，运行在这个阶段的配置指令一般都肩负着生成内容（content）并输出HTTP响应
   content_by_lua*
 
   //设置upstream阶段调用
   balancer_by_lua*
 
-  //过滤header头
+  //过滤header头, 一般只用于设置Cookie和Headers等
   header_filter_by_lua*
 
-  //过滤body
+  //过滤body, 一般会在一次请求中被调用多次, 因为这是实现基于HTTP1.1 chunked 编码的所谓“流式输出”的
   body_filter_by_lua*
 
   //日志阶段

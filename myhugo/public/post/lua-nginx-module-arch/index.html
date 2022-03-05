@@ -128,7 +128,7 @@ lua-nginx-module模块源码浅析
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1553 字</span>
+<span class=leancloud-world-count>1725 字</span>
 </span>
 <span>
 |
@@ -166,19 +166,19 @@ lua-nginx-module模块源码浅析
   <span style=color:#080;font-style:italic>//rewrite阶段调用
 </span><span style=color:#080;font-style:italic></span>  rewrite_by_lua<span style=color:#666>*</span>
 
-  <span style=color:#080;font-style:italic>//access阶段调用
+  <span style=color:#080;font-style:italic>//access阶段调用, 指令运行于nginx access阶段的末尾，因此总是在allow和deny这样的指令之后运行
 </span><span style=color:#080;font-style:italic></span>  access_by_lua<span style=color:#666>*</span>
 
-  <span style=color:#080;font-style:italic>//content阶段调用
+  <span style=color:#080;font-style:italic>//content阶段调用, 所有请求处理阶段中最为重要的一个，运行在这个阶段的配置指令一般都肩负着生成内容（content）并输出HTTP响应
 </span><span style=color:#080;font-style:italic></span>  content_by_lua<span style=color:#666>*</span>
 
   <span style=color:#080;font-style:italic>//设置upstream阶段调用
 </span><span style=color:#080;font-style:italic></span>  balancer_by_lua<span style=color:#666>*</span>
 
-  <span style=color:#080;font-style:italic>//过滤header头
+  <span style=color:#080;font-style:italic>//过滤header头, 一般只用于设置Cookie和Headers等
 </span><span style=color:#080;font-style:italic></span>  header_filter_by_lua<span style=color:#666>*</span>
 
-  <span style=color:#080;font-style:italic>//过滤body
+  <span style=color:#080;font-style:italic>//过滤body, 一般会在一次请求中被调用多次, 因为这是实现基于HTTP1.1 chunked 编码的所谓“流式输出”的
 </span><span style=color:#080;font-style:italic></span>  body_filter_by_lua<span style=color:#666>*</span>
 
   <span style=color:#080;font-style:italic>//日志阶段
