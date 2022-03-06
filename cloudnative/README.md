@@ -34,15 +34,15 @@
 5. [SaltStack自动化运维](https://blog.csdn.net/mzh_csdn/category_10302339.html)
 
 # 云原生网关
-1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/ngx-openresty)
+1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/cloudnative/ngx-openresty)
 
-2. [kong](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/kong)
+2. [kong](https://github.com/lizj3624/mynote/tree/master/cloudnative/kong)
 
-3. [apisix](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/apisix)
+3. [apisix](https://github.com/lizj3624/mynote/blob/master/cloudnative/apisix/apisix.md)
 
-4. [envoy](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/envoy)
+4. [envoy](https://github.com/lizj3624/mynote/tree/master/cloudnative/envoy)
 
-5. [mosn](https://github.com/lizj3624/mynote/tree/master/Cloud-Native/mosn)
+5. [mosn](https://github.com/lizj3624/mynote/tree/master/cloudnative/mosn)
 
 # 多云管理
 
