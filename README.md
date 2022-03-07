@@ -16,7 +16,7 @@
 
 6. [vim的不错使用技巧](https://github.com/lizj3624/mynote/blob/master/coder-skill/vim)
 
-7. [git一些命令](https://github.com/lizj3624/mynote/blob/master/coder-skill/git)
+7. [git一些命令](https://github.com/lizj3624/mynote/blob/master/coder-skills/git/git-command.md)
 
 ### 网络Protocol
 
