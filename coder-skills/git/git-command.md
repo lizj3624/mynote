@@ -69,6 +69,13 @@ git remote rm destination
 git commit --amend -m "提交说明"
 ```
 
+### git commit多个提交信息
+
+```shell
+git commit -m "提交说明" -m "提交说明"
+```
+
+
 不过在git中，其`commit`提供了一个`--amend`参数，可以修改最后一次提交的信息。但是如果你已经`push`过了，那么其历史最后一次，永远也不能修改了。
 
 ### git设置用户和邮箱
