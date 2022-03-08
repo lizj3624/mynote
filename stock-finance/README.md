@@ -118,6 +118,12 @@
 
 1. [云安全服务与接入领头羊](https://mp.weixin.qq.com/s/vagnj3wP6-HMwE3iNHcjnA)
 
+2. [Zscaler零信任架构](https://www.netfos.com.tw/Projects/netfos/pages/product/Zscaler.html)
+
+3. [网络安全报告](https://pdf.dfcfw.com/pdf/H3_AP202102181463253596_1.pdf?1613682247000.pdf)
+
+4. [云安全巨头，零信任领导者，Zscaler 千亿市值可期？](https://longbridgeapp.com/topics/1580632)
+
 ### Okta
 
 1. [大涨十倍后，云IAM霸主Okta，能跻身千亿美金市值的公司吗？](https://www.laohu8.com/post/889079757?lang=zh_CN&invite=HYBRW)
