@@ -25,24 +25,24 @@ APISIX最底层是基于Nginx，再上一次层是OpenResty，再上一次层是
 
 ## 一些概念
 
-### Route路由
+### [Route路由](https://apisix.apache.org/zh/docs/apisix/architecture-design/route)
 `route`路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream。    
 路由包含三部分：
 - 匹配规则(比如: `uri`, `host`, `remote_addr`)
 - 插件匹配(比如: 限流插件)
 - upstream上游信息
 
-### Plugin插件
+### [Plugin插件](https://apisix.apache.org/zh/docs/apisix/architecture-design/plugin)
 `Plugin`是请求/响应过程中执行的插件配置。`Plugin`配置可直接绑定在`Route`上，也可以被绑定在`Service`或`Consumer`上。
 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是`Consumer > Route > Service`。
 
-### Service服务
+### [Service服务](https://apisix.apache.org/zh/docs/apisix/architecture-design/service)
 `Service`是某类服务的抽象。它通常与上游`upstream`服务抽象是一一对应的，`Route`与`Service`之间，通常是`N:1`的关系。
 
-### Consumer消费者
+### [Consumer消费者](https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer)
 `Consumer`是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的`Consumer`请求同一个`API`，
 网关服务根据当前请求用户信息，对应不同的`Plugin`或`Upstream`配置。
 
-### Upstream上游
+### [Upstream上游](https://apisix.apache.org/zh/docs/apisix/architecture-design/upstream)
 `Upstream`是虚拟主机抽象，对给定的多个服务节点按照配置规则进行负载均衡。`Upstream`的地址信息可以直接配置到`Route`(或`Service`) 上，
 当`Upstream`有重复时，就需要用“引用”方式避免重复了。

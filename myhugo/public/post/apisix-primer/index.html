@@ -161,7 +161,7 @@
 <p>插件化是APISIX架构设计很不错的地方，可以使APISIX易扩展，集成了大量丰富的插件，通过rpc的方式支持多语言插件。插件请求的很多阶段被调用。
 <img src=./flow-load-plugin.png alt=02></p>
 <h2 id=一些概念>一些概念</h2>
-<h3 id=route路由>Route路由</h3>
+<h3 id=route路由httpsapisixapacheorgzhdocsapisixarchitecture-designroute><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/route>Route路由</a></h3>
 <p><code>route</code>路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream。 <br>
 路由包含三部分：</p>
 <ul>
@@ -169,15 +169,15 @@
 <li>插件匹配(比如: 限流插件)</li>
 <li>upstream上游信息</li>
 </ul>
-<h3 id=plugin插件>Plugin插件</h3>
+<h3 id=plugin插件httpsapisixapacheorgzhdocsapisixarchitecture-designplugin><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/plugin>Plugin插件</a></h3>
 <p><code>Plugin</code>是请求/响应过程中执行的插件配置。<code>Plugin</code>配置可直接绑定在<code>Route</code>上，也可以被绑定在<code>Service</code>或<code>Consumer</code>上。
 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是<code>Consumer > Route > Service</code>。</p>
-<h3 id=service服务>Service服务</h3>
+<h3 id=service服务httpsapisixapacheorgzhdocsapisixarchitecture-designservice><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/service>Service服务</a></h3>
 <p><code>Service</code>是某类服务的抽象。它通常与上游<code>upstream</code>服务抽象是一一对应的，<code>Route</code>与<code>Service</code>之间，通常是<code>N:1</code>的关系。</p>
-<h3 id=consumer消费者>Consumer消费者</h3>
+<h3 id=consumer消费者httpsapisixapacheorgzhdocsapisixarchitecture-designconsumer><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer>Consumer消费者</a></h3>
 <p><code>Consumer</code>是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的<code>Consumer</code>请求同一个<code>API</code>，
 网关服务根据当前请求用户信息，对应不同的<code>Plugin</code>或<code>Upstream</code>配置。</p>
-<h3 id=upstream上游>Upstream上游</h3>
+<h3 id=upstream上游httpsapisixapacheorgzhdocsapisixarchitecture-designupstream><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/upstream>Upstream上游</a></h3>
 <p><code>Upstream</code>是虚拟主机抽象，对给定的多个服务节点按照配置规则进行负载均衡。<code>Upstream</code>的地址信息可以直接配置到<code>Route</code>(或<code>Service</code>) 上，
 当<code>Upstream</code>有重复时，就需要用“引用”方式避免重复了。</p>
 </div>
@@ -348,11 +348,11 @@ GitHub
 <li><a href=#架构>架构</a></li>
 <li><a href=#一些概念>一些概念</a>
 <ul>
-<li><a href=#route路由>Route路由</a></li>
-<li><a href=#plugin插件>Plugin插件</a></li>
-<li><a href=#service服务>Service服务</a></li>
-<li><a href=#consumer消费者>Consumer消费者</a></li>
-<li><a href=#upstream上游>Upstream上游</a></li>
+<li><a href=#route路由httpsapisixapacheorgzhdocsapisixarchitecture-designroute><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/route>Route路由</a></a></li>
+<li><a href=#plugin插件httpsapisixapacheorgzhdocsapisixarchitecture-designplugin><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/plugin>Plugin插件</a></a></li>
+<li><a href=#service服务httpsapisixapacheorgzhdocsapisixarchitecture-designservice><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/service>Service服务</a></a></li>
+<li><a href=#consumer消费者httpsapisixapacheorgzhdocsapisixarchitecture-designconsumer><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer>Consumer消费者</a></a></li>
+<li><a href=#upstream上游httpsapisixapacheorgzhdocsapisixarchitecture-designupstream><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/upstream>Upstream上游</a></a></li>
 </ul>
 </li>
 </ul>
