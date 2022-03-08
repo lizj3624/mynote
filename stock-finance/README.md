@@ -159,6 +159,16 @@
 
 1. [Sea的印钞机Garena](https://singledoggy.investments/2021/09/04/garena/)
 
+## Grab
+
+1. [东南亚独角兽Grab上市，超级富二代创业成功](https://m.gelonghui.com/p/499187)
+
+2. [股价单日暴跌37% 东南亚互联网巨头Grab全年亏损215亿元](https://companies.caixin.com/2022-03-04/101850865.html)
+
+3. [东南亚互联网巨头如何炼成？来看一个哈佛高材生、华人富三代的创业故事](https://www.stcn.com/xw/sd/202112/t20211205_3936501.html)
+
+4. [征战一路，披荆斩棘，传奇独角兽Grab如何闯荡东南亚？](http://www.forbeschina.com/entrepreneur/59883)
+
 ### Salesforce
 
 1. [Salesforce20年研习录：钉钉、飞书和企业微信们要走的路还很长](https://www.laohu8.com/post/638953723?lang=zh_CN&invite=HYBRW)
