@@ -21,3 +21,5 @@
 10. [bcc](https://openanolis.cn/sig/tracing/doc/325645985396671617)
 
 11. [基于BCC进行性能追踪](https://blog.gmem.cc/bcc)
+
+# [Linux系统常用命令](https://github.com/lizj3624/mynote/blob/master/linux/linuxcmd.md)

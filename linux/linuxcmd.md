@@ -20,6 +20,8 @@
     - [主机名称](#主机名称)
 - [Linux常用的rpm命令](#linux常用的rpm命令)
 - [Linux常用查看glibc命令](#linux常用查看glibc命令)
+- [普通用户支持sudo](#普通用户支持sudo)
+- [CentOS7普通用户设置ulimit](#CentOS7普通用户设置ulimit)
 
 ## Linux衡量性能的指标
 
@@ -700,4 +702,37 @@ rpm -qa | grep glibc
 
 # 查看已安装的 gblic 版本
 strings /lib64/libc.so.6 | grep GLIBC
+```
+
+## 普通用户支持sudo
+```shell
+# 编辑/etc/sudoers文件，添加以下命令
+vi /etc/sudoers
+
+# 在 root ALL=(ALL) ALL 下面添加一行
+myname ALL=(ALL)  ALL
+```
+
+## CentOS7普通用户设置ulimit 
+```shell
+# 修改/etc/security/limits.conf
+*      soft    nofile  100000
+*      hard    nofile  100000
+*      soft    nproc   65535
+*      hard    nproc   65535
+
+# 修改/etc/security/limits.d/20-nproc.conf
+*          soft    nproc     65535
+root       soft    nproc     unlimited
+myname       soft    nproc     unlimited
+
+# 对于systemd service的资源设置，则需修改全局配置，全局配置文件放
+# 修改 /etc/systemd/system.conf
+echo 'DefaultLimitNOFILE=100000' >> /etc/systemd/system.conf
+echo 'DefaultLimitNPROC=65535' >> /etc/systemd/system.conf
+
+DefaultLimitNOFILE=100000
+DefaultLimitNPROC=65535
+
+# 重启后生效
 ```
