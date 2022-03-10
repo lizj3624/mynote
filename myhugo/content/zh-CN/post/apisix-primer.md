@@ -27,7 +27,7 @@ APISIX最底层是基于Nginx，再上一次层是OpenResty，再上一次层是
 
 ### [Route路由](https://apisix.apache.org/zh/docs/apisix/architecture-design/route)
 `route`路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream或者service。    
-> 如果router配置upstream和service时，优先使用upstream
+> 如果router配置upstream和service时，优先使用upstream     
 路由包含三部分：
 - 匹配规则(比如: `uri`, `host`, `remote_addr`)
 - 插件匹配(比如: 限流插件)
