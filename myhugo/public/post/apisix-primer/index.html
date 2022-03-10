@@ -134,7 +134,7 @@
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>923 字</span>
+<span class=leancloud-world-count>972 字</span>
 </span>
 <span>
 |
@@ -162,8 +162,11 @@
 <img src=./flow-load-plugin.png alt=02></p>
 <h2 id=一些概念>一些概念</h2>
 <h3 id=route路由httpsapisixapacheorgzhdocsapisixarchitecture-designroute><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/route>Route路由</a></h3>
-<p><code>route</code>路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream。 <br>
+<p><code>route</code>路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream或者service。</p>
+<blockquote>
+<p>如果router配置upstream和service时，优先使用upstream
 路由包含三部分：</p>
+</blockquote>
 <ul>
 <li>匹配规则(比如: <code>uri</code>, <code>host</code>, <code>remote_addr</code>)</li>
 <li>插件匹配(比如: 限流插件)</li>
