@@ -172,7 +172,7 @@ toc: true
 - [以太坊源代码分析](https://www.jianshu.com/u/78a086870bbe)
 - [Go Ethereum Code Analysis](https://github.com/ZtesoftCS/go-ethereum-code-analysis)
 
-## *七、最后的最后**
+## 七、最后的最后
 
 区块链行业真处于高速发展的时候，作为区块链从业人员，不仅仅要掌握技术，还需要时刻掌握行业动态，挖掘其他有价值的项目，把握认知变现的机会。
 
