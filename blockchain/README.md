@@ -14,6 +14,8 @@
 
 7. [币界网](https://www.528btc.com/)
 
+8. [普林斯顿大学区块链公开课](https://open.163.com/newview/movie/free?pid=MFFH3IGEL&mid=MFFH3S5EU)
+
 ## 比特币
 
 1. [bitcoin](https://bitcoin.org/zh_CN/)
