@@ -37,7 +37,7 @@ APISIX最底层是基于Nginx，再上一次层是OpenResty，再上一次层是
 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是`Consumer > Route > Service`。
 
 ### [Service服务](https://apisix.apache.org/zh/docs/apisix/architecture-design/service)
-`Service`是某类服务的抽象。它通常与上游`upstream`服务抽象是一一对应的，`Route`与`Service`之间，通常是`N:1`的关系。
+`Service`是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游`upstream`服务抽象是一一对应的。`Route`与`Service`之间，通常是`N:1`的关系。
 
 ### [Consumer消费者](https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer)
 `Consumer`是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的`Consumer`请求同一个`API`，
