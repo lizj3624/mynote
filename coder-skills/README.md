@@ -36,6 +36,8 @@
 
 10. [RESTful-API](https://github.com/lizj3624/mynote/blob/master/coder-skills/RESTful-API%E8%AE%BE%E8%AE%A1%E6%8C%87%E5%8D%97.md)
 
+11. [JWT鉴权](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)
+
 ## 软件工程
 
 1. [Google公司的软件工程之道-1](https://mp.weixin.qq.com/s/4Th2VTyDrzWe1-FIMa1uPg)
