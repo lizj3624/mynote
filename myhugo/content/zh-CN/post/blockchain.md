@@ -22,6 +22,8 @@ toc: true
 
 - [精通比特币](https://github.com/lizj3624/MasterBitcoin2CN/blob/master/SUMMARY.md)
 
+- [比特币生态资源](https://123btc.org/)
+
 ## Ethereum
 ![01](./ethereum.png)
 
@@ -30,6 +32,8 @@ toc: true
 - [以太坊白皮书](https://github.com/lizj3624/mynote/blob/master/blockchain/ETH/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6-zh.md)
 
 - [精通以太坊](https://github.com/lizj3624/ethereum_book)
+
+- [以太坊生态资源](https://123eth.org/)
 
 ## IPFS
 ![01](./ipfs.png)

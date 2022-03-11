@@ -134,13 +134,13 @@
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>972 字</span>
+<span class=leancloud-world-count>1021 字</span>
 </span>
 <span>
 |
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>2分钟</span>
+<span class=leancloud-view-count>3分钟</span>
 </span>
 <span id=/post/apisix-primer/ class=leancloud_visitors data-flag-title=云原生API网关APISIX简介>
 |
@@ -174,9 +174,11 @@
 </ul>
 <h3 id=plugin插件httpsapisixapacheorgzhdocsapisixarchitecture-designplugin><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/plugin>Plugin插件</a></h3>
 <p><code>Plugin</code>是请求/响应过程中执行的插件配置。<code>Plugin</code>配置可直接绑定在<code>Route</code>上，也可以被绑定在<code>Service</code>或<code>Consumer</code>上。
-而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是<code>Consumer > Route > Service</code>。</p>
+而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是<code>Consumer > Route > Service</code>。
+一个插件在一次请求中只会执行一次，即使被同时绑定到多个不同对象中（比如<code>Route</code>或<code>Service</code>）</p>
 <h3 id=service服务httpsapisixapacheorgzhdocsapisixarchitecture-designservice><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/service>Service服务</a></h3>
-<p><code>Service</code>是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游<code>upstream</code>服务抽象是一一对应的。<code>Route</code>与<code>Service</code>之间，通常是<code>N:1</code>的关系。</p>
+<p><code>Service</code>是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游<code>upstream</code>服务抽象是一一对应的。
+<code>Route</code>与<code>Service</code>之间，通常是<code>N:1</code>的关系。</p>
 <h3 id=consumer消费者httpsapisixapacheorgzhdocsapisixarchitecture-designconsumer><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer>Consumer消费者</a></h3>
 <p><code>Consumer</code>是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的<code>Consumer</code>请求同一个<code>API</code>，
 网关服务根据当前请求用户信息，对应不同的<code>Plugin</code>或<code>Upstream</code>配置。</p>

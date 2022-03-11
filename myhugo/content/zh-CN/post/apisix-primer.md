@@ -36,9 +36,11 @@ APISIX最底层是基于Nginx，再上一次层是OpenResty，再上一次层是
 ### [Plugin插件](https://apisix.apache.org/zh/docs/apisix/architecture-design/plugin)
 `Plugin`是请求/响应过程中执行的插件配置。`Plugin`配置可直接绑定在`Route`上，也可以被绑定在`Service`或`Consumer`上。
 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是`Consumer > Route > Service`。
+一个插件在一次请求中只会执行一次，即使被同时绑定到多个不同对象中（比如`Route`或`Service`）
 
 ### [Service服务](https://apisix.apache.org/zh/docs/apisix/architecture-design/service)
-`Service`是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游`upstream`服务抽象是一一对应的。`Route`与`Service`之间，通常是`N:1`的关系。
+`Service`是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游`upstream`服务抽象是一一对应的。
+`Route`与`Service`之间，通常是`N:1`的关系。
 
 ### [Consumer消费者](https://apisix.apache.org/zh/docs/apisix/architecture-design/consumer)
 `Consumer`是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的`Consumer`请求同一个`API`，

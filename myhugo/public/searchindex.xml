@@ -70,8 +70,8 @@ EBITDA为930万美元，占GMV的6%，而2020年为21%；Q4 EBITDA为500万美�
 展望2022年以后，Grab将在2023年上半年实现核心食品配送部门调整后EBITDA盈亏平衡，并在2023年底实现交付部门调整后EBITDA盈亏平衡， 从长远来看，Grab的目标是：移动出行调整后EBITDA占GMV的12%，配送为3%。</content></entry><entry><title>云原生API网关APISIX简介</title><url>https://lizj3624.github.io/post/apisix-primer/</url><categories><category>apisix</category><category>cloudnative</category></categories><tags><tag>apisix</tag><tag>cloudnative</tag></tags><content type="html"> 缘起 APISIX是国内在github开源社区比较活跃的云原生API网关，目前(2022-03-06)github star 8.6k，fork 1.6k。APISIX底层是基于Nginx和OpenResty， 我本人在工作中也是经常用到Nginx和OpenResty，因此对这个项目比较感兴趣，最近开始研究它，先了解它的架构以及一些概念。
 架构 APISIX最底层是基于Nginx，再上一次层是OpenResty，再上一次层是ngx_lua开发的APISIX core，再上一层是APISIX Plugin Runtime(插件运行时)， 最上层是APISIX的插件，它还支持多语言(go, java等)的插件。 插件化是APISIX架构设计很不错的地方，可以使APISIX易扩展，集成了大量丰富的插件，通过rpc的方式支持多语言插件。插件请求的很多阶段被调用。 一些概念 Route路由 route路由是请求进入APISIX后，根据一定匹配规则，将请求流量转发到指定upstream或者service。
 如果router配置upstream和service时，优先使用upstream 路由包含三部分：
-匹配规则(比如: uri, host, remote_addr) 插件匹配(比如: 限流插件) upstream上游信息 Plugin插件 Plugin是请求/响应过程中执行的插件配置。Plugin配置可直接绑定在Route上，也可以被绑定在Service或Consumer上。 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是Consumer > Route > Service。
-Service服务 Service是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游upstream服务抽象是一一对应的。Route与Service之间，通常是N:1的关系。
+匹配规则(比如: uri, host, remote_addr) 插件匹配(比如: 限流插件) upstream上游信息 Plugin插件 Plugin是请求/响应过程中执行的插件配置。Plugin配置可直接绑定在Route上，也可以被绑定在Service或Consumer上。 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是Consumer > Route > Service。 一个插件在一次请求中只会执行一次，即使被同时绑定到多个不同对象中（比如Route或Service）
+Service服务 Service是某类服务的抽象，是有Plugin和upstream组成的一组服务，Plugin可以选的，它通常与上游upstream服务抽象是一一对应的。 Route与Service之间，通常是N:1的关系。
 Consumer消费者 Consumer是某类服务的消费者，需与用户认证体系配合才能使用。 比如不同的Consumer请求同一个API， 网关服务根据当前请求用户信息，对应不同的Plugin或Upstream配置。
 Upstream上游 Upstream是虚拟主机抽象，对给定的多个服务节点按照配置规则进行负载均衡。Upstream的地址信息可以直接配置到Route(或Service) 上， 当Upstream有重复时，就需要用“引用”方式避免重复了。</content></entry><entry><title>独立开发者</title><url>https://lizj3624.github.io/post/developer/</url><categories><category>独立开发者</category></categories><tags><tag>独立开发者</tag></tags><content type="html"> 中国独立开发者列表 创造者日报 独立开发者社区</content></entry><entry><title>Cpu排名</title><url>https://lizj3624.github.io/post/cpu-rank/</url><categories/><tags><tag>cpu</tag></tags><content type="html"> 手机CPU性能天梯图 桌面CPU性能天梯图 移动端CPU综合性能排行</content></entry><entry><title>lua-nginx-module模块源码浅析</title><url>https://lizj3624.github.io/post/lua-nginx-module-arch/</url><categories><category>nginx源码分析</category></categories><tags><tag>nginx源码分析</tag><tag>lua-nginx</tag></tags><content type="html"> 最近在公司接入层的nginx支持QUIC+HTTP3的工作，我们的nginx用了lua-nginx-module模块，在启用HTTP3时，这个模块偶发epoll_ctl(1, 3) failed (17: File exists)的错误， 感觉应该是lua-nginx-module对HTTP3支持不好，因此看一下源码，适配一下HTTP3。
 架构 学习lua-nginx-module模块前，先了解这个模块指令在nginx处理阶段的执行调用的情况，再次借用一下官方的图。 //master进程初始化时调用 init_by_lua* //worker进程初始化时调用 init_worker_by_lua* //ssl握手阶段调用 ssl_certificate_by_lua* set_by_lua* //rewrite阶段调用 rewrite_by_lua* //access阶段调用, 指令运行于nginx access阶段的末尾，因此总是在allow和deny这样的指令之后运行 access_by_lua* //content阶段调用, 所有请求处理阶段中最为重要的一个，运行在这个阶段的配置指令一般都肩负着生成内容（content）并输出HTTP响应 content_by_lua* //设置upstream阶段调用 balancer_by_lua* //过滤header头, 一般只用于设置Cookie和Headers等 header_filter_by_lua* //过滤body, 一般会在一次请求中被调用多次, 因为这是实现基于HTTP1.1 chunked 编码的所谓“流式输出”的 body_filter_by_lua* //日志阶段 log_by_lua* 模块初始化 lua-nginx-module也是nginx的第三方模块，它也遵守nginx模块开发规范，可以查看nginx模块化架构了解nginx的模块化开发，nginx加载lua指令时会有初始化。 先看一下这个模块的定义: ngx_module_t ngx_http_lua_module = { NGX_MODULE_V1, &amp;ngx_http_lua_module_ctx, /* module context */ ngx_http_lua_cmds, /* module directives */ NGX_HTTP_MODULE, /* module type */ NULL, /* init master */ NULL, /* init module */ ngx_http_lua_init_worker, /* init process */ NULL, /* init thread */ NULL, /* exit thread */ NULL, /* exit process */ NULL, /* exit master */ NGX_MODULE_V1_PADDING }; lua模块的init_process回调函数
@@ -380,9 +380,11 @@ Nginx是如何解决epoll惊群的
 Bitcoin 比特币是有加密hacker中本聪由2009年1月3号创建。
 比特币白皮书
 精通比特币
+比特币生态资源
 Ethereum 以太坊是由维塔利克·布特林(V神)2013年提出的，发表了以太坊白皮书，支持智能合约。
 以太坊白皮书
 精通以太坊
+以太坊生态资源
 IPFS 星际文件系统(IPFS)是一个旨在实现文件的分布式存储、共享和持久化的网络传输协议，文件币(filecoin)。
 IPFS Polkadot 波卡是由以太坊前CTO，以太坊黄皮书作者Gavin Wood博士创建，支持跨链。
 波卡 Solana solana NFT NFT(非同质化代币)是一种被称为区块链数字账本上的数据单位，每个代币可以代表一个独特的数字资料，作为虚拟商品所有权的电子认证或证书。
