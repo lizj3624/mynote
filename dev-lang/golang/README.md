@@ -210,3 +210,13 @@ func Func1() {
 * [Go语言优秀资源整理，为项目落地加速](https://shockerli.net/post/go-awesome/)
 
 * [Golang源码解读](https://github.com/cch123/golang-notes)
+
+## golang不错的书籍
+
+* Go语言圣经
+
+* Go语言程序设计
+
+* 精通Go
+
+* [Go语言设计与实现](https://draveness.me/golang/)
