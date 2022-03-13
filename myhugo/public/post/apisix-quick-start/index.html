@@ -134,13 +134,13 @@ APISIX快速入门
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1241 字</span>
+<span class=leancloud-world-count>2032 字</span>
 </span>
 <span>
 |
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>3分钟</span>
+<span class=leancloud-view-count>5分钟</span>
 </span>
 <span id=/post/apisix-quick-start/ class=leancloud_visitors data-flag-title=APISIX快速入门>
 |
@@ -202,7 +202,7 @@ apisix start
 </span><span style=color:#b44>    &#34;active&#34;: {
 </span><span style=color:#b44>      &#34;timeout&#34;: 5,
 </span><span style=color:#b44>      &#34;http_path&#34;: &#34;/healthcheck&#34;,
-</span><span style=color:#b44>      &#34;host&#34;: &#34;lizunju.my.com&#34;,
+</span><span style=color:#b44>      &#34;host&#34;: &#34;test.my.com&#34;,
 </span><span style=color:#b44>      &#34;healthy&#34;: {
 </span><span style=color:#b44>        &#34;interval&#34;: 2,
 </span><span style=color:#b44>        &#34;successes&#34;: 1
@@ -226,9 +226,87 @@ apisix start
 </span><span style=color:#b44>    }
 </span><span style=color:#b44>  }
 </span><span style=color:#b44>}&#39;</span>
-
-<span style=color:#080;font-style:italic>## 添加成功后，返回数据中包含upstream_id(00000000000000000122)，以后可以通过这个id去关联`route`或`service`</span>
-<span style=color:#666>{</span><span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,<span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/upstreams\/00000000000000000122&#34;</span>,<span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;retries&#34;</span>:2,<span style=color:#b44>&#34;nodes&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;127.0.0.1:8881&#34;</span>:1,<span style=color:#b44>&#34;127.0.0.1:8080&#34;</span>:1,<span style=color:#b44>&#34;127.0.0.1:8880&#34;</span>:1<span style=color:#666>}</span>,<span style=color:#b44>&#34;hash_on&#34;</span>:<span style=color:#b44>&#34;vars&#34;</span>,<span style=color:#b44>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>,<span style=color:#b44>&#34;scheme&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>,<span style=color:#b44>&#34;checks&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;passive&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;healthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>200,201,302,304<span style=color:#666>]</span>,<span style=color:#b44>&#34;successes&#34;</span>:3<span style=color:#666>}</span>,<span style=color:#b44>&#34;unhealthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>500,503,504<span style=color:#666>]</span>,<span style=color:#b44>&#34;tcp_failures&#34;</span>:3,<span style=color:#b44>&#34;timeouts&#34;</span>:7,<span style=color:#b44>&#34;http_failures&#34;</span>:3<span style=color:#666>}</span>,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span><span style=color:#666>}</span>,<span style=color:#b44>&#34;active&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;healthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>200,302<span style=color:#666>]</span>,<span style=color:#b44>&#34;interval&#34;</span>:2,<span style=color:#b44>&#34;successes&#34;</span>:1<span style=color:#666>}</span>,<span style=color:#b44>&#34;timeout&#34;</span>:5,<span style=color:#b44>&#34;req_headers&#34;</span>:<span style=color:#666>[</span><span style=color:#b44>&#34;User-Agent: curl\/7.29.0&#34;</span><span style=color:#666>]</span>,<span style=color:#b44>&#34;unhealthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_failures&#34;</span>:2,<span style=color:#b44>&#34;tcp_failures&#34;</span>:2,<span style=color:#b44>&#34;timeouts&#34;</span>:3,<span style=color:#b44>&#34;interval&#34;</span>:1,<span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>429,404,500,501,502,503,504,505<span style=color:#666>]}</span>,<span style=color:#b44>&#34;host&#34;</span>:<span style=color:#b44>&#34;lizunju.my.com&#34;</span>,<span style=color:#b44>&#34;concurrency&#34;</span>:10,<span style=color:#b44>&#34;http_path&#34;</span>:<span style=color:#b44>&#34;\/healthcheck&#34;</span>,<span style=color:#b44>&#34;https_verify_certificate&#34;</span>:true,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span><span style=color:#666>}}</span>,<span style=color:#b44>&#34;pass_host&#34;</span>:<span style=color:#b44>&#34;pass&#34;</span>,<span style=color:#b44>&#34;update_time&#34;</span>:1647059500,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;roundrobin&#34;</span>,<span style=color:#b44>&#34;create_time&#34;</span>:1647059500<span style=color:#666>}}}</span>
+</code></pre></div><p>添加成功后，返回数据中包含upstream_id(00000000000000000122)，以后可以通过这个id去关联<code>route</code>或<code>service</code></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:green;font-weight:700>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,
+    <span style=color:green;font-weight:700>&#34;node&#34;</span>:{
+        <span style=color:green;font-weight:700>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/upstreams\/00000000000000000122&#34;</span>,
+        <span style=color:green;font-weight:700>&#34;value&#34;</span>:{
+            <span style=color:green;font-weight:700>&#34;retries&#34;</span>:<span style=color:#666>2</span>,
+            <span style=color:green;font-weight:700>&#34;nodes&#34;</span>:{
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8881&#34;</span>:<span style=color:#666>1</span>,
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8080&#34;</span>:<span style=color:#666>1</span>,
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8880&#34;</span>:<span style=color:#666>1</span>
+            },
+            <span style=color:green;font-weight:700>&#34;hash_on&#34;</span>:<span style=color:#b44>&#34;vars&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;scheme&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;checks&#34;</span>:{
+                <span style=color:green;font-weight:700>&#34;passive&#34;</span>:{
+                    <span style=color:green;font-weight:700>&#34;healthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>200</span>,
+                            <span style=color:#666>201</span>,
+                            <span style=color:#666>302</span>,
+                            <span style=color:#666>304</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;successes&#34;</span>:<span style=color:#666>3</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;unhealthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>500</span>,
+                            <span style=color:#666>503</span>,
+                            <span style=color:#666>504</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;tcp_failures&#34;</span>:<span style=color:#666>3</span>,
+                        <span style=color:green;font-weight:700>&#34;timeouts&#34;</span>:<span style=color:#666>7</span>,
+                        <span style=color:green;font-weight:700>&#34;http_failures&#34;</span>:<span style=color:#666>3</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>
+                },
+                <span style=color:green;font-weight:700>&#34;active&#34;</span>:{
+                    <span style=color:green;font-weight:700>&#34;healthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>200</span>,
+                            <span style=color:#666>302</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;interval&#34;</span>:<span style=color:#666>2</span>,
+                        <span style=color:green;font-weight:700>&#34;successes&#34;</span>:<span style=color:#666>1</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;timeout&#34;</span>:<span style=color:#666>5</span>,
+                    <span style=color:green;font-weight:700>&#34;req_headers&#34;</span>:[
+                        <span style=color:#b44>&#34;User-Agent: curl\/7.29.0&#34;</span>
+                    ],
+                    <span style=color:green;font-weight:700>&#34;unhealthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_failures&#34;</span>:<span style=color:#666>2</span>,
+                        <span style=color:green;font-weight:700>&#34;tcp_failures&#34;</span>:<span style=color:#666>2</span>,
+                        <span style=color:green;font-weight:700>&#34;timeouts&#34;</span>:<span style=color:#666>3</span>,
+                        <span style=color:green;font-weight:700>&#34;interval&#34;</span>:<span style=color:#666>1</span>,
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>429</span>,
+                            <span style=color:#666>404</span>,
+                            <span style=color:#666>500</span>,
+                            <span style=color:#666>501</span>,
+                            <span style=color:#666>502</span>,
+                            <span style=color:#666>503</span>,
+                            <span style=color:#666>504</span>,
+                            <span style=color:#666>505</span>
+                        ]
+                    },
+                    <span style=color:green;font-weight:700>&#34;host&#34;</span>:<span style=color:#b44>&#34;test.my.com&#34;</span>,
+                    <span style=color:green;font-weight:700>&#34;concurrency&#34;</span>:<span style=color:#666>10</span>,
+                    <span style=color:green;font-weight:700>&#34;http_path&#34;</span>:<span style=color:#b44>&#34;\/healthcheck&#34;</span>,
+                    <span style=color:green;font-weight:700>&#34;https_verify_certificate&#34;</span>:<span style=color:#a2f;font-weight:700>true</span>,
+                    <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>
+                }
+            },
+            <span style=color:green;font-weight:700>&#34;pass_host&#34;</span>:<span style=color:#b44>&#34;pass&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;update_time&#34;</span>:<span style=color:#666>1647059500</span>,
+            <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;roundrobin&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;create_time&#34;</span>:<span style=color:#666>1647059500</span>
+        }
+    }
+}
 </code></pre></div><blockquote>
 <p>这个upstream还支持主动/被动健康检查，apisix健康检查只有有请求转发到这个upstream时才启动。
 有admin API请求时，必须每次都得加token(&lsquo;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&rsquo;)，不然API校验不通过。</p>
@@ -244,7 +322,88 @@ curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/upstreams/1&
 </span><span style=color:#b44>}&#39;</span>
 </code></pre></div><h3 id=查询>查询</h3>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/apisix/admin/upstreams/00000000000000000122  -H <span style=color:#b44>&#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#39;</span>
-<span style=color:#666>{</span><span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/upstreams\/00000000000000000122&#34;</span>,<span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;retries&#34;</span>:2,<span style=color:#b44>&#34;nodes&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;127.0.0.1:8881&#34;</span>:1,<span style=color:#b44>&#34;127.0.0.1:8080&#34;</span>:1,<span style=color:#b44>&#34;127.0.0.1:8880&#34;</span>:1<span style=color:#666>}</span>,<span style=color:#b44>&#34;hash_on&#34;</span>:<span style=color:#b44>&#34;vars&#34;</span>,<span style=color:#b44>&#34;create_time&#34;</span>:1647059500,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;roundrobin&#34;</span>,<span style=color:#b44>&#34;pass_host&#34;</span>:<span style=color:#b44>&#34;pass&#34;</span>,<span style=color:#b44>&#34;checks&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;passive&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;healthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>200,201,302,304<span style=color:#666>]</span>,<span style=color:#b44>&#34;successes&#34;</span>:3<span style=color:#666>}</span>,<span style=color:#b44>&#34;unhealthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>500,503,504<span style=color:#666>]</span>,<span style=color:#b44>&#34;tcp_failures&#34;</span>:3,<span style=color:#b44>&#34;timeouts&#34;</span>:7,<span style=color:#b44>&#34;http_failures&#34;</span>:3<span style=color:#666>}</span>,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span><span style=color:#666>}</span>,<span style=color:#b44>&#34;active&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;healthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>200,302<span style=color:#666>]</span>,<span style=color:#b44>&#34;successes&#34;</span>:1,<span style=color:#b44>&#34;interval&#34;</span>:2<span style=color:#666>}</span>,<span style=color:#b44>&#34;timeout&#34;</span>:5,<span style=color:#b44>&#34;req_headers&#34;</span>:<span style=color:#666>[</span><span style=color:#b44>&#34;User-Agent: curl\/7.29.0&#34;</span><span style=color:#666>]</span>,<span style=color:#b44>&#34;unhealthy&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;http_failures&#34;</span>:2,<span style=color:#b44>&#34;tcp_failures&#34;</span>:2,<span style=color:#b44>&#34;timeouts&#34;</span>:3,<span style=color:#b44>&#34;interval&#34;</span>:1,<span style=color:#b44>&#34;http_statuses&#34;</span>:<span style=color:#666>[</span>429,404,500,501,502,503,504,505<span style=color:#666>]}</span>,<span style=color:#b44>&#34;host&#34;</span>:<span style=color:#b44>&#34;lizunju.my.com&#34;</span>,<span style=color:#b44>&#34;concurrency&#34;</span>:10,<span style=color:#b44>&#34;http_path&#34;</span>:<span style=color:#b44>&#34;\/healthcheck&#34;</span>,<span style=color:#b44>&#34;https_verify_certificate&#34;</span>:true,<span style=color:#b44>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span><span style=color:#666>}}</span>,<span style=color:#b44>&#34;update_time&#34;</span>:1647059500,<span style=color:#b44>&#34;scheme&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>,<span style=color:#b44>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span><span style=color:#666>}}</span>,<span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;get&#34;</span>,<span style=color:#b44>&#34;count&#34;</span>:1<span style=color:#666>}</span>
+</code></pre></div><p>返回数据</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:green;font-weight:700>&#34;node&#34;</span>:{
+        <span style=color:green;font-weight:700>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/upstreams\/00000000000000000122&#34;</span>,
+        <span style=color:green;font-weight:700>&#34;value&#34;</span>:{
+            <span style=color:green;font-weight:700>&#34;retries&#34;</span>:<span style=color:#666>2</span>,
+            <span style=color:green;font-weight:700>&#34;nodes&#34;</span>:{
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8881&#34;</span>:<span style=color:#666>1</span>,
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8080&#34;</span>:<span style=color:#666>1</span>,
+                <span style=color:green;font-weight:700>&#34;127.0.0.1:8880&#34;</span>:<span style=color:#666>1</span>
+            },
+            <span style=color:green;font-weight:700>&#34;hash_on&#34;</span>:<span style=color:#b44>&#34;vars&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;create_time&#34;</span>:<span style=color:#666>1647059500</span>,
+            <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;roundrobin&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;pass_host&#34;</span>:<span style=color:#b44>&#34;pass&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;checks&#34;</span>:{
+                <span style=color:green;font-weight:700>&#34;passive&#34;</span>:{
+                    <span style=color:green;font-weight:700>&#34;healthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>200</span>,
+                            <span style=color:#666>201</span>,
+                            <span style=color:#666>302</span>,
+                            <span style=color:#666>304</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;successes&#34;</span>:<span style=color:#666>3</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;unhealthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>500</span>,
+                            <span style=color:#666>503</span>,
+                            <span style=color:#666>504</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;tcp_failures&#34;</span>:<span style=color:#666>3</span>,
+                        <span style=color:green;font-weight:700>&#34;timeouts&#34;</span>:<span style=color:#666>7</span>,
+                        <span style=color:green;font-weight:700>&#34;http_failures&#34;</span>:<span style=color:#666>3</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>
+                },
+                <span style=color:green;font-weight:700>&#34;active&#34;</span>:{
+                    <span style=color:green;font-weight:700>&#34;healthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>200</span>,
+                            <span style=color:#666>302</span>
+                        ],
+                        <span style=color:green;font-weight:700>&#34;successes&#34;</span>:<span style=color:#666>1</span>,
+                        <span style=color:green;font-weight:700>&#34;interval&#34;</span>:<span style=color:#666>2</span>
+                    },
+                    <span style=color:green;font-weight:700>&#34;timeout&#34;</span>:<span style=color:#666>5</span>,
+                    <span style=color:green;font-weight:700>&#34;req_headers&#34;</span>:[
+                        <span style=color:#b44>&#34;User-Agent: curl\/7.29.0&#34;</span>
+                    ],
+                    <span style=color:green;font-weight:700>&#34;unhealthy&#34;</span>:{
+                        <span style=color:green;font-weight:700>&#34;http_failures&#34;</span>:<span style=color:#666>2</span>,
+                        <span style=color:green;font-weight:700>&#34;tcp_failures&#34;</span>:<span style=color:#666>2</span>,
+                        <span style=color:green;font-weight:700>&#34;timeouts&#34;</span>:<span style=color:#666>3</span>,
+                        <span style=color:green;font-weight:700>&#34;interval&#34;</span>:<span style=color:#666>1</span>,
+                        <span style=color:green;font-weight:700>&#34;http_statuses&#34;</span>:[
+                            <span style=color:#666>429</span>,
+                            <span style=color:#666>404</span>,
+                            <span style=color:#666>500</span>,
+                            <span style=color:#666>501</span>,
+                            <span style=color:#666>502</span>,
+                            <span style=color:#666>503</span>,
+                            <span style=color:#666>504</span>,
+                            <span style=color:#666>505</span>
+                        ]
+                    },
+                    <span style=color:green;font-weight:700>&#34;host&#34;</span>:<span style=color:#b44>&#34;test.my.com&#34;</span>,
+                    <span style=color:green;font-weight:700>&#34;concurrency&#34;</span>:<span style=color:#666>10</span>,
+                    <span style=color:green;font-weight:700>&#34;http_path&#34;</span>:<span style=color:#b44>&#34;\/healthcheck&#34;</span>,
+                    <span style=color:green;font-weight:700>&#34;https_verify_certificate&#34;</span>:<span style=color:#a2f;font-weight:700>true</span>,
+                    <span style=color:green;font-weight:700>&#34;type&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>
+                }
+            },
+            <span style=color:green;font-weight:700>&#34;update_time&#34;</span>:<span style=color:#666>1647059500</span>,
+            <span style=color:green;font-weight:700>&#34;scheme&#34;</span>:<span style=color:#b44>&#34;http&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>
+        }
+    },
+    <span style=color:green;font-weight:700>&#34;action&#34;</span>:<span style=color:#b44>&#34;get&#34;</span>,
+    <span style=color:green;font-weight:700>&#34;count&#34;</span>:<span style=color:#666>1</span>
+}
 </code></pre></div><h2 id=route的增删改查>route的增删改查</h2>
 <p>route <a href=https://apisix.apache.org/zh/docs/apisix/admin-api#route>admin API</a></p>
 <h3 id=新增route>新增route</h3>
@@ -254,9 +413,26 @@ curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/upstreams/1&
 </span><span style=color:#b44>    &#34;uri&#34;: &#34;/&#34;,
 </span><span style=color:#b44>    &#34;upstream_id&#34;: &#34;00000000000000000122&#34;
 </span><span style=color:#b44>}&#39;</span>
-
-<span style=color:#080;font-style:italic>## 返回数据中也是包含route_id，00000000000000000212</span>
-<span style=color:#666>{</span><span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,<span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/routes\/00000000000000000212&#34;</span>,<span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span><span style=color:#b44>&#34;methods&#34;</span>:<span style=color:#666>[</span><span style=color:#b44>&#34;GET&#34;</span><span style=color:#666>]</span>,<span style=color:#b44>&#34;upstream_id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>,<span style=color:#b44>&#34;uri&#34;</span>:<span style=color:#b44>&#34;\/&#34;</span>,<span style=color:#b44>&#34;host&#34;</span>:<span style=color:#b44>&#34;test.my.com&#34;</span>,<span style=color:#b44>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000212&#34;</span>,<span style=color:#b44>&#34;status&#34;</span>:1,<span style=color:#b44>&#34;update_time&#34;</span>:1647064681,<span style=color:#b44>&#34;priority&#34;</span>:0,<span style=color:#b44>&#34;create_time&#34;</span>:1647064681<span style=color:#666>}}}</span>
+</code></pre></div><p>返回数据中也是包含route_id，00000000000000000212</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:green;font-weight:700>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,
+    <span style=color:green;font-weight:700>&#34;node&#34;</span>:{
+        <span style=color:green;font-weight:700>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/routes\/00000000000000000212&#34;</span>,
+        <span style=color:green;font-weight:700>&#34;value&#34;</span>:{
+            <span style=color:green;font-weight:700>&#34;methods&#34;</span>:[
+                <span style=color:#b44>&#34;GET&#34;</span>
+            ],
+            <span style=color:green;font-weight:700>&#34;upstream_id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;uri&#34;</span>:<span style=color:#b44>&#34;\/&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;host&#34;</span>:<span style=color:#b44>&#34;test.my.com&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000212&#34;</span>,
+            <span style=color:green;font-weight:700>&#34;status&#34;</span>:<span style=color:#666>1</span>,
+            <span style=color:green;font-weight:700>&#34;update_time&#34;</span>:<span style=color:#666>1647064681</span>,
+            <span style=color:green;font-weight:700>&#34;priority&#34;</span>:<span style=color:#666>0</span>,
+            <span style=color:green;font-weight:700>&#34;create_time&#34;</span>:<span style=color:#666>1647064681</span>
+        }
+    }
+}
 </code></pre></div><blockquote>
 <p>route的规则是<code>GET</code>方法、<code>host</code>，<code>uri</code></p>
 </blockquote>
@@ -276,7 +452,159 @@ curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/upstreams/1&
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/apisix/admin/routes/00000000000000000212 -H <span style=color:#b44>&#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#39;</span> -X DELETE
 </code></pre></div><h2 id=测试验证>测试验证</h2>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/ -H <span style=color:#b44>&#34;Host: test.my.com&#34;</span>
-</code></pre></div>
+</code></pre></div><h2 id=service增删改查>Service增删改查</h2>
+<p><code>Service</code>是一组<code>upstream</code>和<code>plugin</code>的组合，<code>plugin</code>可选。</p>
+<h3 id=创建service>创建Service</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/apisix/admin/services  -H <span style=color:#b44>&#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#39;</span> -X POST -i -d  <span style=color:#b44>&#39;{&#34;upstream_id&#34;: &#34;00000000000000000122&#34;}&#39;</span>
+
+<span style=color:#080;font-style:italic>## 返回数据</span>
+<span style=color:#666>{</span>
+    <span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,
+    <span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span>
+        <span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/services\/00000000000000000292&#34;</span>,
+        <span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span>
+            <span style=color:#b44>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000292&#34;</span>,
+            <span style=color:#b44>&#34;update_time&#34;</span>:1647069365,
+            <span style=color:#b44>&#34;upstream_id&#34;</span>:<span style=color:#b44>&#34;00000000000000000122&#34;</span>,
+            <span style=color:#b44>&#34;create_time&#34;</span>:1647069365
+        <span style=color:#666>}</span>
+    <span style=color:#666>}</span>
+<span style=color:#666>}</span>
+</code></pre></div><blockquote>
+<p>upstream_id就是前面，创建的upstream，这个Service没有关联plugin</p>
+</blockquote>
+<h3 id=service绑定route上>Service绑定Route上</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/routes&#34;</span> -H <span style=color:#b44>&#34;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#34;</span> -X POST -d <span style=color:#b44>&#39;
+</span><span style=color:#b44>{
+</span><span style=color:#b44>  &#34;methods&#34;: [&#34;GET&#34;],
+</span><span style=color:#b44>  &#34;host&#34;: &#34;test.my.com&#34;,
+</span><span style=color:#b44>  &#34;uri&#34;: &#34;/mypath01/*&#34;,
+</span><span style=color:#b44>  &#34;service_id&#34;: &#34;00000000000000000292&#34;
+</span><span style=color:#b44>}&#39;</span>
+
+<span style=color:#080;font-style:italic>## 返回数据</span>
+<span style=color:#666>{</span>
+    <span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;create&#34;</span>,
+    <span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span>
+        <span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/routes\/00000000000000000308&#34;</span>,
+        <span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span>
+            <span style=color:#b44>&#34;service_id&#34;</span>:<span style=color:#b44>&#34;00000000000000000292&#34;</span>,
+            <span style=color:#b44>&#34;methods&#34;</span>:<span style=color:#666>[</span>
+                <span style=color:#b44>&#34;GET&#34;</span>
+            <span style=color:#666>]</span>,
+            <span style=color:#b44>&#34;uri&#34;</span>:<span style=color:#b44>&#34;\/mypath01\/*&#34;</span>,
+            <span style=color:#b44>&#34;host&#34;</span>:<span style=color:#b44>&#34;test.my.com&#34;</span>,
+            <span style=color:#b44>&#34;id&#34;</span>:<span style=color:#b44>&#34;00000000000000000308&#34;</span>,
+            <span style=color:#b44>&#34;status&#34;</span>:1,
+            <span style=color:#b44>&#34;update_time&#34;</span>:1647070197,
+            <span style=color:#b44>&#34;priority&#34;</span>:0,
+            <span style=color:#b44>&#34;create_time&#34;</span>:1647070197
+        <span style=color:#666>}</span>
+    <span style=color:#666>}</span>
+<span style=color:#666>}</span>
+</code></pre></div><blockquote>
+<p>将上面创建的Service绑定一个rout上</p>
+</blockquote>
+<h3 id=删除service>删除Service</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/routes/00000000000000000292&#34;</span> -H <span style=color:#b44>&#34;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#34;</span> -X DELETE
+</code></pre></div><h3 id=测试验证route>测试验证route</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/mypath01/json -H <span style=color:#b44>&#34;Host: test.my.com&#34;</span>
+</code></pre></div><h2 id=consumer增删改查>Consumer增删改查</h2>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/apisix/admin/consumers -H <span style=color:#b44>&#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#39;</span> -X PUT -d <span style=color:#b44>&#39;{
+</span><span style=color:#b44>    &#34;username&#34;: &#34;test&#34;,
+</span><span style=color:#b44>    &#34;plugins&#34;: {
+</span><span style=color:#b44>        &#34;key-auth&#34;: {
+</span><span style=color:#b44>            &#34;key&#34;: &#34;auth-one-test&#34;
+</span><span style=color:#b44>        },
+</span><span style=color:#b44>        &#34;limit-count&#34;: {
+</span><span style=color:#b44>            &#34;count&#34;: 2,
+</span><span style=color:#b44>            &#34;time_window&#34;: 60,
+</span><span style=color:#b44>            &#34;rejected_code&#34;: 503,
+</span><span style=color:#b44>            &#34;key&#34;: &#34;remote_addr&#34;
+</span><span style=color:#b44>        }
+</span><span style=color:#b44>    }
+</span><span style=color:#b44>}&#39;</span>
+
+<span style=color:#080;font-style:italic>## 返回数据</span>
+<span style=color:#666>{</span>
+    <span style=color:#b44>&#34;action&#34;</span>:<span style=color:#b44>&#34;set&#34;</span>,
+    <span style=color:#b44>&#34;node&#34;</span>:<span style=color:#666>{</span>
+        <span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;\/apisix\/consumers\/test&#34;</span>,
+        <span style=color:#b44>&#34;value&#34;</span>:<span style=color:#666>{</span>
+            <span style=color:#b44>&#34;username&#34;</span>:<span style=color:#b44>&#34;test&#34;</span>,
+            <span style=color:#b44>&#34;update_time&#34;</span>:1647070804,
+            <span style=color:#b44>&#34;plugins&#34;</span>:<span style=color:#666>{</span>
+                <span style=color:#b44>&#34;limit-count&#34;</span>:<span style=color:#666>{</span>
+                    <span style=color:#b44>&#34;count&#34;</span>:2,
+                    <span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;remote_addr&#34;</span>,
+                    <span style=color:#b44>&#34;time_window&#34;</span>:60,
+                    <span style=color:#b44>&#34;show_limit_quota_header&#34;</span>:true,
+                    <span style=color:#b44>&#34;key_type&#34;</span>:<span style=color:#b44>&#34;var&#34;</span>,
+                    <span style=color:#b44>&#34;policy&#34;</span>:<span style=color:#b44>&#34;local&#34;</span>,
+                    <span style=color:#b44>&#34;rejected_code&#34;</span>:503,
+                    <span style=color:#b44>&#34;allow_degradation&#34;</span>:false
+                <span style=color:#666>}</span>,
+                <span style=color:#b44>&#34;key-auth&#34;</span>:<span style=color:#666>{</span>
+                    <span style=color:#b44>&#34;key&#34;</span>:<span style=color:#b44>&#34;auth-one-test&#34;</span>
+                <span style=color:#666>}</span>
+            <span style=color:#666>}</span>,
+            <span style=color:#b44>&#34;create_time&#34;</span>:1647070804
+        <span style=color:#666>}</span>
+    <span style=color:#666>}</span>
+<span style=color:#666>}</span>
+</code></pre></div><h3 id=创建route支持consumer>创建route支持consumer</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/routes&#34;</span> -H <span style=color:#b44>&#34;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#34;</span> -X POST -d <span style=color:#b44>&#39;{
+</span><span style=color:#b44>    &#34;methods&#34;: [&#34;GET&#34;],
+</span><span style=color:#b44>    &#34;host&#34;: &#34;test.my.com&#34;,
+</span><span style=color:#b44>    &#34;uri&#34;: &#34;/mypath04/consumer&#34;,
+</span><span style=color:#b44>    &#34;plugins&#34;: {
+</span><span style=color:#b44>        &#34;key-auth&#34;: {}
+</span><span style=color:#b44>    },
+</span><span style=color:#b44>    &#34;upstream_id&#34;: &#34;00000000000000000122&#34;
+</span><span style=color:#b44>}&#39;</span>
+</code></pre></div><blockquote>
+<p>upstream_id也是上面创建的upstream</p>
+</blockquote>
+<h3 id=删除consumer>删除consumer</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/consumers/test&#34;</span> -H <span style=color:#b44>&#34;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#34;</span> -X DELETE
+</code></pre></div><h3 id=测试验证请求>测试验证请求</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/mypath04/consumer -H <span style=color:#b44>&#34;Host: test.my.com&#34;</span> -H <span style=color:#b44>&#39;apikey: auth-one-test&#39;</span>
+</code></pre></div><h2 id=配置plugin>配置Plugin</h2>
+<h3 id=在route创建plugin>在route创建Plugin</h3>
+<p>plugin可以在<code>Consumer</code>、<code>Service</code>，<code>Route</code>配置，同一个Plugin在一个请求中只执行一次，如果配置相同的Plugin，优先顺序：
+<code>Consumer</code>、<code>Route</code>，<code>Service</code>。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl <span style=color:#b44>&#34;http://127.0.0.1:9080/apisix/admin/routes&#34;</span> -H <span style=color:#b44>&#34;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&#34;</span> -X POST -d <span style=color:#b44>&#39;{
+</span><span style=color:#b44>    &#34;methods&#34;: [&#34;GET&#34;],
+</span><span style=color:#b44>    &#34;host&#34;: &#34;test.my.com&#34;,
+</span><span style=color:#b44>    &#34;uri&#34;: &#34;/mypath03/plugin&#34;,
+</span><span style=color:#b44>    &#34;plugins&#34;: {
+</span><span style=color:#b44>        &#34;limit-count&#34;: {
+</span><span style=color:#b44>            &#34;count&#34;: 2,
+</span><span style=color:#b44>            &#34;time_window&#34;: 60,
+</span><span style=color:#b44>            &#34;rejected_code&#34;: 503,
+</span><span style=color:#b44>            &#34;key&#34;: &#34;remote_addr&#34;
+</span><span style=color:#b44>        },
+</span><span style=color:#b44>        &#34;prometheus&#34;: {}
+</span><span style=color:#b44>    },
+</span><span style=color:#b44>    &#34;upstream_id&#34;: &#34;00000000000000000122&#34;
+</span><span style=color:#b44>}&#39;</span>
+</code></pre></div><blockquote>
+<p>plugin绑定在route上</p>
+</blockquote>
+<h3 id=测试验证-1>测试验证</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl http://127.0.0.1:9080/mypath03/plugin -H <span style=color:#b44>&#34;Host: test.my.com&#34;</span>
+</code></pre></div><h2 id=引用>引用</h2>
+<ol>
+<li>
+<p><a href=https://apisix.apache.org/zh/docs/apisix/architecture-design/route>APISIX架构</a></p>
+</li>
+<li>
+<p><a href=https://apisix.apache.org/zh/docs/apisix/admin-api>APISIX admin API</a></p>
+</li>
+<li>
+<p><a href=https://apisix.apache.org/zh/docs/apisix/getting-started>APISIX快速入门指南</a></p>
+</li>
+</ol>
 </div>
 <footer class=post-footer>
 <div class=post-tags>
@@ -463,6 +791,28 @@ GitHub
 </ul>
 </li>
 <li><a href=#测试验证>测试验证</a></li>
+<li><a href=#service增删改查>Service增删改查</a>
+<ul>
+<li><a href=#创建service>创建Service</a></li>
+<li><a href=#service绑定route上>Service绑定Route上</a></li>
+<li><a href=#删除service>删除Service</a></li>
+<li><a href=#测试验证route>测试验证route</a></li>
+</ul>
+</li>
+<li><a href=#consumer增删改查>Consumer增删改查</a>
+<ul>
+<li><a href=#创建route支持consumer>创建route支持consumer</a></li>
+<li><a href=#删除consumer>删除consumer</a></li>
+<li><a href=#测试验证请求>测试验证请求</a></li>
+</ul>
+</li>
+<li><a href=#配置plugin>配置Plugin</a>
+<ul>
+<li><a href=#在route创建plugin>在route创建Plugin</a></li>
+<li><a href=#测试验证-1>测试验证</a></li>
+</ul>
+</li>
+<li><a href=#引用>引用</a></li>
 </ul>
 </nav></div>
 </div>
