@@ -66,6 +66,10 @@
 
 19. [以太坊101-en](https://kauri.io/#collections/Ethereum%20101/ethereum-101-part-1-what-is-ethereum/)
 
+20. [以太坊源码分析](https://github.com/blockchainGuide/blockchainguide/tree/main/source_code_analysis/ethereum/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
+
+21. [以太坊学习路线和资源汇总](https://learnblockchain.cn/article/3682)
+
 ## DEFI
 
 1. [defi pluse](https://defipulse.com/)
