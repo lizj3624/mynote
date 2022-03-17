@@ -70,6 +70,12 @@
 
 21. [以太坊学习路线和资源汇总](https://learnblockchain.cn/article/3682)
 
+22. [以太坊技术与实现-基础数据结构](https://learnblockchain.cn/books/geth/part1.html)
+
+23. [以太坊技术与实现-挖矿核心](https://learnblockchain.cn/books/geth/part2.html)
+
+24. [以太坊技术与实现-底层核心技术](https://learnblockchain.cn/books/geth/part3.html)
+
 ## DEFI
 
 1. [defi pluse](https://defipulse.com/)
