@@ -23,6 +23,18 @@
 
 12. [腾讯云亿级QPS弹性负载均衡系统演进](https://mp.weixin.qq.com/s/vaABAtXQDMcMAFYL_ieR9Q)
 
+13. [nginx支持ktls](https://zhuanlan.zhihu.com/p/464614801)
+
+14. [来自Facebook的KTLS(Kernel SSL/TLS)原理和实例](https://blog.csdn.net/dog250/article/details/53868519)
+
+15. [操作系统与存储:解析Linux内核全新异步IO引擎——io_uring设计与实现](https://zhuanlan.zhihu.com/p/334658432)
+
+16. [nginx支持io_uring](https://github.com/hakasenyang/openssl-patch/blob/master/nginx_io_uring.patch)
+
+17. [nginx社区支持io_uring](https://mailman.nginx.org/pipermail/nginx-devel/2021-February/013860.html)
+
+18. [Nginx io_uring优化及性能评测](https://developer.aliyun.com/article/774857)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
