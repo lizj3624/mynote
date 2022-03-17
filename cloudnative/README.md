@@ -23,6 +23,10 @@
 
 3. [高效入门eBPF](https://mp.weixin.qq.com/s/afDcXoh0YfRlics22kucQw)
 
+4. [eBPF技术简介](https://mp.weixin.qq.com/s?__biz=MzI1NTE2NDE2MA==&mid=2649382412&idx=1&sn=0fe2f4e0d8feadfccb8fe7687dbfc54f&scene=21)
+
+5. [Kubernetes使用eBPF替换iptables](https://zhuanlan.zhihu.com/p/137960916)
+
 # dev-ops
 
 1. [CentOS8.2部署安装saltstack](https://www.cnblogs.com/lianglab/p/14146896.html)
