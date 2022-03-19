@@ -35,6 +35,8 @@
 
 18. [Nginx io_uring优化及性能评测](https://developer.aliyun.com/article/774857)
 
+19. [NGINX变量机制分析](http://just4coding.com/2014/12/03/nginx-variables/)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
