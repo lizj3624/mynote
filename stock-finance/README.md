@@ -41,6 +41,8 @@
 
    15. [全球金融市场动态](https://cn.investing.com/markets/)
 
+   16. [欧美云计算公司数据分析](https://cloudedjudgement.substack.com/)
+
 ## 四、不错的财经公众号
    
 1. [灰岩金融科技](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzODg2NDQyMA==&scene=124#wechat_redirect)
@@ -66,6 +68,8 @@
 11. [机器阅读-雪球](https://xueqiu.com/u/1854210216)
 
 12. [Oli是只布偶猫-雪球](https://xueqiu.com/u/1211182832)
+
+13. [M小姐研习录](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUzNTEyNjc0OA==&scene=124#wechat_redirect)
 
 
 ## 五、股票价值分析
