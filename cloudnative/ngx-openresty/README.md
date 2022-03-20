@@ -37,6 +37,8 @@
 
 19. [NGINX变量机制分析](http://just4coding.com/2014/12/03/nginx-variables/)
 
+20. [ngx官方开发手册](https://nginx.org/en/docs/dev/development_guide.html)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
