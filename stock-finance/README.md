@@ -71,6 +71,8 @@
 
 13. [M小姐研习录](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUzNTEyNjc0OA==&scene=124#wechat_redirect)
 
+14. [fisher的信徒-富途]()
+
 
 ## 五、股票价值分析
 
