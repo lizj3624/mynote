@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>APISIX的Plugin介绍</title><url>https://lizj3624.github.io/post/apisix-plugin/</url><categories><category>apisix</category><category>cloudnative</category></categories><tags><tag>apisix</tag><tag>plugin</tag><tag>cloudnative</tag></tags><content type="html"> 插件机制 APISIX通过插件(Plugin)机制来丰富其功能，目前通过lua实现了8大类插件，还通过sidecar模式支持多语言插件。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>拼多多2021Q4及全年财报</title><url>https://lizj3624.github.io/post/pdd-2021q4/</url><categories><category>拼多多</category><category>财报</category></categories><tags><tag>拼多多</tag><tag>财报</tag></tags><content type="html"> 3.21号拼多多发布2021年Q4以及全年财报，简单看一下财报数据，帮助理解拼多多这家公司，单位：人民币
+Q4财报 亮点 全年GMV：2.441万亿，同比增长46%。 Q4总收入：272.309亿，同比增长3%。 月活用户：7.334亿，同比增长2%。 年活动买家：8.687亿，同比增长10%。 单用户年度消费额：2810，同比增长33%。 Q4财务数据 Q4总收入：272.309亿，同比增长3% 广告收入: 224.25亿, 同比增长19%。 交易佣金收入：47.242亿, 同比增长108%。 商品销售收入：0.817亿, 同比减少98%。 拼多多的商品销售只是对用户需求的补充，不是拼多多的重点，这块比重会慢慢减少。
+收入成本：65.155亿，同比减少43%。
+运营支出：138.084亿，同比减少23%，其中市场营销费：113.658亿，同比减少23%。
+减少补贴，营销费大幅度下降
+运营利润：69.07亿，归属股东的净利润：66.195亿。Non-GAAP下：84.444亿。 Q4的收入、月活都是个位增长，通过降低营销费实现净利润。
+全年财报 全年收入：939.499亿，同比增长58%。 广告收入：725.634亿，同比增长51%。 交易佣金收入：141.404亿，同比增长144%。 商品销售收入：72.461亿，同比增长26%。 收入成本：317.181亿，同比增长65%。
+运营支出：553.353亿，同比增长10%，其中研发支出同比增长30%。
+减少营销费用，研发还在持续投入
+运营利润：68.968亿，Non-GAAP下：116.715亿, 归属股东的净利润：77.687亿，Non-GAAP下：138.295亿。</content></entry><entry><title>APISIX的Plugin介绍</title><url>https://lizj3624.github.io/post/apisix-plugin/</url><categories><category>apisix</category><category>cloudnative</category></categories><tags><tag>apisix</tag><tag>plugin</tag><tag>cloudnative</tag></tags><content type="html"> 插件机制 APISIX通过插件(Plugin)机制来丰富其功能，目前通过lua实现了8大类插件，还通过sidecar模式支持多语言插件。
 Plugin配置可直接绑定在Route上，也可以被绑定在Service或Consumer上。 而对于同一个插件的配置，只能有一份是有效的，配置选择优先级总是Consumer > Route > Service。
 一个插件在一次请求中只会执行一次，即使被同时绑定到多个不同对象中（比如Route或Service）。 插件运行先后顺序是根据插件自身的优先级(priority)来决定的。
 插件热加载 APISIX的插件是热加载的，不管你是新增、删除还是修改插件，都不需要重启服务。
