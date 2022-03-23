@@ -1,4 +1,4 @@
-# 不错的Linux公众号
+## 不错的Linux公众号
 
 1. [Linux阅码场](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzAwMDUwNDgxOA==&scene=124#wechat_redirect)
 
@@ -22,4 +22,10 @@
 
 11. [基于BCC进行性能追踪](https://blog.gmem.cc/bcc)
 
-# [Linux系统常用命令](https://github.com/lizj3624/mynote/blob/master/linux/linuxcmd.md)
+##  Linux命令
+
+1. [Linux系统常用命令](https://github.com/lizj3624/mynote/blob/master/linux/linuxcmd.md)
+
+## Linux性能调优
+
+1. [系统性能分析从入门到进阶](https://mp.weixin.qq.com/s/beqzPadduGPSn6hw7oF4EQ)
