@@ -43,6 +43,8 @@
 
    16. [欧美云计算公司数据分析](https://cloudedjudgement.substack.com/)
 
+   17. [美股SaaS分析](https://cloudedjudgement.substack.com/)
+
 ## 四、不错的财经公众号
    
 1. [灰岩金融科技](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzODg2NDQyMA==&scene=124#wechat_redirect)
