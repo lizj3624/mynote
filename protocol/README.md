@@ -80,4 +80,8 @@
 
 16. [QUIC-rfc9000-另一个版本翻译](https://fangqiuhang.github.io/RFC9000_Chinese_Translation/)
 
+17. [腾讯工程技术直播-QUIC协议详解](https://www.cnblogs.com/lfri/p/quic.html)
+
+18. [科普：QUIC协议原理分析](https://zhuanlan.zhihu.com/p/32553477)
+
 ## WebSocket
