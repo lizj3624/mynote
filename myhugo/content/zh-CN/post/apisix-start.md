@@ -561,3 +561,6 @@ http {
 
 到这里apisix启动流程介绍完了，启动过程主要是初始化数据以及etcd，生成`nginx.conf`配置，apisix大部分的代码逻辑都嵌入到OpenResty处理请求的各个阶段，
 后面再分析一个请求在apisix的处理过程、etcd数据同步过程和apisix的控制面。
+
+## 引用
+1. [APISIX源码分析](https://shoujo.ink/2021/09/apisix-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)

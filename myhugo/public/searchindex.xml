@@ -15,7 +15,8 @@ init_by_lua_block { require "resty.core" apisix = require("apisix") local dns_re
 upstream apisix_backend { server 0.0.0.1; keepalive 320; keepalive_requests 1000; keepalive_timeout 60s; # we put the static configuration above so that we can override it in the Lua code balancer_by_lua_block { apisix.http_balancer_phase() } } 在header_filter阶段嵌入apisix.http_header_filter_phase()
 在body_filter阶段嵌入apisix.http_body_filter_phase()
 在log阶段嵌入apisix.http_log_phase()
-到这里apisix启动流程介绍完了，启动过程主要是初始化数据以及etcd，生成nginx.conf配置，apisix大部分的代码逻辑都嵌入到OpenResty处理请求的各个阶段， 后面再分析一个请求在apisix的处理过程、etcd数据同步过程和apisix的控制面。</content></entry><entry><title>腾讯2021Q4以及全年财报</title><url>https://lizj3624.github.io/post/tencent-2021q4-fy/</url><categories><category>腾讯</category><category>财报</category></categories><tags><tag>腾讯</tag><tag>财报</tag></tags><content type="html"> Q4财报 总收入同比增长8%，Non-GAAP下股东盈利同比下降25%。
+到这里apisix启动流程介绍完了，启动过程主要是初始化数据以及etcd，生成nginx.conf配置，apisix大部分的代码逻辑都嵌入到OpenResty处理请求的各个阶段， 后面再分析一个请求在apisix的处理过程、etcd数据同步过程和apisix的控制面。
+引用 APISIX源码分析</content></entry><entry><title>腾讯2021Q4以及全年财报</title><url>https://lizj3624.github.io/post/tencent-2021q4-fy/</url><categories><category>腾讯</category><category>财报</category></categories><tags><tag>腾讯</tag><tag>财报</tag></tags><content type="html"> Q4财报 总收入同比增长8%，Non-GAAP下股东盈利同比下降25%。
 总收入为人民币1441.88亿元(226.15亿美元)，同比增长8%。
 Non-GAAP财务
 经营盈利为人民币331.51亿元(52.00亿美元)，同比下降13%；经营利润率由去年同期的28%下降到23%。 期内盈利为人民币257.58亿元(40.40 亿美元)，同比下降25%；净利润率由去年同期的26%下降到18%。 每股基本盈利为人民币2.609元，每股摊薄盈利为人民币2.547元。 核心业务营收和盈利都在下降
