@@ -134,13 +134,13 @@ APISIX源码-启动过程
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2467 字</span>
+<span class=leancloud-world-count>2735 字</span>
 </span>
 <span>
 |
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>5分钟</span>
+<span class=leancloud-view-count>6分钟</span>
 </span>
 <span id=/post/apisix-start/ class=leancloud_visitors data-flag-title=APISIX源码-启动过程>
 |
@@ -174,8 +174,65 @@ version:    print the version of apisix
 <p>如果OpenResty版本不是1.19，就通过lua启动apisix.lua</p>
 </blockquote>
 <h3 id=源码分析>源码分析</h3>
-<p><img src=./apisix-source-tree.png alt=02>
-apisix源码<code>bin/apisix</code>是命令入口，是一个<code>shell</code>脚本，通过<code>lua</code>或<code>luajit</code>启动apisix编写的启动lua脚本，这些lua脚步主要在<code>apisix/cli</code>目录下。
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -L <span style=color:#666>2</span>
+.
+├── apisix
+│   ├── admin
+│   ├── api_router.lua
+│   ├── balancer
+│   ├── balancer.lua
+│   ├── cli
+│   ├── constants.lua
+│   ├── consumer.lua
+│   ├── control
+│   ├── core
+│   ├── core.lua
+│   ├── debug.lua
+│   ├── discovery
+│   ├── error_handling.lua
+│   ├── http
+│   ├── init.lua
+│   ├── patch.lua
+│   ├── plugin_config.lua
+│   ├── plugin.lua
+│   ├── plugins
+│   ├── router.lua
+│   ├── schema_def.lua
+│   ├── script.lua
+│   ├── ssl
+│   ├── ssl.lua
+│   ├── stream
+│   ├── timers.lua
+│   ├── upstream.lua
+│   ├── utils
+│   └── wasm.lua
+├── bin
+│   └── apisix
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CODE_STYLE.md
+├── conf
+│   ├── apisix.yaml
+│   ├── cert
+│   ├── config-default.yaml
+│   ├── config.yaml
+│   ├── debug.yaml
+│   ├── mime.types
+│   └── nginx.conf
+├── CONTRIBUTING.md
+├── deps
+│   ├── lib
+│   └── share
+├── LICENSE
+├── MAINTAIN.md
+├── Makefile
+├── NOTICE
+├── powered-by.md
+├── README.md
+└── rockspec
+    ├── apisix-2.12.1-0.rockspec
+    └── apisix-master-0.rockspec
+</code></pre></div><p>apisix源码<code>bin/apisix</code>是命令入口，是一个<code>shell</code>脚本，通过<code>lua</code>或<code>luajit</code>启动apisix编写的启动lua脚本，这些lua脚步主要在<code>apisix/cli</code>目录下。
 <code>apisix.lua</code>中引用的<code>lua</code>包路径，解析参数，执行相应命令参数的回调函数，启动apisix。命令行中每个参数对应一个回调函数，这些函数在<code>ops.lua</code>中。</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>...
 <span style=color:#a2f;font-weight:700>local</span> action <span style=color:#666>=</span> {

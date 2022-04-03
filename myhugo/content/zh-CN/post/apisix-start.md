@@ -35,7 +35,66 @@ version:    print the version of apisix
 > 如果OpenResty版本不是1.19，就通过lua启动apisix.lua
 
 ### 源码分析
-![02](./apisix-source-tree.png)
+```shell
+$ tree -L 2
+.
+├── apisix
+│   ├── admin
+│   ├── api_router.lua
+│   ├── balancer
+│   ├── balancer.lua
+│   ├── cli
+│   ├── constants.lua
+│   ├── consumer.lua
+│   ├── control
+│   ├── core
+│   ├── core.lua
+│   ├── debug.lua
+│   ├── discovery
+│   ├── error_handling.lua
+│   ├── http
+│   ├── init.lua
+│   ├── patch.lua
+│   ├── plugin_config.lua
+│   ├── plugin.lua
+│   ├── plugins
+│   ├── router.lua
+│   ├── schema_def.lua
+│   ├── script.lua
+│   ├── ssl
+│   ├── ssl.lua
+│   ├── stream
+│   ├── timers.lua
+│   ├── upstream.lua
+│   ├── utils
+│   └── wasm.lua
+├── bin
+│   └── apisix
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CODE_STYLE.md
+├── conf
+│   ├── apisix.yaml
+│   ├── cert
+│   ├── config-default.yaml
+│   ├── config.yaml
+│   ├── debug.yaml
+│   ├── mime.types
+│   └── nginx.conf
+├── CONTRIBUTING.md
+├── deps
+│   ├── lib
+│   └── share
+├── LICENSE
+├── MAINTAIN.md
+├── Makefile
+├── NOTICE
+├── powered-by.md
+├── README.md
+└── rockspec
+    ├── apisix-2.12.1-0.rockspec
+    └── apisix-master-0.rockspec
+```
 apisix源码`bin/apisix`是命令入口，是一个`shell`脚本，通过`lua`或`luajit`启动apisix编写的启动lua脚本，这些lua脚步主要在`apisix/cli`目录下。
 `apisix.lua`中引用的`lua`包路径，解析参数，执行相应命令参数的回调函数，启动apisix。命令行中每个参数对应一个回调函数，这些函数在`ops.lua`中。
 ```lua
