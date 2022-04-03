@@ -134,7 +134,7 @@ APISIX源码-启动过程
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2453 字</span>
+<span class=leancloud-world-count>2455 字</span>
 </span>
 <span>
 |
@@ -168,19 +168,15 @@ restart:    restart the apisix server
 reload:     reload the apisix server
 version:    print the version of apisix
 </code></pre></div><h2 id=启动源码简析>启动源码简析</h2>
-<ol>
-<li>启动流程
-<img src=./start_flow.png alt=01></li>
-</ol>
+<h3 id=启动流程>启动流程</h3>
+<p><img src=./start-flow.png alt=01></p>
 <blockquote>
 <p>如果OpenResty版本不是1.19，就通过lua启动apisix.lua</p>
 </blockquote>
-<ol start=2>
-<li>源码
-<img src=./apisix_source_tree.png alt=02>
+<h3 id=源码分析>源码分析</h3>
+<p><img src=./apisix-source-tree.png alt=02>
 apisix源码<code>bin/apisix</code>是命令入口，是一个<code>shell</code>脚本，通过<code>lua</code>或<code>luajit</code>启动apisix编写的启动lua脚本，这些lua脚步主要在<code>apisix/cli</code>目录下。
-<code>apisix.lua</code>中引用的<code>lua</code>包路径，解析参数，执行相应命令参数的回调函数，启动apisix。命令行中每个参数对应一个回调函数，这些函数在<code>ops.lua</code>中。</li>
-</ol>
+<code>apisix.lua</code>中引用的<code>lua</code>包路径，解析参数，执行相应命令参数的回调函数，启动apisix。命令行中每个参数对应一个回调函数，这些函数在<code>ops.lua</code>中。</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>...
 <span style=color:#a2f;font-weight:700>local</span> action <span style=color:#666>=</span> {
     help <span style=color:#666>=</span> help,
@@ -655,19 +651,17 @@ http {
 </li>
 <li>
 <p>在OpenResty的<code>init</code>阶段嵌入<code>apisix.http_init(args)</code></p>
-</li>
-</ol>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>init_by_lua_block {
-        require &#34;resty.core&#34;
-        apisix = require(&#34;apisix&#34;)
+     require &#34;resty.core&#34;
+     apisix = require(&#34;apisix&#34;)
 
-        local dns_resolver = { &#34;10.2.255.200&#34;, }
-        local args = {
-            dns_resolver = dns_resolver,
-        }
-        apisix.http_init(args)
-    }
-</code></pre></div><ol start=4>
+     local dns_resolver = { &#34;10.2.255.200&#34;, }
+     local args = {
+         dns_resolver = dns_resolver,
+     }
+     apisix.http_init(args)
+ }
+</code></pre></div></li>
 <li>
 <p>在<code>init_worker</code>阶段嵌入<code>apisix.http_init_worker()</code></p>
 </li>
@@ -682,21 +676,19 @@ http {
 </li>
 <li>
 <p>在<code>content</code>阶段，设置upstream，选取合适的server，apisix主要通过<code>apisix.http_balancer_phase()</code>实现的。</p>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback> upstream apisix_backend {
-        server 0.0.0.1;
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>upstream apisix_backend {
+     server 0.0.0.1;
 
-        keepalive 320;
-        keepalive_requests 1000;
-        keepalive_timeout 60s;
-        # we put the static configuration above so that we can override it in the Lua code
+     keepalive 320;
+     keepalive_requests 1000;
+     keepalive_timeout 60s;
+     # we put the static configuration above so that we can override it in the Lua code
 
-        balancer_by_lua_block {
-            apisix.http_balancer_phase()
-        }
-    }
-</code></pre></div><ol start=9>
+     balancer_by_lua_block {
+         apisix.http_balancer_phase()
+     }
+ }
+</code></pre></div></li>
 <li>
 <p>在<code>header_filter</code>阶段嵌入<code>apisix.http_header_filter_phase()</code></p>
 </li>
@@ -874,7 +866,12 @@ GitHub
 <div class=post-toc-content><nav id=TableOfContents>
 <ul>
 <li><a href=#apisix启动命令>apisix启动命令</a></li>
-<li><a href=#启动源码简析>启动源码简析</a></li>
+<li><a href=#启动源码简析>启动源码简析</a>
+<ul>
+<li><a href=#启动流程>启动流程</a></li>
+<li><a href=#源码分析>源码分析</a></li>
+</ul>
+</li>
 </ul>
 </nav></div>
 </div>

@@ -30,12 +30,12 @@ version:    print the version of apisix
 ```
 
 ## 启动源码简析
-1. 启动流程
-![01](./start_flow.png)
+### 启动流程
+![01](./start-flow.png)
 > 如果OpenResty版本不是1.19，就通过lua启动apisix.lua
 
-2. 源码
-![02](./apisix_source_tree.png)
+### 源码分析
+![02](./apisix-source-tree.png)
 apisix源码`bin/apisix`是命令入口，是一个`shell`脚本，通过`lua`或`luajit`启动apisix编写的启动lua脚本，这些lua脚步主要在`apisix/cli`目录下。
 `apisix.lua`中引用的`lua`包路径，解析参数，执行相应命令参数的回调函数，启动apisix。命令行中每个参数对应一个回调函数，这些函数在`ops.lua`中。
 ```lua
@@ -516,8 +516,8 @@ http {
 2. `/apisix/admin`的location主要是处理控制面的接口。
 
 3. 在OpenResty的`init`阶段嵌入`apisix.http_init(args)`
-```conf
-init_by_lua_block {
+   ```conf
+   init_by_lua_block {
         require "resty.core"
         apisix = require("apisix")
 
@@ -527,7 +527,7 @@ init_by_lua_block {
         }
         apisix.http_init(args)
     }
-```
+    ```
 
 4. 在`init_worker`阶段嵌入`apisix.http_init_worker()` 
 
@@ -538,8 +538,8 @@ init_by_lua_block {
 7. 在`access`阶段嵌入`apisix.http_access_phase()`，apisix没有设置`rewrite`阶段
 
 8. 在`content`阶段，设置upstream，选取合适的server，apisix主要通过`apisix.http_balancer_phase()`实现的。
-```conf
- upstream apisix_backend {
+   ```conf
+   upstream apisix_backend {
         server 0.0.0.1;
 
         keepalive 320;
@@ -551,7 +551,7 @@ init_by_lua_block {
             apisix.http_balancer_phase()
         }
     }
-```
+    ```
 
 9. 在`header_filter`阶段嵌入`apisix.http_header_filter_phase()`
 
