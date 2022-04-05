@@ -16,10 +16,11 @@ balancer阶段 这个阶段设置http_balancer_phase，这个阶段对应OpenRes
 header_filter阶段 设置函数http_header_filter_phase这里主要是设置响应头
 body_filter节点 设置函数http_body_filter_phase
 log阶段 设置函数http_log_phase
-这就是一个请求处理流程。
+这就是一个HTTP请求处理流程，APISIX也是在stream，stream处理流程跟HTTP类型。
 引用 apisix源码分析
 APISIX源码分析——路由匹配
-kong的事件和缓存</content></entry><entry><title>怎样选择成长股-费雪读书笔记</title><url>https://lizj3624.github.io/post/fisher-common-stocks-and-uncommon-profits-reading/</url><categories><category>费雪</category><category>投资</category></categories><tags><tag>费雪</tag><tag>投资</tag></tags><content type="html"> 投资想赚大钱，必须有耐性；股票市场本质上具有欺骗投资人的特性。
+kong的事件和缓存
+OpenResty的balancer</content></entry><entry><title>怎样选择成长股-费雪读书笔记</title><url>https://lizj3624.github.io/post/fisher-common-stocks-and-uncommon-profits-reading/</url><categories><category>费雪</category><category>投资</category></categories><tags><tag>费雪</tag><tag>投资</tag></tags><content type="html"> 投资想赚大钱，必须有耐性；股票市场本质上具有欺骗投资人的特性。
 &ldquo;闲聊"有妙处，买一家公司的股票前要充分的进行调研，通过跟公司相关的供应商，竞争对手，同行业， 公司员工(也包含离职或被辞退)，公司高管等的"闲聊&rdquo;，获取公司的各个渠道的信息，构成了对这家公司认知的全貌。
 寻找优良普通股的15个要点:
 (1) 这家公司的产品或服务有没有充分的市场潜力，至少几年内营业额能否大幅成长？优良的公司大致有两类：幸运且能干和能干所以幸运，这两个都必须要有能干的管理层。 (2) 为了进一步提高总体销售水平，发现新的产品增长点，管理层是不是决心继续开发新产品或新工艺？这一点考察管理层是否有一种为提高销售水平的积极主动开发新市场或新工艺。 (3) 和公司的规模相比，这家公司的研究发展努力，有多大的效果？这个考察公司研发能力，在研发的投入，是否有有一支能干的研发团队(专业的科研人员和协调组织的人员)，研发的产品是否有市场等，优良的公司都比较重视研发能力。 (4) 这家公司有没有高人一等的销售组织？ (5) 这家公司的利润率高不高？这里并不是利润率越高越好，要看利润是否一直可以持续，利润率降低是要看降低的真正原因；利润率低也不是不能投资，要看行业属性，比如好市多(Costco)，京东等。 (6) 这家公司做了什么事，以维持或改善利润率？ (7) 这家公司的劳资和人事关系是不是很好？优良的公司劳资和人事关系都比较和谐，员工工作的积极性就比较高，对公司发展是利好，和谐的关系是一个良性循环。 (8) 这家公司的高级主管关系很好吗？上下一条心，其利断金。但是随着公司人员规模扩大，管理起来比较棘手了；有人的地方就有江湖，有江湖就有争斗。 (9) 公司管理阶层的深度够吗？管理阶层的人品。 (10) 这家公司的成本分析和会计记录做得如何？不能做假账，有诚实。 (11) 是不是在所处领域有独到之处？它可以为投资者提供重要线索，以了解此公司相对于竞争者，是不是很突出？ (12) 这家公司有没有短期或长期的盈余展望？ (13) 在可预见的将来，这家公司是否会大量发行股票，获取足够的资金，以利公司发展，现有持股人的利益是否因预期中的成长而大幅受损？ (14) 管理层是不是只向投资人报喜不报忧？诸事顺畅时口沫横飞，有问题或叫人失望的事情发生时，则三缄其口? (15) 这家公司管理层的城市正直态度是否毋容置疑？ 费雪老先生通过自己几十年的总结优良成长股15个要点，还是很全面的，从产品，市场，研发，人力，管理层等方面考察一家公司。但是我们不能教条主义，要活学活用。
@@ -35,8 +36,8 @@ local function init(env) -- 判断root path， apisix不推荐在root下启动ap
 init_by_lua_block { require "resty.core" apisix = require("apisix") local dns_resolver = { "10.2.255.200", } local args = { dns_resolver = dns_resolver, } apisix.http_init(args) } 在init_worker阶段嵌入apisix.http_init_worker()
 在exit_worker阶段嵌入apisix.http_exit_worker()
 在ssl_handshake阶段嵌入apisix.http_ssl_phase()
-在access阶段嵌入apisix.http_access_phase()，apisix没有设置rewrite阶段
-在content阶段，设置upstream，选取合适的server，apisix主要通过apisix.http_balancer_phase()实现的。
+在access阶段嵌入apisix.http_access_phase()，apisix没有设置rewrite阶段，匹配路由，挑选server
+在content阶段，设置上游server，apisix主要通过apisix.http_balancer_phase()实现的。
 upstream apisix_backend { server 0.0.0.1; keepalive 320; keepalive_requests 1000; keepalive_timeout 60s; # we put the static configuration above so that we can override it in the Lua code balancer_by_lua_block { apisix.http_balancer_phase() } } 在header_filter阶段嵌入apisix.http_header_filter_phase()
 在body_filter阶段嵌入apisix.http_body_filter_phase()
 在log阶段嵌入apisix.http_log_phase()

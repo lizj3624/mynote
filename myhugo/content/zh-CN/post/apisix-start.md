@@ -594,9 +594,9 @@ http {
 
 6. 在`ssl_handshake`阶段嵌入`apisix.http_ssl_phase()`
 
-7. 在`access`阶段嵌入`apisix.http_access_phase()`，apisix没有设置`rewrite`阶段
+7. 在`access`阶段嵌入`apisix.http_access_phase()`，apisix没有设置`rewrite`阶段，匹配路由，挑选server
 
-8. 在`content`阶段，设置upstream，选取合适的server，apisix主要通过`apisix.http_balancer_phase()`实现的。
+8. 在`content`阶段，设置上游server，apisix主要通过`apisix.http_balancer_phase()`实现的。
    ```conf
    upstream apisix_backend {
         server 0.0.0.1;

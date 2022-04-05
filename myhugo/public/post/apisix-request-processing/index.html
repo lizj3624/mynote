@@ -134,7 +134,7 @@ APISIX源码分析-请求处理流程
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>3016 字</span>
+<span class=leancloud-world-count>3072 字</span>
 </span>
 <span>
 |
@@ -521,7 +521,7 @@ _M.pick_server <span style=color:#666>=</span> pick_server
 <p>设置函数<code>http_body_filter_phase</code></p>
 <h2 id=log阶段>log阶段</h2>
 <p>设置函数<code>http_log_phase</code></p>
-<p>这就是一个请求处理流程。</p>
+<p>这就是一个HTTP请求处理流程，APISIX也是在stream，stream处理流程跟HTTP类型。</p>
 <h2 id=引用>引用</h2>
 <ol>
 <li>
@@ -532,6 +532,9 @@ _M.pick_server <span style=color:#666>=</span> pick_server
 </li>
 <li>
 <p><a href=https://ms2008.github.io/2018/06/11/kong-events-cache/#2-worker-%E4%BA%8B%E4%BB%B6>kong的事件和缓存</a></p>
+</li>
+<li>
+<p><a href=https://github.com/openresty/lua-resty-balancer>OpenResty的balancer</a></p>
 </li>
 </ol>
 </div>

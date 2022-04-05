@@ -408,7 +408,7 @@ end
 ## log阶段
 设置函数`http_log_phase`
 
-这就是一个请求处理流程。
+这就是一个HTTP请求处理流程，APISIX也是在stream，stream处理流程跟HTTP类型。
 
 ## 引用
 1. [apisix源码分析](https://shoujo.ink/2021/09/apisix-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
@@ -416,3 +416,5 @@ end
 2. [APISIX源码分析——路由匹配](https://juejin.cn/post/6933768239008874510)
 
 3. [kong的事件和缓存](https://ms2008.github.io/2018/06/11/kong-events-cache/#2-worker-%E4%BA%8B%E4%BB%B6)
+
+4. [OpenResty的balancer](https://github.com/openresty/lua-resty-balancer)
