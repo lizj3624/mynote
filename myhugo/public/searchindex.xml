@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>APISIX源码分析-请求处理流程</title><url>https://lizj3624.github.io/post/apisix-request-processing/</url><categories><category>apisix</category><category>nginx</category></categories><tags><tag>apisix</tag><tag>nginx</tag></tags><content type="html"> APISIX的请求处理流程跟Nginx处理请求的各个阶段是一致的，只是APISIX在各个阶段嵌入自己详细处理请求的逻辑。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>美国国债收益率</title><url>https://lizj3624.github.io/post/us-bonds/</url><categories><category>宏观经济</category><category>美债收益率</category></categories><tags><tag>宏观经济</tag><tag>美债收益率</tag></tags><content type="html"> 2022.4.2号，美债又崩了，2/10年期收益率再度倒挂，2/30年期2007年以来首次倒挂，很多机构发出美国经济衰退的风险预警， 再此学习一些美债收益率以及美债收益率倒挂的原因以及可能导致影响。
+作为市场上公认的“全球资产定价之锚”，10年期美债收益率的一举一动，往往牵动着股市、汇市乃至商品市场投资者的目光。 不过，如今在华尔街，投行交易员聚焦的，可不光光只有基准10年期美债收益率的表现，他们还在密切追踪着一件事：美债收益率曲线会不会倒挂！
+美债收益率曲线是什么 美国财政部通过发行各种形式的债券为联邦政府的预算债务提供资金。 当前规模已经高达23万亿美元的美国公债市场包括:
+1月至1年期的短期国库券(T-Bills) 2年至10年期的中期国债(T-Notes) 20年期和30年期的长期国债(T-Bonds) 而美债收益率曲线便描绘了所有各周期国库券和国债的收益率。投资者通过观察其形状， 不仅可以一目了然地知悉当前各周期收益率的所处的水平，甚至可以借此来推断市场对美国经济增长和货币政策的预期。
+美债收益率曲线应该是怎样的 在正常情况下，美债收益率曲线理应是一条从左至右（从短期到长期）向上倾斜的曲线，如下面这张我们所截的一年前的美债收益率曲线图： 这是因为投资者若持有较长期债券，便需要承担通胀上升将降低预期回报的风险，理应得到更多的补偿。这意味着10年期美债收益率通常会高于两年期美债收益率， 因为它的存续期更长。美债收益率与美债价格呈反向变动。
+与此同时，这条曲线趋陡通常意味着人们预期经济活动将走强，通胀将上升，利率将上升。曲线趋平则可能意味着相反的情况: 投资者即便预计短期内会加息，并却已对经济增长前景失去了信心。
+为何收益率曲线如今趋平了 美国中短期国债收益率今年一直在迅速上升，反映出人们对美联储将加息的预期，而较长期美债收益率的升势则明显相对缓和，因市场担心政策收紧可能损及经济。 一组行情对比可以直观地体现出这一点：追踪短期利率预期的两年期美债收益率已从去年年底的0.73%升至1.94%，涨幅达到166%。基准10年期美债收益率则仅仅从1.5%升至2.19%左右，涨幅为46%。 其结果是，美债收益率曲线总体呈现扁平化趋势。
+曲线若倒挂意味着什么 虽然加息可能是对抗通胀的武器，但其也可能通过提高从抵押贷款到汽车贷款的所有贷款成本从而导致经济增长放缓。
+根据旧金山联储在2018年发布的一份报告，自1955年以来，2年期和10年期美债收益率曲线在每次衰退之前都会出现倒挂， 经济衰退大致发生在倒挂出现的6-24个月之后。在这段漫长的岁月长河里，美债收益率只发出过一次错误的倒挂信号。
+最为神奇的是，上一次2年期和10年期美债收益率曲线反转发生在2019年。而次年，美国经济便陷入了衰退——由新冠疫情大流行所引起的。
+当前美债收益率曲线存在哪些倒挂 截止到2022.4.5号，2/10年期收益率再度倒挂，2/30年期2007年以来首次倒挂，5/10年期收益率在2020.3首次出现倒挂.
+曲线倒挂对现实世界意味着什么 除了可能会对经济前景发出指引信号外，美债收益率曲线的形态还会对消费者和企业产生影响。
+当短期利率上升时，美国国内银行往往会提高一系列消费和商业贷款的基准利率，包括小型企业贷款和信用卡利息，从而导致消费者的借贷成本压力上升，抵押贷款利率往往也会水涨船高。
+这意味着当收益率曲线变陡时，银行能够以较低的利率借钱，并以较高的利率放贷。相反，当曲线趋平时，他们会发现利润受到挤压，这可能会阻碍放贷。
+引用 一文读懂：美债收益率曲线倒挂究竟意味着什么？为何眼下必须关注？ 美债又崩了，2/10年期收益率再度倒挂，2/30年期2007年以来首次倒挂</content></entry><entry><title>APISIX源码分析-请求处理流程</title><url>https://lizj3624.github.io/post/apisix-request-processing/</url><categories><category>apisix</category><category>nginx</category></categories><tags><tag>apisix</tag><tag>nginx</tag></tags><content type="html"> APISIX的请求处理流程跟Nginx处理请求的各个阶段是一致的，只是APISIX在各个阶段嵌入自己详细处理请求的逻辑。
 init_worker阶段 init_worker阶段主要是在Nginx的worker初始化阶段，虽然不参与请求的处理，但是这个节点做了很多准备工作，针对APISIX来说这阶段从etcd获取 route、server、plugin、upstream信息，并缓存在每个worker中，这个节点主要函数http_init_worker。
 init_worker_by_lua_block { apisix.http_init_worker() } 看一下这个函数主要处理逻辑，这个函数主要在init.lua源文件中
 function _M.http_init_worker() ... -- worker事件，如果路由、上游等信息变更通知，这个机制是跟kong一致 local we = require("resty.worker.events") local ok, err = we.configure({shm = "worker-events", interval = 0.1}) if not ok then error("failed to init worker event: " .. err) end -- 服务发现 local discovery = require("apisix.discovery.init").discovery if discovery and discovery.init_worker then discovery.init_worker() end -- upstream负载均衡器的init_worker require("apisix.balancer").init_worker() load_balancer = require("apisix.balancer") require("apisix.admin.init").init_worker() require("apisix.timers").init_worker() require("apisix.debug").init_worker() -- 插件init_worker初始化 plugin.init_worker() -- http路由的init_worker初始化 router.http_init_worker() require("apisix.http.service").init_worker() plugin_config.init_worker() require("apisix.consumer").init_worker() ... -- upstream的init_worker初始化 apisix_upstream.init_worker() require("apisix.plugins.ext-plugin.init").init_worker() ... end 这些init_worker函数主要是从配置中跟key前缀拉取数据，并缓存在worker中，看一下七层HTTP路由函数router.http_init_worker()
