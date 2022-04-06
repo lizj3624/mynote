@@ -1,0 +1,716 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
+<title> Nginx的锁机制 - 幸福和富有的过一生 </title>
+<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
+<meta name=author content="lizj3624">
+<meta property="og:title" content="Nginx的锁机制">
+<meta property="og:site_name" content="幸福和富有的过一生">
+<meta property="og:image" content="/img/author.jpg">
+<meta name=title content="Nginx的锁机制 - 幸福和富有的过一生">
+<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=/css/main.css rel=stylesheet type=text/css>
+<link href=/css/syntax.css rel=stylesheet type=text/css>
+</head>
+<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
+<div class="container one-collumn sidebar-position-left page-home">
+<div class=headband></div>
+<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=header-inner> <div class=site-brand-container>
+<div class=site-nav-toggle>
+<div class=toggle role=button style=opacity:1;top:0>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+</div>
+</div>
+<div class=site-meta>
+<div class=multi-lang-switch>
+<i class="fa fa-fw fa-language" style=margin-right:5px></i>
+<a class=lang-link id=zh-cn href=#>中文</a>
+</div>
+<div class=custom-logo-site-title>
+<a href=/ class=brand rel=start>
+<span class=logo-line-before><i></i></span>
+<span class=site-title>幸福和富有的过一生</span>
+<span class=logo-line-after><i></i></span>
+</a>
+</div>
+<p class=site-subtitle>幸福和富有的过一生!</p>
+</div>
+<div class=site-nav-right>
+<div class="toggle popup-trigger" style=opacity:1;top:0>
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class=site-nav>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a href=/ rel=section>
+<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
+</a>
+</li>
+<li class=menu-item>
+<a href=/post rel=section>
+<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
+</a>
+</li>
+<li class=menu-item>
+<a href=/about.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
+</a>
+</li>
+<li class=menu-item>
+<a href=/404.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
+</a>
+</li>
+<li class="menu-item menu-item-search">
+<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
+</li>
+</ul>
+<div class=site-search>
+<div class="popup search-popup local-search-popup">
+<div class="local-search-header clearfix">
+<span class=search-icon><i class="fa fa-search"></i> </span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
+<div class=local-search-input-wrapper>
+<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
+</div>
+</div>
+<div id=local-search-result></div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id=main class=main>
+<div class=main-inner>
+<div class=content-wrap>
+<div id=content class=content>
+<section id=posts class=posts-expand>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/nginx-lock/ itemprop=url>
+Nginx的锁机制
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-06">
+2022-04-06
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>nginx</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/%E6%BA%90%E7%A0%81 itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>源码</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>2182 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>5分钟</span>
+</span>
+<span id=/post/nginx-lock/ class=leancloud_visitors data-flag-title=Nginx的锁机制>
+|
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+<blockquote>
+<p>我们项目中nginx的dyups模块在大量更新时，有性能瓶颈，经排查发现时用的自旋锁导致性能瓶颈，dyups使用ngx_shmtx_lock和ngx_shmtx_trylock两种锁，
+用户通过参数可以设置选择修改，发现ngx_shmtx_lock性能较差，其中ngx_shmtx_trylock这个锁每次执行的时候只是去抢一下锁，当没有抢到则立即返回失败。
+ngx_shmtx_lock锁相当于一个自旋锁（splinlock）当进程执行到此处的时候会是一个死循环的去进行抢锁，当然中间加了一些自己的限制机制，
+当抢一次失败的时候会增加下一次去抢所的时间间隔，而且抢了很多次后还是抢不到锁的时候就会先让出cpu一会
+此处调用ngx_sched_yield让其他的程序先执行－－－找一个优先级等于或是高于当前程序的去执行，相比之下ngx_shmtx_trylock的性能高多了。
+这两个锁都是使用了cpu级别的原子操作，不会发生上下文的切换。
+在此研究一下nginx的锁机制，这是从CSDN摘录的文件。</p>
+</blockquote>
+<p>nginx使用共享内存来进行进程间通信，那么就需要一把锁来确保进程通信的正确，在nginx中通过判断操作系统是否支持相应的锁来进行选定锁的类型，分为:</p>
+<ol>
+<li>
+<p>原子锁</p>
+</li>
+<li>
+<p>信号量互斥锁</p>
+</li>
+<li>
+<p>文件锁(互斥锁)</p>
+</li>
+<li>
+<p>自旋锁(多处理器时使用)</p>
+</li>
+</ol>
+<p>ngx_shmtx.h</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> {
+    ngx_atomic_t   lock;
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)	</span><span style=color:#080;font-style:italic>//定义使用信号量
+</span><span style=color:#080;font-style:italic></span>    ngx_atomic_t   wait;
+<span style=color:#080>#endif
+</span><span style=color:#080></span>} ngx_shmtx_sh_t;
+
+<span style=color:#a2f;font-weight:700>typedef</span> <span style=color:#a2f;font-weight:700>struct</span> {
+<span style=color:#080>#if (NGX_HAVE_ATOMIC_OPS)		</span><span style=color:#080;font-style:italic>//原子锁
+</span><span style=color:#080;font-style:italic></span>    ngx_atomic_t  <span style=color:#666>*</span>lock;
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)		</span><span style=color:#080;font-style:italic>//信号量互斥锁
+</span><span style=color:#080;font-style:italic></span>    ngx_atomic_t  <span style=color:#666>*</span>wait;
+    ngx_uint_t     semaphore;
+    sem_t          sem;
+<span style=color:#080>#endif
+</span><span style=color:#080>#else							</span><span style=color:#080;font-style:italic>//文件锁
+</span><span style=color:#080;font-style:italic></span>    ngx_fd_t       fd;
+    u_char        <span style=color:#666>*</span>name;
+<span style=color:#080>#endif
+</span><span style=color:#080></span>    ngx_uint_t     spin;		<span style=color:#080;font-style:italic>//多处理器时才会使用,即ngx_ncpu&gt;1
+</span><span style=color:#080;font-style:italic></span>} ngx_shmtx_t;
+</code></pre></div><p>ngx_shmtx.c</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
+<span style=color:#00a000>ngx_shmtx_create</span>(
+ngx_shmtx_t <span style=color:#666>*</span>mtx, ngx_shmtx_sh_t <span style=color:#666>*</span>addr, u_char <span style=color:#666>*</span>name)
+{
+    mtx<span style=color:#666>-&gt;</span>lock <span style=color:#666>=</span> <span style=color:#666>&amp;</span>addr<span style=color:#666>-&gt;</span>lock;	<span style=color:#080;font-style:italic>//获取位于共享内存中的lock区
+</span><span style=color:#080;font-style:italic></span>
+    <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>spin <span style=color:#666>==</span> (ngx_uint_t) <span style=color:#666>-</span><span style=color:#666>1</span>) {	<span style=color:#080;font-style:italic>//判断是否支持信号量互斥锁
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+    }
+
+    mtx<span style=color:#666>-&gt;</span>spin <span style=color:#666>=</span> <span style=color:#666>2048</span>;
+
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)
+</span><span style=color:#080></span>
+    mtx<span style=color:#666>-&gt;</span>wait <span style=color:#666>=</span> <span style=color:#666>&amp;</span>addr<span style=color:#666>-&gt;</span>wait;
+
+    <span style=color:#080;font-style:italic>/**
+</span><span style=color:#080;font-style:italic>    *信号量相关的头文件
+</span><span style=color:#080;font-style:italic>    *#include &lt;semaphore.h&gt;
+</span><span style=color:#080;font-style:italic>    *int sem_init(sem_t *sem,int pshared,unsigned int value);
+</span><span style=color:#080;font-style:italic>    *当pshared为0代表该信号量用于多线程间的同步
+</span><span style=color:#080;font-style:italic>    *大于0表示用于多个相关进程间的同步
+</span><span style=color:#080;font-style:italic>    *value为初始化sem的值
+</span><span style=color:#080;font-style:italic>    **/</span>
+
+    <span style=color:#a2f;font-weight:700>if</span> (sem_init(<span style=color:#666>&amp;</span>mtx<span style=color:#666>-&gt;</span>sem, <span style=color:#666>1</span>, <span style=color:#666>0</span>) <span style=color:#666>==</span> <span style=color:#666>-</span><span style=color:#666>1</span>) {	
+        ngx_log_error(NGX_LOG_ALERT, ngx_cycle<span style=color:#666>-&gt;</span>log, 
+        			  ngx_errno, <span style=color:#b44>&#34;sem_init() failed&#34;</span>);
+    } <span style=color:#a2f;font-weight:700>else</span> {
+        mtx<span style=color:#666>-&gt;</span>semaphore <span style=color:#666>=</span> <span style=color:#666>1</span>;
+    }
+
+<span style=color:#080>#endif
+</span><span style=color:#080></span>
+    <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+}
+
+<span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_destroy</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)
+</span><span style=color:#080></span>	<span style=color:#080;font-style:italic>//当支持信号量时才能生效
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>semaphore) {	<span style=color:#080;font-style:italic>//mtx-&gt;semaphore初始化成功时为1
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> (sem_destroy(<span style=color:#666>&amp;</span>mtx<span style=color:#666>-&gt;</span>sem) <span style=color:#666>==</span> <span style=color:#666>-</span><span style=color:#666>1</span>) {	<span style=color:#080;font-style:italic>//清理信号量
+</span><span style=color:#080;font-style:italic></span>            ngx_log_error(NGX_LOG_ALERT, ngx_cycle<span style=color:#666>-&gt;</span>log, 
+            	ngx_errno, <span style=color:#b44>&#34;sem_destroy() failed&#34;</span>);
+        }
+    }
+
+<span style=color:#080>#endif
+</span><span style=color:#080></span>}
+
+<span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_lock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    ...
+    <span style=color:#a2f;font-weight:700>for</span> ( ;; ) {
+		<span style=color:#080;font-style:italic>//是否持有锁
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>*</span>mtx<span style=color:#666>-&gt;</span>lock <span style=color:#666>==</span> <span style=color:#666>0</span> <span style=color:#666>&amp;&amp;</span> 
+        	ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>lock, <span style=color:#666>0</span>, ngx_pid)) {
+            <span style=color:#a2f;font-weight:700>return</span>;
+        }
+		<span style=color:#080;font-style:italic>//有多个处理器时启用自旋锁
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> (ngx_ncpu <span style=color:#666>&gt;</span> <span style=color:#666>1</span>) {
+
+            <span style=color:#a2f;font-weight:700>for</span> (n <span style=color:#666>=</span> <span style=color:#666>1</span>; n <span style=color:#666>&lt;</span> mtx<span style=color:#666>-&gt;</span>spin; n <span style=color:#666>&lt;&lt;=</span> <span style=color:#666>1</span>) {
+
+                <span style=color:#a2f;font-weight:700>for</span> (i <span style=color:#666>=</span> <span style=color:#666>0</span>; i <span style=color:#666>&lt;</span> n; i<span style=color:#666>++</span>) {
+                	<span style=color:#080;font-style:italic>/*ngx_cpu_pause是汇编代码
+</span><span style=color:#080;font-style:italic>                	__asm__ (&#34;pause&#34;)的拓展*/</span>
+                    ngx_cpu_pause();
+                }
+
+                <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>*</span>mtx<span style=color:#666>-&gt;</span>lock <span style=color:#666>==</span> <span style=color:#666>0</span>
+                    <span style=color:#666>&amp;&amp;</span> ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>lock, <span style=color:#666>0</span>, ngx_pid))
+                {
+                    <span style=color:#a2f;font-weight:700>return</span>;
+                }
+            }
+        }
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)
+</span><span style=color:#080></span>
+        <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>semaphore) {
+        	<span style=color:#080;font-style:italic>//具有原子操作的__sync_fetch_and_add(mtx-&gt;wait, 1)
+</span><span style=color:#080;font-style:italic></span>            (<span style=color:#0b0;font-weight:700>void</span>) ngx_atomic_fetch_add(mtx<span style=color:#666>-&gt;</span>wait, <span style=color:#666>1</span>);
+
+            <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>*</span>mtx<span style=color:#666>-&gt;</span>lock <span style=color:#666>==</span> <span style=color:#666>0</span> 
+            <span style=color:#666>&amp;&amp;</span> ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>lock, <span style=color:#666>0</span>, ngx_pid)) {
+            	<span style=color:#080;font-style:italic>//获得锁后共享内存wait减一
+</span><span style=color:#080;font-style:italic></span>                (<span style=color:#0b0;font-weight:700>void</span>) ngx_atomic_fetch_add(mtx<span style=color:#666>-&gt;</span>wait, <span style=color:#666>-</span><span style=color:#666>1</span>);
+                <span style=color:#a2f;font-weight:700>return</span>;
+            }
+            ...
+
+            <span style=color:#a2f;font-weight:700>while</span> (sem_wait(<span style=color:#666>&amp;</span>mtx<span style=color:#666>-&gt;</span>sem) <span style=color:#666>==</span> <span style=color:#666>-</span><span style=color:#666>1</span>) {
+                ngx_err_t  err;
+
+                err <span style=color:#666>=</span> ngx_errno;
+				<span style=color:#080;font-style:italic>/**若err=NGX_EINTR
+</span><span style=color:#080;font-style:italic>				*此时的信号量等待被打断而不是出错
+</span><span style=color:#080;font-style:italic>				*向log写入信息后继续等待
+</span><span style=color:#080;font-style:italic>				*/</span>
+                <span style=color:#a2f;font-weight:700>if</span> (err <span style=color:#666>!=</span> NGX_EINTR) {
+					...
+					}
+            }
+            ...
+            <span style=color:#a2f;font-weight:700>continue</span>;
+        }
+
+<span style=color:#080>#endif
+</span><span style=color:#080></span>		<span style=color:#080;font-style:italic>//程序挂起一段时间，让出处理器，当使用信号量时无效
+</span><span style=color:#080;font-style:italic></span>        ngx_sched_yield();	
+    }
+}
+</code></pre></div><ol>
+<li>如果没有使用信号量就和之前的自旋锁没有什么区别。</li>
+<li>如果使用了信号量，并且自旋锁一轮过来(spin消耗完全)都没有加锁成功，则会尝试最后一次加锁，如果加锁失败则使用信号量进行休眠等待唤醒。</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_unlock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>spin <span style=color:#666>!=</span> (ngx_uint_t) <span style=color:#666>-</span><span style=color:#666>1</span>) {
+    <span style=color:#080;font-style:italic>//判断该进程是否能够进入休眠状态
+</span><span style=color:#080;font-style:italic></span>	...
+    }
+	<span style=color:#080;font-style:italic>//将lock置为0，释放了锁
+</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>if</span> (ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>lock, ngx_pid, <span style=color:#666>0</span>)) {
+        ngx_shmtx_wakeup(mtx);
+    }
+}
+
+
+ngx_uint_t
+<span style=color:#00a000>ngx_shmtx_force_unlock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx, ngx_pid_t pid)
+{
+    <span style=color:#080;font-style:italic>//强迫进程释放锁
+</span><span style=color:#080;font-style:italic></span>    ...
+    <span style=color:#a2f;font-weight:700>if</span> (ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>lock, pid, <span style=color:#666>0</span>)) {
+        ngx_shmtx_wakeup(mtx);
+        <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>1</span>;
+    }
+
+    <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>0</span>;
+}
+
+
+<span style=color:#a2f;font-weight:700>static</span> <span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_wakeup</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+<span style=color:#080>#if (NGX_HAVE_POSIX_SEM)
+</span><span style=color:#080></span>    ngx_atomic_uint_t  wait;
+
+    <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>!</span>mtx<span style=color:#666>-&gt;</span>semaphore) {
+    	<span style=color:#080;font-style:italic>//判断是否使用了信号量
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>return</span>;
+    }
+
+    <span style=color:#a2f;font-weight:700>for</span> ( ;; ) {
+
+        wait <span style=color:#666>=</span> <span style=color:#666>*</span>mtx<span style=color:#666>-&gt;</span>wait;
+		<span style=color:#080;font-style:italic>//无进程在等待直接返回
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> ((ngx_atomic_int_t) wait <span style=color:#666>&lt;=</span> <span style=color:#666>0</span>) {
+            <span style=color:#a2f;font-weight:700>return</span>;
+        }
+		<span style=color:#080;font-style:italic>//通过原子操作减少当前等待的进程数
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> (ngx_atomic_cmp_set(mtx<span style=color:#666>-&gt;</span>wait, wait, wait <span style=color:#666>-</span> <span style=color:#666>1</span>)) {
+            <span style=color:#a2f;font-weight:700>break</span>;
+        }
+    }
+    ...
+
+    <span style=color:#a2f;font-weight:700>if</span> (sem_post(<span style=color:#666>&amp;</span>mtx<span style=color:#666>-&gt;</span>sem) <span style=color:#666>==</span> <span style=color:#666>-</span><span style=color:#666>1</span>) {
+    	<span style=color:#080;font-style:italic>//释放了信号量锁
+</span><span style=color:#080;font-style:italic></span>		...
+    }
+
+<span style=color:#080>#endif
+</span><span style=color:#080></span>}
+</code></pre></div><p>到此可以看出nginx如何实现高效的原子互斥锁， 即通过信号量使得进程去获得一把锁，当一个进程使用sem_post释放了锁，
+另一个进程sem_wait得到了锁，若是处于sem当前值等于0时，则进程进入睡眠状态等待唤醒。</p>
+<p>nginx实现的另一种锁，文件锁，即不支持原子锁时，通过文件锁保证进程通信的准确。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>ngx_int_t
+<span style=color:#00a000>ngx_shmtx_create</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx,
+ngx_shmtx_sh_t <span style=color:#666>*</span>addr, u_char <span style=color:#666>*</span>name)
+{
+    <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>name) {
+		<span style=color:#080;font-style:italic>//判断mtx-&gt;name已经初始化
+</span><span style=color:#080;font-style:italic></span>        <span style=color:#a2f;font-weight:700>if</span> (ngx_strcmp(name, mtx<span style=color:#666>-&gt;</span>name) <span style=color:#666>==</span> <span style=color:#666>0</span>) {	
+            mtx<span style=color:#666>-&gt;</span>name <span style=color:#666>=</span> name;
+            <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+        }
+		<span style=color:#080;font-style:italic>//如果已经存在打开的文件则关闭
+</span><span style=color:#080;font-style:italic></span>        ngx_shmtx_destroy(mtx);
+    }
+	<span style=color:#080;font-style:italic>//打开文件名为name的文件
+</span><span style=color:#080;font-style:italic></span>    mtx<span style=color:#666>-&gt;</span>fd <span style=color:#666>=</span> ngx_open_file(name, NGX_FILE_RDWR, 
+    						NGX_FILE_CREATE_OR_OPEN,
+                            NGX_FILE_DEFAULT_ACCESS);
+
+    <span style=color:#a2f;font-weight:700>if</span> (mtx<span style=color:#666>-&gt;</span>fd <span style=color:#666>==</span> NGX_INVALID_FILE) {
+		...
+    }
+
+    <span style=color:#a2f;font-weight:700>if</span> (ngx_delete_file(name) <span style=color:#666>==</span> NGX_FILE_ERROR) {
+		<span style=color:#080;font-style:italic>/*ngx_delete_file为ulink
+</span><span style=color:#080;font-style:italic>		 *由于并不需要真实文件，只需要文件fd在内核中存在即可
+</span><span style=color:#080;font-style:italic>		 */</span>
+		...
+    }
+
+    mtx<span style=color:#666>-&gt;</span>name <span style=color:#666>=</span> name;
+
+    <span style=color:#a2f;font-weight:700>return</span> NGX_OK;
+}
+
+<span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_destroy</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    <span style=color:#a2f;font-weight:700>if</span> (ngx_close_file(mtx<span style=color:#666>-&gt;</span>fd) <span style=color:#666>==</span> NGX_FILE_ERROR) {
+		<span style=color:#080;font-style:italic>//ngx_close_file()即为close()
+</span><span style=color:#080;font-style:italic></span>		...
+    }
+}
+
+ngx_uint_t
+<span style=color:#00a000>ngx_shmtx_trylock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    ngx_err_t  err;
+	<span style=color:#080;font-style:italic>//文件上锁，此时文件锁并不会使阻塞进程
+</span><span style=color:#080;font-style:italic></span>    err <span style=color:#666>=</span> ngx_trylock_fd(mtx<span style=color:#666>-&gt;</span>fd);
+    ...
+
+<span style=color:#080>#if __osf__ </span><span style=color:#080;font-style:italic>/* Tru64 UNIX */</span><span style=color:#080>
+</span><span style=color:#080></span>
+    <span style=color:#a2f;font-weight:700>if</span> (err <span style=color:#666>==</span> NGX_EACCES) {
+        <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>0</span>;
+    }
+
+<span style=color:#080>#endif
+</span><span style=color:#080></span>    ...
+    <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>0</span>;
+}
+
+<span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_lock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    ngx_err_t  err;
+
+    err <span style=color:#666>=</span> ngx_lock_fd(mtx<span style=color:#666>-&gt;</span>fd);
+
+    <span style=color:#a2f;font-weight:700>if</span> (err <span style=color:#666>==</span> <span style=color:#666>0</span>) {
+        <span style=color:#a2f;font-weight:700>return</span>;
+    }
+    ...
+}
+</code></pre></div><p><code>ngx_shmtx_lock</code>与<code>ngx_shmtx_trylock</code>区别为<code>ngx_shmtx_lock</code>在上锁时，
+即<code>fcntl(fd, F_SETLKW, &fl)</code>中<code>cmd</code>的字段为<code>F_SETLKW</code>，将会在不能获取锁时阻塞进程，而<code>ngx_shmtx_trylock</code>中的字段为<code>F_SETLK</code>并不会阻塞进程。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#0b0;font-weight:700>void</span>
+<span style=color:#00a000>ngx_shmtx_unlock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx)
+{
+    ...
+	<span style=color:#080;font-style:italic>//释放锁将fcntl中cmd字段置为UNLCK即可
+</span><span style=color:#080;font-style:italic></span>    err <span style=color:#666>=</span> ngx_unlock_fd(mtx<span style=color:#666>-&gt;</span>fd);
+
+    <span style=color:#a2f;font-weight:700>if</span> (err <span style=color:#666>==</span> <span style=color:#666>0</span>) {
+        <span style=color:#a2f;font-weight:700>return</span>;
+    }
+    ...
+}
+<span style=color:#080;font-style:italic>//强制释放锁
+</span><span style=color:#080;font-style:italic></span>ngx_uint_t
+<span style=color:#00a000>ngx_shmtx_force_unlock</span>(ngx_shmtx_t <span style=color:#666>*</span>mtx, ngx_pid_t pid)
+{
+    <span style=color:#a2f;font-weight:700>return</span> <span style=color:#666>0</span>;
+}
+</code></pre></div><p>nginx实现的锁有个共同点即是在其他进程始终不放弃锁时，一段时间后将会强制获得该锁。
+有关信号量的内容可以通过搜索Linux信号量。</p>
+<p>引用</p>
+<ol>
+<li>
+<p><a href=https://blog.csdn.net/weixin_43352959/article/details/107500412>nginx之nginx_shmtx(锁机制)</a></p>
+</li>
+<li>
+<p><a href=https://blog.csdn.net/qq_41252394/article/details/111472720>nginx锁(spinlock,ngx_shmtx_t)</a></p>
+</li>
+</ol>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/nginx rel=tag title=nginx>#nginx#</a>
+<a href=/tags/%e6%ba%90%e7%a0%81 rel=tag title=源码>#源码#</a>
+</div>
+<div class=addthis_inline_share_toolbox></div>
+<div class=post-nav>
+<div class=article-copyright>
+<div class=article-copyright-img>
+<img src=/img/qq_qrcode.png width=129px height=129px>
+<div style=text-align:center>QQ扫一扫交流</div>
+</div>
+<div class=article-copyright-info>
+<p>
+<span>声明：</span>Nginx的锁机制
+</p>
+<p>
+<span>链接：</span>https://lizj3624.github.io/post/nginx-lock/
+</p>
+<p>
+<span>作者：</span>lizj3624
+</p>
+<p>
+<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
+</p>
+</div>
+</div>
+<div class=clear></div>
+</div>
+<div class=reward-qr-info>
+<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
+<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>赏</span>
+</button>
+<div id=QR style=display:none>
+<div id=wechat style=display:inline-block>
+<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
+<p>微信打赏</p>
+</div>
+<div id=alipay style=display:inline-block>
+<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
+<p>支付宝打赏</p>
+</div>
+</div>
+</div>
+<div class=post-nav>
+<div class="post-nav-next post-nav-item">
+</div>
+<div class="post-nav-prev post-nav-item">
+<a href=https://lizj3624.github.io/post/jd-q4/ rel=prev title=京东2021Q4以及全年财报>
+京东2021Q4以及全年财报
+<i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+<div id=wcomments></div>
+</footer>
+</article>
+</section>
+</div>
+</div>
+<div class=sidebar-toggle>
+<div class=sidebar-toggle-line-wrap>
+<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+</div>
+<aside id=sidebar class=sidebar>
+<div class=sidebar-inner>
+<ul class="sidebar-nav motion-element">
+<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
+文章目录
+</li>
+<li class=sidebar-nav-overview data-target=site-overview>
+站点概览
+</li>
+</ul>
+<section class="site-overview sidebar-panel">
+<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
+<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
+<p class=site-author-name itemprop=name>lizj3624</p>
+<p class="site-description motion-element" itemprop=description>
+幸福和富有的过一生!
+</p>
+</div>
+<nav class="site-state motion-element">
+<div class="site-state-item site-state-posts">
+<a href=/post/>
+<span class=site-state-item-count>40</span>
+<span class=site-state-item-name>日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href=/categories/>
+<span class=site-state-item-count>28</span>
+<span class=site-state-item-name>分类</span>
+</a>
+</div>
+<div class="site-state-item site-state-tags">
+<a href=/tags/>
+<span class=site-state-item-count>51</span>
+<span class=site-state-item-name>标签</span>
+</a>
+</div>
+</nav>
+<div class="links-of-author motion-element">
+<span class=links-of-author-item>
+<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
+<i class="fa fa-fw fa-github"></i>
+GitHub
+</a>
+</span>
+<span class=links-of-author-item>
+<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
+<i class="fa fa-fw fa-globe"></i>
+知乎
+</a>
+</span>
+</div>
+<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
+<div class=tagcloud-of-blogroll-title>
+<i class="fa fa-fw fa-tags"></i>
+标签云
+</div>
+<ul class=tagcloud-of-blogroll-list>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/nginx>Nginx</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/apisix>Apisix</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudnative>Cloudnative</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/blockchain>Blockchain</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/docker>Docker</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/markdown>Markdown</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/nginx%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90>Nginx源码分析</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E6%8A%95%E8%B5%84>投资</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+<div class=post-toc>
+<div class=post-toc-content><nav id=TableOfContents></nav></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=footer-inner>
+<div class=copyright>
+<span class=copyright-year>
+&copy; 2010 - 2022
+</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span>
+</div>
+<div class=powered-info>
+<span class=powered-by>
+Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
+</span>
+<span class=separator-line>/</span>
+<span class=theme-info>
+Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
+</a>
+</span>
+</div>
+<div class=vistor-info>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv>
+<i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span>
+<span class=separator-line>/</span>
+<span class=site-pv>
+<i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span>
+</span>
+</div>
+<div class=license-info>
+<span class=storage-info>
+Storage by
+<a href style=font-weight:700 target=_blank></a>
+</span>
+<span class=separator-line>/</span>
+<span class=license-num>
+<a href target=_blank></a>
+</span>
+</div>
+</div>
+</footer>
+<div class=back-to-top>
+<i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span>
+</div>
+</div>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript src=/js/scrollspy.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
+<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
