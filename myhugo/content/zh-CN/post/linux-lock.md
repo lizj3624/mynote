@@ -1,5 +1,5 @@
 ---
-title: "Linux Lock"
+title: "Linux的几种常用的锁介绍"
 date: 2022-04-08T12:55:34+08:00
 tags:
    - linux 

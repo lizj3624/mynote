@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Linux Lock</title><url>https://lizj3624.github.io/post/linux-lock/</url><categories><category>linux</category><category>锁机制</category></categories><tags><tag>linux</tag><tag>锁机制</tag></tags><content type="html"> 最近公司项目因为一个自旋锁的原因，导致性能下降，换了轻量级的锁性能改善不好，在Linux下有各种锁比如互斥锁(mutex)、自旋锁(spin)、读写锁、文件锁、悲观锁、乐观锁，有时都分不清楚用法以及使用场景，这篇从[小林coding]摘录的介绍锁的文章讲解比较透彻，再次引用一下。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Linux的几种常用的锁介绍</title><url>https://lizj3624.github.io/post/linux-lock/</url><categories><category>linux</category><category>锁机制</category></categories><tags><tag>linux</tag><tag>锁机制</tag></tags><content type="html"> 最近公司项目因为一个自旋锁的原因，导致性能下降，换了轻量级的锁性能改善不好，在Linux下有各种锁比如互斥锁(mutex)、自旋锁(spin)、读写锁、文件锁、悲观锁、乐观锁，有时都分不清楚用法以及使用场景，这篇从[小林coding]摘录的介绍锁的文章讲解比较透彻，再次引用一下。
 高并发的场景下，如果选对了合适的锁，则会大大提高系统的性能，否则性能会降低。
 所以，知道各种锁的开销，以及应用场景是很有必要的。
 接下来，就谈一谈常见的这几种锁：
