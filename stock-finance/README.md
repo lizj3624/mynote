@@ -98,6 +98,8 @@
 
 4. [cloudflare分析-02](https://getfishtank.ca/blog/cloudflare-recognized-as-industry-leader-by-forrester-and-gartner)
 
+5. [NET，2年10倍了可还有劲涨！](https://www.gelonghui.com/p/496186)
+
 ### Fastly CDN, 边缘计算重要的玩家
 
 1. [将CDN提速10倍后，Fastly押注边缘计算](https://mp.weixin.qq.com/s/eBirZZn_DRWrho91Wgl_fQ)
