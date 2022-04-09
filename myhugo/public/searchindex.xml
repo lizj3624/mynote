@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Linux的几种常用的锁介绍</title><url>https://lizj3624.github.io/post/linux-lock/</url><categories><category>linux</category><category>锁机制</category></categories><tags><tag>linux</tag><tag>锁机制</tag></tags><content type="html"> 最近公司项目因为一个自旋锁的原因，导致性能下降，换了轻量级的锁性能改善不好，在Linux下有各种锁比如互斥锁(mutex)、自旋锁(spin)、读写锁、文件锁、悲观锁、乐观锁，有时都分不清楚用法以及使用场景，这篇从[小林coding]摘录的介绍锁的文章讲解比较透彻，再次引用一下。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Crowdstrike 2022财年Q4及全年财报</title><url>https://lizj3624.github.io/post/crowdstrike-q4/</url><categories><category>财报</category><category>crowdstrike</category></categories><tags><tag>crowdstrike</tag><tag>财报</tag></tags><content type="html"> 2022财年Q4财务亮点 自然年2021Q4
+收入$4.31亿，同比$2.649亿，增长63%；其中订阅收入$4.054亿，同期$2.447亿。
+ARR(Annual Recurring Revenue)增加YoY 65%，截止2022.1.31到$17.3亿，同期$2.169亿。
+订阅毛利(gross margin) GAAP毛利76%，同期78%，Non-GAAP毛利79%，同期80%
+GAAP下运营亏损$2350w，同期$1580w，Non-GAAP盈利$8040w，同期盈利$3440w
+GAAP下净亏损$4200w，同期$1900w，每股净亏损$0.18，同期$0.09；Non-GAAP净盈利$7040w，同期盈利$3160w，每股盈利$0.3，同期$0.13
+运营产生净现金流$1.597亿，同期$1.145亿，自由现金流$1.273亿，同期$9740w
+截止到2022.1.31现金及等价物$20亿
+2022财年全年财务亮点 总收入$14.5亿，同期$8.744亿，增长66%；其中订阅收入$13.6亿，同期$8.047%，增长69%。
+订阅毛利(gross margin) GAAP毛利76%，同期77%，Non-GAAP毛利79%，同期79%
+GAAP下运营亏损$1.425亿，同期$9250w，Non-GAAP盈利$1.962亿，同期盈利$6240w
+GAAP下净亏损$2.348亿，同期$9260w，每股净亏损$1.03，同期$0.43；Non-GAAP净盈利$1.607亿，同期盈利$6260w，每股盈利$0.67，同期$0.27
+运营产生净现金流$5.748亿，同期$3.566亿，自由现金流$4.418亿，同期$2.929亿
+最近运营亮点 截止到2022.1.31订阅用户16325，净增1638，YoY 65%
+截止到2022.1.31订阅4个及以上的用户增长69%，订阅5个及以上的用户增长57%，订阅6个及以上的用户增长34%
+发布了Falcon XDR module模块，增强了在端点检查和响应的领导地位
+推出 Falcon Identity Threat Protection Complete，扩展 Falcon Complete 托管服务以包括Falcon Identity Threat Protection 模块，它将身份威胁预防和IT策略结合在一起执法，专家管理、监测和补救
+推出macOS和Linux平台的零信任评估，与多家零信任厂商集成
+选择托管安全服务的领导者Deloitte，作为为其 Managed Extended 的关键组件提供支持
+再次被IDC评为现代端点安全收入的领导者，被Frost &amp; Sullivan 评为 2021 年亚太地区年度端点安全公司
+获得独立测试机构SE Labs颁发的新AAA 奖，达到100%的攻击检测评级在最新的高级安全测试中，并连续第十次获得AV-Comparatives批准的商业安全产品奖
+在2021年《财富》未来50强榜单中排名第一，该榜单表彰领先的上市公司通过对公司潜力和市场的评估，公司最适合长期增长，实现增长的能力。
+2023财年Q1展望 总收入$4.589亿~$4.654亿
+Non-GAAP运营收入$6170w~$6640w
+Non-GAAP净收入$5200w~$5670w
+Non-GAAP每股盈利$0.22~$0.24
+2023财年全年展望 总收入$21.331亿~$21.632亿
+Non-GAAP运营收入$2.892亿~$3.118亿
+Non-GAAP净收入$2.511亿~$2.736亿
+Non-GAAP每股盈利$1.03~$1.13</content></entry><entry><title>Linux的几种常用的锁介绍</title><url>https://lizj3624.github.io/post/linux-lock/</url><categories><category>linux</category><category>锁机制</category></categories><tags><tag>linux</tag><tag>锁机制</tag></tags><content type="html"> 最近公司项目因为一个自旋锁的原因，导致性能下降，换了轻量级的锁性能改善不好，在Linux下有各种锁比如互斥锁(mutex)、自旋锁(spin)、读写锁、文件锁、悲观锁、乐观锁，有时都分不清楚用法以及使用场景，这篇从[小林coding]摘录的介绍锁的文章讲解比较透彻，再次引用一下。
 高并发的场景下，如果选对了合适的锁，则会大大提高系统的性能，否则性能会降低。
 所以，知道各种锁的开销，以及应用场景是很有必要的。
 接下来，就谈一谈常见的这几种锁：
