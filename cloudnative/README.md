@@ -14,6 +14,9 @@
 # docker
 
 # kubernetes
+1. [kubernetes实践指南](https://imroc.cc/kubernetes/index.html)
+
+2. [kubernetes-老男孩](https://www.bilibili.com/medialist/play/ml1590386200/BV1PJ411h7Sw?oid=81382793&otype=2)
 
 # 网格-微服务
 
