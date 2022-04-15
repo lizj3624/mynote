@@ -11,6 +11,9 @@
 
 6. [容器网络|深入理解Cilium](https://mp.weixin.qq.com/s/UUrqaJXzR_NcA4ZngHiU9w)
 
+# 数据中心网络
+1. [Facebook、谷歌、微软、亚马逊网络架构解密](https://www.zhihu.com/zvideo/1391510718567469056)
+
 # docker
 
 # kubernetes
