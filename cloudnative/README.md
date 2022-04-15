@@ -14,6 +14,8 @@
 # 数据中心网络
 1. [Facebook、谷歌、微软、亚马逊网络架构解密](https://www.zhihu.com/zvideo/1391510718567469056)
 
+2. [数据中心网络架构浅谈（一）](https://zhuanlan.zhihu.com/p/29881248)
+
 # docker
 
 # kubernetes
