@@ -29,3 +29,6 @@
 ## Linux性能调优
 
 1. [系统性能分析从入门到进阶](https://mp.weixin.qq.com/s/beqzPadduGPSn6hw7oF4EQ)
+
+## CPU
+1. [CPU性能和CACHE](https://plantegg.github.io/2021/07/19/CPU%E6%80%A7%E8%83%BD%E5%92%8CCACHE/)
