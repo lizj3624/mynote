@@ -84,6 +84,8 @@
 
    - [Ingress Nginx Controller源码分析](https://www.cnblogs.com/devilfeng08/category/2111911.html)
 
+   - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
+
 # 多云管理
 
 > 基础即代码(infra as code)
