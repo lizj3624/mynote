@@ -74,6 +74,16 @@
 
 5. [mosn](https://github.com/lizj3624/mynote/tree/master/cloudnative/mosn)
 
+6. [kubernetes ingress-controller]
+
+   - [ingress-nginx 保姆级别源码阅读](https://zhuanlan.zhihu.com/p/449836252)
+
+   - [K8S源码探秘之nginx-ingress工作原理分析](https://blog.csdn.net/shida_csdn/article/details/84032019)
+
+   - [Kong ingress controller源码阅读](https://shoujo.ink/2021/11/kong-ingress-controller-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/)
+
+   - [Ingress Nginx Controller源码分析](https://www.cnblogs.com/devilfeng08/category/2111911.html)
+
 # 多云管理
 
 > 基础即代码(infra as code)
