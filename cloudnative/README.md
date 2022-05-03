@@ -74,7 +74,7 @@
 
 5. [mosn](https://github.com/lizj3624/mynote/tree/master/cloudnative/mosn)
 
-6. [kubernetes ingress-controller]
+6. kubernetes ingress-controller
 
    - [ingress-nginx 保姆级别源码阅读](https://zhuanlan.zhihu.com/p/449836252)
 
@@ -85,6 +85,21 @@
    - [Ingress Nginx Controller源码分析](https://www.cnblogs.com/devilfeng08/category/2111911.html)
 
    - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
+
+7. kubernetes client-go 
+   - [深入理解kubernetes client-go Informer](https://cloudnative.to/blog/client-go-informer-source-code/)
+
+   - [client-go源码分析](https://qiankunli.github.io/2020/07/20/client_go.html)
+
+   - [client-go学习](https://blog.csdn.net/u013276277/category_9569209.html)
+
+   - [如何用client-go拓展Kubernetes的API](https://mp.weixin.qq.com/s/0krB2qF4Y0tgyvQrS4YKIQ)
+
+   - [徐超-使用client-go控制原生及拓展的Kubernetes API](https://my.oschina.net/caicloud/blog/829365)
+
+   - [Kubernetes Informer详解](https://www.kubernetes.org.cn/2693.html)
+
+   - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
 
 # 多云管理
 
