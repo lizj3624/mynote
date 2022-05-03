@@ -101,6 +101,8 @@
 
    - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
 
+   - [client-go源码分析之SharedInformer](https://xie.infoq.cn/article/c1bac14389d533d5e84844f4e)
+
 # 多云管理
 
 > 基础即代码(infra as code)
