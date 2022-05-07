@@ -83,5 +83,7 @@
 17. [腾讯工程技术直播-QUIC协议详解](https://www.cnblogs.com/lfri/p/quic.html)
 
 18. [科普：QUIC协议原理分析](https://zhuanlan.zhihu.com/p/32553477)
+ 
+19. [让互联网更快的协议，QUIC在腾讯的实践及性能优化](https://zhuanlan.zhihu.com/p/32560981)
 
 ## WebSocket
