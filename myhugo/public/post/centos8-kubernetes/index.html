@@ -140,7 +140,7 @@ CentOS8 安装部署Kubernetes-1.20
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2194 字</span>
+<span class=leancloud-world-count>2177 字</span>
 </span>
 <span>
 |
@@ -402,8 +402,8 @@ kube-system   kube-scheduler-master            1/1     Running   <span style=col
 </code></pre></div><blockquote>
 <p>master当时Ready状态就说明成功了</p>
 </blockquote>
-<h2 id=安装calico网络rootmaster--kubectl-get-pod---all-namespaces>安装calico网络[root@master ~]# kubectl get pod &ndash;all-namespaces</h2>
-<h3 id=安装calico网络>安装Calico网络</h3>
+<h2 id=安装calico网络>安装calico网络</h2>
+<h3 id=安装calico网络-1>安装Calico网络</h3>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#666>[</span>root@myk8s-04 ~<span style=color:#666>]</span><span style=color:#080;font-style:italic># kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml</span>
 configmap/calico-config created
 customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created
@@ -667,9 +667,9 @@ GitHub
 <li><a href=#查看节点pod>查看节点pod</a></li>
 </ul>
 </li>
-<li><a href=#安装calico网络rootmaster--kubectl-get-pod---all-namespaces>安装calico网络[root@master ~]# kubectl get pod &ndash;all-namespaces</a>
+<li><a href=#安装calico网络>安装calico网络</a>
 <ul>
-<li><a href=#安装calico网络>安装Calico网络</a></li>
+<li><a href=#安装calico网络-1>安装Calico网络</a></li>
 <li><a href=#查看pod和node>查看pod和node</a></li>
 </ul>
 </li>

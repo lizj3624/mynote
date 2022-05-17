@@ -302,7 +302,7 @@ kube-system   kube-scheduler-master            1/1     Running   0          11m
 
 > master当时Ready状态就说明成功了
 
-## 安装calico网络[root@master ~]# kubectl get pod --all-namespaces
+## 安装calico网络
 
 ### 安装Calico网络
 
