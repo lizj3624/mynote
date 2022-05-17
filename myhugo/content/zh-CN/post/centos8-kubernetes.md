@@ -1,5 +1,3 @@
-## 安装calico网络[root@master ~]# kubectl get pod --all-namespaces
-
 ---
 title: "CentOS8 安装部署Kubernetes-1.20"
 date: 2022-05-16T18:15:21+08:00
@@ -389,5 +387,5 @@ myk8s-08.host.com   Ready    <none>                 113m    v1.21.1
 ```
 
 > node 节点的 docker 配置文件 /etc/docker/daemon.json 尽量跟 master 节点保持一致   
-> 
+> 可以通过这个命令：`journalctl -f -u kubelet` 
 > 引用：[k8s 集群之使用 kubeadm 在 Centos8 上部署 kubernetes 1.20](https://blog.csdn.net/qq_34596292/article/details/112131042)
