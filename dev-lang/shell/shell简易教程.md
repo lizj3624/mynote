@@ -534,6 +534,12 @@ crontab -r -u spch2008      #删除某个用户的全部
 
 # 4. grep and sed 
 [grep&sed](https://blog.csdn.net/spch2008/article/details/50801729)
+```shell
+grep -A 5 'parttern' filename  # 打印匹配行的后5行
+grep -B 5 'parttern' filename  # 打印匹配行的前5行
+grep -C 5 'parttern' filename  # 打印匹配行的前后5行
+grep -5 'parttern' filename    # 打印匹配行的前后5行
+```
 
 # 5. shell 
 [Shell 程序设计教程](http://kuanghy.github.io/shell-tutorial/index.html)
