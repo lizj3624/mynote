@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Kubernetes中的Namespace详解</title><url>https://lizj3624.github.io/post/kubernetes-namespace/</url><categories><category>kubernetes</category><category>cloudnative</category><category>namespace</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>namespace</tag></tags><content type="html"> 在Kubernetes中，名字空间(Namespace)提供一种机制，将同一集群中的资源划分为相互隔离的组。 同一名字空间内的资源名称要唯一，但跨名字空间时没有这个要求。 名字空间作用域仅针对带有名字空间的对象例如Deployment、Service等， 这种作用域对集群访问的对象不适用例如StorageClass、Node、PersistentVolume等。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Kubernetes中的Ingress资源</title><url>https://lizj3624.github.io/post/kubernetes-ingress/</url><categories><category>cloudnative</category><category>kubernetes</category><category>ingress</category></categories><tags><tag>cloudnative</tag><tag>kubernetes</tag><tag>ingress</tag></tags><content type="html"> Ingress是为kubernetes集群中服务service提供对外访问的接口，主要HTTP/HTTPS访问。 Ingress公开了从集群外部到集群内服务的HTTP和HTTPS路由。流量路由由Ingress资源上定义的规则控制。
+下面是一个将所有流量都发送到同一Service的简单Ingress示例： Ingress是由Ingress controller、Ingress资源和相应的service资源。最常见的Ingress控制器是 kuberneteres官方开源的ingress-nginx， 还有其他版本的控制器，在kubernetes官方登记的其他控制器。 主要根据ingress-nginx介绍一下ingress。
+创建控制器 ingress-nginx已经写好创建控制器的yaml文件，可以直接创建，有特殊需求的可以根据这个文件改进一下。
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml ## 查看创建controller $ kubectl get pods -n ingress-nginx NAME READY STATUS RESTARTS AGE nginx-ingress-controller-6979d75b9d-2hf8f 1/1 Running 0 5h28m 具体ingress-nginx创建可以查看这里
+用如下步骤演示一下ingress的用法
+创建ingress Ingress资源需要指定apiVersion、kind、metadata和spec字段。 spec部分指明了域名(host)，url以及转发到service信息。
+查看下面创建简单Ingress的yaml文件
+apiVersion:networking.k8s.io/v1kind:Ingressmetadata:name:tomcat-ingress # ingress的名字namespace:tomcat # ingress所在命名空间spec:rules:- host:tomcat.ns.com # 域名http:paths:- path:/ #urlpathType:Prefixbackend:service:name:mytomcat-http # service的名称port:number:8080# service的端口可以通过如下命令查看创建的ingress资源
+## 创建 $ kubectl apply -f tomcat-app.yaml ## 查看 $ kubectl get ingress 创建service 部署应用服务(tomcat)，并创建服务(service)
+apiVersion:apps/v1kind:Deploymentmetadata:name:tomcatinfra ## 部署应用名称namespace:tomcatspec:replicas:1selector:matchLabels:app:tomcatinfra ## 应用服务的标签，service通过这个标签选择应用的podstemplate:metadata:name:tomcatinfralabels:app:tomcatinfraspec:containers:- image:saravak/tomcat8 ## 指定应用的镜像name:tomcatappports:- containerPort:8080---apiVersion:v1kind:Servicemetadata:name:mytomcat-http ## 服务的名称namespace:tomcat ## 命名空间，必要有Ingress, 应用在同一命名空间spec:type:ClusterIPports:- port:8080## 服务端口targetPort:8080## app pod端口selector:app:tomcatinfra ## 应用名称创建服务
+## 创建 $ kubectl apply -f tomcat-srv.yaml ## 查看服务 $ kubectl get svc 这时候nginx controller中的nginx的配置应该新增了转发tomcat.ns.com的信息。
+kubectl -n ingress-nginx exec -it nginx-ingress-controller-6979d75b9d-2hf8f -- cat nginx.conf 这时可以将域名tomcat.ns.com解析的IP改成controller所在宿主机的IP，然后curl http://tomcat.ns.com/将 请求转发到部署的tomcat应用上。
+引用 Ingress
+Ingress 控制器
+ingress nginx</content></entry><entry><title>Kubernetes中的Namespace详解</title><url>https://lizj3624.github.io/post/kubernetes-namespace/</url><categories><category>kubernetes</category><category>cloudnative</category><category>namespace</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>namespace</tag></tags><content type="html"> 在Kubernetes中，名字空间(Namespace)提供一种机制，将同一集群中的资源划分为相互隔离的组。 同一名字空间内的资源名称要唯一，但跨名字空间时没有这个要求。 名字空间作用域仅针对带有名字空间的对象例如Deployment、Service等， 这种作用域对集群访问的对象不适用例如StorageClass、Node、PersistentVolume等。
 命名空间作用 命名空间为集群中的对象名称赋予作用域，命名空间还可以让用户轻松地将策略应用到集群的具体部分， 命名空间最大的好处之一是能够利用Kubernetes RBAC(基于角色的访问控制)。
 将命名空间映射到团队或项目上，为每个单独的项目或者团队创建一个命名空间。
 使用命名空间对生命周期环境进行分区，命名空间非常适合在集群中划分开发、staging以及生产环境。
