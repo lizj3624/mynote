@@ -34,8 +34,6 @@ kubectl [command] [TYPE] [NAME] [flags]
 kubectl get pods -A -o wide
 ```
 
-
-
 ## 常用命令
 
 ### 创建和更新资源
@@ -52,8 +50,6 @@ kubectl create -f example-service.yaml
 ```
 
 > apply可以在资源不存在时创建，存在时根据配置重新修改资源，但是create只能在没有时创建，存在时会抛出错误
-
-
 
 ### 获取资源
 
@@ -74,8 +70,14 @@ kubectl get namespaces
 # 列出名字为web的rc
 kubectl get replicationcontroller web
 
-# 列表service信息
- kubectl get svc -o wide
+# 列出service信息
+kubectl get svc -o wide
+
+# 列出Ingess信息
+kubectl get ingress
+
+# 列出namespace为tomcat中的ingress，如果指明namespace默认default
+kubectl get ingress -n tomcat 
 
 # 获取所有resource
 kubectl get all
@@ -92,9 +94,10 @@ kubectl describe svc
 
 # 查看名为nginx的service描述信息
 kubectl describe svc nginx
+
+# 查看name为nginx-ingress的ingress信息
+kubectl describe ingress nginx-ingress
 ```
-
-
 
 ### 删除资源
 
@@ -108,8 +111,6 @@ kubectl delete pods,services -l <label-key>=<label-value>
 # 删除所有 pod，包括未初始化的 pod。
 kubectl delete pods --all
 ```
-
-
 
 ### Pod容器操作
 
@@ -127,8 +128,6 @@ $ kubectl exec 123456-7890 -c ruby-container date
 # 错误控制台的信息发送回客户端。
 $ kubectl exec 123456-7890 -c ruby-container -i -t -- bash -il
 ```
-
-
 
 ### Pod容器日志
 
@@ -149,9 +148,9 @@ kubectl logs --tail=20 nginx
 kubectl logs --since=1h nginx
 
 kubectl logs -f -l app=nginx --all-containers=true
+
+kubectl logs -f -n kube-system calico-node-wzmz5 -c calico-node
 ```
-
-
 
 ### 其他
 
@@ -196,8 +195,6 @@ kubectl cp /tmp/foo <some-pod>:/tmp/bar -c <specific-container>
 # 将/tmp/foo文件拷贝到远程pod中的/tmp/bar目录下
 kubectl cp /tmp/foo <some-namespace>/<some-pod>:/tmp/bar
 ```
-
-
 
 ## 引用
 
