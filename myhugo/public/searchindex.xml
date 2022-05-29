@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Kubernetes中Deployment DaemonSet StatefulSet</title><url>https://lizj3624.github.io/post/kubernetes-deploy/</url><categories><category>kubernetes</category><category>cloudnative</category><category>deployment</category><category>daemonset</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>deployment</tag><tag>daemonset</tag></tags><content type="html"> kubernetes集群有几种部署和管理POD的工具，下面简单介绍一下。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>美国股市百年跌荡启示录</title><url>https://lizj3624.github.io/post/us-stock-history/</url><categories><category>美股</category><category>历史</category></categories><tags><tag>美股</tag><tag>历史</tag></tags><content type="html"> 读史可以明智，对于投资美股的人来说，很有必要了解美股历史上的几次大崩溃， 了解每次崩溃的前因后果，让自己逃离崩盘，保护美股收益，并可以抄底一些优质股票。
+由于担心疫情重创美国经济，美股纳值从2020年2月19号的高点(9839)暴跌到3月23号的6631点， 短短的20几天跌幅达33%。美联储通过印钞和"开开飞机撒钱"的方式拯救美国经济，在这宽松 的刺激下，美股一路走高，2021年11月22号美股迎来历史的高点(16212)，由于宽松的政策， 引发了高通胀，美联储加息的预期越来越迫切，美股一路下跌，截止到2022.5.29号，美联储 加息两次(3.16号加息25个基点到0.25%至0.5%的水平，5.4号加息50个基点到0.75%至1.00%)， 再叠加大宗商品上涨，俄乌冲突，导致美股在5.20号跌到11035点，相对于高点已跌了32%。 一些科技成长股跌幅到70~80%，真是损失惨重。 下面是读《崩溃与救援：美国股市百年跌荡启示录》记录的一下崩溃的前后信息，期望以前帮助 自己再以后辨别股市崩溃。
+1907年的大恐慌 就像每一次现代股市崩盘都有一支外部催化剂一样，每一次崩盘都是由一种新式的、鲜为人知的金融创新模式推动的， 它将举债经营模式引入了一个已经不稳定的体系中。1907年的状况就是信托公司实际上没有受到监管，是“海盗式”的。 除了绝对缺乏准备金，许多抵押给信托公司的抵押品也缺乏流通性，无法大批出售用来偿还贷款。 清算那些未开垦的土地可能需要几个月的时间，即使可以缩短时间，也会损失惨重。这就解释了为什么银行被禁止拥有土地， 除非是通过行使止赎权取得的。为工业组合提供过渡性贷款而购买的设施和机器，在企业以外不使用的地方毫无价值， 即使确实有价值，在贷款得到满足之前，也可能需要几个月的时间来出售和重新安置。与所有导致现代股市崩盘的金融交易一样， 信托公司在阳光明媚的时候可以运转良好，可一旦乌云密布，大风四起，信托公司就无法放下船帆。 与此相反，它们扎根于内部的无节制结构一旦有风吹草动，缺点就会暴露无遗。
+杠杆式投机意味着股价下跌1美元会给举债的股东带来2美元的损失。这些损失可能会迫使投资者出售， 让股价再降3美元，对其余举债持股者造成6美元的损失。随后会有些人被迫出售股票，将价格再压低9美元， 使其余股东蒙受更大损失，他们当中一些人则会以任何价格继续被迫出售。
+但是杠杆式投机并不都是金融的，它也很可能是行为的。一个储户知道信托公司能够支付更高的利息，因为它们的存款准备金较少， 而流动性资产更多，他可能会要求信托公司返还存款的投资收益，并警告朋友们也这样做。
+尽管如此，在10月21日这天，1907年的“恐慌”仍然到来了。股市在前一周已经下跌了5.9%，整个1907 年已下跌35.5%，情况变得越来越糟糕。
+纽约证券交易所于10月24日，也就是周四那天按时关闭。道琼斯指数收盘时几乎在58.18点呈持平状态，远高于当天的低点，但整个1907年仍下跌了38.3%，10月份则下跌了14.1%。
+人们的担忧仍在继续，道琼斯指数显示股市疲软的状况依旧，11月15日，道琼斯指数触底，收于53.00 点，下跌了43.8%，比1906年的最高点下降了50%，这个低点一直延续到年末。 截至1907年12月31日，1907 年最后一个交易日收盘时，道琼斯平均工业指数已经下跌了37.7%，是1931年以前的最差业绩，也是股市损失排名第二的时期。
+1927年大崩溃和大萧条 前因 美国经历了"咆哮的二十年"，积累了大量的财富，黄金存储最多。
+道琼指数从1921的75点上涨至1929年的381点，涨幅到406%。
+美联储宽松的政策
+后果 10月28日星期一，这是美国股市有史以来最糟糕的一天。10月29日周二是第二倒霉的日子。 许多人表示，鉴于交易量更大， 对市场造成的危害会是长期的。1987年10月19日之前，这两天的纪录没有被超越过。道琼斯指数的跌幅曾达到27.1%， 到了1929年底收盘时下跌了17.2%。
+道琼斯指数于1929年9月3日收于381.17点，于1932年7月8日收于41.22点。直到1954年11月23日，才再次创下历史新高。
+相关 崩溃与救援：美国股市百年跌荡启示录
+李奇霖：回望1929
+李奇霖：美股暴跌的启示
+从繁荣疯狂到资本寒冬，美国大萧条最完整的形成和破灭
+复盘美股十次熊市，进入熊市的必要条件是什么？</content></entry><entry><title>Kubernetes中Deployment DaemonSet StatefulSet</title><url>https://lizj3624.github.io/post/kubernetes-deploy/</url><categories><category>kubernetes</category><category>cloudnative</category><category>deployment</category><category>daemonset</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>deployment</tag><tag>daemonset</tag></tags><content type="html"> kubernetes集群有几种部署和管理POD的工具，下面简单介绍一下。
 ReplicaSet ReplicaSet是支持基于集合的标签选择器的下一代Replication Controller(新版本已不再使用)， 它主要用作Deployment协调创建、删除和更新Pod，和Replication Controller唯一的区别是，ReplicaSet支持标签选择器。 在实际应用中，虽然ReplicaSet可以单独使用，但是一般建议使用Deployment来自动管理ReplicaSet， 除非自定义的Pod不需要更新或有其他编排等。
 ## 查看RellicaSet资源 $ kubectl get rs Deployment 根据声明的YAML文件信息部署POD，并将POD调度到资源占用少的node节点上，会调用ReplicaSet管理POD副本。 主要适合如下场景：
 部署无状态应用 管理Pod和ReplicaSet 部署，滚动升级 弹性扩容等 看一下kubernetes官方提供deployment yaml资源文件 apiVersion: apps/v1 kind: Deployment ## 资源类型 metadata: name: nginx-deployment ## 名称 labels: app: nginx ##标签 spec: replicas: 3 ## 副本数量 selector: matchLabels: app: nginx ## deployment根据这个标签，选择管理POD template: metadata: labels: app: nginx ## Pod的标签，跟selector保持一致 spec: containers: - name: nginx ## 容器镜像 image: nginx:1.14.2 ## 镜像版本 ports: - containerPort: 80 ## 容器的端口 DaemonSet DaemonSet(守护进程集)和守护进程类似，它在符合匹配条件的kubernetes集群的node节点上均部署一个Pod。 DaemonSet的场景:
