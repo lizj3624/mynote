@@ -115,90 +115,91 @@ git revert commitid     #撤销指定的版本，撤销也会作为一次提交�
 * 获取某个commit的作者
 
     ```shell
-    $ git log --pretty=format:“%an” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
-    “liurizhou”
+    $ git log --pretty=format:"%an" b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+    "liurizhou"
     ```
 
 * 获取某个commit的时间
-
-    ```shell
-    git log --pretty=format:“%cd” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
-    “Wed Apr 3 10:12:33 2019 +0800”
-    ```
+  ```shell
+  git log --pretty=format:"%cd" b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+  "Wed Apr 3 10:12:33 2019 +0800"
+  ```
 * 显示最新的3条记录
     ```shell
     git log -3 --pretty=oneline
     ```
 
 * 获取某个commit的提交message
-
-    ```shell
-    $ git log --pretty=format:“%s” b29b8b608b4d00f85b5d08663120b286ea657b4a -1
-    “Change the length of the pre label string.”
-    ```
+  ```shell
+  $ git log --pretty=format:"%s" b29b8b608b4d00f85b5d08663120b286ea657b4a -1
+  "Change the length of the pre label string."
+  ```
 
 * 其中--pretty=format:“%xx”可以指定需要的信息，其常用的选项有
-
-    ```shell
-    %H: commit hash
-    %h: 缩短的commit hash
-    %T: tree hash
-    %t: 缩短的 tree hash
-    %P: parent hashes
-    %p: 缩短的 parent hashes
-    %an: 作者名字
-    %aN: mailmap的作者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
-    %ae: 作者邮箱
-    %aE: 作者邮箱 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
-    %ad: 日期 (--date= 制定的格式)
-    %aD: 日期, RFC2822格式
-    %ar: 日期, 相对格式(1 day ago)
-    %at: 日期, UNIX timestamp
-    %ai: 日期, ISO 8601 格式
-    %cn: 提交者名字
-    %cN: 提交者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
-    %ce: 提交者 email
-    %cE: 提交者 email (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
-    %cd: 提交日期 (--date= 制定的格式)
-    %cD: 提交日期, RFC2822格式
-    %cr: 提交日期, 相对格式(1 day ago)
-    %ct: 提交日期, UNIX timestamp
-    %ci: 提交日期, ISO 8601 格式
-    %d: ref名称
-    %e: encoding
-    %s: commit信息标题
-    %f: sanitized subject line, suitable for a filename
-    %b: commit信息内容
-    %N: commit notes
-    %gD: reflog selector, e.g., refs/stash@{1}
-    %gd: shortened reflog selector, e.g., stash@{1}
-    %gs: reflog subject
-    %Cred: 切换到红色
-    %Cgreen: 切换到绿色
-    %Cblue: 切换到蓝色
-    %Creset: 重设颜色
-    %C(...): 制定颜色, as described in color.branch.* config option
-    %m: left, right or boundary mark
-    %n: 换行
-    %%: a raw %
-    %x00: print a byte from a hex code
-    %w([[,[,]]]): switch line wrapping, like the -w option of git-shortlog(1).
-    ```
+  ```shell
+  %H: commit hash
+  %h: 缩短的commit hash
+  %T: tree hash
+  %t: 缩短的 tree hash
+  %P: parent hashes
+  %p: 缩短的 parent hashes
+  %an: 作者名字
+  %aN: mailmap的作者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+  %ae: 作者邮箱
+  %aE: 作者邮箱 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+  %ad: 日期 (--date= 制定的格式)
+  %aD: 日期, RFC2822格式
+  %ar: 日期, 相对格式(1 day ago)
+  %at: 日期, UNIX timestamp
+  %ai: 日期, ISO 8601 格式
+  %cn: 提交者名字
+  %cN: 提交者名字 (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+  %ce: 提交者 email
+  %cE: 提交者 email (.mailmap对应，详情参照git-shortlog(1)或者git-blame(1))
+  %cd: 提交日期 (--date= 制定的格式)
+  %cD: 提交日期, RFC2822格式
+  %cr: 提交日期, 相对格式(1 day ago)
+  %ct: 提交日期, UNIX timestamp
+  %ci: 提交日期, ISO 8601 格式
+  %d: ref名称
+  %e: encoding
+  %s: commit信息标题
+  %f: sanitized subject line, suitable for a filename
+  %b: commit信息内容
+  %N: commit notes
+  %gD: reflog selector, e.g., refs/stash@{1}
+  %gd: shortened reflog selector, e.g., stash@{1}
+  %gs: reflog subject
+  %Cred: 切换到红色
+  %Cgreen: 切换到绿色
+  %Cblue: 切换到蓝色
+  %Creset: 重设颜色
+  %C(...): 制定颜色, as described in color.branch.* config option
+  %m: left, right or boundary mark
+  %n: 换行
+  %%: a raw %
+  %x00: print a byte from a hex code
+  %w([[,[,]]]): switch line wrapping, like the -w option of git-shortlog(1).
+  ```
 * 获取commit id
+  ```shell
+  # 获取完整commit id
+  git rev-parse HEAD
 
-    ```shell
-    # 获取完整commit id
-    git rev-parse HEAD
-
-    # 获取short commit id
-    git rev-parse --short HEAD
-    ```
+  # 获取short commit id
+  git rev-parse --short HEAD
+  ```
 * git status乱码
-   ```shell
-   git config --global core.quotepath false
-   ```
+  ```shell
+  git config --global core.quotepath false
+  ```
 
 * git pull/push每次都要输入用户名密码的解决办法
   ```shell
   git config --global credential.helper store
   ```
+
+### 获取一段时间的git log
+```shell
+$ git log -p --since="2022-05-30 00:00:00" --until="2022-05-30 23:59:59"
+```
