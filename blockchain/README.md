@@ -16,6 +16,8 @@
 
 8. [普林斯顿大学区块链公开课](https://open.163.com/newview/movie/free?pid=MFFH3IGEL&mid=MFFH3S5EU)
 
+9. [github区块链项目](https://www.githubs.cn/collections/blockchain)
+
 ## 比特币
 
 1. [bitcoin](https://bitcoin.org/zh_CN/)
@@ -76,6 +78,8 @@
 
 24. [以太坊技术与实现-底层核心技术](https://learnblockchain.cn/books/geth/part3.html)
 
+25. [以太坊go源码](https://github.com/ethereum/go-ethereum)
+
 ## DEFI
 
 1. [defi pluse](https://defipulse.com/)
@@ -110,9 +114,13 @@
 
 1. [Solana](https://solana.com/zh/)
 
+2. [Solana源码](https://github.com/solana-labs/solana)
+
 ## 币安智能链
 
 1. [币安智能链白皮书](https://github.com/binance-chain/whitepaper/blob/master/%E5%B8%81%E5%AE%89%E6%99%BA%E8%83%BD%E9%93%BE.md)
+
+2. [币安智能链源码](https://github.com/bnb-chain/bsc)
 
 ## web3.0
 
