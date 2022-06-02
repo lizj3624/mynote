@@ -70,7 +70,8 @@ Gartner Says Global IT Spending to Grow 3.7% in 2020
 Gartner Forecasts Worldwide Public Cloud Revenue to Grow 17.5 Percent in 2019
 云悦资本SaaS与产业互联网系列深度研究合集（11篇）：技术篇、商业模式篇、战略篇、估值篇、投资逻辑篇
 海外SAAS行业深度报告（一）
-# SaaS 通识系列 6：SaaS 常用指标</content></entry><entry><title>Linux下的cordump设置和使用</title><url>https://lizj3624.github.io/post/cordump/</url><categories><category>Linux</category><category>coredump</category></categories><tags><tag>Linux</tag><tag>coredump</tag></tags><content type="html"> coredump是进程崩溃前的快照，对程序员定位问题非常有用，再次记录一下coredump的设置和使用。
+SaaS 通识系列 6：SaaS 常用指标
+The SaaS Capital Index</content></entry><entry><title>Linux下的cordump设置和使用</title><url>https://lizj3624.github.io/post/cordump/</url><categories><category>Linux</category><category>coredump</category></categories><tags><tag>Linux</tag><tag>coredump</tag></tags><content type="html"> coredump是进程崩溃前的快照，对程序员定位问题非常有用，再次记录一下coredump的设置和使用。
 设置coredump # 1. 设置core_uses_pid echo "1" > /proc/sys/kernel/core_uses_pid # 2. 设置core_pattern, 进程所属用户必须有目录权限 echo "/myservers/srv/bin/core-%e-%p-%t" > /proc/sys/kernel/core_pattern # 3. 设置ulimt echo "ulimit -c unlimited" >> /etc/profile &amp;&amp; source /etc/profile # 4. 重启服务 使用coredump gdb + 可执行文件名 + coredump文件 即可开始调试coredump文件, 通过b定位段点。
 手工产生coredump gcore $pid
 gdb generate-core-file</content></entry><entry><title>美国股市百年跌荡启示录</title><url>https://lizj3624.github.io/post/us-stock-history/</url><categories><category>美股</category><category>历史</category></categories><tags><tag>美股</tag><tag>历史</tag></tags><content type="html"> 读史可以明智，对于投资美股的人来说，很有必要了解美股历史上的几次大崩溃， 了解每次崩溃的前因后果，让自己逃离崩盘，保护美股收益，并可以抄底一些优质股票。

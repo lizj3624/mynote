@@ -18,7 +18,7 @@ toc: true
 
 **上市SaaS公司EV/NTM revenue multiple中位数** 
 
-![01](./01.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNYn0kNnDR4Sh4UXiaoKSNiaspQEARHQhlGRymNfYuSxpX1AGGL9ibF0exA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *注：Meritech Capital编制，含04年Salesforce上市后的近60家SaaS公司*
 
@@ -62,11 +62,11 @@ SaaS商业模式优于传统软件的核心在于收入的可预期性和客户�
 
 ### **估值方法的总结**
 
-![01](./02.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KISicmqJE2xzXpaic7dibibL12xKHuu4N7t56xgcT6NMCLcjicfP3n4ejPaWg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 如下图所示，2020年3月31日上市公司的估值倍数是8.2倍的ARR。2009年5月，最低值为1.5倍，18年中达到了历史最高的11.4倍，历史中位数是7倍。整体波动是非常大的。
 
-![01](./03.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNcDg8VLjIZBpASM65I7TdXGTtmhvqsQBLNbKjqb9B0J591pDCPxvyqg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *注：**SaaS Capital编制，含48家SaaS公司，不包括收入结构、毛利率、客单价超出正常范围的SaaS公司*
 
@@ -76,13 +76,13 @@ SaaS商业模式优于传统软件的核心在于收入的可预期性和客户�
 
 根据OpenView的报告，非上市公司随着规模增大，增速会先短暂上升，然后持续下降。具体估值的时候，可以根据所评估的SaaS公司当前时点ARR规模，对号入座，看ARR增速是在哪个分位。一般认为增速每超过平均增速的100%，就可以获得50%的溢价。比如一家2500万美元ARR的公司，如果YoY增速达到100%，那增速这一条就可以获得0.5*（100%/40%-1）=0.75倍溢价，也就是估值倍数可以调整为5.9+5.9*0.75=10.33倍。
 
-![01](./04.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KIqRXjGXHWpcEMTJicnDrrw2OVwuf9JxatjHr1tkxp0FczeryIkAJT3ibQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Source: OpenView 2019 Expansion SaaS Benchmarks*
 
 2018年和2019年上市的28家SaaS公司，中位数的ARR是2.08亿美元。中位数的YoY增速是38.5%。可以说是在非常大的体量下保持着高速的成长。
 
-![01](./05.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNe0JbicmXT5y5A179MVGMc3z7bIhyNqAFBxuBBJq6hIEMvMd8HUfOtEA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Source: Company S-1, Meritech Capital*
 
@@ -94,13 +94,13 @@ SaaS公司的招股书（S-1）会在Market Opportunity一节中，分析自己�
 
 **CrowdStrike的分析**
 
-![01](./06.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KIQ3lr1HMSKeQBhN2GyciaqGhK9zFIiaiana86F2eH6wOXL4d0IoIsLGjXA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 **DataDog的分析**
 
-![01](./07.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KIJtjHBwP7YwIa0qpREgnj9L19DmON1aRfFRFKFW9y77CawX2gns6VNg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-![01](./08.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNkIIL2DictM6ibozAtR3DpvsLcwXTxLegiaLwQibO8OopADDKUcpficb1r2A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sourc**e: Company S-1, Meritech Capital*
 
@@ -110,13 +110,13 @@ SaaS公司的招股书（S-1）会在Market Opportunity一节中，分析自己�
 
 金额续费率是一个非常核心的数值。我们认为，金额续约率很大程度上决定了一家公司的上限。美国市场SaaS公司的金额续费率是非常优秀的，各个规模的非上市公司的中位数金额续约率都在100%左右，25分位的最低为82%。
 
-![01](./09.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KIQdXWd8MvHJOOibibUR7j56TP0TehiaYcn6TgQ1EDRXJR9eRYCmQAuzDlQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sourc**e: OpenView 2019 Expansion SaaS Benchmarks*
 
 而上市公司的中位数为119.5%，最低的金额续约率为Dropbox的90%，最高的Pivotal达到了158%，超过130%有9家。如何实现如此的高的金额续费率，非常值得所有SaaS市场的参与者做单独做深入的研究。
 
-![01](./10.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNfRXrWt66uwoconj8XicSGwlzIWjSzA9wfWMRPNrbtedRnGjkCQ1u5AQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sourc**e: Company S-1, Meritech Capital*
 
@@ -124,17 +124,17 @@ SaaS公司的招股书（S-1）会在Market Opportunity一节中，分析自己�
 
 获客效率，除了大家都知道的LTV/CAC之外，还有以下两个指标：
 
-![01](./11.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWItCPicXRsGPHww0uahnclyhxyuK7CkA5CUUjYTCTv42Pbg2AfLfxiauxzuNd5eDCp0AS3r0ZUf5arQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 CAC Ratio的本质是每投入一块钱的销售费用，在下季度产生的净新增ARR。而CAC payback Period是投入的一块钱销售费用，需要多少个月的回本。简单地理解，CAC ratio越高，CAC Payback Period越短，获客的效率越高。对于创业者来说，如果CAC Payback Period非常优秀，那就是继续增加销售投入的信号。如果CAC payback period过于长，那可能就需要评估销售策略或者团队。一般认为CAC Payback Period小于12个月就是优秀的数字。（做SMB和enterprise的又有一些差别）
 
-![01](./12.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWIngHicSMB8H3rvkiaptAm3KIiaCrnNqhTsrqcOAh8zfq0SxhePN4UVAMT4lMooRy9XsW5tRTicAStJnA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sourc**e: OpenView 2019 Expansion SaaS Benchmarks*
 
 不过，需要注意一下，OpenView在自己的报告里认为被调查的公司在“under-report”自己的获客效率。一般随着收入规模的增长，获客效率会先提高再下降。
 
-![01](./13.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNBkfpe2geEXUCFmibOvjB62f0z97QYlOHakCHSuxYJ8ME2LWckPNwf8A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sour**ce: Company S-1, Meritech Capital*
 
@@ -144,21 +144,21 @@ CAC Ratio的本质是每投入一块钱的销售费用，在下季度产生的�
 
 毛利率反映的是收入的质量。SaaS公司的收入中，可能有一部分是非订阅模式的，订阅模式的比例很重要。OpenView的survey中，非上市公司的订阅收入的占比在90%左右，优秀的公司订阅模式的比例达到了100%。IPO公司的部分，订阅收入占比为92%。IPO的SaaS公司的整体毛利率中位数在73.5%，最优秀的公司可以实现80%以上的毛利率。这里需要注意的是，SaaS Capital认为非订阅模式的比例一般不超过20%，如果超过20%就需要用分部估值法。
 
-![01](./14.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWItCPicXRsGPHww0uahnclyhDvT81viaEFpjqy6Nw9vW3SUqebmiaY0OlznsWkYm9mfMmia63HGcAichcA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sou**rce: OpenView 2019 Expansion SaaS Benchmarks*
 
-![01](./15.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNos4lSdWDPtYxdasIicDJK10icTxQ6sn4c6VGlL17oMUHgzYFia79ULYbw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Source: Company S-1, Meritech Capital*  
 
-![01](./16.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWJMQU7nvDf03NVia1QZTNuuNU0B794PSrMuj3LQvOzwGUUDFVlCbCU0icicM8VC3vAXQHnxpETAZBGNA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ▲ *Sour**ce: Company S-1, Meritech Capital*  
 
 综合以上的数值，SaaS Capital给了2个案例。
 
-![01](./17.jpg)
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ic2ndqNMonWItCPicXRsGPHww0uahnclyhmGzAfpY8E6ka2N54s7oMVSicTDOlHyj9yANDebicKtEEbt8icGKZhasbg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ### **结合案例总结**
 
@@ -232,4 +232,8 @@ IDC的数据显示中国的企业IT支出在2018年为880亿美元，占GDP的�
 
 9. [海外SAAS行业深度报告（一）](https://baijiahao.baidu.com/s?id=1714284090940462553&wfr=spider&for=pc)
 
-10. [# SaaS 通识系列 6：SaaS 常用指标](https://zhuanlan.zhihu.com/p/258358980)
+10. [SaaS 通识系列 6：SaaS 常用指标](https://zhuanlan.zhihu.com/p/258358980)
+
+11. [The SaaS Capital Index](https://www.saas-capital.com/the-saas-capital-index/)
+
+
