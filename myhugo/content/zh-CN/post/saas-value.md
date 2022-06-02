@@ -214,22 +214,24 @@ IDC的数据显示中国的企业IT支出在2018年为880亿美元，占GDP的�
 
 ### 引用
 
-1. [What's Your SaaS Company Worth?](https://www.saas-capital.com/research/whats-your-saas-company-worth/)
+1. [The SaaS Capital Index](https://www.saas-capital.com/the-saas-capital-index/)
 
-2. [2019 EXPANSION SAAS BENCHMARKS](https://openviewpartners.com/expansion-saas-benchmarks/#.Xp0lPagzbZs)
+2. [What's Your SaaS Company Worth?](https://www.saas-capital.com/research/whats-your-saas-company-worth/)
 
-3. [2018 Review: High-growth SaaS IPOs](https://medium.com/@alexfclayton/2018-review-high-growth-saas-ipos-5b82a93295c)
+3. [2019 EXPANSION SAAS BENCHMARKS](https://openviewpartners.com/expansion-saas-benchmarks/#.Xp0lPagzbZs)
 
-4. [2019 Review: High-growth SaaS IPOs](https://www.meritechcapital.com/blog/2019-review-high-growth-saas-ipos-2)
+4. [2018 Review: High-growth SaaS IPOs](https://medium.com/@alexfclayton/2018-review-high-growth-saas-ipos-5b82a93295c)
 
-5. [How China’s Cloud Market Differs from Others](https://www.bain.com/insights/how-chinas-cloud-market-differs-from-others/)
+5. [2019 Review: High-growth SaaS IPOs](https://www.meritechcapital.com/blog/2019-review-high-growth-saas-ipos-2)
 
-6. [Gartner Says Global IT Spending to Grow 3.7% in 2020](https://www.gartner.com/en/newsroom/press-releases/2019-10-23-gartner-says-global-it-spending-to-grow-3point7-percent-in-2020)
+6. [How China’s Cloud Market Differs from Others](https://www.bain.com/insights/how-chinas-cloud-market-differs-from-others/)
 
-7. [Gartner Forecasts Worldwide Public Cloud Revenue to Grow 17.5 Percent in 2019](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g)
+7. [Gartner Says Global IT Spending to Grow 3.7% in 2020](https://www.gartner.com/en/newsroom/press-releases/2019-10-23-gartner-says-global-it-spending-to-grow-3point7-percent-in-2020)
 
-8. [云悦资本SaaS与产业互联网系列深度研究合集（11篇）：技术篇、商业模式篇、战略篇、估值篇、投资逻辑篇](https://mp.weixin.qq.com/s/yZqloufzFow3cCfCIN_9bg)
+8. [Gartner Forecasts Worldwide Public Cloud Revenue to Grow 17.5 Percent in 2019](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g)
 
-9. [海外SAAS行业深度报告（一）](https://baijiahao.baidu.com/s?id=1714284090940462553&wfr=spider&for=pc)
+9. [云悦资本SaaS与产业互联网系列深度研究合集（11篇）：技术篇、商业模式篇、战略篇、估值篇、投资逻辑篇](https://mp.weixin.qq.com/s/yZqloufzFow3cCfCIN_9bg)
 
-10. [# SaaS 通识系列 6：SaaS 常用指标](https://zhuanlan.zhihu.com/p/258358980)
+10. [海外SAAS行业深度报告（一）](https://baijiahao.baidu.com/s?id=1714284090940462553&wfr=spider&for=pc)
+
+11. [SaaS 通识系列 6：SaaS 常用指标](https://zhuanlan.zhihu.com/p/258358980)
