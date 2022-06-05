@@ -110,6 +110,10 @@
 
    - [Terraform介绍-中文版](https://lonegunmanb.github.io/introduction-terraform/)
 
+   - [Terraform 实战 | 万字长文](https://blog.csdn.net/NewTyun/article/details/124138462)
+
+   - [Terraform 学习总结](https://blog.csdn.net/u012562943/category_7644872.html)
+
 2. [Crossplane](https://github.com/crossplane/crossplane)
 
 3. [Pulumi](https://github.com/pulumi/pulumi)
