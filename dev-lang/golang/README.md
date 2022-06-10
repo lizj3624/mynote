@@ -182,6 +182,8 @@ func Func1() {
 
 * [rune类型](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/rune%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%90%86%E8%A7%A3.md)
 
+* [golang闭包](http://sunisdown.me/closures-in-go.html)
+
 ## golang不错的公众号和博客
 * [go-grpc](https://github.com/lizj3624/mynote/blob/master/dev-lang/golang/grpc-go.md)
 
