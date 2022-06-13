@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>桥水基金瑞.达利欧-经济机器是怎样运行的</title><url>https://lizj3624.github.io/post/enc-m/</url><categories><category>宏观经济</category></categories><tags><tag>宏观经济</tag></tags><content type="html"> 桥水基金瑞.达利欧讲解宏观经济是如何运行的 视频讲解的宏观经济比较言简意赅，图文并茂，非常适合普罗大众了解宏观经济的运行方式。</content></entry><entry><title>kubernetes中配置管理ConfigMap</title><url>https://lizj3624.github.io/post/k8s-configmap/</url><categories><category>kubernetes</category><category>cloudnative</category><category>configMap</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>configMap</tag></tags><content type="html"> CongfigMap ConfigMap对象用于为容器中的应用提供配置文件等信息，它们将相应的配置信息保存于对象中，而后在Pod资源上以存储卷的形式挂载并获取相关的配置，以实现配置与镜像文件的解耦。 例如为Tomcat的JVM配置堆内存大小等，在容器中启动时，我们可以向容器命令传递参数，将定义好的配置文件嵌入镜像文件中、通过环境变量(Environment Variables)传递配置数据，以及基于Docker卷传送配置文件等。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>粉单市场</title><url>https://lizj3624.github.io/post/pink-sheet/</url><categories><category>美股</category><category>粉单市场</category></categories><tags><tag>美股</tag><tag>粉单市场</tag></tags><content type="html"> 滴滴从美股退市后进入粉单市场，下面科普一下什么是粉单市场；进入粉单市场后，对拥有滴滴股票的投资者有什么影响。
+粉单市场原名National Quotation Bureau，简称NQB(全国报价局)，它既不是在SEC注册的股票交易所，也不是NASDAQ系统的OTC，而是隶属于一家独立的私人机构 (Pinksheets LLC)， 有自己独立的自动报价系统―OTCQX。发展历程1913年在1913年成立，为一私人企业，因最初是把报价印刷在粉红色的单子上而得名。
+发展历程 1963年：1963年NQB被出版业大财团买下，使得NQB仍以印刷的方式出书寄提供信息。
+1997年：1997年NQB更换新经营团队，以电子揭示看板的新技术提供客 户柜台买卖中心的交易信息。
+2000年：2000年6月，NQB改名Pink Sheets LLC(Liability Limited Company)。
+今天的粉单交易市场，已纳入纳斯达克最底层的一级报价系统，是美国柜台交易(OTC)的初级报价形式。
+广义的美国OTC市场包括NASDAQ、OTCBB和粉单市场，按其上市报价要求高低依次为：NASDAQ===> OTCBB ===>粉单。
+结构特点 粉单市场的功能就是为那些选择不在美国证券交易所或NASDAQ挂牌上市、或者不满足挂牌上市条件的股票提供交易流通的报价服务。 在粉单市场报价的是那些"未上市证券(Unlisted Securities)"，具体包括：
+由于已经不再满足上市标准而从NASDAQ股票市场或者从交易所退市的证券。
+为避免成为"报告公司"而从OTCBB退到粉红单市场的证券。
+其它的至少有一家做市商愿意为其报价的证券。
+在美国证券交易实务中，粉单市场里交易的股票，大多是因公司本身无法定期提出财务报告或重大事项报告，而被强制下市或下柜。 因此，投资人通常称这种公司为"空头"或"空壳"公司，该类股票为“垃圾股票”。上市没有特别要求，而且粉单市场没有连续公布财务等信息的要求。 值得一提的是公司在粉单市场交易是不需要交费的。
+监督制度 粉红单市场不是一个股票交易所，它不受证券监管当局的监管，只要每天交易结束时公布挂牌公司的报价即可。 但是NASD监管当局(NASDR)和SEC会对粉红单市场和黄单市场上证券的所有做市商进行严格的监管。
+建立规范做市商行为的规则以管制做市商的商业行为。
+为证券从业人员建立资格标准。
+随时检查会员的财务及经营状况，以及是否违反相关规则和条例。
+调查证券的违规行为。
+用相关法律约束处罚违规者。
+对投资者和投诉予以回应等等。
+由上可知，因为粉红单市场上市报价的条件要求很低，在这个市场上报价的许多证券都是Penny Stock(仙股)，且资料不全，信息披露不及时，投资风险很大， 即为聪明的消息灵通的投资者提供了巨大的投资机会，又潜藏着极大的投资风险。粉红单市场上主要是那些喜欢冒险的激进投资者及风险投资人。
+进入粉单市场影响 在粉单市场上，股票代码后缀是"Y"，代表存托凭证ADR，不是普通股票，比如腾讯ADR的代码是TCEHY，瑞幸咖啡退市前，在纳斯达克的代码是LK，现在在粉单市场上，代码也改为了LKNCY, 滴滴进入粉单市场后股票代码变成DIDIY。 在粉单市场上的投资，常常具有投机性，这也是为什么美国监管部门警告投资者，如果要投资这一市场，必须对所投资的标的进行深入全面的调研。
+目前来看进入粉单市场还可以交易，不过交易应该不如纳斯达克或者纽交所方便，不能理解退市进入粉单市场就归零。
+以后就看滴滴退市后满足证监会的审查要求，APP等上架，合规运营，重新上市后如何处理粉单市场的股票
+引用 粉单市场（pink sheet）是什么概念？
+瑞幸暴涨近50%！一文读懂：美股粉单市场到底是什么？</content></entry><entry><title>桥水基金瑞.达利欧-经济机器是怎样运行的</title><url>https://lizj3624.github.io/post/enc-m/</url><categories><category>宏观经济</category></categories><tags><tag>宏观经济</tag></tags><content type="html"> 桥水基金瑞.达利欧讲解宏观经济是如何运行的 视频讲解的宏观经济比较言简意赅，图文并茂，非常适合普罗大众了解宏观经济的运行方式。</content></entry><entry><title>kubernetes中配置管理ConfigMap</title><url>https://lizj3624.github.io/post/k8s-configmap/</url><categories><category>kubernetes</category><category>cloudnative</category><category>configMap</category></categories><tags><tag>kubernetes</tag><tag>cloudnative</tag><tag>configMap</tag></tags><content type="html"> CongfigMap ConfigMap对象用于为容器中的应用提供配置文件等信息，它们将相应的配置信息保存于对象中，而后在Pod资源上以存储卷的形式挂载并获取相关的配置，以实现配置与镜像文件的解耦。 例如为Tomcat的JVM配置堆内存大小等，在容器中启动时，我们可以向容器命令传递参数，将定义好的配置文件嵌入镜像文件中、通过环境变量(Environment Variables)传递配置数据，以及基于Docker卷传送配置文件等。
 创建ConfigMap ConfigMap的配置样例myconfig.yaml
 apiVersion:v1kind:ConfigMapmetadata:name:game-demodata:# 类属性键；每一个键都映射到一个简单的值player_initial_lives:"3"ui_properties_file_name:"user-interface.properties"# 类文件键game.properties:|enemy.types=aliens,monsters player.maximum-lives=5 user-interface.properties:|color.good=purple color.bad=yellow allow.textmode=true通过命令创建kubectl create myconfig.yaml
 Pod中使用ConfigMap 可以使用四种方式来使用ConfigMap配置Pod中的容器：
