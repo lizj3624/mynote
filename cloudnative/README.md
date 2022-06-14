@@ -114,6 +114,10 @@
 
    - [Terraform 学习总结](https://blog.csdn.net/u012562943/category_7644872.html)
 
+   - [Terraform Provider 开发指南](https://developer.aliyun.com/article/621240)
+
+   - [Terraform 常用命令详解](https://developer.aliyun.com/article/727057)
+
 2. [Crossplane](https://github.com/crossplane/crossplane)
 
 3. [Pulumi](https://github.com/pulumi/pulumi)
