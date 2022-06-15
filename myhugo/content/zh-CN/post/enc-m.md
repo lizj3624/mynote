@@ -3,8 +3,10 @@ title: "桥水基金瑞.达利欧-经济机器是怎样运行的"
 date: 2022-06-13T14:52:26+08:00
 tags:
    - 宏观经济 
+   - video
 categories:
    - 宏观经济 
+   - video
 toc: true
 ---
 

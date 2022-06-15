@@ -103,6 +103,62 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/nginx-lock/ itemprop=url>
+Nginx的锁机制
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-06">
+2022-04-06
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>nginx</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/%E6%BA%90%E7%A0%81 itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>源码</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>2182 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>5分钟</span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+我们项目中nginx的dyups模块在大量更新时，有性能瓶颈，经排查发现时用的自旋锁导致性能瓶颈，dyups使用ngx_shmtx_lock
+</div>
+<div class="post-more-link text-center">
+<a class=btn href=https://lizj3624.github.io/post/nginx-lock/ rel=contents>
+阅读全文 &#187;
+</a>
+</div>
+<footer class=post-footer><div class=post-eof></div></footer>
+</article>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
 <a class=post-title-link href=https://lizj3624.github.io/post/jd-q4/ itemprop=url>
 京东2021Q4以及全年财报
 </a>
@@ -324,62 +380,6 @@ APISIX的请求处理流程跟Nginx处理请求的各个阶段是一致的，只
 </div>
 <footer class=post-footer><div class=post-eof></div></footer>
 </article>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/apisix-start/ itemprop=url>
-APISIX源码-启动过程
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-time>
-<i class="fa fa-calendar-o fa-fw"></i>
-<span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-03">
-2022-04-03
-</time>
-</span>
-<span class=post-category>
-&nbsp; | &nbsp;
-<i class="fa fa-folder-o fa-fw"></i>
-<span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/apisix itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>apisix</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>nginx</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span>
-|
-<i class="fa fa-file-word-o fa-fw"></i>
-<span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2737 字</span>
-</span>
-<span>
-|
-<i class="fa fa-eye fa-fw"></i>
-<span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>6分钟</span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-apisix启动命令 APISIX安装之后，开始启动APISIX，APISIX写一套启动命令工具。 执行apisix help可以查看命令详细信息
-</div>
-<div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/apisix-start/ rel=contents>
-阅读全文 &#187;
-</a>
-</div>
-<footer class=post-footer><div class=post-eof></div></footer>
-</article>
 </section>
 <nav class=pagination>
 <a class="extend prev" rel=prev href=/p/5/><i class="fa fa-angle-left"></i></a>
@@ -416,19 +416,19 @@ apisix启动命令 APISIX安装之后，开始启动APISIX，APISIX写一套启�
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>64</span>
+<span class=site-state-item-count>65</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href=/categories/>
-<span class=site-state-item-count>52</span>
+<span class=site-state-item-count>54</span>
 <span class=site-state-item-name>分类</span>
 </a>
 </div>
 <div class="site-state-item site-state-tags">
 <a href=/tags/>
-<span class=site-state-item-count>74</span>
+<span class=site-state-item-count>76</span>
 <span class=site-state-item-name>标签</span>
 </a>
 </div>
