@@ -49,6 +49,8 @@
 
    20. [经济趋势](https://zh.tradingeconomics.com/)
 
+   21. [东方财富网经济-数据一览](https://data.eastmoney.com/cjsj/foreign_0_0.html)
+
 ## 四、不错的财经公众号
    
 1. [灰岩金融科技](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzODg2NDQyMA==&scene=124#wechat_redirect)
