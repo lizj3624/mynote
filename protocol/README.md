@@ -86,4 +86,8 @@
  
 19. [让互联网更快的协议，QUIC在腾讯的实践及性能优化](https://zhuanlan.zhihu.com/p/32560981)
 
+20. [降低20%链路耗时，Trip.com APP QUIC应用和优化实践](https://mp.weixin.qq.com/s/8vdlHLveo__3DWPOgK_k6Q)
+
+21. [QUIC——快速UDP网络连接协议](https://juejin.cn/post/7066993430102016037)
+
 ## WebSocket
