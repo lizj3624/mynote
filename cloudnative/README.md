@@ -87,9 +87,11 @@
    - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
 
 7. kubernetes client-go 
-   - [深入理解kubernetes client-go Informer](https://cloudnative.to/blog/client-go-informer-source-code/)
-
    - [client-go源码分析](https://qiankunli.github.io/2020/07/20/client_go.html)
+
+   - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
+
+   - [k8s client-go源码分析](https://www.cnblogs.com/lianngkyle/tag/client-go/)
 
    - [client-go学习](https://blog.csdn.net/u013276277/category_9569209.html)
 
@@ -99,10 +101,10 @@
 
    - [Kubernetes Informer详解](https://www.kubernetes.org.cn/2693.html)
 
-   - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
+   - [深入理解kubernetes client-go Informer](https://cloudnative.to/blog/client-go-informer-source-code/)
 
    - [client-go源码分析之SharedInformer](https://xie.infoq.cn/article/c1bac14389d533d5e84844f4e)
-
+    
 # 多云管理
 
 > 基础即代码(infra as code)
