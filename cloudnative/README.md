@@ -91,6 +91,8 @@
 
    - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
 
+   - [Kubernetes client-go 源码分析](https://www.danielhu.cn/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-source-code-analysis/)
+
    - [k8s client-go源码分析](https://www.cnblogs.com/lianngkyle/tag/client-go/)
 
    - [client-go学习](https://blog.csdn.net/u013276277/category_9569209.html)
