@@ -103,6 +103,68 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-ingress/ itemprop=url>
+Kubernetes中的Ingress资源
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-21">
+2022-05-21
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>cloudnative</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>kubernetes</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/ingress itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>ingress</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>1268 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>3分钟</span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+Ingress是为kubernetes集群中服务service提供对外访问的接口，主要HTTP/HTTPS访问。 Ingress公开了从集群外
+</div>
+<div class="post-more-link text-center">
+<a class=btn href=https://lizj3624.github.io/post/kubernetes-ingress/ rel=contents>
+阅读全文 &#187;
+</a>
+</div>
+<footer class=post-footer><div class=post-eof></div></footer>
+</article>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
 <a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-namespace/ itemprop=url>
 Kubernetes中的Namespace详解
 </a>
@@ -342,68 +404,6 @@ CentOS8的YUM源默认不支持docker安装，默认是redhat的Podman容器，�
 </div>
 <footer class=post-footer><div class=post-eof></div></footer>
 </article>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubectl/ itemprop=url>
-Kubectl常用命令
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-time>
-<i class="fa fa-calendar-o fa-fw"></i>
-<span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-14">
-2022-05-14
-</time>
-</span>
-<span class=post-category>
-&nbsp; | &nbsp;
-<i class="fa fa-folder-o fa-fw"></i>
-<span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>kubernetes</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>cloudnative</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubtctl itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>kubtctl</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span>
-|
-<i class="fa fa-file-word-o fa-fw"></i>
-<span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1809 字</span>
-</span>
-<span>
-|
-<i class="fa fa-eye fa-fw"></i>
-<span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>4分钟</span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-kubectl命令行是管理kubernetes集群的工具，学习好kubectl命令行对管理kubernetes很重要，一般安装kuberne
-</div>
-<div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubectl/ rel=contents>
-阅读全文 &#187;
-</a>
-</div>
-<footer class=post-footer><div class=post-eof></div></footer>
-</article>
 </section>
 <nav class=pagination>
 <a class="extend prev" rel=prev href=/p/3/><i class="fa fa-angle-left"></i></a>
@@ -439,19 +439,19 @@ kubectl命令行是管理kubernetes集群的工具，学习好kubectl命令行�
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>70</span>
+<span class=site-state-item-count>71</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href=/categories/>
-<span class=site-state-item-count>59</span>
+<span class=site-state-item-count>61</span>
 <span class=site-state-item-name>分类</span>
 </a>
 </div>
 <div class="site-state-item site-state-tags">
 <a href=/tags/>
-<span class=site-state-item-count>81</span>
+<span class=site-state-item-count>83</span>
 <span class=site-state-item-name>标签</span>
 </a>
 </div>
@@ -510,7 +510,7 @@ GitHub
 <a href=/tags/docker>Docker</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/linux>Linux</a>
 </li>
 </ul>
 </div>
