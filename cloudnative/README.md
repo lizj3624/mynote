@@ -129,3 +129,12 @@
 3. [Pulumi](https://github.com/pulumi/pulumi)
 
 4. [Crossplane vs Terraform](https://cloud.tencent.com/developer/article/1801830)
+
+# service-mesh
+## Istio
+
+1. [Istio系列二：Envoy组件分析](http://dockone.io/article/9116)
+
+2. [Service Mesh——后 Kubernetes 时代的微服务](https://developer.aliyun.com/article/752843)
+
+3. [蚂蚁集团 Service Mesh 进展回顾与展望](https://jervyshi.com/review-and-prospect-of-service-mesh-progress-in-antgroup/)
