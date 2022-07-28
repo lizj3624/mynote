@@ -32,6 +32,8 @@
 
 10. [数据中心网络架构的问题与演进 — NFV](https://www.cnblogs.com/jmilkfan-fanguiju/p/11825037.html)
 
+11. [闲话大二层网络](https://forum.huawei.com/enterprise/zh/thread-333013.html)
+
 # docker
 
 # kubernetes
