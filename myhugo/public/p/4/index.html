@@ -103,6 +103,68 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=https://lizj3624.github.io/post/k8s-configmap/ itemprop=url>
+kubernetes中配置管理ConfigMap
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-time>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-06-04">
+2022-06-04
+</time>
+</span>
+<span class=post-category>
+&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>kubernetes</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>cloudnative</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a href=/categories/configmap itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name>configMap</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span>
+|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>861 字</span>
+</span>
+<span>
+|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>2分钟</span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+CongfigMap ConfigMap对象用于为容器中的应用提供配置文件等信息，它们将相应的配置信息保存于对象中，而后在Pod资源上以存储卷的形式挂载并获取相
+</div>
+<div class="post-more-link text-center">
+<a class=btn href=https://lizj3624.github.io/post/k8s-configmap/ rel=contents>
+阅读全文 &#187;
+</a>
+</div>
+<footer class=post-footer><div class=post-eof></div></footer>
+</article>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
 <a class=post-title-link href=https://lizj3624.github.io/post/saas-value/ itemprop=url>
 SaaS公司估值的锚
 </a>
@@ -336,68 +398,6 @@ kubernetes集群有几种部署和管理POD的工具，下面简单介绍一下�
 </div>
 <footer class=post-footer><div class=post-eof></div></footer>
 </article>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubeadm-token/ itemprop=url>
-Kubeadm中的Token过期问题
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-time>
-<i class="fa fa-calendar-o fa-fw"></i>
-<span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
-2022-05-22
-</time>
-</span>
-<span class=post-category>
-&nbsp; | &nbsp;
-<i class="fa fa-folder-o fa-fw"></i>
-<span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>kubernetes</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>cloudnative</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubeadm itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>kubeadm</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span>
-|
-<i class="fa fa-file-word-o fa-fw"></i>
-<span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>425 字</span>
-</span>
-<span>
-|
-<i class="fa fa-eye fa-fw"></i>
-<span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>1分钟</span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-kubeadm以及token node节点加入kubernetes集群是通过在node节点执行kubeadm join命令完成的，具体类似如下：
-</div>
-<div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubeadm-token/ rel=contents>
-阅读全文 &#187;
-</a>
-</div>
-<footer class=post-footer><div class=post-eof></div></footer>
-</article>
 </section>
 <nav class=pagination>
 <a class="extend prev" rel=prev href=/p/3/><i class="fa fa-angle-left"></i></a>
@@ -439,7 +439,7 @@ kubeadm以及token node节点加入kubernetes集群是通过在node节点执行k
 </div>
 <div class="site-state-item site-state-categories">
 <a href=/categories/>
-<span class=site-state-item-count>69</span>
+<span class=site-state-item-count>70</span>
 <span class=site-state-item-name>分类</span>
 </a>
 </div>
