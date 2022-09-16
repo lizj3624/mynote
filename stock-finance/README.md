@@ -195,3 +195,5 @@
 1. [Wolfspeed：特斯拉带火的隐秘“硬通货”](https://mp.weixin.qq.com/s/4lT-UMgYyQN6fvof9qPGxA)
 
 2. [新能源飞奔背后，“碳化硅”赛道争夺战谁是下一个王者？](https://mp.weixin.qq.com/s/2IvPXfpnWIZZ5FUG4kYKMQ)
+
+3. [碳化硅专家小范围交流会纪要](https://mp.weixin.qq.com/s/-IihW47d4Y6j0GkyiWJLsQ)
