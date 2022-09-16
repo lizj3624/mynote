@@ -190,3 +190,8 @@
 ### Salesforce
 
 1. [Salesforce20年研习录：钉钉、飞书和企业微信们要走的路还很长](https://www.laohu8.com/post/638953723?lang=zh_CN&invite=HYBRW)
+
+### 碳化硅-wolfspeed
+1. [Wolfspeed：特斯拉带火的隐秘“硬通货”](https://mp.weixin.qq.com/s/4lT-UMgYyQN6fvof9qPGxA)
+
+2. [新能源飞奔背后，“碳化硅”赛道争夺战谁是下一个王者？](https://mp.weixin.qq.com/s/2IvPXfpnWIZZ5FUG4kYKMQ)
