@@ -90,4 +90,12 @@
 
 21. [QUIC——快速UDP网络连接协议](https://juejin.cn/post/7066993430102016037)
 
+22. [深入 HTTP/3（一）｜从 QUIC 链接的建立与关闭看协议的演进](https://mp.weixin.qq.com/s?__biz=MzUzMzU5Mjc1Nw==&mid=2247499565&idx=1&sn=00a26362451ee3bbc8ee82588514eb52&chksm=faa310f7cdd499e15e39f1cfc32644cb175340f26148cab50ca90f973e786c5ef4d8cb025580&scene=21#wechat_redirect)
+
+23. [深入 HTTP/3（二）｜不那么Boring的SSL](https://mp.weixin.qq.com/s?__biz=MzUzMzU5Mjc1Nw==&mid=2247509738&idx=1&sn=6ad1f938181797999e003458fcc57dcc&chksm=faa34930cdd4c0262d79902d293ec15c6ce74903073a642fa28ab8d2272c25271b5347997e89&token=19073791)
+
+24. [SOFAChannel#27 深入 HTTP/3｜从 QUIC-TLS 看协议的安全设计](https://www.bilibili.com/video/BV1vT4y1q7Wz/?spm_id_from=333.999.0.0)
+
+25. [积跬步至千里：QUIC 协议在蚂蚁集团落地之综述](https://segmentfault.com/a/1190000040916771)
+
 ## WebSocket
