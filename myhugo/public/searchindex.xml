@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Linux内核架构图</title><url>https://lizj3624.github.io/post/linux-arch/</url><categories><category>linux内核架构</category></categories><tags><tag>linux内核架构</tag></tags><content type="html"> Linux kernel diagram
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>2022年9月末英国养老金危机的来龙去脉</title><url>https://lizj3624.github.io/post/boe-margin-call/</url><categories><category>宏观经济</category><category>金融</category></categories><tags><tag>宏观经济</tag><tag>金融</tag></tags><content type="html"> 英国新首相刚上台就推出了史无前例的减税政策，来应对由于疫情和俄乌冲突带来的经济衰退的风险， 通过减税降低居民生活成本， 减少企业税负，同时可以刺激经济。
+但是减税导致了从8月底到9月底，英国30年期利率暴涨了230个基点，这个暴涨的速度对这些持有利率互换的LDI(负债驱动投资策略)基金影响巨大， LDI基金里使用的利率IRS(Interest rate swap)短期出现巨额亏损。 巨亏本身不是那么可怕，最可怕的是短期连续的巨亏，导致保证金很快就用光了。 英国养老金通过持有这种LDI基金来对冲利率，英国养老金必须甩卖其他流动性好的资产进行回笼资金交保证金，首先甩卖的是英国国债和股票，这种 无差别的甩卖可能导致英国国债和股票出现崩溃，进而又导致英国养老金资产价格进一步下降，导致恶性循环，9月30号英国央行下场救市，大量购买 英国国债，暂时稳定了局势，但是英国央行再抗击通胀，估计不可能一直购买国债进行放水，英国央行最近宣布在10.14号暂停购债，英国养老金危机 的危机还没有结束。
+如下几篇文章详细讲解了英国养老金危机的来龙去脉和英国养老金持有的负债驱动投资策略(Liability Driven Investment)LDI基金
+英国养老金危机亲历
+英国“减税恐慌”，影响几何？
+英国央行紧急救市背后：养老金遭遇“末日循环”</content></entry><entry><title>Linux内核架构图</title><url>https://lizj3624.github.io/post/linux-arch/</url><categories><category>linux内核架构</category></categories><tags><tag>linux内核架构</tag></tags><content type="html"> Linux kernel diagram
 Linux kernel map</content></entry><entry><title>负载均衡获得真实源IP的6种方法</title><url>https://lizj3624.github.io/post/lb-real-ip/</url><categories><category>LB</category><category>nginx</category></categories><tags><tag>LB</tag><tag>nginx</tag></tags><content type="html"> 使用负载均衡后，获取真实源IP方法汇总, 本文转载负载均衡获得真实源IP的6种方法
 当数据包从负载均衡器往后端转发时候，真实源IP可在L3、L4、L7实现，并且分别有2种方法可以获得真实IP，因此共有6种方法:
 保持L3层源IP不变，根据连接次数可以分为
