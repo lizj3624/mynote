@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -33,10 +33,6 @@
 </div>
 </div>
 <div class=site-meta>
-<div class=multi-lang-switch>
-<i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=#>中文</a>
-</div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
 <span class=logo-line-before><i></i></span>
@@ -59,7 +55,7 @@
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
 </a>
@@ -90,8 +86,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -101,12 +96,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/ngx-epoll/ itemprop=url>
+<a class=post-title-link href=/post/ngx-epoll/ itemprop=url>
 nginx epoll惊群
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-02-26">
@@ -114,36 +109,32 @@ nginx epoll惊群
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/nginx itemprop=url rel=index>
 <span itemprop=name>nginx</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/epoll itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/epoll itemprop=url rel=index>
 <span itemprop=name>epoll</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>3316 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>7分钟</span>
 </span>
-<span id=/post/ngx-epoll/ class=leancloud_visitors data-flag-title="nginx epoll惊群">
-|
+<span id=/post/ngx-epoll/ class="leancloud_visitors post-visitor" data-flag-title="nginx epoll惊群">
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
 <span class=leancloud-visitors-count></span>
@@ -158,7 +149,8 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 从网络上收集整理一些资料，在此汇总一下，以便查阅。</p>
 </blockquote>
 <h2 id=惊群现象>惊群现象</h2>
-<p>首先，我们看看维基百科对<a href=https://en.wikipedia.org/wiki/Thundering_herd_problem>惊群的定义</a>,简而言之，
+<p>首先，我们看看维基百科对<a href=https://en.wikipedia.org/wiki/Thundering_herd_problem target=_blank rel=noopener>惊群的定义</a>
+,简而言之，
 惊群现象（thundering herd）就是当多个进程和线程在同时阻塞等待同一个事件时，如果这个事件发生，会唤醒所有的进程，
 但最终只可能有一个进程/线程对该事件进行处理，其他进程/线程会在失败后重新休眠，这种性能浪费就是惊群。</p>
 <h2 id=accept惊群>accept惊群</h2>
@@ -213,8 +205,10 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 </code></pre></div><p>当我们对该服务器发起连接请求（用 telnet/curl 等模拟）时，会看到只有一个进程被唤醒。</p>
 <p>关于 accept 惊群的一些帖子或文章：</p>
 <ol>
-<li><a href=https://stackoverflow.com/questions/2213779/does-the-thundering-herd-problem-exist-on-linux-anymore>Does the Thundering Herd Problem exist on Linux anymore?</a></li>
-<li><a href=http://www.citi.umich.edu/projects/linux-scalability/reports/accept.html>历史上解决 linux accept 惊群的补丁讨论</a></li>
+<li><a href=https://stackoverflow.com/questions/2213779/does-the-thundering-herd-problem-exist-on-linux-anymore target=_blank rel=noopener>Does the Thundering Herd Problem exist on Linux anymore?</a>
+</li>
+<li><a href=http://www.citi.umich.edu/projects/linux-scalability/reports/accept.html target=_blank rel=noopener>历史上解决 linux accept 惊群的补丁讨论</a>
+</li>
 </ol>
 <blockquote>
 <p>其实，在linux2.6内核上，accept系统调用已经不存在惊群了（至少我在2.6.18内核版本上已经不存在）</p>
@@ -228,7 +222,8 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 忽略后续的读写以及对<code>accept</code>返回的新的套接字的处理，直接断开连接。</p>
 <p>那么，当新的连接到来时，是否每个阻塞在<code>epoll_wait</code>上的进程都会被唤醒呢？</p>
 <p>很多博客中提到，测试表明虽然<code>epoll_wait</code> 不会像<code>accept</code>那样只唤醒一个进程/线程，但也不会把所有的进程/线程都唤醒。
-例如这篇文章：<a href=https://www.jianshu.com/p/362b56b573f4>关于多进程 epoll 与 “惊群”问题</a>。</p>
+例如这篇文章：<a href=https://www.jianshu.com/p/362b56b573f4 target=_blank rel=noopener>关于多进程 epoll 与 “惊群”问题</a>
+。</p>
 <p>测试验证代码:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#080>#include</span> <span style=color:#080>&lt;sys/types.h&gt;</span><span style=color:#080>
 </span><span style=color:#080>#include</span> <span style=color:#080>&lt;sys/socket.h&gt;</span><span style=color:#080>
@@ -379,7 +374,8 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
     <span style=color:#a2f;font-weight:700>return</span> EXIT_SUCCESS;
 }
 </code></pre></div><p>发现确实如上面那篇博客里所说，当我模拟发起一个请求时，只有一个或少数几个进程被唤醒了。</p>
-<p>也就是说，到目前为止，还没有得到一个确定的答案。但后来，在下面这篇博客中看到这样一个<a href=http://blog.csdn.net/spch2008/article/details/18301357>评论</a></p>
+<p>也就是说，到目前为止，还没有得到一个确定的答案。但后来，在下面这篇博客中看到这样一个<a href=http://blog.csdn.net/spch2008/article/details/18301357 target=_blank rel=noopener>评论</a>
+</p>
 <blockquote>
 <p>这个总结，需要进一步阐述，看上去是只有4个进程唤醒了，而事实上，其余进程没有被唤醒的原因是你的某个进程已经处理完这个accept，内核队列上已经没有这个事件，
 无需唤醒其他进程。你可以在epoll获知这个accept事件的时候，不要立即去处理，而是sleep下，这样所有的进程都会被唤起。</p>
@@ -415,7 +411,8 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 <p><code>SO_REUSEPORT</code>是惊群最好的解决方法，Ngnix在<code>1.9.1</code>中加入了这个选项，每个<code>worker</code>都有自己的<code>socket</code>，这些<code>socket</code>都<code>bind</code>同一个端口。
 当新请求到来时，内核根据四元组信息进行负载均衡，非常高效。</p>
 <blockquote>
-<p>Linux 3.9版本的内核对reuseport做了支持，在4.6版本内核做了优化，详细参看<a href=https://blog.csdn.net/dog250/article/details/80458669>关于Linux UDP/TCP reuseport 二三事</a></p>
+<p>Linux 3.9版本的内核对reuseport做了支持，在4.6版本内核做了优化，详细参看<a href=https://blog.csdn.net/dog250/article/details/80458669 target=_blank rel=noopener>关于Linux UDP/TCP reuseport 二三事</a>
+</p>
 </blockquote>
 <h2 id=总结>总结</h2>
 <p>现在我们对惊群及<code>Nginx</code>的处理总结如下：</p>
@@ -434,19 +431,24 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 <h2 id=引用文章>引用文章</h2>
 <ol>
 <li>
-<p><a href=https://pureage.info/2015/12/22/thundering-herd.html>accept与epoll惊群</a></p>
+<p><a href=https://pureage.info/2015/12/22/thundering-herd.html target=_blank rel=noopener>accept与epoll惊群</a>
+</p>
 </li>
 <li>
-<p><a href=https://ld246.com/article/1588731832846>Nginx是如何解决epoll惊群的</a></p>
+<p><a href=https://ld246.com/article/1588731832846 target=_blank rel=noopener>Nginx是如何解决epoll惊群的</a>
+</p>
 </li>
 <li>
-<p><a href=https://blog.csdn.net/russell_tao/article/details/7204260>“惊群”，看看nginx是怎么解决它的</a></p>
+<p><a href=https://blog.csdn.net/russell_tao/article/details/7204260 target=_blank rel=noopener>“惊群”，看看nginx是怎么解决它的</a>
+</p>
 </li>
 <li>
-<p><a href=https://blog.csdn.net/dog250/article/details/80458669>关于Linux UDP/TCP reuseport 二三事</a></p>
+<p><a href=https://blog.csdn.net/dog250/article/details/80458669 target=_blank rel=noopener>关于Linux UDP/TCP reuseport 二三事</a>
+</p>
 </li>
 <li>
-<p><a href=https://blog.csdn.net/dog250/article/details/89268404>重新实现reuseport逻辑，实现一致性哈希</a></p>
+<p><a href=https://blog.csdn.net/dog250/article/details/89268404 target=_blank rel=noopener>重新实现reuseport逻辑，实现一致性哈希</a>
+</p>
 </li>
 </ol>
 </div>
@@ -464,10 +466,10 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 </div>
 <div class=article-copyright-info>
 <p>
-<span>声明：</span>nginx epoll惊群
+<span>标题：</span>nginx epoll惊群
 </p>
 <p>
-<span>链接：</span>https://lizj3624.github.io/post/ngx-epoll/
+<span>链接：</span>/post/ngx-epoll/
 </p>
 <p>
 <span>作者：</span>lizj3624
@@ -497,12 +499,12 @@ nginx是开源，我们可以通过阅读源码分析它的epoll事件的实现�
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/post/ngx_lua/ rel=next title=OpenResty中的lua协程>
+<a href=/post/ngx_lua/ rel=next title=OpenResty中的lua协程>
 <i class="fa fa-chevron-left"></i> OpenResty中的lua协程
 </a>
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://lizj3624.github.io/post/blockchain/ rel=prev title=区块链加密货币入门>
+<a href=/post/blockchain/ rel=prev title=区块链加密货币入门>
 区块链加密货币入门
 <i class="fa fa-chevron-right"></i>
 </a>
@@ -580,34 +582,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -686,14 +708,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

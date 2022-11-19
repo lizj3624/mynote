@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -35,12 +35,12 @@
 <div class=site-meta>
 <div class=multi-lang-switch>
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=https://lizj3624.github.io/post/markdown-syntax/>中文</a>
+<a class=lang-link id=zh-cn href=/post/markdown-syntax/>中文</a>
 <span class=lang-line> / </span>
 <a class=lang-link id=en href=#>English</a>
 </div>
 <div class=custom-logo-site-title>
-<a href=/en/ class=brand rel=start>
+<a href=/en class=brand rel=start>
 <span class=logo-line-before><i></i></span>
 <span class=site-title>Happy and prosperous life.</span>
 <span class=logo-line-after><i></i></span>
@@ -57,11 +57,11 @@
 <nav class=site-nav>
 <ul id=menu class=menu>
 <li class=menu-item>
-<a href=/en/ rel=section>
+<a href=/en rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/en/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archive
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,12 +102,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/en/post/markdown-syntax/ itemprop=url>
+<a class=post-title-link href=/en/post/markdown-syntax/ itemprop=url>
 Markdown Syntax Guide
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>Published at:</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2019/03/11">
@@ -116,36 +115,32 @@ Markdown Syntax Guide
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>Categories:</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/en/categories/themes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/en/categories/themes itemprop=url rel=index>
 <span itemprop=name>themes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/en/categories/syntax itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/en/categories/syntax itemprop=url rel=index>
 <span itemprop=name>syntax</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>Words:</span>
-<span class=leancloud-world-count>444 words</span>
+<span class=leancloud-world-count>465 words</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>Reading:</span>
 <span class=leancloud-view-count>3 minutes</span>
 </span>
-<span id=/en/post/markdown-syntax/ class=leancloud_visitors data-flag-title="Markdown Syntax Guide">
-|
+<span id=/en/post/markdown-syntax/ class="leancloud_visitors post-visitor" data-flag-title="Markdown Syntax Guide">
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>Visited:</span>
 <span class=leancloud-visitors-count></span>
@@ -214,6 +209,24 @@ Markdown Syntax Guide
 </tr>
 </tbody>
 </table>
+<h1 id=image>Image</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>![Image Description](Image URL)
+</code></pre></div><h2 id=demo>Demo</h2>
+<h3 id=normal>Normal</h3>
+<p><img src=//lisenhui.gitee.io/imgs/blog/my-hugo-blog.png alt=screenshot.png></p>
+<h3 id=svg>SVG</h3>
+<p><svg role="img" with="24" height="24" fill="#4285f4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Chrome</title><path d="M12 0C8.21.0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454.0 0112 6.545h10.691A12 12 0 0012 0zM1.931 5.47A11.943 11.943.0 000 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45.0 01-6.865-2.29zm13.342 2.166a5.446 5.446.0 011.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627.0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364.0 110-8.728 4.364 4.364.0 010 8.728z"/></svg></p>
+<p><svg role="img" with="24" height="24" fill="#ff7139" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Firefox Browser</title><path d="M8.824 7.287c.008.0.004.0.0.0zm-2.8-1.4c.006.0.003.0.0.0zm16.754 2.161c-.505-1.215-1.53-2.528-2.333-2.943.654 1.283 1.033 2.57 1.177 3.53l.002.02c-1.314-3.278-3.544-4.6-5.366-7.477-.091-.147-.184-.292-.273-.446a3.545 3.545.0 01-.13-.24 2.118 2.118.0 01-.172-.46.03.03.0 00-.027-.03.038.038.0 00-.021.0l-.006.001a.037.037.0 00-.01.005L15.624.0c-2.585 1.515-3.657 4.168-3.932 5.856a6.197 6.197.0 00-2.305.587.297.297.0 00-.147.37c.057.162.24.24.396.17a5.622 5.622.0 012.008-.523l.067-.005a5.847 5.847.0 011.957.222l.095.03a5.816 5.816.0 01.616.228c.08.036.16.073.238.112l.107.055a5.835 5.835.0 01.368.211 5.953 5.953.0 012.034 2.104c-.62-.437-1.733-.868-2.803-.681 4.183 2.09 3.06 9.292-2.737 9.02a5.164 5.164.0 01-1.513-.292 4.42 4.42.0 01-.538-.232c-1.42-.735-2.593-2.121-2.74-3.806.0.0.537-2 3.845-2 .357.0 1.38-.998 1.398-1.287-.005-.095-2.029-.9-2.817-1.677-.422-.416-.622-.616-.8-.767a3.47 3.47.0 00-.301-.227 5.388 5.388.0 01-.032-2.842c-1.195.544-2.124 1.403-2.8 2.163h-.006c-.46-.584-.428-2.51-.402-2.913-.006-.025-.343.176-.389.206-.406.29-.787.616-1.136.974-.397.403-.76.839-1.085 1.303a9.816 9.816.0 00-1.562 3.52c-.003.013-.11.487-.19 1.073-.013.09-.026.181-.037.272a7.8 7.8.0 00-.069.667l-.002.034-.023.387-.001.06C.386 18.795 5.593 24 12.016 24c5.752.0 10.527-4.176 11.463-9.661.02-.149.035-.298.052-.448.232-1.994-.025-4.09-.753-5.844z"/></svg></p>
+<h3 id=icons>Icons</h3>
+<p><a href=#><img src="https://img.shields.io/static/v1?label=Chrome&message=92.0.45%2B&color=%234285F4&logo=GoogleChrome" alt="Coogle Chrome"></a>
+<a href=#><img src="https://img.shields.io/static/v1?label=Firefox&message=91.0.2%2B&color=%23FF7139&logo=Firefox" alt=Firefox></a>
+<a href=#><img src="https://img.shields.io/static/v1?label=Safari&message=14.7.1%2B&color=%23212E50&logo=Safari" alt=Safari></a>
+<a href=#><img src="https://img.shields.io/static/v1?label=Microsoft%20Edge&message=44.18362%2B&color=%230078D7&logo=Microsoft%20Edge" alt="Microsoft Edge"></a>
+<a href=#><img src="https://img.shields.io/static/v1?label=IE&message=11.356%2B&color=%230076D6&logo=Internet%20Explorer" alt="Internet Exporler"></a>
+</p>
+<blockquote>
+<p>Try to click the image to visit the URL.</p>
+</blockquote>
 <h2 id=code-blocks>Code Blocks</h2>
 <h4 id=code-block-with-backticks>Code block with backticks</h4>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#080>&lt;!doctype html&gt;</span>
@@ -288,7 +301,8 @@ Markdown Syntax Guide
 <hr>
 <ol>
 <li id=fn:1 role=doc-endnote>
-<p>The above quote is excerpted from Rob Pike&rsquo;s <a href="https://www.youtube.com/watch?v=PAAkCSZUG1c">talk</a> during Gopherfest, November 18, 2015.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+<p>The above quote is excerpted from Rob Pike&rsquo;s <a href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target=_blank rel=noopener>talk</a>
+during Gopherfest, November 18, 2015.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -308,10 +322,10 @@ Markdown Syntax Guide
 </div>
 <div class=article-copyright-info>
 <p>
-<span>Declaration：</span>Markdown Syntax Guide
+<span>Title：</span>Markdown Syntax Guide
 </p>
 <p>
-<span>Link：</span>https://lizj3624.github.io/en/post/markdown-syntax/
+<span>Link：</span>/en/post/markdown-syntax/
 </p>
 <p>
 <span>Author：</span>Elkan.Li
@@ -343,7 +357,7 @@ Markdown Syntax Guide
 <div class="post-nav-next post-nav-item">
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://lizj3624.github.io/en/post/rich-content/ rel=prev title="Rich Content">
+<a href=/en/post/rich-content/ rel=prev title="Rich Content">
 Rich Content
 <i class="fa fa-chevron-right"></i>
 </a>
@@ -433,25 +447,39 @@ TagCloud
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/markdown>Markdown</a>
+<a href=/en/tags/markdown>Markdown
+<sup>2</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/css>Css</a>
+<a href=/en/tags/css>Css
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/emoji>Emoji</a>
+<a href=/en/tags/emoji>Emoji
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/html>HTML</a>
+<a href=/en/tags/html>HTML
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/privacy>Privacy</a>
+<a href=/en/tags/privacy>Privacy
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/shortcodes>Shortcodes</a>
+<a href=/en/tags/shortcodes>Shortcodes
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/text>Text</a>
+<a href=/en/tags/text>Text
+<sup>1</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -494,7 +522,7 @@ Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next tar
 <div class=license-info>
 <span class=storage-info>
 Storage by
-<a href=https://www.ucloud.cn/ style=font-weight:700 target=_blank>UCloud Storage</a>
+<a href=https://gitee.com/ style=font-weight:700 target=_blank>Gitee Repository</a>
 </span>
 <span class=separator-line>/</span>
 <span class=license-num>
@@ -508,14 +536,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
+<script type=text/javascript>const locale={placeholder:'Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

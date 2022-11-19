@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -33,10 +33,6 @@
 </div>
 </div>
 <div class=site-meta>
-<div class=multi-lang-switch>
-<i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=#>中文</a>
-</div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
 <span class=logo-line-before><i></i></span>
@@ -59,7 +55,7 @@
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
 </a>
@@ -90,8 +86,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -101,12 +96,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubeadm-token/ itemprop=url>
+<a class=post-title-link href=/post/kubeadm-token/ itemprop=url>
 Kubeadm中的Token过期问题
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
@@ -114,42 +109,38 @@ Kubeadm中的Token过期问题
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
 <span itemprop=name>kubernetes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
 <span itemprop=name>cloudnative</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubeadm itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubeadm itemprop=url rel=index>
 <span itemprop=name>kubeadm</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>425 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>1分钟</span>
 </span>
-<span id=/post/kubeadm-token/ class=leancloud_visitors data-flag-title=Kubeadm中的Token过期问题>
-|
+<span id=/post/kubeadm-token/ class="leancloud_visitors post-visitor" data-flag-title=Kubeadm中的Token过期问题>
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
 <span class=leancloud-visitors-count></span>
@@ -162,7 +153,8 @@ Kubeadm中的Token过期问题
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ kubeadm join 192.168.56.104:6443 --token l18cgl.jlp49w8zyz94vogn <span style=color:#b62;font-weight:700>\
 </span><span style=color:#b62;font-weight:700></span>        --discovery-token-ca-cert-hash sha256:1672cd600e7e686b554ce79ee31a79d8fc8da34c339e7763d4601a149be8faa2
 </code></pre></div><p>如上命令一般是<code>kubernetes</code>集群的master节点初始化成功后，返回的node节点加入的命令。
-在参看<a href=https://lizj3624.github.io/post/centos8-kubernetes/>CentOS8 安装部署Kubernetes-1.20</a>中介绍。
+在参看<a href=https://lizj3624.github.io/post/centos8-kubernetes/ target=_blank rel=noopener>CentOS8 安装部署Kubernetes-1.20</a>
+中介绍。
 其中<code>token</code>是为加入node节点集群的标识，如果<code>token</code>不对或者过期时，node节点就加入失败。
 <code>token</code>默认下是24小时，如果过期时，执行<code>kubeadm join</code>就是提示如下错误信息：</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>error execution phase preflight: couldn<span>&#39;</span>t validate the identity of the API Server: could not find a JWS signature in the cluster-info ConfigMap <span style=color:#a2f;font-weight:700>for</span> token ID <span style=color:#b44>&#34;jrc6he&#34;</span>
@@ -193,10 +185,10 @@ $ kubeadm token list
 </div>
 <div class=article-copyright-info>
 <p>
-<span>声明：</span>Kubeadm中的Token过期问题
+<span>标题：</span>Kubeadm中的Token过期问题
 </p>
 <p>
-<span>链接：</span>https://lizj3624.github.io/post/kubeadm-token/
+<span>链接：</span>/post/kubeadm-token/
 </p>
 <p>
 <span>作者：</span>lizj3624
@@ -226,12 +218,12 @@ $ kubeadm token list
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/post/kubernetes-deploy/ rel=next title="Kubernetes中Deployment DaemonSet StatefulSet">
+<a href=/post/kubernetes-deploy/ rel=next title="Kubernetes中Deployment DaemonSet StatefulSet">
 <i class="fa fa-chevron-left"></i> Kubernetes中Deployment DaemonSet StatefulSet
 </a>
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://lizj3624.github.io/post/kubernetes-ingress/ rel=prev title=Kubernetes中的Ingress资源>
+<a href=/post/kubernetes-ingress/ rel=prev title=Kubernetes中的Ingress资源>
 Kubernetes中的Ingress资源
 <i class="fa fa-chevron-right"></i>
 </a>
@@ -309,34 +301,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -407,14 +419,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -37,7 +37,7 @@
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
 <a class=lang-link id=zh-cn href=#>中文</a>
 <span class=lang-line> / </span>
-<a class=lang-link id=en href=https://lizj3624.github.io/en/post/emoji-support/>English</a>
+<a class=lang-link id=en href=/en/post/emoji-support/>English</a>
 </div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
@@ -61,7 +61,7 @@
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,32 +102,29 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/emoji-support/ itemprop=url>
+<a class=post-title-link href=/post/emoji-support/ itemprop=url>
 支持Emoji表情符号
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2019-03-05">
 2019-03-05
 </time>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>143 字</span>
+<span class=leancloud-world-count>263 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>1分钟</span>
 </span>
-<span id=/post/emoji-support/ class=leancloud_visitors data-flag-title=支持Emoji表情符号>
-|
+<span id=/post/emoji-support/ class="leancloud_visitors post-visitor" data-flag-title=支持Emoji表情符号>
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
 <span class=leancloud-visitors-count></span>
@@ -136,16 +132,65 @@
 </div>
 </header>
 <div class=post-body itemprop=articleBody>
-<p>在Hugo项目中可以通过多种方式启用Emoji。</p>
-<p>The <a href=https://gohugo.io/functions/emojify/><code>emojify</code></a> function can be called directly in templates or <a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes>Inline Shortcodes</a>.</p>
-<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href=https://gohugo.io/getting-started/configuration/>configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
-<p><span class=nowrap><span class=emojify>馃檲</span> <code>🙈</code></span> <span class=nowrap><span class=emojify>馃檳</span> <code>🙉</code></span> <span class=nowrap><span class=emojify>馃檴</span> <code>🙊</code></span></p>
-<br>
-<p>The <a href=http://www.emoji-cheat-sheet.com/>Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
+<p><code>Emoji</code> 表情符号可以通过多种方式在 <code>Hugo</code> 项目中启用。</p>
+<p>使用 <code>Emoji</code> 表情符号可以在模板中可以直接调用 <a href=https://gohugo.io/functions/emojify/ target=_blank rel=noopener><code>emojify</code></a>
+函数或是通过 <a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes target=_blank rel=noopener>内联短代码</a>
+来实现。</p>
+<p>如果要全局启用 <code>Emoji</code> 表情符号，请在网站<a href=https://gohugo.io/getting-started/configuration/ target=_blank rel=noopener>配置</a>
+文件中将 <code>enableEmoji</code> 参数值设置为 <code>true</code>，然后可以直接在内容文件中输入表情符号简写代码，参考如下：</p>
+<h3 id=猴子表情>猴子表情</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 🙈 </span>
+<code>:see_no_evil:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🙉 </span>
+<code>:hear_no_evil:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🙊 </span>
+<code>:speak_no_evil:</code>
+</span>
+</p>
 <hr>
-<p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
+<h3 id=数字符号>数字符号</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 1️⃣ </span>
+<code>:one:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 2️⃣ </span>
+<code>:two:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 3️⃣ </span>
+<code>:three:</code>
+</span>
+</p>
+<hr>
+<h3 id=建筑物>建筑物</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 🏡 </span>
+<code>:house_with_garden:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🏣 </span>
+<code>:post_office:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🏥 </span>
+<code>:hospital:</code>
+</span>
+</p>
+<p>更多的 <code>Emoji</code> 表情符号代码可参考<a href=https://www.webfx.com/tools/emoji-cheat-sheet/ target=_blank rel=noopener><code>Emoji</code> 配对目录</a>
+。</p>
+<hr>
+<p><strong>注意:</strong> 以上步骤在 <code>Hugo</code> 中启用 <code>Unicode</code> 标准表情符号和序列，但是这些符号的呈现取决于浏览器和平台，要设置表情符号的样式，您可以使用第三方表情符号字体或字体。例如：</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>.emoji {
-  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;
 }</code></pre></div>
 </div>
 <footer class=post-footer>
@@ -161,10 +206,10 @@
 </div>
 <div class=article-copyright-info>
 <p>
-<span>声明：</span>支持Emoji表情符号
+<span>标题：</span>支持Emoji表情符号
 </p>
 <p>
-<span>链接：</span>https://lizj3624.github.io/post/emoji-support/
+<span>链接：</span>/post/emoji-support/
 </p>
 <p>
 <span>作者：</span>lizj3624
@@ -194,7 +239,7 @@
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/post/math-typesetting/ rel=next title=数据公式设置显示>
+<a href=/post/math-typesetting/ rel=next title=数据公式设置显示>
 <i class="fa fa-chevron-left"></i> 数据公式设置显示
 </a>
 </div>
@@ -265,34 +310,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -349,14 +414,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

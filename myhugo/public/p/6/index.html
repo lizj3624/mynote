@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -37,7 +37,7 @@
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
 <a class=lang-link id=zh-cn href=#>中文</a>
 <span class=lang-line> / </span>
-<a class=lang-link id=en href=https://lizj3624.github.io/en/>English</a>
+<a class=lang-link id=en href=/en/>English</a>
 </div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
@@ -56,7 +56,7 @@
 </div>
 <nav class=site-nav>
 <ul id=menu class=menu>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/ rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,12 +102,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/us-stock-history/ itemprop=url>
+<a class=post-title-link href=/post/us-stock-history/ itemprop=url>
 美国股市百年跌荡启示录
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-29">
@@ -116,30 +115,27 @@
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E7%BE%8E%E8%82%A1 itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E7%BE%8E%E8%82%A1 itemprop=url rel=index>
 <span itemprop=name>美股</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E5%8E%86%E5%8F%B2 itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E5%8E%86%E5%8F%B2 itemprop=url rel=index>
 <span itemprop=name>历史</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>2225 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>5分钟</span>
@@ -150,7 +146,7 @@
 读史可以明智，对于投资美股的人来说，很有必要了解美股历史上的几次大崩溃， 了解每次崩溃的前因后果，让自己逃离崩盘，保护美股收益，并可以抄底一些
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/us-stock-history/ rel=contents>
+<a class=btn href=/post/us-stock-history/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -159,12 +155,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-deploy/ itemprop=url>
+<a class=post-title-link href=/post/kubernetes-deploy/ itemprop=url>
 Kubernetes中Deployment DaemonSet StatefulSet
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
@@ -172,42 +168,39 @@ Kubernetes中Deployment DaemonSet StatefulSet
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
 <span itemprop=name>kubernetes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
 <span itemprop=name>cloudnative</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/deployment itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/deployment itemprop=url rel=index>
 <span itemprop=name>deployment</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/daemonset itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/daemonset itemprop=url rel=index>
 <span itemprop=name>daemonset</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>1466 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>3分钟</span>
@@ -218,7 +211,7 @@ Kubernetes中Deployment DaemonSet StatefulSet
 kubernetes集群有几种部署和管理POD的工具，下面简单介绍一下。 ReplicaSet ReplicaSet是支持基于集合的标签选择器的下一代Replic
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubernetes-deploy/ rel=contents>
+<a class=btn href=/post/kubernetes-deploy/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -227,12 +220,12 @@ kubernetes集群有几种部署和管理POD的工具，下面简单介绍一下�
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubeadm-token/ itemprop=url>
+<a class=post-title-link href=/post/kubeadm-token/ itemprop=url>
 Kubeadm中的Token过期问题
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
@@ -240,36 +233,33 @@ Kubeadm中的Token过期问题
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
 <span itemprop=name>kubernetes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
 <span itemprop=name>cloudnative</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubeadm itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubeadm itemprop=url rel=index>
 <span itemprop=name>kubeadm</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>425 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>1分钟</span>
@@ -280,7 +270,7 @@ Kubeadm中的Token过期问题
 kubeadm以及token node节点加入kubernetes集群是通过在node节点执行kubeadm join命令完成的，具体类似如下：
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubeadm-token/ rel=contents>
+<a class=btn href=/post/kubeadm-token/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -289,12 +279,12 @@ kubeadm以及token node节点加入kubernetes集群是通过在node节点执行k
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-ingress/ itemprop=url>
+<a class=post-title-link href=/post/kubernetes-ingress/ itemprop=url>
 Kubernetes中的Ingress资源
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-21">
@@ -302,36 +292,33 @@ Kubernetes中的Ingress资源
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
 <span itemprop=name>cloudnative</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
 <span itemprop=name>kubernetes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/ingress itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/ingress itemprop=url rel=index>
 <span itemprop=name>ingress</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>1268 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>3分钟</span>
@@ -342,7 +329,7 @@ Kubernetes中的Ingress资源
 Ingress是为kubernetes集群中服务service提供对外访问的接口，主要HTTP/HTTPS访问。 Ingress公开了从集群外
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubernetes-ingress/ rel=contents>
+<a class=btn href=/post/kubernetes-ingress/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -351,12 +338,12 @@ Ingress是为kubernetes集群中服务service提供对外访问的接口，主�
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/kubernetes-namespace/ itemprop=url>
+<a class=post-title-link href=/post/kubernetes-namespace/ itemprop=url>
 Kubernetes中的Namespace详解
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-21">
@@ -364,36 +351,33 @@ Kubernetes中的Namespace详解
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/kubernetes itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
 <span itemprop=name>kubernetes</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/cloudnative itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
 <span itemprop=name>cloudnative</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/namespace itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/namespace itemprop=url rel=index>
 <span itemprop=name>namespace</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>855 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>2分钟</span>
@@ -404,7 +388,7 @@ Kubernetes中的Namespace详解
 在Kubernetes中，名字空间(Namespace)提供一种机制，将同一集群中的资源划分为相互隔离的组。 同一名字空间内的资源名称要唯一，
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/kubernetes-namespace/ rel=contents>
+<a class=btn href=/post/kubernetes-namespace/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -490,34 +474,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -574,11 +578,10 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>
 </html>

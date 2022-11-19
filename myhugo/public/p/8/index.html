@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -37,7 +37,7 @@
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
 <a class=lang-link id=zh-cn href=#>中文</a>
 <span class=lang-line> / </span>
-<a class=lang-link id=en href=https://lizj3624.github.io/en/>English</a>
+<a class=lang-link id=en href=/en/>English</a>
 </div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
@@ -56,7 +56,7 @@
 </div>
 <nav class=site-nav>
 <ul id=menu class=menu>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/ rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,12 +102,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/mrna/ itemprop=url>
+<a class=post-title-link href=/post/mrna/ itemprop=url>
 mRNA疫苗原理
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-14">
@@ -116,30 +115,27 @@ mRNA疫苗原理
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/mrna%E7%96%AB%E8%8B%97 itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/mrna%E7%96%AB%E8%8B%97 itemprop=url rel=index>
 <span itemprop=name>mRNA疫苗</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E7%94%9F%E7%89%A9%E6%8A%80%E6%9C%AF itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E7%94%9F%E7%89%A9%E6%8A%80%E6%9C%AF itemprop=url rel=index>
 <span itemprop=name>生物技术</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>27530 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>55分钟</span>
@@ -150,7 +146,7 @@ mRNA疫苗原理
 公众号看到mRNA疫苗科普的文章，感觉不错，再次收藏一下 前言: mRNA疫苗：疫苗行业新王朝的崛起 2020年初，一场突如起来的传染病大流行给全
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/mrna/ rel=contents>
+<a class=btn href=/post/mrna/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -159,12 +155,12 @@ mRNA疫苗原理
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/apisix-admin/ itemprop=url>
+<a class=post-title-link href=/post/apisix-admin/ itemprop=url>
 APISIX的控制面
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-12">
@@ -172,30 +168,27 @@ APISIX的控制面
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/apisix itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/apisix itemprop=url rel=index>
 <span itemprop=name>apisix</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/nginx itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/nginx itemprop=url rel=index>
 <span itemprop=name>nginx</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1602 字</span>
+<span class=leancloud-world-count>1597 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>4分钟</span>
@@ -206,7 +199,7 @@ APISIX的控制面
 apisix的控制面主要是提供一套RESTful API接口对存储在etcd中的route、service、plugin、upstream等C
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/apisix-admin/ rel=contents>
+<a class=btn href=/post/apisix-admin/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -215,12 +208,12 @@ apisix的控制面主要是提供一套RESTful API接口对存储在etcd中的ro
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/apisix-etcd/ itemprop=url>
+<a class=post-title-link href=/post/apisix-etcd/ itemprop=url>
 APISIX的route匹配机制
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-10">
@@ -228,30 +221,27 @@ APISIX的route匹配机制
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/apisix itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/apisix itemprop=url rel=index>
 <span itemprop=name>apisix</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/etcd itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/etcd itemprop=url rel=index>
 <span itemprop=name>etcd</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>3942 字</span>
+<span class=leancloud-world-count>3932 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>8分钟</span>
@@ -262,7 +252,7 @@ APISIX的route匹配机制
 apisix通过etcd作为后端存储，存储了route、service、plugin、upstream等信息，我们看一下如何通过etcd查找
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/apisix-etcd/ rel=contents>
+<a class=btn href=/post/apisix-etcd/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -271,12 +261,12 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/cloud-cn-2021/ itemprop=url>
+<a class=post-title-link href=/post/cloud-cn-2021/ itemprop=url>
 2021年中国云服务市场规模及格局
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-10">
@@ -284,24 +274,21 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%B8%82%E5%9C%BA itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%B8%82%E5%9C%BA itemprop=url rel=index>
 <span itemprop=name>云计算市场</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>1376 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>3分钟</span>
@@ -312,7 +299,7 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 3月21日，Canalys 发布2021年中国云计算市场报告显示，中国的云基础设施市场规模已达274亿美元。由阿里云、华为云、腾讯云和百度智能
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/cloud-cn-2021/ rel=contents>
+<a class=btn href=/post/cloud-cn-2021/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -321,12 +308,12 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/gmv/ itemprop=url>
+<a class=post-title-link href=/post/gmv/ itemprop=url>
 2021年全国在线零售以及三大电商GMV分析
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-09">
@@ -334,30 +321,27 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E8%B4%A2%E6%8A%A5 itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E8%B4%A2%E6%8A%A5 itemprop=url rel=index>
 <span itemprop=name>财报</span>
 </a>
 &nbsp;
 </span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/%E4%BA%AC%E4%B8%9C itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/%E4%BA%AC%E4%B8%9C itemprop=url rel=index>
 <span itemprop=name>京东</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>835 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>2分钟</span>
@@ -365,10 +349,10 @@ apisix通过etcd作为后端存储，存储了route、service、plugin、upstrea
 </div>
 </header>
 <div class=post-body itemprop=articleBody>
-2021年在线零售 2022.1.17号国家统计局公布2021年社会消费品零售总额。 2021年，社会消费品零售总额440823亿元，比上年增长
+2021年在线零售 2022.1.17号国家统计局公布2021年社会消费品零售总额 。 2021年，社会消费品零售总额440823亿元，比上年增长
 </div>
 <div class="post-more-link text-center">
-<a class=btn href=https://lizj3624.github.io/post/gmv/ rel=contents>
+<a class=btn href=/post/gmv/ rel=contents>
 阅读全文 &#187;
 </a>
 </div>
@@ -454,34 +438,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -538,11 +542,10 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>
 </html>

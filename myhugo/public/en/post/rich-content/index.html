@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -35,12 +35,12 @@
 <div class=site-meta>
 <div class=multi-lang-switch>
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=https://lizj3624.github.io/post/rich-content/>中文</a>
+<a class=lang-link id=zh-cn href=/post/rich-content/>中文</a>
 <span class=lang-line> / </span>
 <a class=lang-link id=en href=#>English</a>
 </div>
 <div class=custom-logo-site-title>
-<a href=/en/ class=brand rel=start>
+<a href=/en class=brand rel=start>
 <span class=logo-line-before><i></i></span>
 <span class=site-title>Happy and prosperous life.</span>
 <span class=logo-line-after><i></i></span>
@@ -57,11 +57,11 @@
 <nav class=site-nav>
 <ul id=menu class=menu>
 <li class=menu-item>
-<a href=/en/ rel=section>
+<a href=/en rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/en/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archive
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,32 +102,29 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/en/post/rich-content/ itemprop=url>
+<a class=post-title-link href=/en/post/rich-content/ itemprop=url>
 Rich Content
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>Published at:</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2019/03/10">
 2019/03/10
 </time>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>Words:</span>
-<span class=leancloud-world-count>118 words</span>
+<span class=leancloud-world-count>55 words</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>Reading:</span>
 <span class=leancloud-view-count>1 minutes</span>
 </span>
-<span id=/en/post/rich-content/ class=leancloud_visitors data-flag-title="Rich Content">
-|
+<span id=/en/post/rich-content/ class="leancloud_visitors post-visitor" data-flag-title="Rich Content">
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>Visited:</span>
 <span class=leancloud-visitors-count></span>
@@ -136,21 +132,25 @@ Rich Content
 </div>
 </header>
 <div class=post-body itemprop=articleBody>
-<p>Hugo ships with several <a href=https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes>Built-in Shortcodes</a> for rich content, along with a <a href=https://gohugo.io/about/hugo-and-gdpr/>Privacy Config</a> and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.</p>
+<p>Hugo ships with several <a href=https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes target=_blank rel=noopener>Built-in Shortcodes</a>
+for rich content, along with a <a href=https://gohugo.io/about/hugo-and-gdpr/ target=_blank rel=noopener>Privacy Config</a>
+and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.</p>
 <hr>
 <h2 id=youtube-privacy-enhanced-shortcode>YouTube Privacy Enhanced Shortcode</h2>
-<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
-<iframe src=https://www.youtube.com/embed/ZJthWmvUzzc style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
-</div>
+<p>{{/<em>&lt; youtube ZJthWmvUzzc ></em>/}}</p>
 <br>
 <hr>
 <h2 id=twitter-simple-shortcode>Twitter Simple Shortcode</h2>
-<style type=text/css>.twitter-tweet{font:14px/1.45 '-apple-system',BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif;border-left:4px solid #2b7bb9;padding-left:1.5em;color:#555}.twitter-tweet a{color:#2b7bb9;text-decoration:none}blockquote.twitter-tweet a:hover,blockquote.twitter-tweet a:focus{text-decoration:underline}</style>
+<p>{{/<em>&lt; twitter_simple 1085870671291310081 ></em>/}}</p>
 <br>
 <hr>
 <h2 id=vimeo-simple-shortcode>Vimeo Simple Shortcode</h2>
-<style>.__h_video{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;width:100%;background:#000}.__h_video img{width:100%;height:auto;color:#000}.__h_video .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;cursor:pointer}</style>
-<div class="s_video_simple __h_video">
+<p>{{/<em>&lt; vimeo_simple 48912912 ></em>/}}</p>
+<hr>
+<h2 id=bilibili-shortcode>Bilibili Shortcode</h2>
+<div class=bilibilibv style=display:block;width:100%;height:100%>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1m4411c7ia&page=1" scrolling=no border=0 frameborder=no framespacing=0 allowfullscreen></iframe>
+</div>
 </div>
 <footer class=post-footer>
 <div class=post-tags>
@@ -166,10 +166,10 @@ Rich Content
 </div>
 <div class=article-copyright-info>
 <p>
-<span>Declaration：</span>Rich Content
+<span>Title：</span>Rich Content
 </p>
 <p>
-<span>Link：</span>https://lizj3624.github.io/en/post/rich-content/
+<span>Link：</span>/en/post/rich-content/
 </p>
 <p>
 <span>Author：</span>Elkan.Li
@@ -199,12 +199,12 @@ Rich Content
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/en/post/markdown-syntax/ rel=next title="Markdown Syntax Guide">
+<a href=/en/post/markdown-syntax/ rel=next title="Markdown Syntax Guide">
 <i class="fa fa-chevron-left"></i> Markdown Syntax Guide
 </a>
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://lizj3624.github.io/en/post/placeholder-text/ rel=prev title="Placeholder Text">
+<a href=/en/post/placeholder-text/ rel=prev title="Placeholder Text">
 Placeholder Text
 <i class="fa fa-chevron-right"></i>
 </a>
@@ -294,25 +294,39 @@ TagCloud
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/markdown>Markdown</a>
+<a href=/en/tags/markdown>Markdown
+<sup>2</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/css>Css</a>
+<a href=/en/tags/css>Css
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/emoji>Emoji</a>
+<a href=/en/tags/emoji>Emoji
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/html>HTML</a>
+<a href=/en/tags/html>HTML
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/privacy>Privacy</a>
+<a href=/en/tags/privacy>Privacy
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/shortcodes>Shortcodes</a>
+<a href=/en/tags/shortcodes>Shortcodes
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/text>Text</a>
+<a href=/en/tags/text>Text
+<sup>1</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -355,7 +369,7 @@ Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next tar
 <div class=license-info>
 <span class=storage-info>
 Storage by
-<a href=https://www.ucloud.cn/ style=font-weight:700 target=_blank>UCloud Storage</a>
+<a href=https://gitee.com/ style=font-weight:700 target=_blank>Gitee Repository</a>
 </span>
 <span class=separator-line>/</span>
 <span class=license-num>
@@ -369,14 +383,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
+<script type=text/javascript>const locale={placeholder:'Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

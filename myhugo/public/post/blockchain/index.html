@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -33,10 +33,6 @@
 </div>
 </div>
 <div class=site-meta>
-<div class=multi-lang-switch>
-<i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=#>中文</a>
-</div>
 <div class=custom-logo-site-title>
 <a href=/ class=brand rel=start>
 <span class=logo-line-before><i></i></span>
@@ -59,7 +55,7 @@
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
 </a>
@@ -90,8 +86,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -101,12 +96,12 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/post/blockchain/ itemprop=url>
+<a class=post-title-link href=/post/blockchain/ itemprop=url>
 区块链加密货币入门
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-02-24">
@@ -114,30 +109,26 @@
 </time>
 </span>
 <span class=post-category>
-&nbsp; | &nbsp;
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/blockchain itemprop=url rel=index style=text-decoration:underline>
+<a class=post-category-a href=/categories/blockchain itemprop=url rel=index>
 <span itemprop=name>blockchain</span>
 </a>
 &nbsp;
 </span>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
 <span class=leancloud-world-count>654 字</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
 <span class=leancloud-view-count>2分钟</span>
 </span>
-<span id=/post/blockchain/ class=leancloud_visitors data-flag-title=区块链加密货币入门>
-|
+<span id=/post/blockchain/ class="leancloud_visitors post-visitor" data-flag-title=区块链加密货币入门>
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
 <span class=leancloud-visitors-count></span>
@@ -146,7 +137,9 @@
 </header>
 <div class=post-body itemprop=articleBody>
 <blockquote>
-<p>2008年10月31号加密hacker中本聪发表了<a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html>比特币白皮书</a>，2009年1月3日，创世区块诞生，<a href=https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E5%B8%81>比特币</a>诞生，
+<p>2008年10月31号加密hacker中本聪发表了<a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html target=_blank rel=noopener>比特币白皮书</a>
+，2009年1月3日，创世区块诞生，<a href=https://zh.wikipedia.org/wiki/%E6%AF%94%E7%89%B9%E5%B8%81 target=_blank rel=noopener>比特币</a>
+诞生，
 区块链和加密货币的大门被打开，区块链加密货币经过10多年的发展已经被很多人所接受，现在还是发展初级阶段，未来大有可为，从现在开始学习区块链技术，今年争取拥有加密货币资产。</p>
 </blockquote>
 <h2 id=bitcoin>Bitcoin</h2>
@@ -154,13 +147,16 @@
 <p>比特币是有加密hacker中本聪由2009年1月3号创建。</p>
 <ul>
 <li>
-<p><a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html>比特币白皮书</a></p>
+<p><a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html target=_blank rel=noopener>比特币白皮书</a>
+</p>
 </li>
 <li>
-<p><a href=https://github.com/lizj3624/MasterBitcoin2CN/blob/master/SUMMARY.md>精通比特币</a></p>
+<p><a href=https://github.com/lizj3624/MasterBitcoin2CN/blob/master/SUMMARY.md target=_blank rel=noopener>精通比特币</a>
+</p>
 </li>
 <li>
-<p><a href=https://123btc.org/>比特币生态资源</a></p>
+<p><a href=https://123btc.org/ target=_blank rel=noopener>比特币生态资源</a>
+</p>
 </li>
 </ul>
 <h2 id=ethereum>Ethereum</h2>
@@ -168,44 +164,53 @@
 <p>以太坊是由维塔利克·布特林(V神)2013年提出的，发表了以太坊白皮书，支持智能合约。</p>
 <ul>
 <li>
-<p><a href=https://github.com/lizj3624/mynote/blob/master/blockchain/ETH/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6-zh.md>以太坊白皮书</a></p>
+<p><a href=https://github.com/lizj3624/mynote/blob/master/blockchain/ETH/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6-zh.md target=_blank rel=noopener>以太坊白皮书</a>
+</p>
 </li>
 <li>
-<p><a href=https://github.com/lizj3624/ethereum_book>精通以太坊</a></p>
+<p><a href=https://github.com/lizj3624/ethereum_book target=_blank rel=noopener>精通以太坊</a>
+</p>
 </li>
 <li>
-<p><a href=https://123eth.org/>以太坊生态资源</a></p>
+<p><a href=https://123eth.org/ target=_blank rel=noopener>以太坊生态资源</a>
+</p>
 </li>
 </ul>
 <h2 id=ipfs>IPFS</h2>
 <p><img src=./ipfs.png alt=01></p>
 <p>星际文件系统(IPFS)是一个旨在实现文件的分布式存储、共享和持久化的网络传输协议，文件币(filecoin)。</p>
 <ul>
-<li><a href=https://ipfs.io/>IPFS</a></li>
+<li><a href=https://ipfs.io/ target=_blank rel=noopener>IPFS</a>
+</li>
 </ul>
 <h2 id=polkadot>Polkadot</h2>
 <p><img src=./polkadot.jpg alt=01></p>
 <p>波卡是由以太坊前CTO，以太坊黄皮书作者Gavin Wood博士创建，支持跨链。</p>
 <ul>
-<li><a href=https://www.polkaworld.org/>波卡</a></li>
+<li><a href=https://www.polkaworld.org/ target=_blank rel=noopener>波卡</a>
+</li>
 </ul>
 <h2 id=solana>Solana</h2>
 <p><img src=./solana.jpg alt=01></p>
 <ul>
-<li><a href=https://solana.com/zh>solana</a></li>
+<li><a href=https://solana.com/zh target=_blank rel=noopener>solana</a>
+</li>
 </ul>
 <h2 id=nft>NFT</h2>
 <p><img src=./nft.jpg alt=01></p>
 <p>NFT(非同质化代币)是一种被称为区块链数字账本上的数据单位，每个代币可以代表一个独特的数字资料，作为虚拟商品所有权的电子认证或证书。</p>
 <ul>
 <li>
-<p><a href>OpenSea</a></p>
+<p><a href>OpenSea</a>
+</p>
 </li>
 <li>
-<p><a href=https://nftschool.dev/>NFT School</a></p>
+<p><a href=https://nftschool.dev/ target=_blank rel=noopener>NFT School</a>
+</p>
 </li>
 <li>
-<p><a href=https://nft.storage/>NFT Storage</a></p>
+<p><a href=https://nft.storage/ target=_blank rel=noopener>NFT Storage</a>
+</p>
 </li>
 </ul>
 <h2 id=defi>DeFi</h2>
@@ -213,10 +218,12 @@
 <p>去中心化金融（英语：Decentralized finance，俗称DeFi）是一种创建于区块链上的金融，它不依赖券商、交易所或银行等金融机构提供金融工具，而是利用区块链上的智能合约（例如以太坊）进行金融活动。</p>
 <ul>
 <li>
-<p><a href=https://www.defipulse.com/>DeFi Pulse</a></p>
+<p><a href=https://www.defipulse.com/ target=_blank rel=noopener>DeFi Pulse</a>
+</p>
 </li>
 <li>
-<p><a href=https://app.compound.finance/>Compound</a></p>
+<p><a href=https://app.compound.finance/ target=_blank rel=noopener>Compound</a>
+</p>
 </li>
 </ul>
 <h2 id=ens>ENS</h2>
@@ -224,10 +231,12 @@
 <p>以太坊域名服务（Ethereum Name Service）是一个基于以太坊区块链的分布式、开放和可扩展的命名系统。 通俗地说，ENS就是区块链中的域名系统。 ENS 域名让人们没有必要再复制或输入冗长的区块链地址。</p>
 <ul>
 <li>
-<p><a href=https://ens.domains/>ENS</a></p>
+<p><a href=https://ens.domains/ target=_blank rel=noopener>ENS</a>
+</p>
 </li>
 <li>
-<p><a href=https://ensuser.com/>ENS中文介绍</a></p>
+<p><a href=https://ensuser.com/ target=_blank rel=noopener>ENS中文介绍</a>
+</p>
 </li>
 </ul>
 <h2 id=web30>Web3.0</h2>
@@ -251,10 +260,10 @@
 </div>
 <div class=article-copyright-info>
 <p>
-<span>声明：</span>区块链加密货币入门
+<span>标题：</span>区块链加密货币入门
 </p>
 <p>
-<span>链接：</span>https://lizj3624.github.io/post/blockchain/
+<span>链接：</span>/post/blockchain/
 </p>
 <p>
 <span>作者：</span>lizj3624
@@ -284,12 +293,12 @@
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/post/ngx-epoll/ rel=next title="nginx epoll惊群">
+<a href=/post/ngx-epoll/ rel=next title="nginx epoll惊群">
 <i class="fa fa-chevron-left"></i> nginx epoll惊群
 </a>
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://lizj3624.github.io/post/kubernetes-primer/ rel=prev title=Kubernetes入门>
+<a href=/post/kubernetes-primer/ rel=prev title=Kubernetes入门>
 Kubernetes入门
 <i class="fa fa-chevron-right"></i>
 </a>
@@ -367,34 +376,54 @@ GitHub
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative</a>
+<a href=/tags/cloudnative>Cloudnative
+<sup>12</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报</a>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes</a>
+<a href=/tags/kubernetes>Kubernetes
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx</a>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix</a>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video</a>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济</a>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股</a>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux</a>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股</a>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -468,14 +497,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>

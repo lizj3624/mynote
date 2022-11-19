@@ -15,8 +15,8 @@
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.png>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
 </head>
@@ -35,12 +35,12 @@
 <div class=site-meta>
 <div class=multi-lang-switch>
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=https://lizj3624.github.io/post/emoji-support/>中文</a>
+<a class=lang-link id=zh-cn href=/post/emoji-support/>中文</a>
 <span class=lang-line> / </span>
 <a class=lang-link id=en href=#>English</a>
 </div>
 <div class=custom-logo-site-title>
-<a href=/en/ class=brand rel=start>
+<a href=/en class=brand rel=start>
 <span class=logo-line-before><i></i></span>
 <span class=site-title>Happy and prosperous life.</span>
 <span class=logo-line-after><i></i></span>
@@ -57,11 +57,11 @@
 <nav class=site-nav>
 <ul id=menu class=menu>
 <li class=menu-item>
-<a href=/en/ rel=section>
+<a href=/en rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home
 </a>
 </li>
-<li class=menu-item>
+<li class="menu-item menu-item-active">
 <a href=/en/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archive
 </a>
@@ -92,8 +92,7 @@
 <div id=local-search-result></div>
 </div>
 </div>
-</nav>
-</div>
+</nav> </div>
 </header>
 <main id=main class=main>
 <div class=main-inner>
@@ -103,32 +102,29 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://lizj3624.github.io/en/post/emoji-support/ itemprop=url>
+<a class=post-title-link href=/en/post/emoji-support/ itemprop=url>
 Emoji Support
 </a>
 </h1>
 <div class=post-meta>
-<span class=post-time>
+<span class=post-pushdate>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>Published at:</span>
 <time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2019/03/05">
 2019/03/05
 </time>
 </span>
-<span>
-|
+<span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>Words:</span>
-<span class=leancloud-world-count>129 words</span>
+<span class=leancloud-world-count>145 words</span>
 </span>
-<span>
-|
+<span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>Reading:</span>
 <span class=leancloud-view-count>1 minutes</span>
 </span>
-<span id=/en/post/emoji-support/ class=leancloud_visitors data-flag-title="Emoji Support">
-|
+<span id=/en/post/emoji-support/ class="leancloud_visitors post-visitor" data-flag-title="Emoji Support">
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>Visited:</span>
 <span class=leancloud-visitors-count></span>
@@ -137,11 +133,60 @@ Emoji Support
 </header>
 <div class=post-body itemprop=articleBody>
 <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
-<p>The <a href=https://gohugo.io/functions/emojify/><code>emojify</code></a> function can be called directly in templates or <a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes>Inline Shortcodes</a>.</p>
-<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href=https://gohugo.io/getting-started/configuration/>configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
-<p><span class=nowrap><span class=emojify>🙈</span> <code>🙈</code></span> <span class=nowrap><span class=emojify>🙉</span> <code>🙉</code></span> <span class=nowrap><span class=emojify>🙊</span> <code>🙊</code></span></p>
-<br>
-<p>The <a href=http://www.emoji-cheat-sheet.com/>Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
+<p>The <a href=https://gohugo.io/functions/emojify/ target=_blank rel=noopener><code>emojify</code></a>
+function can be called directly in templates or <a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes target=_blank rel=noopener>Inline Shortcodes</a>
+.</p>
+<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href=https://gohugo.io/getting-started/configuration/ target=_blank rel=noopener>configuration</a>
+and then you can type emoji shorthand codes directly in content files; e.g.</p>
+<h3 id=monkey>Monkey</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 🙈 </span>
+<code>:see_no_evil:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🙉 </span>
+<code>:hear_no_evil:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🙊 </span>
+<code>:speak_no_evil:</code>
+</span>
+</p>
+<hr>
+<h3 id=number>Number</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 1️⃣ </span>
+<code>:one:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 2️⃣ </span>
+<code>:two:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 3️⃣ </span>
+<code>:three:</code>
+</span>
+</p>
+<hr>
+<h3 id=building>Building</h3>
+<p>
+<span class=nowrap>
+<span class=emojify> 🏡 </span>
+<code>:house_with_garden:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🏣 </span>
+<code>:post_office:</code>
+</span>
+<span class=nowrap>
+<span class=emojify> 🏥 </span>
+<code>:hospital:</code>
+</span>
+</p>
+<p>The <a href=ttps://www.webfx.com/tools/emoji-cheat-sheet/>Emoji cheat sheet</a>
+is a useful reference for emoji shorthand codes.</p>
 <hr>
 <p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>.emoji {
@@ -161,10 +206,10 @@ Emoji Support
 </div>
 <div class=article-copyright-info>
 <p>
-<span>Declaration：</span>Emoji Support
+<span>Title：</span>Emoji Support
 </p>
 <p>
-<span>Link：</span>https://lizj3624.github.io/en/post/emoji-support/
+<span>Link：</span>/en/post/emoji-support/
 </p>
 <p>
 <span>Author：</span>Elkan.Li
@@ -194,7 +239,7 @@ Emoji Support
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://lizj3624.github.io/en/post/math-typesetting/ rel=next title="Math Typesetting">
+<a href=/en/post/math-typesetting/ rel=next title="Math Typesetting">
 <i class="fa fa-chevron-left"></i> Math Typesetting
 </a>
 </div>
@@ -285,25 +330,39 @@ TagCloud
 </div>
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/markdown>Markdown</a>
+<a href=/en/tags/markdown>Markdown
+<sup>2</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/css>Css</a>
+<a href=/en/tags/css>Css
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/emoji>Emoji</a>
+<a href=/en/tags/emoji>Emoji
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/html>HTML</a>
+<a href=/en/tags/html>HTML
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/privacy>Privacy</a>
+<a href=/en/tags/privacy>Privacy
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/shortcodes>Shortcodes</a>
+<a href=/en/tags/shortcodes>Shortcodes
+<sup>1</sup>
+</a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/en/tags/text>Text</a>
+<a href=/en/tags/text>Text
+<sup>1</sup>
+</a>
 </li>
 </ul>
 </div>
@@ -346,7 +405,7 @@ Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next tar
 <div class=license-info>
 <span class=storage-info>
 Storage by
-<a href=https://www.ucloud.cn/ style=font-weight:700 target=_blank>UCloud Storage</a>
+<a href=https://gitee.com/ style=font-weight:700 target=_blank>Gitee Repository</a>
 </span>
 <span class=separator-line>/</span>
 <span class=license-num>
@@ -360,14 +419,13 @@ Storage by
 <span id=scrollpercent><span>0</span>%</span>
 </div>
 </div>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript src=/js/scrollspy.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.main').css('padding-bottom'),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}}),$(document).on('affixed.bs.affix',function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
 <script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+'//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,avatar:'wavatar',avatarCDN:'https://sdn.geekzu.org/avatar/',avatarForce:!1,wordLimit:'200',placeholder:' Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^ ',requiredFields:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
+<script type=text/javascript>const locale={placeholder:'Just do what you want leave here, and don\u0027t forget give your email to make exchange. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"en"})}):$('#wcomments').html('Sorry, Waline plugin doesn\u0027t support IE or Edge, Please swithc to Chrome browser.')})</script>
 <script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
 <script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
 </body>
