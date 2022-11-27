@@ -28,6 +28,8 @@ API server 的核心功能是提供k8s各类资源对象(如Pod、RC、Service)�
 
 通常我们会通过kubectl命令与API server进行交互，提供restful API，所以说也可以通过代码方式直接调用k8s的API server。
 
+主要运行在master控制节点。
+
 ### 控制器管理器(controller-manager)
 controller-manager作为集群内部的管理控制中心，负责集群内部的Node、Pod、Endpoint、Namespace、ServiceAccount、ResourceQuota等的管理，意为控制器，运行在master节点。
 
@@ -39,21 +41,25 @@ controller-manager作为集群内部的管理控制中心，负责集群内部�
 - Job Controller(任务控制器): 在K8S里运行批处理任务我们用Job即可
 - CronJob Controller(cronjob控制器): 定时任务
 
+主要运行在master控制节点。
+
 ### 调度器(scheduler)
 
 kube-scheduler意为调度器，在集群承担了"承上启下"的重要功能，“承上”指的是它负责接收 Controller -manager创建的新Pod。为其安排一个可以安置的node;“启下”指的是安置完成之后，目前Node上的kubelet服务进程接管后继续工作，负责Pod生命周期中的下半生。
 
+主要运行在master控制节点。
+
 ### kubelet
 
-一个在集群中每个节点(node)上运行的代理。 它保证容器(containers)都 运行在 Pod 中。 kubelet 接收一组通过各类机制提供给它的 PodSpecs，确保这些 PodSpecs 中描述的容器处于运行状态且健康。
+一个在集群中每个工作节点(node)上运行的代理。 它保证容器(containers)都 运行在 Pod 中。 kubelet 接收一组通过各类机制提供给它的 PodSpecs，确保这些 PodSpecs 中描述的容器处于运行状态且健康。
 
 ### kube-proxy
 
-kube-proxy 是集群中每个节点上运行的网络代理， 实现 Kubernetes 服务(Service) 概念的一部分。
+kube-proxy 是集群中每个工作节点(node)上运行的网络代理， 实现 Kubernetes 服务(Service) 概念的一部分。
 
 ### etcd
     
-存储数据
+API Server将kubernetes中的资源存储在etcd中。
 
 ## kubernetes的请求流程
 ![arch](./k8s-arch.jpg)
@@ -106,3 +112,13 @@ Ingress相当于一个七层的负载均衡器，是kubernetes对反向代理的
 
 ![04](./ingress.png)
 
+## 引用
+1. [Kubernetes 技术架构深度剖析](https://www.infvie.com/ops-notes/kubernetes-in-depth-analysis-of-technical-architecture.html)
+
+2. [k8s实践(10) -- Kubernetes集群运行原理详解](https://cloud.tencent.com/developer/article/1981387)
+
+3. [一文详解Kubernetes中的服务发现](http://www.yunweipai.com/40986.html)
+
+4. [kubernetes整体架构和配置介绍](https://donggeitnote.com/2022/04/24/kubernetes-arc/)
+
+5. [Kubernetes开发之旅](https://space.bilibili.com/1748865719)

@@ -121,12 +121,12 @@ Kubernetes入门
 <span class=post-wordcount>
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2857 字</span>
+<span class=leancloud-world-count>3034 字</span>
 </span>
 <span class=post-readtime>
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>6分钟</span>
+<span class=leancloud-view-count>7分钟</span>
 </span>
 <span id=/post/kubernetes-primer/ class="leancloud_visitors post-visitor" data-flag-title=Kubernetes入门>
 <i class="fa fa-binoculars fa-fw"></i>
@@ -151,6 +151,7 @@ Kubernetes入门
 <li>提供了完备的集群安全机制。</li>
 </ul>
 <p>通常我们会通过kubectl命令与API server进行交互，提供restful API，所以说也可以通过代码方式直接调用k8s的API server。</p>
+<p>主要运行在master控制节点。</p>
 <h3 id=控制器管理器controller-manager>控制器管理器(controller-manager)</h3>
 <p>controller-manager作为集群内部的管理控制中心，负责集群内部的Node、Pod、Endpoint、Namespace、ServiceAccount、ResourceQuota等的管理，意为控制器，运行在master节点。</p>
 <ul>
@@ -162,14 +163,16 @@ Kubernetes入门
 <li>Job Controller(任务控制器): 在K8S里运行批处理任务我们用Job即可</li>
 <li>CronJob Controller(cronjob控制器): 定时任务</li>
 </ul>
+<p>主要运行在master控制节点。</p>
 <h3 id=调度器scheduler>调度器(scheduler)</h3>
 <p>kube-scheduler意为调度器，在集群承担了"承上启下"的重要功能，“承上”指的是它负责接收 Controller -manager创建的新Pod。为其安排一个可以安置的node;“启下”指的是安置完成之后，目前Node上的kubelet服务进程接管后继续工作，负责Pod生命周期中的下半生。</p>
+<p>主要运行在master控制节点。</p>
 <h3 id=kubelet>kubelet</h3>
-<p>一个在集群中每个节点(node)上运行的代理。 它保证容器(containers)都 运行在 Pod 中。 kubelet 接收一组通过各类机制提供给它的 PodSpecs，确保这些 PodSpecs 中描述的容器处于运行状态且健康。</p>
+<p>一个在集群中每个工作节点(node)上运行的代理。 它保证容器(containers)都 运行在 Pod 中。 kubelet 接收一组通过各类机制提供给它的 PodSpecs，确保这些 PodSpecs 中描述的容器处于运行状态且健康。</p>
 <h3 id=kube-proxy>kube-proxy</h3>
-<p>kube-proxy 是集群中每个节点上运行的网络代理， 实现 Kubernetes 服务(Service) 概念的一部分。</p>
+<p>kube-proxy 是集群中每个工作节点(node)上运行的网络代理， 实现 Kubernetes 服务(Service) 概念的一部分。</p>
 <h3 id=etcd>etcd</h3>
-<p>存储数据</p>
+<p>API Server将kubernetes中的资源存储在etcd中。</p>
 <h2 id=kubernetes的请求流程>kubernetes的请求流程</h2>
 <p><img src=./k8s-arch.jpg alt=arch></p>
 <h3 id=pod>Pod</h3>
@@ -218,6 +221,29 @@ Address: 10.111.72.52
 </ul>
 <p>Ingress相当于一个七层的负载均衡器，是kubernetes对反向代理的一个抽象，它的工作原理类似于Nginx，可以理解为Ingress里面建立了诸多映射规则，Ingress Controller通过监听这些配置规则并转化为Nginx的反向代理配置，然后对外提供服务。</p>
 <p><img src=./ingress.png alt=04></p>
+<h2 id=引用>引用</h2>
+<ol>
+<li>
+<p><a href=https://www.infvie.com/ops-notes/kubernetes-in-depth-analysis-of-technical-architecture.html target=_blank rel=noopener>Kubernetes 技术架构深度剖析</a>
+</p>
+</li>
+<li>
+<p><a href=https://cloud.tencent.com/developer/article/1981387 target=_blank rel=noopener>k8s实践(10) &ndash; Kubernetes集群运行原理详解</a>
+</p>
+</li>
+<li>
+<p><a href=http://www.yunweipai.com/40986.html target=_blank rel=noopener>一文详解Kubernetes中的服务发现</a>
+</p>
+</li>
+<li>
+<p><a href=https://donggeitnote.com/2022/04/24/kubernetes-arc/ target=_blank rel=noopener>kubernetes整体架构和配置介绍</a>
+</p>
+</li>
+<li>
+<p><a href=https://space.bilibili.com/1748865719 target=_blank rel=noopener>Kubernetes开发之旅</a>
+</p>
+</li>
+</ol>
 </div>
 <footer class=post-footer>
 <div class=post-tags>
@@ -312,19 +338,19 @@ Docker常用的命令
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>82</span>
+<span class=site-state-item-count>83</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href=/categories/>
-<span class=site-state-item-count>79</span>
+<span class=site-state-item-count>80</span>
 <span class=site-state-item-name>分类</span>
 </a>
 </div>
 <div class="site-state-item site-state-tags">
 <a href=/tags/>
-<span class=site-state-item-count>96</span>
+<span class=site-state-item-count>97</span>
 <span class=site-state-item-name>标签</span>
 </a>
 </div>
@@ -351,7 +377,7 @@ GitHub
 <ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
 <a href=/tags/cloudnative>Cloudnative
-<sup>12</sup>
+<sup>13</sup>
 </a>
 </li>
 <li class=tagcloud-of-blogroll-item>
@@ -361,7 +387,7 @@ GitHub
 </li>
 <li class=tagcloud-of-blogroll-item>
 <a href=/tags/kubernetes>Kubernetes
-<sup>9</sup>
+<sup>10</sup>
 </a>
 </li>
 <li class=tagcloud-of-blogroll-item>
@@ -423,6 +449,7 @@ GitHub
 <li><a href=#ingress>Ingress</a></li>
 </ul>
 </li>
+<li><a href=#引用>引用</a></li>
 </ul>
 </nav></div>
 </div>
