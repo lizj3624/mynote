@@ -1,4 +1,6 @@
-# 云原生架构
+# 云原生技术栈
+
+## 云原生架构
 1. [云原生架构: 服务网格、混沌工程、用户态网络](https://mp.weixin.qq.com/s/R3RcU5S66aJbuSmLiz7Y-Q)
 
 2. [迈入 Cilium+BGP 的云原生网络时代](https://www.tuicool.com/wx/URJzeii)
@@ -11,7 +13,7 @@
 
 6. [容器网络|深入理解Cilium](https://mp.weixin.qq.com/s/UUrqaJXzR_NcA4ZngHiU9w)
 
-# 数据中心网络
+## 数据中心网络
 1. [Facebook、谷歌、微软、亚马逊网络架构解密](https://www.zhihu.com/zvideo/1391510718567469056)
 
 2. [数据中心网络架构浅谈（一）](https://zhuanlan.zhihu.com/p/29881248)
@@ -34,61 +36,12 @@
 
 11. [闲话大二层网络](https://forum.huawei.com/enterprise/zh/thread-333013.html)
 
-# docker
-
-# kubernetes
+## kubernetes
 1. [kubernetes实践指南](https://imroc.cc/kubernetes/index.html)
 
 2. [kubernetes-老男孩](https://www.bilibili.com/medialist/play/ml1590386200/BV1PJ411h7Sw?oid=81382793&otype=2)
 
-# 网格-微服务
-
-1. [eBPF和Wasm：探索服务网格数据平面的未来](https://mp.weixin.qq.com/s/LpCDeMT1Omqzf_DV9ypyJA)
-
-2. [eBPF在网易轻舟云原生的应用实践](https://mp.weixin.qq.com/s/KSUeLH6rBAiUnrDEexIiqw)
-
-3. [高效入门eBPF](https://mp.weixin.qq.com/s/afDcXoh0YfRlics22kucQw)
-
-4. [eBPF技术简介](https://mp.weixin.qq.com/s?__biz=MzI1NTE2NDE2MA==&mid=2649382412&idx=1&sn=0fe2f4e0d8feadfccb8fe7687dbfc54f&scene=21)
-
-5. [Kubernetes使用eBPF替换iptables](https://zhuanlan.zhihu.com/p/137960916)
-
-# dev-ops
-
-1. [CentOS8.2部署安装saltstack](https://www.cnblogs.com/lianglab/p/14146896.html)
-
-2. [SaltStack学习](https://www.jianshu.com/p/624b9cf51c64) 
-
-3. [SaltStack 自动化运维实战](https://blog.51cto.com/guanhaizhan/2476465)
-
-4. [Saltstack自动化](https://www.361way.com/saltstack-nodegroup/3126.html)
-
-5. [SaltStack自动化运维](https://blog.csdn.net/mzh_csdn/category_10302339.html)
-
-# 云原生网关
-1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/cloudnative/ngx-openresty)
-
-2. [kong](https://github.com/lizj3624/mynote/tree/master/cloudnative/kong)
-
-3. [apisix](https://github.com/lizj3624/mynote/blob/master/cloudnative/apisix/apisix.md)
-
-4. [envoy](https://github.com/lizj3624/mynote/tree/master/cloudnative/envoy)
-
-5. [mosn](https://github.com/lizj3624/mynote/tree/master/cloudnative/mosn)
-
-6. kubernetes ingress-controller
-
-   - [ingress-nginx 保姆级别源码阅读](https://zhuanlan.zhihu.com/p/449836252)
-
-   - [K8S源码探秘之nginx-ingress工作原理分析](https://blog.csdn.net/shida_csdn/article/details/84032019)
-
-   - [Kong ingress controller源码阅读](https://shoujo.ink/2021/11/kong-ingress-controller-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/)
-
-   - [Ingress Nginx Controller源码分析](https://www.cnblogs.com/devilfeng08/category/2111911.html)
-
-   - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
-
-7. kubernetes client-go 
+3. kubernetes client-go 
    - [client-go源码分析](https://qiankunli.github.io/2020/07/20/client_go.html)
 
    - [kubernetes client-go解析](https://blog.csdn.net/weixin_42663840/category_7840867.html)
@@ -108,8 +61,78 @@
    - [深入理解kubernetes client-go Informer](https://cloudnative.to/blog/client-go-informer-source-code/)
 
    - [client-go源码分析之SharedInformer](https://xie.infoq.cn/article/c1bac14389d533d5e84844f4e)
+
+4. kubernetes ingress-controller
+
+   - [ingress-nginx 保姆级别源码阅读](https://zhuanlan.zhihu.com/p/449836252)
+
+   - [K8S源码探秘之nginx-ingress工作原理分析](https://blog.csdn.net/shida_csdn/article/details/84032019)
+
+   - [Kong ingress controller源码阅读](https://shoujo.ink/2021/11/kong-ingress-controller-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/)
+
+   - [Ingress Nginx Controller源码分析](https://www.cnblogs.com/devilfeng08/category/2111911.html)
+
+   - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
+
+## Service Mesh 
+
+1. [eBPF和Wasm：探索服务网格数据平面的未来](https://mp.weixin.qq.com/s/LpCDeMT1Omqzf_DV9ypyJA)
+
+2. [eBPF在网易轻舟云原生的应用实践](https://mp.weixin.qq.com/s/KSUeLH6rBAiUnrDEexIiqw)
+
+3. [高效入门eBPF](https://mp.weixin.qq.com/s/afDcXoh0YfRlics22kucQw)
+
+4. [eBPF技术简介](https://mp.weixin.qq.com/s?__biz=MzI1NTE2NDE2MA==&mid=2649382412&idx=1&sn=0fe2f4e0d8feadfccb8fe7687dbfc54f&scene=21)
+
+5. [Kubernetes使用eBPF替换iptables](https://zhuanlan.zhihu.com/p/137960916)
+
+6. [Istio系列二：Envoy组件分析](http://dockone.io/article/9116)
+
+7. [Service Mesh——后 Kubernetes 时代的微服务](https://developer.aliyun.com/article/752843)
+
+8. [蚂蚁集团 Service Mesh 进展回顾与展望](https://jervyshi.com/review-and-prospect-of-service-mesh-progress-in-antgroup/)
+
+9. [Istio支持虚拟机](https://ieevee.com/tech/2022/06/27/04-vm-with-sidecar.html)
+
+## 云原生网关
+1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/cloudnative/ngx-openresty)
+
+2. [kong](https://github.com/lizj3624/mynote/tree/master/cloudnative/kong)
+
+3. [apisix](https://github.com/lizj3624/mynote/blob/master/cloudnative/apisix/apisix.md)
+
+4. [envoy](https://github.com/lizj3624/mynote/tree/master/cloudnative/envoy)
+
+5. [mosn](https://github.com/lizj3624/mynote/tree/master/cloudnative/mosn)
     
-# 多云管理
+## L4-LB
+
+1. [DPDK核心API](https://dpdk-docs.readthedocs.io/en/latest/prog_guide/index.html)
+
+2. [深入理解DPDK程序设计](https://mp.weixin.qq.com/s?__biz=MzkyMTIzMTkzNA==&mid=2247523649&idx=1&sn=5bcdd0efff2d2322df4af877ea61bfcd&chksm=c1846a10f6f3e3061cb336a623a28ec04cedb002f5bf5293175412b0973119d4625fac868870&scene=21#wechat_redirect)
+
+3. [DPDK 大页内存原理](https://xie.infoq.cn/article/a7c83189a19387018b8595e98)  
+
+4. [深入浅出DPDK-读书笔记](https://rtoax.blog.csdn.net/article/details/109370979)
+
+5. [DPDK KNI原理和实现](http://blog.chinaunix.net/uid-28541347-id-5856227.html)
+
+6. [DPDK全面分析](https://blog.csdn.net/majianting/article/details/123424912)
+
+7. [美团点评高性能四层负载均衡-MGW](https://tech.meituan.com/2017/01/05/mgw.html)
+
+8. [DPVS简介](https://tinychen.com/20201103-dpvs-deploy-in-centos7/)
+
+9. [dpvs学习笔记](https://www.jianshu.com/nb/26946631)
+
+10. [给DPVS加上SESSION同步功能](https://zhuanlan.zhihu.com/p/200892937)
+
+11. [携程基于 DPDK 的高性能四层负载均衡实践](https://youle.zhipin.com/articles/ecbc3d7ed002b236qxB72dm_Fg~~.html)
+
+12. [DPDK在阿里LB中的应用](https://www.dpdk.org/wp-content/uploads/sites/35/2018/09/jun-liang-%E5%9F%BA%E4%BA%8EDPDK%E5%AE%9E%E7%8E%B0%E7%9A%84LB%E6%94%AF%E6%92%91%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%8F%8C11%E4%B8%9A%E5%8A%A1%E2%80%94%E2%80%94DPDKSummit2018.pdf)
+
+
+## 多云管理
 
 > 基础即代码(infra as code)
 1. [Terraform](https://github.com/hashicorp/terraform)
@@ -130,11 +153,15 @@
 
 4. [Crossplane vs Terraform](https://cloud.tencent.com/developer/article/1801830)
 
-# service-mesh
-## Istio
+## dev-ops
 
-1. [Istio系列二：Envoy组件分析](http://dockone.io/article/9116)
+1. [CentOS8.2部署安装saltstack](https://www.cnblogs.com/lianglab/p/14146896.html)
 
-2. [Service Mesh——后 Kubernetes 时代的微服务](https://developer.aliyun.com/article/752843)
+2. [SaltStack学习](https://www.jianshu.com/p/624b9cf51c64) 
 
-3. [蚂蚁集团 Service Mesh 进展回顾与展望](https://jervyshi.com/review-and-prospect-of-service-mesh-progress-in-antgroup/)
+3. [SaltStack 自动化运维实战](https://blog.51cto.com/guanhaizhan/2476465)
+
+4. [Saltstack自动化](https://www.361way.com/saltstack-nodegroup/3126.html)
+
+5. [SaltStack自动化运维](https://blog.csdn.net/mzh_csdn/category_10302339.html)
+

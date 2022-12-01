@@ -1,15 +1,20 @@
 # Envoy
 1. [Envoy](https://www.envoyproxy.io/)
 
-2. [【Service Mesh基础】Envoy-入门介绍与xDS协议](https://dun.163.com/news/p/eb1a80e497f14947b033f17b53e8869e?force=true)
+2. [envoy快速入门](https://www.envoyproxy.io/docs/envoy/latest/start/quick-start/run-envoy)
 
-3. [Istio系列二：Envoy组件分析](http://dockone.io/article/9116)
+3. [【Service Mesh基础】Envoy-入门介绍与xDS协议](https://dun.163.com/news/p/eb1a80e497f14947b033f17b53e8869e?force=true)
 
-4. [Envoy 代理中的请求的生命周期](https://cloud.tencent.com/developer/article/1701218)
+4. [Istio系列二：Envoy组件分析](http://dockone.io/article/9116)
 
-5. [Envoy中文doc](https://jimmysong.io/kubernetes-handbook/usecases/envoy.html)
+5. [Envoy 代理中的请求的生命周期](https://cloud.tencent.com/developer/article/1701218)
 
-6. [Service Mesh——后 Kubernetes 时代的微服务](https://developer.aliyun.com/article/752843)
+6. [Envoy中文doc](https://jimmysong.io/kubernetes-handbook/usecases/envoy.html)
 
-7. [envoy-en-doc](https://www.envoyproxy.io/docs/envoy/latest/)
+7. [Service Mesh——后 Kubernetes 时代的微服务](https://developer.aliyun.com/article/752843)
 
+8. [Envoy学习笔记](https://blog.gmem.cc/envoy-study-note)
+
+9. [Tetrate推出免费的Envoy基础教程](https://jimmysong.io/notice/envoy-fundamental-courses/)
+
+10. [Envoy入门与实战](https://www.cnblogs.com/yrxing/category/1972198.html)
