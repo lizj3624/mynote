@@ -1,0 +1,513 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
+<title> DPDK在四层LB中的应用 - 幸福和富有的过一生 </title>
+<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
+<meta name=author content="lizj3624">
+<meta property="og:title" content="DPDK在四层LB中的应用">
+<meta property="og:site_name" content="幸福和富有的过一生">
+<meta property="og:image" content="/img/author.jpg">
+<meta name=title content="DPDK在四层LB中的应用 - 幸福和富有的过一生">
+<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
+<link href=/css/main.css rel=stylesheet type=text/css>
+<link href=/css/syntax.css rel=stylesheet type=text/css>
+</head>
+<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
+<div class="container one-collumn sidebar-position-left page-home">
+<div class=headband></div>
+<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=header-inner> <div class=site-brand-container>
+<div class=site-nav-toggle>
+<div class=toggle role=button style=opacity:1;top:0>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span>
+</div>
+</div>
+<div class=site-meta>
+<div class=custom-logo-site-title>
+<a href=/ class=brand rel=start>
+<span class=logo-line-before><i></i></span>
+<span class=site-title>幸福和富有的过一生</span>
+<span class=logo-line-after><i></i></span>
+</a>
+</div>
+<p class=site-subtitle>幸福和富有的过一生!</p>
+</div>
+<div class=site-nav-right>
+<div class="toggle popup-trigger" style=opacity:1;top:0>
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class=site-nav>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a href=/ rel=section>
+<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
+</a>
+</li>
+<li class="menu-item menu-item-active">
+<a href=/post rel=section>
+<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
+</a>
+</li>
+<li class=menu-item>
+<a href=/about.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
+</a>
+</li>
+<li class=menu-item>
+<a href=/404.html rel=section>
+<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
+</a>
+</li>
+<li class="menu-item menu-item-search">
+<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
+</li>
+</ul>
+<div class=site-search>
+<div class="popup search-popup local-search-popup">
+<div class="local-search-header clearfix">
+<span class=search-icon><i class="fa fa-search"></i> </span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
+<div class=local-search-input-wrapper>
+<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
+</div>
+</div>
+<div id=local-search-result></div>
+</div>
+</div>
+</nav> </div>
+</header>
+<main id=main class=main>
+<div class=main-inner>
+<div class=content-wrap>
+<div id=content class=content>
+<section id=posts class=posts-expand>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=/post/dpdk-lb/ itemprop=url>
+DPDK在四层LB中的应用
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-pushdate>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-12-01">
+2022-12-01
+</time>
+</span>
+<span class=post-category>
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a class=post-category-a href=/categories/dpdk itemprop=url rel=index>
+<span itemprop=name>dpdk</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a class=post-category-a href=/categories/%E5%9B%9B%E5%B1%82lb itemprop=url rel=index>
+<span itemprop=name>四层LB</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span class=post-wordcount>
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>2666 字</span>
+</span>
+<span class=post-readtime>
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>6分钟</span>
+</span>
+<span id=/post/dpdk-lb/ class="leancloud_visitors post-visitor" data-flag-title=DPDK在四层LB中的应用>
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+<p>目前我们使用四层高性能的LB是基于DPDK的LVS，下面称为DPDK-LVS，<a href=https://www.dpdk.org/ target=_blank rel=noopener>DPDK</a>
+是Intel开源的用户态网高性能的络数据包开发包，<a href=http://fast.dpdk.org/doc/perf/DPDK_18_08_Intel_NIC_performance_report.pdf target=_blank rel=noopener>官方测试</a>
+512K的数据包，PPS可以达到千万级别。下面我们剖析一下DPDK高性能的原因。</p>
+<h2 id=一bypass内核>一、bypass内核</h2>
+<h3 id=1uio技术用户态io>1、UIO技术(用户态IO)</h3>
+<p><strong>DPDK网络收发包可以运行在用户态，主要依赖的UIO技术，UIO（Userspace I/O）是Linux运行在用户空间的I/O技术，可以从用户态直接读取网卡寄存器中的网络数据包，从而绕过处理复杂的Linux网络协议栈，提升网络收发包。</strong></p>
+<p><img src=./uio.png alt=01></p>
+<p>左边是内核协议栈：</p>
+<p><strong>网卡 -> 驱动 -> 协议栈 -> Socket接口 -> 业务</strong></p>
+<p>右边是DPDK的方式（基于UIO（Userspace I/O）旁路数据）：</p>
+<p><strong>网卡 -> DPDK轮询模式-> DPDK基础库 -> 业务(lvs)</strong></p>
+<p>由于使用UIO技术，因此在安装DPDK-LVS时，需要先装载UIO的内核模块(<strong>igb_uio.ko</strong>)，DPDK-LVS安装时还必须装载另一个kni内核模块(<strong>rte_kni.ko</strong>)，这个模块主要是dpdk通过这个内核模块与内核交互。</p>
+<h3 id=2pmd模式主动轮询>2、PMD模式(主动轮询)</h3>
+<p>DPDK通过主动轮询(PMD，Poll Mode Driver)机制去掉网卡的硬中断，PMD可以极大提升了网卡 I/O 性能。但是这与内核基于中断模式收发包不兼容，因此DPDK实现了基于轮询方式的 PMD网卡驱动。</p>
+<p>该驱动由用户态的 API 以及 PMD Driver 构成，内核态的 UIO Driver 屏蔽了网卡发出的中断信号，然后由用户态的 PMD Driver 采用主动轮询的方式。</p>
+<p>运行在PMD的Core会处于用户态CPU 100%的状态，因此我们top看到DPDK-LVS的CPU使用率都是100%。</p>
+<blockquote>
+<p>DPDK-LVS开启多核多线程模式，top看到的cpu使用率是核数*100%。</p>
+<p>网络空闲时CPU长期空转，会带来能耗问题。所以，DPDK推出Interrupt DPDK模式，以后可以改成这个模式，节约资源。</p>
+<p>由于dpdk实现了PMD的网卡驱动，更换新网卡时需要查看这个DPDK-LVS引用的DPDK是否支持这个网卡，适配25G mlx网卡时将DPDK升级18.08版本，因为从这个版本才开始支持25G mlx网卡驱动。</p>
+</blockquote>
+<p><strong>DPDK通过UIO技术旁路了内核，通过PMD机制避免了硬中断， 从而可以在用户态进行收发包的处理。</strong></p>
+<h2 id=二hugepage大页内存>二、HugePage(大页内存)</h2>
+<p>现在Linux内核主要是通过<strong>虚拟内存</strong>进行内存管理，将虚拟内存和物理内存分成大小相同的很多份，每份称为<strong>页</strong>，一般一页大小4k，也有2M，4M，1G的大页，通过页表查找进行虚拟内存和物理内存之间映射，</p>
+<p>内存很大时通过多级页表查找进行寻址。由于通过多级页表查找寻址，可能影响寻址性能，因此加入了<strong>TLB</strong>(Translation Lookaside Buffer)cache机制，TLB是缓存页表，避免多级页表查找，DPDK引入大页主要是</p>
+<p>避免TLB miss。</p>
+<p><img src=./v-m.jpg alt=02>
+<img src=./v-m.jpg alt=03></p>
+<blockquote>
+<p>因为使用了大页，DPDK-LVS在启动前必须进行大页设置</p>
+<p>echo 15000 > /sys/devices/system/node/$NODENAME_A/hugepages/hugepages-2048kB/nr_hugepages</p>
+<p>echo 3000 > /sys/devices/system/node/$NODENAME_B/hugepages/hugepages-2048kB/nr_hugepages</p>
+</blockquote>
+<h2 id=三多核技术>三、多核技术</h2>
+<p><img src=./m-cpu.png alt=04>
+<img src=./m-cpu01.jpeg alt=05></p>
+<h3 id=1rss网卡多队列>1、RSS(网卡多队列)</h3>
+<p>随着CPU进入多核时代，为适配CPU的多核，从而提升网卡吞吐量，网卡支持多队列，也就是RSS(Receive Side Scaling)技术，RSS是一种能够在多处理器系统下使接收报文在多个CPU之间高效分发的网卡驱动技术。</p>
+<h3 id=2numa亲和>2、NUMA亲和</h3>
+<p><img src=./numa.png alt=06></p>
+<p>随着CPU进入多核时代，多核CPU通过一条数据总线访问内存延迟很大，因此NUMA 架构应运而生，NUMA架构全称为非一致性内存架构 (Non Uniform Memory Architecture)，与 SMP 中的 UMA 统一寻址内存架构相对。</p>
+<p>在 NUMA 系统中有本地内存与远端内存的区别。访问本地内存有更小的延迟和更大的带宽，跨处理器内存访问速度会相对较慢一点，但是整个内存对于所有的处理器都是可见的。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#080;font-style:italic>## 通过lscpu命令查询NUMA的CPU核数</span>
+$ lscpu
+...
+NUMA node0 CPU<span style=color:#666>(</span>s<span style=color:#666>)</span>: 0-7       <span style=color:#080;font-style:italic># numa0上是0-7核</span>
+NUMA node1 CPU<span style=color:#666>(</span>s<span style=color:#666>)</span>: 8-15      <span style=color:#080;font-style:italic># numa1上是8-15核</span>
+...
+</code></pre></div><blockquote>
+<p>DPDK-LVS只用了NUMA 0，也只用NUMA 0上的CPU核，避免跨NUMA访问</p>
+</blockquote>
+<h3 id=3无锁>3、无锁</h3>
+<p>为适配多核多线程，DPDK开发高性能的无锁环性队列(rte_ring)，提升数据包的处理性能。</p>
+<p><img src=./ring.png alt=07></p>
+<h2 id=四dpdk-lvs的包处理流程>四、DPDK-LVS的包处理流程</h2>
+<h3 id=1dpdk-lvs的底层收发包>1、DPDK-LVS的底层收发包</h3>
+<p>DPDK实现一套网络数据包处理的API接口，以代替Linux内核协议栈的socket接口，DPDK-LVS底层调用DPDK网络数据包处理的API，从而实现高性能网络数据包处理。</p>
+<p><img src=./dpdk-arch.png alt=08></p>
+<p>DPDK核心模块：</p>
+<p>a、环境抽象层 (EAL)，环境抽象层提供了一个通用接口，该接口对应用程序和库隐藏了环境细节，提供了收发包和中断轮询等核心API。</p>
+<p>b、内存池管理器 (librte_mempool)，提供共享内存管理的API，网络数据包数据接口mbuf(类似内核skb数据结构)就是基于这个API实现的。</p>
+<p>c、环管理器 (librte_ring)，提供无锁的环形队列API。</p>
+<h3 id=2dpdk-lvs的分流>2、DPDK-LVS的分流</h3>
+<p>DPDK-LVS启动多个工作线程(worker)，工作线程的个数跟配置核数一致，并通过CPU亲和性绑定到工作线程上。</p>
+<p>启动多个工作线程的DPDK-LVS服务的入流量通过<strong>RSS</strong>进行分流，针对FullNat模式下返回包通过<strong>Flow Director</strong>技术返回到相同的工作线程中。</p>
+<p>a、入流量(inbonding)通过RSS分流，主要依赖入包的五元组hash后负载到工作线程中。</p>
+<p><img src=./rss-dpdk.png alt=09></p>
+<p>b、FullNat模式时，不同的工作线程绑定到不同的local IP，返回包进入网卡时，根据返回包的local IP，通过<strong>Flow Director机制</strong>将返回包定向负载到入包时的工作线程。</p>
+<p><img src=./fdir.jpeg alt=10></p>
+<h3 id=3dpdk-lvs的调度>3、DPDK-LVS的调度</h3>
+<p>DPDK-LVS将入包负载到工作线程后，根据入包的五元组查找Session缓存，命中后复用原有的Session，没有命中时通过负载算法挑选后端实例，创建新Session。</p>
+<p>这里的调度算法主要复用原生LVS的调度算法(wrr，ip_hash)等。</p>
+<h3 id=4dpdk-lvs的路由>4、DPDK-LVS的路由</h3>
+<p>DPDK-LVS挑选后端实例，创建Session后，将网络包转发到后端实例，转发时依赖网络路由(route)。DPDK-LVS启动时加入相应的路由信息。下图是DPDK-LVS启动后加入一个默认路由和直连路由。</p>
+<blockquote>
+<p>DR模式时，需要依赖直连路由，直连路由是根据配置中网卡信息计算出来网络路由,
+默认路由是根据配置设置的。</p>
+</blockquote>
+<h2 id=五引用>五、引用</h2>
+<p>1、<a href="https://mp.weixin.qq.com/s?__biz=MzkyMTIzMTkzNA==&mid=2247523649&idx=1&sn=5bcdd0efff2d2322df4af877ea61bfcd&chksm=c1846a10f6f3e3061cb336a623a28ec04cedb002f5bf5293175412b0973119d4625fac868870&scene=21#wechat_redirect" target=_blank rel=noopener>深入理解DPDK程序设计|Linux网络2.0</a>
+</p>
+<p>2、<a href=https://xie.infoq.cn/article/a7c83189a19387018b8595e98 target=_blank rel=noopener>DPDK大页内存原理</a>
+</p>
+<p>3、<a href=https://rtoax.blog.csdn.net/article/details/109370979 target=_blank rel=noopener>深入浅出DPDK-笔记</a>
+</p>
+<p>4、<a href=https://cloud.tencent.com/developer/article/1418603 target=_blank rel=noopener>DPDK之KNI原理</a>
+</p>
+<p>5、<a href=http://blog.chinaunix.net/uid-28541347-id-5856227.html target=_blank rel=noopener>DPDK KNI原理和实现</a>
+</p>
+<p>6、<a href=https://blog.csdn.net/majianting/article/details/123424912 target=_blank rel=noopener>DPDK全面分析</a>
+</p>
+<p>7、<a href=https://www.jianshu.com/p/90f0f5e42dcd target=_blank rel=noopener>DPDK多线程初步解析</a>
+</p>
+<p>8、<a href=https://dpdk-docs.readthedocs.io/en/latest/prog_guide/index.html target=_blank rel=noopener>DPDK核心库详解</a>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/dpdk rel=tag title=dpdk>#dpdk#</a>
+<a href=/tags/%e5%9b%9b%e5%b1%82lb rel=tag title=四层LB>#四层LB#</a>
+</div>
+<div class=addthis_inline_share_toolbox></div>
+<div class=post-nav>
+<div class=article-copyright>
+<div class=article-copyright-img>
+<img src=/img/qq_qrcode.png width=129px height=129px>
+<div style=text-align:center>QQ扫一扫交流</div>
+</div>
+<div class=article-copyright-info>
+<p>
+<span>标题：</span>DPDK在四层LB中的应用
+</p>
+<p>
+<span>链接：</span>/post/dpdk-lb/
+</p>
+<p>
+<span>作者：</span>lizj3624
+</p>
+<p>
+<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
+</p>
+</div>
+</div>
+<div class=clear></div>
+</div>
+<div class=reward-qr-info>
+<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
+<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>赏</span>
+</button>
+<div id=QR style=display:none>
+<div id=wechat style=display:inline-block>
+<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
+<p>微信打赏</p>
+</div>
+<div id=alipay style=display:inline-block>
+<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
+<p>支付宝打赏</p>
+</div>
+</div>
+</div>
+<div class=post-nav>
+<div class="post-nav-next post-nav-item">
+</div>
+<div class="post-nav-prev post-nav-item">
+<a href=/post/api-server-arch/ rel=prev title="Kubernetes Api Server详解">
+Kubernetes Api Server详解
+<i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+<div id=wcomments></div>
+</footer>
+</article>
+</section>
+</div>
+</div>
+<div class=sidebar-toggle>
+<div class=sidebar-toggle-line-wrap>
+<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+</div>
+<aside id=sidebar class=sidebar>
+<div class=sidebar-inner>
+<ul class="sidebar-nav motion-element">
+<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
+文章目录
+</li>
+<li class=sidebar-nav-overview data-target=site-overview>
+站点概览
+</li>
+</ul>
+<section class="site-overview sidebar-panel">
+<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
+<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
+<p class=site-author-name itemprop=name>lizj3624</p>
+<p class="site-description motion-element" itemprop=description>
+幸福和富有的过一生!
+</p>
+</div>
+<nav class="site-state motion-element">
+<div class="site-state-item site-state-posts">
+<a href=/post/>
+<span class=site-state-item-count>84</span>
+<span class=site-state-item-name>日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href=/categories/>
+<span class=site-state-item-count>82</span>
+<span class=site-state-item-name>分类</span>
+</a>
+</div>
+<div class="site-state-item site-state-tags">
+<a href=/tags/>
+<span class=site-state-item-count>99</span>
+<span class=site-state-item-name>标签</span>
+</a>
+</div>
+</nav>
+<div class="links-of-author motion-element">
+<span class=links-of-author-item>
+<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
+<i class="fa fa-fw fa-github"></i>
+GitHub
+</a>
+</span>
+<span class=links-of-author-item>
+<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
+<i class="fa fa-fw fa-globe"></i>
+知乎
+</a>
+</span>
+</div>
+<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
+<div class=tagcloud-of-blogroll-title>
+<i class="fa fa-fw fa-tags"></i>
+标签云
+</div>
+<ul class=tagcloud-of-blogroll-list>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/cloudnative>Cloudnative
+<sup>13</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/kubernetes>Kubernetes
+<sup>10</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/nginx>Nginx
+<sup>9</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/apisix>Apisix
+<sup>7</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/video>Video
+<sup>5</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/linux>Linux
+<sup>4</sup>
+</a>
+</li>
+<li class=tagcloud-of-blogroll-item>
+<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<sup>4</sup>
+</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+<div class=post-toc>
+<div class=post-toc-content><nav id=TableOfContents>
+<ul>
+<li><a href=#一bypass内核>一、bypass内核</a>
+<ul>
+<li><a href=#1uio技术用户态io>1、UIO技术(用户态IO)</a></li>
+<li><a href=#2pmd模式主动轮询>2、PMD模式(主动轮询)</a></li>
+</ul>
+</li>
+<li><a href=#二hugepage大页内存>二、HugePage(大页内存)</a></li>
+<li><a href=#三多核技术>三、多核技术</a>
+<ul>
+<li><a href=#1rss网卡多队列>1、RSS(网卡多队列)</a></li>
+<li><a href=#2numa亲和>2、NUMA亲和</a></li>
+<li><a href=#3无锁>3、无锁</a></li>
+</ul>
+</li>
+<li><a href=#四dpdk-lvs的包处理流程>四、DPDK-LVS的包处理流程</a>
+<ul>
+<li><a href=#1dpdk-lvs的底层收发包>1、DPDK-LVS的底层收发包</a></li>
+<li><a href=#2dpdk-lvs的分流>2、DPDK-LVS的分流</a></li>
+<li><a href=#3dpdk-lvs的调度>3、DPDK-LVS的调度</a></li>
+<li><a href=#4dpdk-lvs的路由>4、DPDK-LVS的路由</a></li>
+</ul>
+</li>
+<li><a href=#五引用>五、引用</a></li>
+</ul>
+</nav></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=footer-inner>
+<div class=copyright>
+<span class=copyright-year>
+&copy; 2010 - 2022
+</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span>
+</div>
+<div class=powered-info>
+<span class=powered-by>
+Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
+</span>
+<span class=separator-line>/</span>
+<span class=theme-info>
+Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
+</a>
+</span>
+</div>
+<div class=vistor-info>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv>
+<i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span>
+<span class=separator-line>/</span>
+<span class=site-pv>
+<i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span>
+</span>
+</div>
+<div class=license-info>
+<span class=storage-info>
+Storage by
+<a href style=font-weight:700 target=_blank></a>
+</span>
+<span class=separator-line>/</span>
+<span class=license-num>
+<a href target=_blank></a>
+</span>
+</div>
+</div>
+</footer>
+<div class=back-to-top>
+<i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span>
+</div>
+</div>
+<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
+<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
+<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
+<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
