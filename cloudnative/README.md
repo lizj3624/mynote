@@ -94,6 +94,18 @@
 
 9. [Istio支持虚拟机](https://ieevee.com/tech/2022/06/27/04-vm-with-sidecar.html)
 
+## istio
+
+1. [Istio Pilot代码深度解析](https://www.zhaohuabing.com/post/2019-10-21-pilot-discovery-code-analysis/)
+
+2. [深入Istio源码](https://www.cnblogs.com/luozhiyun/tag/istio/)
+
+3. [Istio pilot-discovery服务发现源码解析](https://blog.csdn.net/xidianjiapei001/article/details/125699916)
+
+4. [Istio Pilot 源码分析](https://haidong.dev/archives/)
+
+5. [云原生社区Istio](https://cloudnative.to/author/istio/)
+
 ## 云原生网关
 1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/cloudnative/ngx-openresty)
 
