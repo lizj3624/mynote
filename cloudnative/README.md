@@ -145,7 +145,7 @@
 
 ## eBPF
 
-1. [eBPF简介](https://lib.jimmysong.io/what-is-ebpf/)
+1. [eBPF简介](https://www.ebpf.top/what-is-ebpf/)
 
 2. [eBPF完全入门指南](https://mp.weixin.qq.com/s/zCjk5WmnwLD0J3J9gC4e0Q)
 
@@ -153,11 +153,17 @@
 
 4. [基于eBPF的应用可观测技术实践](https://www.bilibili.com/video/BV1Gg411d7tq)
 
-5. [深入浅出BPF](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzA3NzUzNTM4NA==&scene=1&album_id=1996568890906148869&count=3#wechat_redirect)
+5. [深入浅出eBPF](https://www.ebpf.top/)
 
 6. [深入理解Cilium的eBPF收发包路径](https://mp.weixin.qq.com/s/Lus1ghqtYS_LxSHBO6XCCQ)
 
 7. [Cilium开源Tetragon -- 基于eBPF的安全可观测性&运行时增强](https://icloudnative.io/posts/tetragon/)
+
+8. [eBPF在大厂的应用](https://blog.csdn.net/lianhunqianr1/article/details/123606608)
+
+9. [FB基于eBPF的高性能四层LB](https://github.com/facebookincubator/katran)
+
+10. [中国工商银行基于eBPF技术的云原生可观测图谱探索与实践](https://www.infoq.cn/article/izbmumovky3jjdhadgbx)
 
 
 ## 多云管理
