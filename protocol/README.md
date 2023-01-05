@@ -16,6 +16,8 @@
 
 6. [TCP拥塞控制详解](https://mp.weixin.qq.com/s/KTKVu3uCC5MFlU5oylZPFA)
 
+7. [深入理解Linux socket](https://mp.weixin.qq.com/s/WrdjsM-eAWmCS6J3x9aiLA)
+
 ## UDP
 
 ## DNS

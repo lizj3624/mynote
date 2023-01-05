@@ -143,6 +143,22 @@
 
 12. [DPDK在阿里LB中的应用](https://www.dpdk.org/wp-content/uploads/sites/35/2018/09/jun-liang-%E5%9F%BA%E4%BA%8EDPDK%E5%AE%9E%E7%8E%B0%E7%9A%84LB%E6%94%AF%E6%92%91%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%8F%8C11%E4%B8%9A%E5%8A%A1%E2%80%94%E2%80%94DPDKSummit2018.pdf)
 
+## eBPF
+
+1. [eBPF简介](https://lib.jimmysong.io/what-is-ebpf/)
+
+2. [eBPF完全入门指南](https://mp.weixin.qq.com/s/zCjk5WmnwLD0J3J9gC4e0Q)
+
+3. [一文详解用eBPF观测HTTP](https://mp.weixin.qq.com/s/2ncM-PvN06lSwScvc2Zueg)
+
+4. [基于eBPF的应用可观测技术实践](https://www.bilibili.com/video/BV1Gg411d7tq)
+
+5. [深入浅出BPF](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzA3NzUzNTM4NA==&scene=1&album_id=1996568890906148869&count=3#wechat_redirect)
+
+6. [深入理解Cilium的eBPF收发包路径](https://mp.weixin.qq.com/s/Lus1ghqtYS_LxSHBO6XCCQ)
+
+7. [Cilium开源Tetragon -- 基于eBPF的安全可观测性&运行时增强](https://icloudnative.io/posts/tetragon/)
+
 
 ## 多云管理
 
