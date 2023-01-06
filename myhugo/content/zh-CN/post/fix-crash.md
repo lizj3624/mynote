@@ -52,3 +52,5 @@ ngx_http_v2_process_request_body
 1. [DMESG和ADDR2LINE定位SEGFAULT](https://www.cnblogs.com/qhbk/p/7666324.html)
 
 2. [拒绝超大coredump-用backtrace和addr2line搞定异常函数栈](https://zhuanlan.zhihu.com/p/31630417)
+
+3. [Segfault内核日志解析](https://xjdrew.github.io/blog/2018/11/15/explain-segfault-kernel-log)
