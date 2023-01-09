@@ -165,6 +165,8 @@
 
 10. [中国工商银行基于eBPF技术的云原生可观测图谱探索与实践](https://www.infoq.cn/article/izbmumovky3jjdhadgbx)
 
+11. [eBPF深度探索: 高效DNS监控实现](https://mp.weixin.qq.com/s/xclWzPrAWQ0cxe7Md-c5_g)
+
 
 ## 多云管理
 
