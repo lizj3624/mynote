@@ -106,4 +106,6 @@
 
 25. [积跬步至千里：QUIC 协议在蚂蚁集团落地之综述](https://segmentfault.com/a/1190000040916771)
 
+26. [STGW下一代互联网标准传输协议QUIC大规模运营之路](https://mp.weixin.qq.com/s/ciR-1N4z0zvGOJSoyrvMUA)
+
 ## WebSocket
