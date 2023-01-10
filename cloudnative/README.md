@@ -74,6 +74,8 @@
 
    - [Ingress-Nginx-Controller的Metrics监控源码改造简析](https://www.yixuebiancheng.com/article/86351.html)
 
+5. [kubernetes源码分析](https://github.com/rfyiamcool/notes)
+
 ## Service Mesh 
 
 1. [eBPF和Wasm：探索服务网格数据平面的未来](https://mp.weixin.qq.com/s/LpCDeMT1Omqzf_DV9ypyJA)
