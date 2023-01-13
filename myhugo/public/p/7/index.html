@@ -102,6 +102,65 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
+<a class=post-title-link href=/post/kubeadm-token/ itemprop=url>
+Kubeadm中的Token过期问题
+</a>
+</h1>
+<div class=post-meta>
+<span class=post-pushdate>
+<i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
+2022-05-22
+</time>
+</span>
+<span class=post-category>
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
+<span itemprop=name>kubernetes</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
+<span itemprop=name>cloudnative</span>
+</a>
+&nbsp;
+</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing>
+<a class=post-category-a href=/categories/kubeadm itemprop=url rel=index>
+<span itemprop=name>kubeadm</span>
+</a>
+&nbsp;
+</span>
+</span>
+<span class=post-wordcount>
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>425 字</span>
+</span>
+<span class=post-readtime>
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>1分钟</span>
+</span>
+</div>
+</header>
+<div class=post-body itemprop=articleBody>
+kubeadm以及token node节点加入kubernetes集群是通过在node节点执行kubeadm join命令完成的，具体类似如下：
+</div>
+<div class="post-more-link text-center">
+<a class=btn href=/post/kubeadm-token/ rel=contents>
+阅读全文 &#187;
+</a>
+</div>
+<footer class=post-footer><div class=post-eof></div></footer>
+</article>
+<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
+<header class=post-header>
+<h1 class=post-title itemprop="name headline">
 <a class=post-title-link href=/post/kubernetes-ingress/ itemprop=url>
 Kubernetes中的Ingress资源
 </a>
@@ -329,65 +388,6 @@ CentOS8环境通过kubeadm工具安装部署kubernetes集群，集群有三台�
 </div>
 <footer class=post-footer><div class=post-eof></div></footer>
 </article>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=/post/centos-docker/ itemprop=url>
-CentOS8 安装部署Docker
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-pushdate>
-<i class="fa fa-calendar-o fa-fw"></i>
-<span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-16">
-2022-05-16
-</time>
-</span>
-<span class=post-category>
-<i class="fa fa-folder-o fa-fw"></i>
-<span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
-<span itemprop=name>cloudnative</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/docker itemprop=url rel=index>
-<span itemprop=name>docker</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/centos itemprop=url rel=index>
-<span itemprop=name>centos</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span class=post-wordcount>
-<i class="fa fa-file-word-o fa-fw"></i>
-<span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>407 字</span>
-</span>
-<span class=post-readtime>
-<i class="fa fa-eye fa-fw"></i>
-<span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>1分钟</span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-CentOS8的YUM源默认不支持docker安装，默认是redhat的Podman容器，再次记录一下CentOS8通过YUM安装部署doc
-</div>
-<div class="post-more-link text-center">
-<a class=btn href=/post/centos-docker/ rel=contents>
-阅读全文 &#187;
-</a>
-</div>
-<footer class=post-footer><div class=post-eof></div></footer>
-</article>
 </section>
 <nav class=pagination>
 <a class="extend prev" rel=prev href=/p/6/><i class="fa fa-angle-left"></i></a>
@@ -424,7 +424,7 @@ CentOS8的YUM源默认不支持docker安装，默认是redhat的Podman容器，�
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>84</span>
+<span class=site-state-item-count>85</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
@@ -513,7 +513,7 @@ GitHub
 </a>
 </li>
 <li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%A7%91%E6%8A%80%E8%82%A1>科技股
+<a href=/tags/%E6%8A%95%E8%B5%84>投资
 <sup>4</sup>
 </a>
 </li>
