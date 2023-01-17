@@ -56,29 +56,39 @@ WebSocket提供两种协议：不加密的ws:// 和 加密的 wss://。
 2. RSV1,RSV2,RSV3：各1位，用于扩展定义的,如果没有扩展约定的情况则必须为0。
 
 3. OPCODE: 4位，用于表示消息接收类型，如果接收到未知的opcode，接收端必须关闭连接。长连接探活包就是这里标识的。
-   　　OPCODE定义的范围：
-   
-       0x0表示附加数据帧
-   
-   　　　　0x1表示文本数据帧
-   　　　　0x2表示二进制数据帧
-   　　　　0x3-7暂时无定义，为以后的非控制帧保留
-   　　　　0x8表示连接关闭
-   　　　　0x9表示ping
-   　　　　0xA表示pong
-   　　　　0xB-F暂时无定义，为以后的控制帧保留
+
+　 OPCODE定义的范围：
+   - 0x0表示附加数据帧
+   - 0x1表示文本数据帧
+   - 0x2表示二进制数据帧
+   - 0x3-7暂时无定义，为以后的非控制帧保留
+   - 0x8表示连接关闭
+   - 0x9表示ping
+   - 0xA表示pong
+   - 0xB-F暂时无定义，为以后的控制帧保留
 
 4. MASK: 1位，用于标识PayloadData是否经过掩码处理，客户端发出的数据帧需要进行掩码处理，所以此位是1。数据需要解码。
 
 5. Payload length
 
-　　如果 x值在0-125，则是payload的真实长度。
-
-　　如果 x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。
-
-　　如果 x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。
+　 - 如果x值在0-125，则是payload的真实长度。
+　 - 如果x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。
+　 - 如果x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。
 
 　　此外，如果payload length占用了多个字节的话，payload length的二进制表达采用网络序（big endian，重要的位在前）。
+
+### Nginx支持WebSocket的配置
+Nginx是支持WebSocket配置，但是需要有特殊配置
+```nginx
+location /wsapp/ {
+    proxy_pass http://wsbackend;
+    proxy_http_version 1.1;    #必须指明HTTP1.1
+    proxy_set_header Upgrade $http_upgrade; # 需要更改Upgrade头用于协议升级
+    proxy_set_header Connection "Upgrade";  # 需要更改Connection头用于协议升级
+    proxy_set_header Host $host;
+}
+```
+> nginx日志记录WebSocket时，是在整个WebSocket关闭后才记录，日志中记录的整个过程出/入流量比较大，HTTPCODE一般为101
 
 ### 使用场景
 
@@ -99,28 +109,35 @@ WebSocket提供两种协议：不加密的ws:// 和 加密的 wss://。
 ![http2](./http2.png)
 
 1. 二进制分帧
-   http2.0之所以能够突破http1.X标准的性能限制，改进传输性能，实现低延迟和高吞吐量，就是因为其新增了二进制分帧层。
-
-帧(frame)包含部分：类型Type, 长度Length, 标记Flags, 流标识Stream和frame payload有效载荷。
-
-消息(message)：一个完整的请求或者响应，比如请求、响应等，由一个或多个 Frame 组成。
-
-流是连接中的一个虚拟信道，可以承载双向消息传输。每个流有唯一整数标识符。为了防止两端流ID冲突，客户端发起的流具有奇数ID，服务器端发起的流具有偶数ID。
+HTTP/2之所以能够突破HTTP/1.X标准的性能限制，改进传输性能，实现低延迟和高吞吐量，就是因为其新增了二进制分帧层。帧(frame)包含部分：类型Type, 长度Length, 标记Flags, 流标识Stream和frame payload有效载荷。
+消息(message)：一个完整的请求或者响应，比如请求、响应等，由一个或多个 Frame 组成。流是连接中的一个虚拟信道，可以承载双向消息传输。每个流有唯一整数标识符。为了防止两端流ID冲突，客户端发起的流具有奇数ID，服务器端发起的流具有偶数ID。
 
 2. 多路复用
-   多路复用允许同时通过单一的HTTP/2连接发起多重的请求-响应消息。有了新的分帧机制后，HTTP/2不再依赖多个TCP连接去实现多流并行了。
+多路复用允许同时通过单一的HTTP/2连接发起多重的请求-响应消息。有了新的分帧机制后，HTTP/2不再依赖多个TCP连接去实现多流并行了。
 
 3. 头部压缩
-   HTTP/2使用encoder来减少需要传输的header大小，通讯双方各自缓存一份头部字段表，既避免了重复header的传输，又减小了需要传输的大小。
+HTTP/2使用encoder来减少需要传输的header大小，通讯双方各自缓存一份头部字段表，既避免了重复header的传输，又减小了需要传输的大小。
 
 4. 服务端推送
-   ![sp](./serverpush.png)
-   服务器可以对一个客户端请求发送多个响应，服务器向客户端推送资源无需客户端明确地请求。并且服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。
+![sp](./serverpush.png)
+服务器可以对一个客户端请求发送多个响应，服务器向客户端推送资源无需客户端明确地请求。并且服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。
 
-注意两点：
-1、推送遵循同源策略；
+> 注意两点：    
+> 1、推送遵循同源策略；    
+> 2、这种服务端的推送是基于客户端的请求响应来确定的。    
 
-2、这种服务端的推送是基于客户端的请求响应来确定的。
+### Nginx支持HTTP/2
+Nginx最新版本(1.23)已经支持HTTP/2，需要特殊指令开启HTTP/2
+```nginx
+server {
+    listen 443 ssl http2 reuseport;    # HTTP/2默认需要开启SSL
+    server_name www.my.com;
+
+    ssl_certificate /path/to/public.crt;
+    ssl_certificate_key /path/to/private.key;
+    ...
+}
+```
 
 ## 对比
 
