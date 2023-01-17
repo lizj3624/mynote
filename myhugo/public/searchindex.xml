@@ -7,11 +7,9 @@ HTTP/1.1 101 Switching Protocols // 状态行 Upgrade: websocket // required Con
 HTTP/1.1 101 Switching Protocols // 状态行 Upgrade: websocket // required Connection: Upgrade // required Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo= // required，加密后的 Sec-WebSocket-Key Sec-WebSocket-Protocol: chat // 表明选择的子协议 WebSocket提供两种协议：不加密的ws:// 和 加密的 wss://。 因为是用 HTTP 握手，它和 HTTP 使用同样的端口：ws是80（HTTP），wss是 43（HTTPS）
 WebSocket通信格式 FIN: 1位，用于描述消息是否结束，如果为1则该消息为消息尾部,如果为零则还有后续数据包。
 RSV1,RSV2,RSV3：各1位，用于扩展定义的,如果没有扩展约定的情况则必须为0。
-OPCODE: 4位，用于表示消息接收类型，如果接收到未知的opcode，接收端必须关闭连接。长连接探活包就是这里标识的。
-　OPCODE定义的范围：
+OPCODE: 4位，用于表示消息接收类型，如果接收到未知的opcode，接收端必须关闭连接。长连接探活包就是这里标识的。 OPCODE定义的范围：
 0x0表示附加数据帧 0x1表示文本数据帧 0x2表示二进制数据帧 0x3-7暂时无定义，为以后的非控制帧保留 0x8表示连接关闭 0x9表示ping 0xA表示pong 0xB-F暂时无定义，为以后的控制帧保留 MASK: 1位，用于标识PayloadData是否经过掩码处理，客户端发出的数据帧需要进行掩码处理，所以此位是1。数据需要解码。
-Payload length
-　- 如果x值在0-125，则是payload的真实长度。 - 如果x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。 - 如果x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。
+Payload length - 如果x值在0-125，则是payload的真实长度。 - 如果x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。 - 如果x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。
 　此外，如果payload length占用了多个字节的话，payload length的二进制表达采用网络序（big endian，重要的位在前）。
 Nginx支持WebSocket的配置 Nginx是支持WebSocket配置，但是需要有特殊配置
 location /wsapp/ { proxy_pass http://wsbackend; proxy_http_version 1.1; #必须指明HTTP1.1 proxy_set_header Upgrade $http_upgrade; # 需要更改Upgrade头用于协议升级 proxy_set_header Connection "Upgrade"; # 需要更改Connection头用于协议升级 proxy_set_header Host $host; } nginx日志记录WebSocket时，是在整个WebSocket关闭后才记录，日志中记录的整个过程出/入流量比较大，HTTPCODE一般为101
