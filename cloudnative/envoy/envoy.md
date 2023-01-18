@@ -18,3 +18,5 @@
 9. [Tetrate推出免费的Envoy基础教程](https://jimmysong.io/notice/envoy-fundamental-courses/)
 
 10. [Envoy入门与实战](https://www.cnblogs.com/yrxing/category/1972198.html)
+
+11. [阿里巴巴开源下一代云原生网关Higress](https://www.infoq.cn/article/edp9ttycrgbwetl6dt75)
