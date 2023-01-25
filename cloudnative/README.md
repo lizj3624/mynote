@@ -96,6 +96,8 @@
 
 9. [Istio支持虚拟机](https://ieevee.com/tech/2022/06/27/04-vm-with-sidecar.html)
 
+10. [百度在Service Mesh上的大规模落地实践](https://www.infoq.cn/article/YTdb55y6P1b9gVp0w0wx)
+
 ## istio
 
 1. [Istio Pilot代码深度解析](https://www.zhaohuabing.com/post/2019-10-21-pilot-discovery-code-analysis/)
