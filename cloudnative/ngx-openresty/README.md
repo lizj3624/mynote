@@ -39,6 +39,8 @@
 
 20. [ngx官方开发手册](https://nginx.org/en/docs/dev/development_guide.html)
 
+21. [NGINX Stream模块原理及代码分析](https://www.nginx.org.cn/article/detail/98)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
