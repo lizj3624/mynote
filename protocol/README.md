@@ -1,4 +1,4 @@
-# 网络协议
+## 网络协议
 
 * [图解网络协议系列](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxODAzNDg4NQ==&action=getalbum&album_id=1337204681134751744&scene=173&from_msgid=2247487977&from_itemidx=1&count=3&nolastread=1#wechat_redirect)
 
@@ -41,6 +41,12 @@
 6. [什么是AES-GCM加密算法](https://blog.csdn.net/T0mato_/article/details/53160772)
 
 7. [SSL Session复用](https://juejin.cn/post/6995363748160487461)
+
+8. [OpenSSL-Async mode](https://blog.csdn.net/u011130578/article/details/95689591)
+
+9. [阿里七层流量入口Tengine硬件加速探索之路](https://developer.aliyun.com/article/597750)
+
+10. [nginx 异步openssl Intel QAT硬件加速方案](https://blog.csdn.net/realmardrid/article/details/117456917)
 
 ## HTTP协议
 
