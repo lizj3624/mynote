@@ -41,6 +41,8 @@
 
 21. [NGINX Stream模块原理及代码分析](https://www.nginx.org.cn/article/detail/98)
 
+23. [Nginx架构浅析](https://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&mid=2649757830&idx=1&sn=4dbbc6e655b48d3db5184ca62dd9f35e)
+
 # OpenResty
 1. [OpenResty](https://github.com/openresty/openresty)
 
