@@ -110,6 +110,8 @@
 
 5. [云原生社区Istio](https://cloudnative.to/author/istio/)
 
+6. [Istio & Envoy内幕](https://istio-insider.mygraphql.com/zh_CN/latest/index.html)
+
 ## 云原生网关
 1. [nginx-openresty](https://github.com/lizj3624/mynote/tree/master/cloudnative/ngx-openresty)
 
