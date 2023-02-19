@@ -114,4 +114,10 @@
 
 26. [STGW下一代互联网标准传输协议QUIC大规模运营之路](https://mp.weixin.qq.com/s/ciR-1N4z0zvGOJSoyrvMUA)
 
+27. [跟坚哥学习QUIC系列](https://www.zhihu.com/column/c_1303002298995113984)
+
+28. [QUIC是如何解决TCP性能瓶颈的](https://blog.csdn.net/m0_37621078/article/details/106506532)
+
+29. [QUIC丢包恢复以及拥塞控制](https://quic-lr-draft-zh.readthedocs.io/zh_CN/latest/index.html)
+
 ## WebSocket
