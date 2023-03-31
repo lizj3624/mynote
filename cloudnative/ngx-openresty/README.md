@@ -58,6 +58,8 @@
 
 7. [OpenResty核心开发分享-02](https://segmentfault.com/u/spacewander)
 
+8. [OpenResty 101](https://huoding.com/2019/06/06/751)
+
 ## ngx_lua
 1. [ngx_lua中的协程调度一](https://my.oschina.net/u/2539854/blog/846628)
 
