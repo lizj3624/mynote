@@ -60,6 +60,8 @@
 
 8. [OpenResty 101](https://huoding.com/2019/06/06/751)
 
+9. [OpenResty源码解读](https://github.com/LomoX-Offical/openresty-source-code-analysis/tree/master)
+
 ## ngx_lua
 1. [ngx_lua中的协程调度一](https://my.oschina.net/u/2539854/blog/846628)
 
