@@ -67,3 +67,4 @@
 * [个人的2021年计划](https://github.com/lizj3624/mynote/blob/master/plans/2021-plan.md)
 
 * [个人的2022年计划](https://github.com/lizj3624/mynote/blob/master/plans/2022-plan.md)
+
