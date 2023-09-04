@@ -20,3 +20,5 @@
 10. [Envoy入门与实战](https://www.cnblogs.com/yrxing/category/1972198.html)
 
 11. [阿里巴巴开源下一代云原生网关Higress](https://www.infoq.cn/article/edp9ttycrgbwetl6dt75)
+
+12. [Envoy WASM 源码抽丝剥茧](https://mp.weixin.qq.com/s?__biz=Mzg3Mzg2ODA4Ng==&mid=2247489930&idx=1&sn=0962916a99c487dd1c58b511b2b4d1c5&source=41#wechat_redirect)
