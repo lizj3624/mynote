@@ -1,593 +1,202 @@
-<!doctype html><html lang=zh-cn dir=content/zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
-<title> Kubernetes中Deployment DaemonSet StatefulSet - 幸福和富有的过一生 </title>
-<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
-<meta name=author content="lizj3624">
-<meta property="og:title" content="Kubernetes中Deployment DaemonSet StatefulSet">
-<meta property="og:site_name" content="幸福和富有的过一生">
-<meta property="og:image" content="/img/author.jpg">
-<meta name=title content="Kubernetes中Deployment DaemonSet StatefulSet - 幸福和富有的过一生">
-<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
-<link rel="shortcut icon" href=/img/favicon.ico>
-<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
-<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
-<link href=/css/main.css rel=stylesheet type=text/css>
-<link href=/css/syntax.css rel=stylesheet type=text/css>
-</head>
-<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
-<div class="container one-collumn sidebar-position-left page-home">
-<div class=headband></div>
-<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
-<div class=header-inner> <div class=site-brand-container>
-<div class=site-nav-toggle>
-<div class=toggle role=button style=opacity:1;top:0>
+<!doctype html><html lang=zh-cn dir=zh><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=content-security-policy content="upgrade-insecure-requests"><title>Kubernetes中Deployment DaemonSet StatefulSet - 幸福和富有的过一生</title><meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链"><meta name=author content="lizj3624"><meta property="og:title" content="Kubernetes中Deployment DaemonSet StatefulSet"><meta property="og:site_name" content="幸福和富有的过一生"><meta property="og:image" content="/img/author.jpg"><meta name=title content="Kubernetes中Deployment DaemonSet StatefulSet - 幸福和富有的过一生"><meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
 <span class=toggle-line></span>
-<span class=toggle-line></span>
-<span class=toggle-line></span>
-</div>
-</div>
-<div class=site-meta>
-<div class=custom-logo-site-title>
-<a href=/ class=brand rel=start>
-<span class=logo-line-before><i></i></span>
+<span class=toggle-line></span></div></div><div class=site-meta><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span>
 <span class=site-title>幸福和富有的过一生</span>
-<span class=logo-line-after><i></i></span>
-</a>
-</div>
-<p class=site-subtitle>幸福和富有的过一生!</p>
-</div>
-<div class=site-nav-right>
-<div class="toggle popup-trigger" style=opacity:1;top:0>
-<i class="fa fa-search fa-fw fa-lg"></i>
-</div>
-</div>
-</div>
-<nav class=site-nav>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a href=/ rel=section>
-<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
-</a>
-</li>
-<li class="menu-item menu-item-active">
-<a href=/post rel=section>
-<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
-</a>
-</li>
-<li class=menu-item>
-<a href=/about.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
-</a>
-</li>
-<li class=menu-item>
-<a href=/404.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
-</a>
-</li>
-<li class="menu-item menu-item-search">
-<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
-</li>
-</ul>
-<div class=site-search>
-<div class="popup search-popup local-search-popup">
-<div class="local-search-header clearfix">
-<span class=search-icon><i class="fa fa-search"></i> </span>
-<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
-<div class=local-search-input-wrapper>
-<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
-</div>
-</div>
-<div id=local-search-result></div>
-</div>
-</div>
-</nav> </div>
-</header>
-<main id=main class=main>
-<div class=main-inner>
-<div class=content-wrap>
-<div id=content class=content>
-<section id=posts class=posts-expand>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=/post/kubernetes-deploy/ itemprop=url>
-Kubernetes中Deployment DaemonSet StatefulSet
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-pushdate>
-<i class="fa fa-calendar-o fa-fw"></i>
+<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>幸福和富有的过一生!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-active"><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=/post/kubernetes-deploy/ itemprop=url>Kubernetes中Deployment DaemonSet StatefulSet</a></h1><div class=post-meta><span class=post-pushdate><i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">
-2022-05-22
-</time>
-</span>
-<span class=post-category>
-<i class="fa fa-folder-o fa-fw"></i>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-22">2022-05-22</time></span>
+<span class=post-category><i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/kubernetes itemprop=url rel=index>
-<span itemprop=name>kubernetes</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/cloudnative itemprop=url rel=index>
-<span itemprop=name>cloudnative</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/deployment itemprop=url rel=index>
-<span itemprop=name>deployment</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/daemonset itemprop=url rel=index>
-<span itemprop=name>daemonset</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span class=post-wordcount>
-<i class="fa fa-file-word-o fa-fw"></i>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/kubernetes itemprop=url rel=index><span itemprop=name>kubernetes</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/cloudnative itemprop=url rel=index><span itemprop=name>cloudnative</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/deployment itemprop=url rel=index><span itemprop=name>deployment</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/daemonset itemprop=url rel=index><span itemprop=name>daemonset</span></a>
+&nbsp;</span></span>
+<span class=post-wordcount><i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1466 字</span>
-</span>
-<span class=post-readtime>
-<i class="fa fa-eye fa-fw"></i>
+<span class=leancloud-world-count>1466 字</span></span>
+<span class=post-readtime><i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>3分钟</span>
-</span>
-<span id=/post/kubernetes-deploy/ class="leancloud_visitors post-visitor" data-flag-title="Kubernetes中Deployment DaemonSet StatefulSet">
-<i class="fa fa-binoculars fa-fw"></i>
+<span class=leancloud-view-count>3分钟</span></span>
+<span id=/post/kubernetes-deploy/ class="leancloud_visitors post-visitor" data-flag-title="Kubernetes中Deployment DaemonSet StatefulSet"><i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
-<span class=leancloud-visitors-count></span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-<p><code>kubernetes</code>集群有几种部署和管理POD的工具，下面简单介绍一下。</p>
-<h3 id=replicaset>ReplicaSet</h3>
-<p><code>ReplicaSet</code>是支持基于集合的标签选择器的下一代<code>Replication Controller</code>(新版本已不再使用)，
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-body itemprop=articleBody><p><code>kubernetes</code>集群有几种部署和管理POD的工具，下面简单介绍一下。</p><h3 id=replicaset>ReplicaSet</h3><p><code>ReplicaSet</code>是支持基于集合的标签选择器的下一代<code>Replication Controller</code>(新版本已不再使用)，
 它主要用作<code>Deployment</code>协调创建、删除和更新<code>Pod</code>，和<code>Replication Controller</code>唯一的区别是，<code>ReplicaSet</code>支持标签选择器。
 在实际应用中，虽然<code>ReplicaSet</code>可以单独使用，<strong>但是一般建议使用<code>Deployment</code>来自动管理<code>ReplicaSet</code></strong>，
-除非自定义的Pod不需要更新或有其他编排等。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#080;font-style:italic>## 查看RellicaSet资源</span>
-$ kubectl get rs
-</code></pre></div><h3 id=deployment>Deployment</h3>
-<p>根据声明的<code>YAML</code>文件信息部署<code>POD</code>，并将<code>POD</code>调度到资源占用少的<code>node</code>节点上，会调用<code>ReplicaSet</code>管理<code>POD</code>副本。
-主要适合如下场景：</p>
-<ol>
-<li>部署无状态应用</li>
-<li>管理Pod和ReplicaSet</li>
-<li>部署，滚动升级</li>
-<li>弹性扩容等
-看一下<code>kubernetes</code>官方提供<code>deployment yaml</code>资源文件</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>apiVersion: apps/v1
-kind: Deployment          <span style=color:#080;font-style:italic>## 资源类型</span>
-metadata:
-  name: nginx-deployment  <span style=color:#080;font-style:italic>## 名称</span>
-  labels:
-    app: nginx            <span style=color:#080;font-style:italic>##标签</span>
-spec:
-  replicas: <span style=color:#666>3</span>             <span style=color:#080;font-style:italic>## 副本数量</span>
-  selector:
-    matchLabels:
-      app: nginx          <span style=color:#080;font-style:italic>## deployment根据这个标签，选择管理POD</span>
-  template:
-    metadata:
-      labels:
-        app: nginx       <span style=color:#080;font-style:italic>## Pod的标签，跟selector保持一致</span>
-    spec:
-      containers:
-      - name: nginx         <span style=color:#080;font-style:italic>## 容器镜像</span>
-        image: nginx:1.14.2 <span style=color:#080;font-style:italic>## 镜像版本</span>
-        ports:
-        - containerPort: <span style=color:#666>80</span> <span style=color:#080;font-style:italic>## 容器的端口</span>
-</code></pre></div><h3 id=daemonset>DaemonSet</h3>
-<p><code>DaemonSet</code>(守护进程集)和守护进程类似，它在符合匹配条件的<code>kubernetes</code>集群的node节点上均部署一个Pod。
-<code>DaemonSet</code>的场景:</p>
-<ol>
-<li>集群存储守护程序，如<code>glusterd</code>、<code>ceph</code>要部署在每个节点上提供持久性存储。</li>
-<li>集群日志守护程序，如<code>fluentd</code>、<code>logstash</code>，在每个节点运行容器。</li>
-<li>节点监视守护进程，如<code>prometheus</code>监控集群，可以在每个节点上运行一个<code>node-exporter</code>用进程来收集监控节点的信息。</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>apiVersion: apps/v1
-kind: DaemonSet     <span style=color:#080;font-style:italic>## 资源类型</span>
-metadata:
-  name: fluentd-elasticsearch
-  namespace: kube-system
-  labels:
-    k8s-app: fluentd-logging
-spec:
-  selector:
-    matchLabels:
-      name: fluentd-elasticsearch
-  template:
-    metadata:
-      labels:
-        name: fluentd-elasticsearch
-    spec:
-      tolerations:
-      <span style=color:#080;font-style:italic># 这些容忍度设置是为了让守护进程在控制平面节点上运行</span>
-      <span style=color:#080;font-style:italic># 如果你不希望控制平面节点运行 Pod，可以删除它们</span>
-      - key: node-role.kubernetes.io/control-plane
-        operator: Exists
-        effect: NoSchedule
-      - key: node-role.kubernetes.io/master
-        operator: Exists
-        effect: NoSchedule
-      containers:
-      - name: fluentd-elasticsearch
-        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
-        volumeMounts:
-        - name: varlog
-          mountPath: /var/log
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: <span style=color:#a2f>true</span>
-      terminationGracePeriodSeconds: <span style=color:#666>30</span>
-      volumes:
-      - name: varlog
-        hostPath:
-          path: /var/log
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-</code></pre></div><h3 id=statefulset>StatefulSet</h3>
-<p><code>StatefulSet</code>主要用于管理有状态应用程序的工作负载<code>API</code>对象。
+除非自定义的Pod不需要更新或有其他编排等。</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#080;font-style:italic>## 查看RellicaSet资源</span>
+</span></span><span style=display:flex><span>$ kubectl get rs
+</span></span></code></pre></div><h3 id=deployment>Deployment</h3><p>根据声明的<code>YAML</code>文件信息部署<code>POD</code>，并将<code>POD</code>调度到资源占用少的<code>node</code>节点上，会调用<code>ReplicaSet</code>管理<code>POD</code>副本。
+主要适合如下场景：</p><ol><li>部署无状态应用</li><li>管理Pod和ReplicaSet</li><li>部署，滚动升级</li><li>弹性扩容等
+看一下<code>kubernetes</code>官方提供<code>deployment yaml</code>资源文件</li></ol><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>apiVersion: apps/v1
+</span></span><span style=display:flex><span>kind: Deployment          <span style=color:#080;font-style:italic>## 资源类型</span>
+</span></span><span style=display:flex><span>metadata:
+</span></span><span style=display:flex><span>  name: nginx-deployment  <span style=color:#080;font-style:italic>## 名称</span>
+</span></span><span style=display:flex><span>  labels:
+</span></span><span style=display:flex><span>    app: nginx            <span style=color:#080;font-style:italic>##标签</span>
+</span></span><span style=display:flex><span>spec:
+</span></span><span style=display:flex><span>  replicas: <span style=color:#666>3</span>             <span style=color:#080;font-style:italic>## 副本数量</span>
+</span></span><span style=display:flex><span>  selector:
+</span></span><span style=display:flex><span>    matchLabels:
+</span></span><span style=display:flex><span>      app: nginx          <span style=color:#080;font-style:italic>## deployment根据这个标签，选择管理POD</span>
+</span></span><span style=display:flex><span>  template:
+</span></span><span style=display:flex><span>    metadata:
+</span></span><span style=display:flex><span>      labels:
+</span></span><span style=display:flex><span>        app: nginx       <span style=color:#080;font-style:italic>## Pod的标签，跟selector保持一致</span>
+</span></span><span style=display:flex><span>    spec:
+</span></span><span style=display:flex><span>      containers:
+</span></span><span style=display:flex><span>      - name: nginx         <span style=color:#080;font-style:italic>## 容器镜像</span>
+</span></span><span style=display:flex><span>        image: nginx:1.14.2 <span style=color:#080;font-style:italic>## 镜像版本</span>
+</span></span><span style=display:flex><span>        ports:
+</span></span><span style=display:flex><span>        - containerPort: <span style=color:#666>80</span> <span style=color:#080;font-style:italic>## 容器的端口</span>
+</span></span></code></pre></div><h3 id=daemonset>DaemonSet</h3><p><code>DaemonSet</code>(守护进程集)和守护进程类似，它在符合匹配条件的<code>kubernetes</code>集群的node节点上均部署一个Pod。
+<code>DaemonSet</code>的场景:</p><ol><li>集群存储守护程序，如<code>glusterd</code>、<code>ceph</code>要部署在每个节点上提供持久性存储。</li><li>集群日志守护程序，如<code>fluentd</code>、<code>logstash</code>，在每个节点运行容器。</li><li>节点监视守护进程，如<code>prometheus</code>监控集群，可以在每个节点上运行一个<code>node-exporter</code>用进程来收集监控节点的信息。</li></ol><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>apiVersion: apps/v1
+</span></span><span style=display:flex><span>kind: DaemonSet     <span style=color:#080;font-style:italic>## 资源类型</span>
+</span></span><span style=display:flex><span>metadata:
+</span></span><span style=display:flex><span>  name: fluentd-elasticsearch
+</span></span><span style=display:flex><span>  namespace: kube-system
+</span></span><span style=display:flex><span>  labels:
+</span></span><span style=display:flex><span>    k8s-app: fluentd-logging
+</span></span><span style=display:flex><span>spec:
+</span></span><span style=display:flex><span>  selector:
+</span></span><span style=display:flex><span>    matchLabels:
+</span></span><span style=display:flex><span>      name: fluentd-elasticsearch
+</span></span><span style=display:flex><span>  template:
+</span></span><span style=display:flex><span>    metadata:
+</span></span><span style=display:flex><span>      labels:
+</span></span><span style=display:flex><span>        name: fluentd-elasticsearch
+</span></span><span style=display:flex><span>    spec:
+</span></span><span style=display:flex><span>      tolerations:
+</span></span><span style=display:flex><span>      <span style=color:#080;font-style:italic># 这些容忍度设置是为了让守护进程在控制平面节点上运行</span>
+</span></span><span style=display:flex><span>      <span style=color:#080;font-style:italic># 如果你不希望控制平面节点运行 Pod，可以删除它们</span>
+</span></span><span style=display:flex><span>      - key: node-role.kubernetes.io/control-plane
+</span></span><span style=display:flex><span>        operator: Exists
+</span></span><span style=display:flex><span>        effect: NoSchedule
+</span></span><span style=display:flex><span>      - key: node-role.kubernetes.io/master
+</span></span><span style=display:flex><span>        operator: Exists
+</span></span><span style=display:flex><span>        effect: NoSchedule
+</span></span><span style=display:flex><span>      containers:
+</span></span><span style=display:flex><span>      - name: fluentd-elasticsearch
+</span></span><span style=display:flex><span>        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+</span></span><span style=display:flex><span>        resources:
+</span></span><span style=display:flex><span>          limits:
+</span></span><span style=display:flex><span>            memory: 200Mi
+</span></span><span style=display:flex><span>          requests:
+</span></span><span style=display:flex><span>            cpu: 100m
+</span></span><span style=display:flex><span>            memory: 200Mi
+</span></span><span style=display:flex><span>        volumeMounts:
+</span></span><span style=display:flex><span>        - name: varlog
+</span></span><span style=display:flex><span>          mountPath: /var/log
+</span></span><span style=display:flex><span>        - name: varlibdockercontainers
+</span></span><span style=display:flex><span>          mountPath: /var/lib/docker/containers
+</span></span><span style=display:flex><span>          readOnly: <span style=color:#a2f>true</span>
+</span></span><span style=display:flex><span>      terminationGracePeriodSeconds: <span style=color:#666>30</span>
+</span></span><span style=display:flex><span>      volumes:
+</span></span><span style=display:flex><span>      - name: varlog
+</span></span><span style=display:flex><span>        hostPath:
+</span></span><span style=display:flex><span>          path: /var/log
+</span></span><span style=display:flex><span>      - name: varlibdockercontainers
+</span></span><span style=display:flex><span>        hostPath:
+</span></span><span style=display:flex><span>          path: /var/lib/docker/containers
+</span></span></code></pre></div><h3 id=statefulset>StatefulSet</h3><p><code>StatefulSet</code>主要用于管理有状态应用程序的工作负载<code>API</code>对象。
 比如在生产环境中可以部署<code>ElasticSearch</code>集群、<code>MongoDB</code>集群或者需要持久化的<code>RabbitMQ</code>集群、
 <code>Redis</code>集群、<code>Kafka</code>集群和<code>ZooKeeper</code>集群等。和<code>Deployment</code>类似，一个<code>StatefulSet</code>也同样管
 理着基于相同容器规范的<code>Pod</code>。不同的是<code>StatefulSet</code>为每个<code>Pod</code>维护了一个粘性标识。
 这些<code>Pod</code>是根据相同的规范创建的，但是不可互换，每个Pod都有一个持久的标识符，在重新调度时也会保留，
 一般格式为<code>StatefulSetName-Number</code>。比如定义一个名字是<code>Redis-Sentinel</code>的<code>StatefulSet</code>，指定创建三个<code>Pod</code>，
 那么创建出来的<code>Pod</code>名字就为<code>Redis-Sentinel-0</code>、<code>Redis-Sentinel-1</code>、<code>Redis-Sentinel-2</code>。
-而<code>StatefulSet</code>创建的<code>Pod</code>一般使用<code>Headless Service</code>(无头服务)进行通信。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-spec:
-  ports:
-  - port: <span style=color:#666>80</span>
-    name: web
-  clusterIP: None
-  selector:
-    app: nginx
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: web
-spec:
-  selector:
-    matchLabels:
-      app: nginx <span style=color:#080;font-style:italic># 必须匹配 .spec.template.metadata.labels</span>
-  serviceName: <span style=color:#b44>&#34;nginx&#34;</span>
-  replicas: <span style=color:#666>3</span> <span style=color:#080;font-style:italic># 默认值是 1</span>
-  minReadySeconds: <span style=color:#666>10</span> <span style=color:#080;font-style:italic># 默认值是 0</span>
-  template:
-    metadata:
-      labels:
-        app: nginx <span style=color:#080;font-style:italic># 必须匹配 .spec.selector.matchLabels</span>
-    spec:
-      terminationGracePeriodSeconds: <span style=color:#666>10</span>
-      containers:
-      - name: nginx
-        image: k8s.gcr.io/nginx-slim:0.8
-        ports:
-        - containerPort: <span style=color:#666>80</span>
-          name: web
-        volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
-  volumeClaimTemplates:
-  - metadata:
-      name: www
-    spec:
-      accessModes: <span style=color:#666>[</span> <span style=color:#b44>&#34;ReadWriteOnce&#34;</span> <span style=color:#666>]</span>
-      storageClassName: <span style=color:#b44>&#34;my-storage-class&#34;</span>
-      resources:
-        requests:
-          storage: 1Gi
-</code></pre></div><h3 id=引用>引用</h3>
-<ol>
-<li>
-<p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/ target=_blank rel=noopener>Deployment</a>
-</p>
-</li>
-<li>
-<p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/daemonset/ target=_blank rel=noopener>DaemonSet</a>
-</p>
-</li>
-<li>
-<p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/statefulset/ target=_blank rel=noopener>StatefulSet</a>
-</p>
-</li>
-<li>
-<p><a href="https://www.yj-example.cn/?p=925" target=_blank rel=noopener>资源调度-Deployment，StatefulSet，DaemonSet</a>
-</p>
-</li>
-</ol>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/kubernetes rel=tag title=kubernetes>#kubernetes#</a>
+而<code>StatefulSet</code>创建的<code>Pod</code>一般使用<code>Headless Service</code>(无头服务)进行通信。</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>apiVersion: v1
+</span></span><span style=display:flex><span>kind: Service
+</span></span><span style=display:flex><span>metadata:
+</span></span><span style=display:flex><span>  name: nginx
+</span></span><span style=display:flex><span>  labels:
+</span></span><span style=display:flex><span>    app: nginx
+</span></span><span style=display:flex><span>spec:
+</span></span><span style=display:flex><span>  ports:
+</span></span><span style=display:flex><span>  - port: <span style=color:#666>80</span>
+</span></span><span style=display:flex><span>    name: web
+</span></span><span style=display:flex><span>  clusterIP: None
+</span></span><span style=display:flex><span>  selector:
+</span></span><span style=display:flex><span>    app: nginx
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>apiVersion: apps/v1
+</span></span><span style=display:flex><span>kind: StatefulSet
+</span></span><span style=display:flex><span>metadata:
+</span></span><span style=display:flex><span>  name: web
+</span></span><span style=display:flex><span>spec:
+</span></span><span style=display:flex><span>  selector:
+</span></span><span style=display:flex><span>    matchLabels:
+</span></span><span style=display:flex><span>      app: nginx <span style=color:#080;font-style:italic># 必须匹配 .spec.template.metadata.labels</span>
+</span></span><span style=display:flex><span>  serviceName: <span style=color:#b44>&#34;nginx&#34;</span>
+</span></span><span style=display:flex><span>  replicas: <span style=color:#666>3</span> <span style=color:#080;font-style:italic># 默认值是 1</span>
+</span></span><span style=display:flex><span>  minReadySeconds: <span style=color:#666>10</span> <span style=color:#080;font-style:italic># 默认值是 0</span>
+</span></span><span style=display:flex><span>  template:
+</span></span><span style=display:flex><span>    metadata:
+</span></span><span style=display:flex><span>      labels:
+</span></span><span style=display:flex><span>        app: nginx <span style=color:#080;font-style:italic># 必须匹配 .spec.selector.matchLabels</span>
+</span></span><span style=display:flex><span>    spec:
+</span></span><span style=display:flex><span>      terminationGracePeriodSeconds: <span style=color:#666>10</span>
+</span></span><span style=display:flex><span>      containers:
+</span></span><span style=display:flex><span>      - name: nginx
+</span></span><span style=display:flex><span>        image: k8s.gcr.io/nginx-slim:0.8
+</span></span><span style=display:flex><span>        ports:
+</span></span><span style=display:flex><span>        - containerPort: <span style=color:#666>80</span>
+</span></span><span style=display:flex><span>          name: web
+</span></span><span style=display:flex><span>        volumeMounts:
+</span></span><span style=display:flex><span>        - name: www
+</span></span><span style=display:flex><span>          mountPath: /usr/share/nginx/html
+</span></span><span style=display:flex><span>  volumeClaimTemplates:
+</span></span><span style=display:flex><span>  - metadata:
+</span></span><span style=display:flex><span>      name: www
+</span></span><span style=display:flex><span>    spec:
+</span></span><span style=display:flex><span>      accessModes: <span style=color:#666>[</span> <span style=color:#b44>&#34;ReadWriteOnce&#34;</span> <span style=color:#666>]</span>
+</span></span><span style=display:flex><span>      storageClassName: <span style=color:#b44>&#34;my-storage-class&#34;</span>
+</span></span><span style=display:flex><span>      resources:
+</span></span><span style=display:flex><span>        requests:
+</span></span><span style=display:flex><span>          storage: 1Gi
+</span></span></code></pre></div><h3 id=引用>引用</h3><ol><li><p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/ target=_blank rel=noopener>Deployment</a></p></li><li><p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/daemonset/ target=_blank rel=noopener>DaemonSet</a></p></li><li><p><a href=https://kubernetes.io/zh/docs/concepts/workloads/controllers/statefulset/ target=_blank rel=noopener>StatefulSet</a></p></li><li><p><a href="https://www.yj-example.cn/?p=925" target=_blank rel=noopener>资源调度-Deployment，StatefulSet，DaemonSet</a></p></li></ol></div><footer class=post-footer><div class=post-tags><a href=/tags/kubernetes rel=tag title=kubernetes>#kubernetes#</a>
 <a href=/tags/cloudnative rel=tag title=cloudnative>#cloudnative#</a>
 <a href=/tags/deployment rel=tag title=deployment>#deployment#</a>
-<a href=/tags/daemonset rel=tag title=daemonset>#daemonset#</a>
-</div>
-<div class=addthis_inline_share_toolbox></div>
-<div class=post-nav>
-<div class=article-copyright>
-<div class=article-copyright-img>
-<img src=/img/qq_qrcode.png width=129px height=129px>
-<div style=text-align:center>QQ扫一扫交流</div>
-</div>
-<div class=article-copyright-info>
-<p>
-<span>标题：</span>Kubernetes中Deployment DaemonSet StatefulSet
-</p>
-<p>
-<span>链接：</span>/post/kubernetes-deploy/
-</p>
-<p>
-<span>作者：</span>lizj3624
-</p>
-<p>
-<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
-</p>
-</div>
-</div>
-<div class=clear></div>
-</div>
-<div class=reward-qr-info>
-<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
-<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
-<span>赏</span>
-</button>
-<div id=QR style=display:none>
-<div id=wechat style=display:inline-block>
-<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
-<p>微信打赏</p>
-</div>
-<div id=alipay style=display:inline-block>
-<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
-<p>支付宝打赏</p>
-</div>
-</div>
-</div>
-<div class=post-nav>
-<div class="post-nav-next post-nav-item">
-<a href=/post/us-stock-history/ rel=next title=美国股市百年跌荡启示录>
-<i class="fa fa-chevron-left"></i> 美国股市百年跌荡启示录
-</a>
-</div>
-<div class="post-nav-prev post-nav-item">
-<a href=/post/kubeadm-token/ rel=prev title=Kubeadm中的Token过期问题>
-Kubeadm中的Token过期问题
-<i class="fa fa-chevron-right"></i>
-</a>
-</div>
-</div>
-<div id=wcomments></div>
-</footer>
-</article>
-</section>
-</div>
-</div>
-<div class=sidebar-toggle>
-<div class=sidebar-toggle-line-wrap>
-<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<a href=/tags/daemonset rel=tag title=daemonset>#daemonset#</a></div><div class=addthis_inline_share_toolbox></div><div class=post-nav><div class=article-copyright><div class=article-copyright-img><img src=/img/qq_qrcode.png width=129px height=129px><div style=text-align:center>QQ扫一扫交流</div></div><div class=article-copyright-info><p><span>标题：</span>Kubernetes中Deployment DaemonSet StatefulSet</p><p><span>链接：</span>/post/kubernetes-deploy/</p><p><span>作者：</span>lizj3624</p><p><span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！</p></div></div><div class=clear></div></div><div class=reward-qr-info><div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div><button id=rewardButton disable=enable onclick='var qr=document.getElementById("QR");qr.style.display==="none"?qr.style.display="block":qr.style.display="none"'>
+<span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay"><p>微信打赏</p></div><div id=alipay style=display:inline-block><img id=alipay_qr src=/img/ali-pay.png alt=Alipay><p>支付宝打赏</p></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/us-stock-history/ rel=next title=美国股市百年跌荡启示录><i class="fa fa-chevron-left"></i> 美国股市百年跌荡启示录</a></div><div class="post-nav-prev post-nav-item"><a href=/post/kubeadm-token/ rel=prev title=Kubeadm中的Token过期问题>Kubeadm中的Token过期问题
+<i class="fa fa-chevron-right"></i></a></div></div><div id=wcomments></div></footer></article></section></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
 <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-</div>
-</div>
-<aside id=sidebar class=sidebar>
-<div class=sidebar-inner>
-<ul class="sidebar-nav motion-element">
-<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
-文章目录
-</li>
-<li class=sidebar-nav-overview data-target=site-overview>
-站点概览
-</li>
-</ul>
-<section class="site-overview sidebar-panel">
-<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
-<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
-<p class=site-author-name itemprop=name>lizj3624</p>
-<p class="site-description motion-element" itemprop=description>
-幸福和富有的过一生!
-</p>
-</div>
-<nav class="site-state motion-element">
-<div class="site-state-item site-state-posts">
-<a href=/post/>
-<span class=site-state-item-count>88</span>
-<span class=site-state-item-name>日志</span>
-</a>
-</div>
-<div class="site-state-item site-state-categories">
-<a href=/categories/>
-<span class=site-state-item-count>86</span>
-<span class=site-state-item-name>分类</span>
-</a>
-</div>
-<div class="site-state-item site-state-tags">
-<a href=/tags/>
-<span class=site-state-item-count>103</span>
-<span class=site-state-item-name>标签</span>
-</a>
-</div>
-</nav>
-<div class="links-of-author motion-element">
-<span class=links-of-author-item>
-<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
-<i class="fa fa-fw fa-github"></i>
-GitHub
-</a>
-</span>
-<span class=links-of-author-item>
-<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
-<i class="fa fa-fw fa-globe"></i>
-知乎
-</a>
-</span>
-</div>
-<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
-<div class=tagcloud-of-blogroll-title>
-<i class="fa fa-fw fa-tags"></i>
-标签云
-</div>
-<ul class=tagcloud-of-blogroll-list>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative
-<sup>13</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
-<sup>11</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes
-<sup>10</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx
-<sup>9</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix
-<sup>7</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E6%8A%95%E8%B5%84>投资
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux
-<sup>4</sup>
-</a>
-</li>
-</ul>
-</div>
-</section>
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-<div class=post-toc>
-<div class=post-toc-content><nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#replicaset>ReplicaSet</a></li>
-<li><a href=#deployment>Deployment</a></li>
-<li><a href=#daemonset>DaemonSet</a></li>
-<li><a href=#statefulset>StatefulSet</a></li>
-<li><a href=#引用>引用</a></li>
-</ul>
-</li>
-</ul>
-</nav></div>
-</div>
-</section>
-</div>
-</aside>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=footer-inner>
-<div class=copyright>
-<span class=copyright-year>
-&copy; 2010 - 2023
-</span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624><p class=site-author-name itemprop=name>lizj3624</p><p class="site-description motion-element" itemprop=description>幸福和富有的过一生!</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>90</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>88</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>105</span>
+<span class=site-state-item-name>标签</span></a></div></nav><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/lizj3624/ target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>
+GitHub</a></span>
+<span class=links-of-author-item><a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎><i class="fa fa-fw fa-globe"></i>
+知乎</a></span></div><div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline"><div class=tagcloud-of-blogroll-title><i class="fa fa-fw fa-tags"></i>
+标签云</div><ul class=tagcloud-of-blogroll-list><li class=tagcloud-of-blogroll-item><a href=/tags/cloudnative>Cloudnative
+<sup>13</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/kubernetes>Kubernetes
+<sup>10</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/nginx>Nginx
+<sup>9</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/apisix>Apisix
+<sup>7</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/video>Video
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E6%8A%95%E8%B5%84>投资
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/linux>Linux
+<sup>4</sup></a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#replicaset>ReplicaSet</a></li><li><a href=#deployment>Deployment</a></li><li><a href=#daemonset>DaemonSet</a></li><li><a href=#statefulset>StatefulSet</a></li><li><a href=#引用>引用</a></li></ul></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2023</span>
 <span class=with-love><i class="fa fa-heart"></i></span>
-<span class=copyright-author>幸福和富有的过一生</span>
-</div>
-<div class=powered-info>
-<span class=powered-by>
-Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
-</span>
+<span class=copyright-author>幸福和富有的过一生</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.119.0</a></span>
 <span class=separator-line>/</span>
-<span class=theme-info>
-Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
-</a>
-</span>
-</div>
-<div class=vistor-info>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<span class=site-uv>
-<i class="fa fa-user"></i>
-<span class=busuanzi-value id=busuanzi_value_site_uv></span>
-</span>
+<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv><i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span></span>
 <span class=separator-line>/</span>
-<span class=site-pv>
-<i class="fa fa-eye"></i>
-<span class=busuanzi-value id=busuanzi_value_site_pv></span>
-</span>
-</div>
-<div class=license-info>
-<span class=storage-info>
-Storage by
-<a href style=font-weight:700 target=_blank></a>
-</span>
+<span class=site-pv><i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div><div class=license-info><span class=storage-info>Storage by
+<a href style=font-weight:700 target=_blank></a></span>
 <span class=separator-line>/</span>
-<span class=license-num>
-<a href target=_blank></a>
-</span>
-</div>
-</div>
-</footer>
-<div class=back-to-top>
-<i class="fa fa-arrow-up"></i>
-<span id=scrollpercent><span>0</span>%</span>
-</div>
-</div>
-<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
+<span class=license-num><a href target=_blank></a></span></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
-<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
-<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
-<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".footer").outerHeight(!0),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var e,t,n,s,o=$(".header-inner").height()+10;$("#sidebar").css({"margin-top":o}).show(),t=parseInt($("#sidebar").css("margin-top")),n=parseInt($(".sidebar-inner").css("height")),e=t+n,s=$(".content-wrap").height(),s<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
+<script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>const locale={placeholder:"欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^"};$(function(){detectIE()>0?$.getScript(document.location.protocol+"//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,emoji:[],wordLimit:"200",uploadImage:!1,locale,requiredMeta:["nick","mail"],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

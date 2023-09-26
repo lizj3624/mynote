@@ -1,616 +1,99 @@
-<!doctype html><html lang=zh-cn dir=content/zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
-<title> WebSocket与HTTP2对比 - 幸福和富有的过一生 </title>
-<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
-<meta name=author content="lizj3624">
-<meta property="og:title" content="WebSocket与HTTP2对比">
-<meta property="og:site_name" content="幸福和富有的过一生">
-<meta property="og:image" content="/img/author.jpg">
-<meta name=title content="WebSocket与HTTP2对比 - 幸福和富有的过一生">
-<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
-<link rel="shortcut icon" href=/img/favicon.ico>
-<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
-<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
-<link href=/css/main.css rel=stylesheet type=text/css>
-<link href=/css/syntax.css rel=stylesheet type=text/css>
-</head>
-<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
-<div class="container one-collumn sidebar-position-left page-home">
-<div class=headband></div>
-<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
-<div class=header-inner> <div class=site-brand-container>
-<div class=site-nav-toggle>
-<div class=toggle role=button style=opacity:1;top:0>
+<!doctype html><html lang=zh-cn dir=zh><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=content-security-policy content="upgrade-insecure-requests"><title>WebSocket与HTTP2对比 - 幸福和富有的过一生</title><meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链"><meta name=author content="lizj3624"><meta property="og:title" content="WebSocket与HTTP2对比"><meta property="og:site_name" content="幸福和富有的过一生"><meta property="og:image" content="/img/author.jpg"><meta name=title content="WebSocket与HTTP2对比 - 幸福和富有的过一生"><meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
 <span class=toggle-line></span>
-<span class=toggle-line></span>
-<span class=toggle-line></span>
-</div>
-</div>
-<div class=site-meta>
-<div class=custom-logo-site-title>
-<a href=/ class=brand rel=start>
-<span class=logo-line-before><i></i></span>
+<span class=toggle-line></span></div></div><div class=site-meta><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span>
 <span class=site-title>幸福和富有的过一生</span>
-<span class=logo-line-after><i></i></span>
-</a>
-</div>
-<p class=site-subtitle>幸福和富有的过一生!</p>
-</div>
-<div class=site-nav-right>
-<div class="toggle popup-trigger" style=opacity:1;top:0>
-<i class="fa fa-search fa-fw fa-lg"></i>
-</div>
-</div>
-</div>
-<nav class=site-nav>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a href=/ rel=section>
-<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
-</a>
-</li>
-<li class="menu-item menu-item-active">
-<a href=/post rel=section>
-<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
-</a>
-</li>
-<li class=menu-item>
-<a href=/about.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
-</a>
-</li>
-<li class=menu-item>
-<a href=/404.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
-</a>
-</li>
-<li class="menu-item menu-item-search">
-<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
-</li>
-</ul>
-<div class=site-search>
-<div class="popup search-popup local-search-popup">
-<div class="local-search-header clearfix">
-<span class=search-icon><i class="fa fa-search"></i> </span>
-<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
-<div class=local-search-input-wrapper>
-<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
-</div>
-</div>
-<div id=local-search-result></div>
-</div>
-</div>
-</nav> </div>
-</header>
-<main id=main class=main>
-<div class=main-inner>
-<div class=content-wrap>
-<div id=content class=content>
-<section id=posts class=posts-expand>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=/post/ws-h2/ itemprop=url>
-WebSocket与HTTP2对比
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-pushdate>
-<i class="fa fa-calendar-o fa-fw"></i>
+<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>幸福和富有的过一生!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-active"><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=/post/ws-h2/ itemprop=url>WebSocket与HTTP2对比</a></h1><div class=post-meta><span class=post-pushdate><i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2023-01-16">
-2023-01-16
-</time>
-</span>
-<span class=post-category>
-<i class="fa fa-folder-o fa-fw"></i>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2023-01-16">2023-01-16</time></span>
+<span class=post-category><i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/http itemprop=url rel=index>
-<span itemprop=name>HTTP</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/websocket itemprop=url rel=index>
-<span itemprop=name>WebSocket</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/%E5%8D%8F%E8%AE%AE itemprop=url rel=index>
-<span itemprop=name>协议</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span class=post-wordcount>
-<i class="fa fa-file-word-o fa-fw"></i>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/http itemprop=url rel=index><span itemprop=name>HTTP</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/websocket itemprop=url rel=index><span itemprop=name>WebSocket</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/%E5%8D%8F%E8%AE%AE itemprop=url rel=index><span itemprop=name>协议</span></a>
+&nbsp;</span></span>
+<span class=post-wordcount><i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>3054 字</span>
-</span>
-<span class=post-readtime>
-<i class="fa fa-eye fa-fw"></i>
+<span class=leancloud-world-count>3054 字</span></span>
+<span class=post-readtime><i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>7分钟</span>
-</span>
-<span id=/post/ws-h2/ class="leancloud_visitors post-visitor" data-flag-title=WebSocket与HTTP2对比>
-<i class="fa fa-binoculars fa-fw"></i>
+<span class=leancloud-view-count>7分钟</span></span>
+<span id=/post/ws-h2/ class="leancloud_visitors post-visitor" data-flag-title=WebSocket与HTTP2对比><i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
-<span class=leancloud-visitors-count></span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-<p>WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工（full-duplex）通信，即允许服务器主动发送信息给客户端。因此，在WebSocket中，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输，客户端和服务器之间的数据交换变得更加简单。</p>
-<p>HTTP2协议是基于二进制分帧来高效传输数据的HTTP协议，支持多路复用解决了线头阻塞(HOL Blocking)，通过HPack的头部压缩技术降低负载，也支持服务器推送让服务器能够主动推送响应到客户端缓存中。</p>
-<p>这两个协议都支持服务端推送，HTTP2可以替代WebSocket吗？解决这个疑问，得先分析这两个协议。</p>
-<h2 id=websocket>WebSocket</h2>
-<p>websocket是一个双向通信协议，它在握手阶段采用http1.1，建立TCP后开始传输WebSocket格式通信数据。</p>
-<h3 id=握手过程>握手过程</h3>
-<p>发起握手请求</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#a2f;font-weight:700>HTTP</span><span style=color:#666>/</span><span style=color:#666>1.1</span> <span style=color:#666>101</span> <span style=color:#d2413a;font-weight:700>Switching Protocols  // 状态行</span>
-Upgrade<span style=color:#666>:</span> websocket   // required
-Connection<span style=color:#666>:</span> Upgrade  // required
-Sec-WebSocket-Accept<span style=color:#666>:</span> s3pPLMBiTxaQ9kYGzzhZRbK+xOo= // required，加密后的 Sec-WebSocket-Key
-Sec-WebSocket-Protocol<span style=color:#666>:</span> chat // 表明选择的子协议
-</code></pre></div><p>服务器如果支持websocket，返回101响应</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#a2f;font-weight:700>HTTP</span><span style=color:#666>/</span><span style=color:#666>1.1</span> <span style=color:#666>101</span> <span style=color:#d2413a;font-weight:700>Switching Protocols  // 状态行</span>
-Upgrade<span style=color:#666>:</span> websocket   // required
-Connection<span style=color:#666>:</span> Upgrade  // required
-Sec-WebSocket-Accept<span style=color:#666>:</span> s3pPLMBiTxaQ9kYGzzhZRbK+xOo= // required，加密后的 Sec-WebSocket-Key
-Sec-WebSocket-Protocol<span style=color:#666>:</span> chat // 表明选择的子协议
-</code></pre></div><p>WebSocket提供两种协议：不加密的ws:// 和 加密的 wss://。
-因为是用 HTTP 握手，它和 HTTP 使用同样的端口：ws是80（HTTP），wss是 43（HTTPS）</p>
-<h3 id=websocket通信格式>WebSocket通信格式</h3>
-<p><img src=./websocket.png alt=websocket></p>
-<ol>
-<li>
-<p>FIN: 1位，用于描述消息是否结束，如果为1则该消息为消息尾部,如果为零则还有后续数据包。</p>
-</li>
-<li>
-<p>RSV1,RSV2,RSV3：各1位，用于扩展定义的,如果没有扩展约定的情况则必须为0。</p>
-</li>
-<li>
-<p>OPCODE: 4位，用于表示消息接收类型，如果接收到未知的opcode，接收端必须关闭连接。长连接探活包就是这里标识的。 <br>
-OPCODE定义的范围：</p>
-<ul>
-<li>0x0表示附加数据帧</li>
-<li>0x1表示文本数据帧</li>
-<li>0x2表示二进制数据帧</li>
-<li>0x3-7暂时无定义，为以后的非控制帧保留</li>
-<li>0x8表示连接关闭</li>
-<li>0x9表示ping</li>
-<li>0xA表示pong</li>
-<li>0xB-F暂时无定义，为以后的控制帧保留</li>
-</ul>
-</li>
-<li>
-<p>MASK: 1位，用于标识PayloadData是否经过掩码处理，客户端发出的数据帧需要进行掩码处理，所以此位是1。数据需要解码。</p>
-</li>
-<li>
-<p>Payload length
-　 - 如果x值在0-125，则是payload的真实长度。 <br>
-　 - 如果x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。 <br>
-　 - 如果x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。</p>
-</li>
-</ol>
-<p>　 此外，如果payload length占用了多个字节的话，payload length的二进制表达采用网络序（big endian，重要的位在前）。</p>
-<h3 id=nginx支持websocket的配置>Nginx支持WebSocket的配置</h3>
-<p>Nginx是支持WebSocket配置，但是需要有特殊配置</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=color:#a2f;font-weight:700>location</span> <span style=color:#b44>/wsapp/</span> {
-    <span style=color:#a2f;font-weight:700>proxy_pass</span> <span style=color:#b44>http://wsbackend</span>;
-    <span style=color:#a2f;font-weight:700>proxy_http_version</span> <span style=color:#666>1</span><span style=color:#b44>.1</span>;    <span style=color:#080;font-style:italic>#必须指明HTTP1.1
-</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Upgrade</span> <span style=color:#b8860b>$http_upgrade</span>; <span style=color:#080;font-style:italic># 需要更改Upgrade头用于协议升级
-</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Connection</span> <span style=color:#b44>&#34;Upgrade&#34;</span>;  <span style=color:#080;font-style:italic># 需要更改Connection头用于协议升级
-</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Host</span> <span style=color:#b8860b>$host</span>;
-}
-</code></pre></div><blockquote>
-<p>nginx日志记录WebSocket时，是在整个WebSocket关闭后才记录，日志中记录的整个过程出/入流量比较大，HTTPCODE一般为101</p>
-</blockquote>
-<h3 id=使用场景>使用场景</h3>
-<ol>
-<li>
-<p>弹幕：终端用户A在自己的手机端发送了一条弹幕信息，但是您也需要在客户A的手机端上将其他N个客户端发送的弹幕信息一并展示。需要通过WebSocket协议将其他客户端发送的弹幕信息从服务端全部推送至客户A的手机端，从而使客户A可以同时看到自己发送的弹幕和其他用户发送的弹幕。</p>
-</li>
-<li>
-<p>在线教育：老师进行一对多的在线授课，在客户端内编写的笔记、大纲等信息，需要实时推送至多个学生的客户端，需要通过WebSocket协议来完成。</p>
-</li>
-<li>
-<p>股票等金融产品实时报价股：股票黄金等价格变化迅速，变化后，可以通过WebSocket协议将变化后的价格实时推送至世界各地的客户端，方便交易员迅速做出交易判断。</p>
-</li>
-<li>
-<p>体育实况更新：由于全世界体育爱好者数量众多，因此比赛实况成为其最为关心的热点。这类新闻中最好的体验就是利用WebSocket达到实时的更新。</p>
-</li>
-<li>
-<p>视频会议和聊天：尽管视频会议并不能代替和真人相见，但是应用场景众多。WebSocket可以帮助两端或多端接入会议的用户实时传递信息。</p>
-</li>
-<li>
-<p>基于位置的应用：越来越多的开发者借用移动设备的GPS功能来实现基于位置的网络应用。如果您一直记录终端用户的位置（例如：您的 App记录用户的运动轨迹），就可以收集到更加细致化的数据。</p>
-</li>
-</ol>
-<h2 id=http2>HTTP/2</h2>
-<p><img src=./http2.png alt=http2></p>
-<ol>
-<li>
-<p>二进制分帧
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-body itemprop=articleBody><p>WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工（full-duplex）通信，即允许服务器主动发送信息给客户端。因此，在WebSocket中，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输，客户端和服务器之间的数据交换变得更加简单。</p><p>HTTP2协议是基于二进制分帧来高效传输数据的HTTP协议，支持多路复用解决了线头阻塞(HOL Blocking)，通过HPack的头部压缩技术降低负载，也支持服务器推送让服务器能够主动推送响应到客户端缓存中。</p><p>这两个协议都支持服务端推送，HTTP2可以替代WebSocket吗？解决这个疑问，得先分析这两个协议。</p><h2 id=websocket>WebSocket</h2><p>websocket是一个双向通信协议，它在握手阶段采用http1.1，建立TCP后开始传输WebSocket格式通信数据。</p><h3 id=握手过程>握手过程</h3><p>发起握手请求</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#a2f;font-weight:700>HTTP</span><span style=color:#666>/</span><span style=color:#666>1.1</span> <span style=color:#666>101</span> <span style=color:#d2413a;font-weight:700>Switching Protocols  // 状态行</span>
+</span></span><span style=display:flex><span>Upgrade<span style=color:#666>:</span> websocket   // required
+</span></span><span style=display:flex><span>Connection<span style=color:#666>:</span> Upgrade  // required
+</span></span><span style=display:flex><span>Sec-WebSocket-Accept<span style=color:#666>:</span> s3pPLMBiTxaQ9kYGzzhZRbK+xOo= // required，加密后的 Sec-WebSocket-Key
+</span></span><span style=display:flex><span>Sec-WebSocket-Protocol<span style=color:#666>:</span> chat // 表明选择的子协议
+</span></span></code></pre></div><p>服务器如果支持websocket，返回101响应</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#a2f;font-weight:700>HTTP</span><span style=color:#666>/</span><span style=color:#666>1.1</span> <span style=color:#666>101</span> <span style=color:#d2413a;font-weight:700>Switching Protocols  // 状态行</span>
+</span></span><span style=display:flex><span>Upgrade<span style=color:#666>:</span> websocket   // required
+</span></span><span style=display:flex><span>Connection<span style=color:#666>:</span> Upgrade  // required
+</span></span><span style=display:flex><span>Sec-WebSocket-Accept<span style=color:#666>:</span> s3pPLMBiTxaQ9kYGzzhZRbK+xOo= // required，加密后的 Sec-WebSocket-Key
+</span></span><span style=display:flex><span>Sec-WebSocket-Protocol<span style=color:#666>:</span> chat // 表明选择的子协议
+</span></span></code></pre></div><p>WebSocket提供两种协议：不加密的ws:// 和 加密的 wss://。
+因为是用 HTTP 握手，它和 HTTP 使用同样的端口：ws是80（HTTP），wss是 43（HTTPS）</p><h3 id=websocket通信格式>WebSocket通信格式</h3><p><img src=./websocket.png alt=websocket></p><ol><li><p>FIN: 1位，用于描述消息是否结束，如果为1则该消息为消息尾部,如果为零则还有后续数据包。</p></li><li><p>RSV1,RSV2,RSV3：各1位，用于扩展定义的,如果没有扩展约定的情况则必须为0。</p></li><li><p>OPCODE: 4位，用于表示消息接收类型，如果接收到未知的opcode，接收端必须关闭连接。长连接探活包就是这里标识的。<br>OPCODE定义的范围：</p><ul><li>0x0表示附加数据帧</li><li>0x1表示文本数据帧</li><li>0x2表示二进制数据帧</li><li>0x3-7暂时无定义，为以后的非控制帧保留</li><li>0x8表示连接关闭</li><li>0x9表示ping</li><li>0xA表示pong</li><li>0xB-F暂时无定义，为以后的控制帧保留</li></ul></li><li><p>MASK: 1位，用于标识PayloadData是否经过掩码处理，客户端发出的数据帧需要进行掩码处理，所以此位是1。数据需要解码。</p></li><li><p>Payload length
+　 - 如果x值在0-125，则是payload的真实长度。<br>　 - 如果x值是126，则后面2个字节形成的16位无符号整型数的值是payload的真实长度。<br>　 - 如果x值是127，则后面8个字节形成的64位无符号整型数的值是payload的真实长度。</p></li></ol><p>　 此外，如果payload length占用了多个字节的话，payload length的二进制表达采用网络序（big endian，重要的位在前）。</p><h3 id=nginx支持websocket的配置>Nginx支持WebSocket的配置</h3><p>Nginx是支持WebSocket配置，但是需要有特殊配置</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#a2f;font-weight:700>location</span> <span style=color:#b44>/wsapp/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>proxy_pass</span> <span style=color:#b44>http://wsbackend</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>proxy_http_version</span> <span style=color:#666>1</span><span style=color:#b44>.1</span>;    <span style=color:#080;font-style:italic>#必须指明HTTP1.1
+</span></span></span><span style=display:flex><span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Upgrade</span> <span style=color:#b8860b>$http_upgrade</span>; <span style=color:#080;font-style:italic># 需要更改Upgrade头用于协议升级
+</span></span></span><span style=display:flex><span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Connection</span> <span style=color:#b44>&#34;Upgrade&#34;</span>;  <span style=color:#080;font-style:italic># 需要更改Connection头用于协议升级
+</span></span></span><span style=display:flex><span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>proxy_set_header</span> <span style=color:#b44>Host</span> <span style=color:#b8860b>$host</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><blockquote><p>nginx日志记录WebSocket时，是在整个WebSocket关闭后才记录，日志中记录的整个过程出/入流量比较大，HTTPCODE一般为101</p></blockquote><h3 id=使用场景>使用场景</h3><ol><li><p>弹幕：终端用户A在自己的手机端发送了一条弹幕信息，但是您也需要在客户A的手机端上将其他N个客户端发送的弹幕信息一并展示。需要通过WebSocket协议将其他客户端发送的弹幕信息从服务端全部推送至客户A的手机端，从而使客户A可以同时看到自己发送的弹幕和其他用户发送的弹幕。</p></li><li><p>在线教育：老师进行一对多的在线授课，在客户端内编写的笔记、大纲等信息，需要实时推送至多个学生的客户端，需要通过WebSocket协议来完成。</p></li><li><p>股票等金融产品实时报价股：股票黄金等价格变化迅速，变化后，可以通过WebSocket协议将变化后的价格实时推送至世界各地的客户端，方便交易员迅速做出交易判断。</p></li><li><p>体育实况更新：由于全世界体育爱好者数量众多，因此比赛实况成为其最为关心的热点。这类新闻中最好的体验就是利用WebSocket达到实时的更新。</p></li><li><p>视频会议和聊天：尽管视频会议并不能代替和真人相见，但是应用场景众多。WebSocket可以帮助两端或多端接入会议的用户实时传递信息。</p></li><li><p>基于位置的应用：越来越多的开发者借用移动设备的GPS功能来实现基于位置的网络应用。如果您一直记录终端用户的位置（例如：您的 App记录用户的运动轨迹），就可以收集到更加细致化的数据。</p></li></ol><h2 id=http2>HTTP/2</h2><p><img src=./http2.png alt=http2></p><ol><li><p>二进制分帧
 HTTP/2之所以能够突破HTTP/1.X标准的性能限制，改进传输性能，实现低延迟和高吞吐量，就是因为其新增了二进制分帧层。帧(frame)包含部分：类型Type, 长度Length, 标记Flags, 流标识Stream和frame payload有效载荷。
-消息(message)：一个完整的请求或者响应，比如请求、响应等，由一个或多个 Frame 组成。流是连接中的一个虚拟信道，可以承载双向消息传输。每个流有唯一整数标识符。为了防止两端流ID冲突，客户端发起的流具有奇数ID，服务器端发起的流具有偶数ID。</p>
-</li>
-<li>
-<p>多路复用
-多路复用允许同时通过单一的HTTP/2连接发起多重的请求-响应消息。有了新的分帧机制后，HTTP/2不再依赖多个TCP连接去实现多流并行了。</p>
-</li>
-<li>
-<p>头部压缩
-HTTP/2使用encoder来减少需要传输的header大小，通讯双方各自缓存一份头部字段表，既避免了重复header的传输，又减小了需要传输的大小。</p>
-</li>
-<li>
-<p>服务端推送
+消息(message)：一个完整的请求或者响应，比如请求、响应等，由一个或多个 Frame 组成。流是连接中的一个虚拟信道，可以承载双向消息传输。每个流有唯一整数标识符。为了防止两端流ID冲突，客户端发起的流具有奇数ID，服务器端发起的流具有偶数ID。</p></li><li><p>多路复用
+多路复用允许同时通过单一的HTTP/2连接发起多重的请求-响应消息。有了新的分帧机制后，HTTP/2不再依赖多个TCP连接去实现多流并行了。</p></li><li><p>头部压缩
+HTTP/2使用encoder来减少需要传输的header大小，通讯双方各自缓存一份头部字段表，既避免了重复header的传输，又减小了需要传输的大小。</p></li><li><p>服务端推送
 <img src=./serverpush.png alt=sp>
-服务器可以对一个客户端请求发送多个响应，服务器向客户端推送资源无需客户端明确地请求。并且服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。</p>
-</li>
-</ol>
-<blockquote>
-<p>注意两点： <br>
-1、推送遵循同源策略； <br>
-2、这种服务端的推送是基于客户端的请求响应来确定的。</p>
-</blockquote>
-<h3 id=nginx支持http2>Nginx支持HTTP/2</h3>
-<p>Nginx最新版本(1.23)已经支持HTTP/2，需要特殊指令开启HTTP/2</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=color:#a2f;font-weight:700>server</span> {
-    <span style=color:#a2f;font-weight:700>listen</span> <span style=color:#666>443</span> <span style=color:#b44>ssl</span> <span style=color:#b44>http2</span> <span style=color:#b44>reuseport</span>;    <span style=color:#080;font-style:italic># HTTP/2默认需要开启SSL
-</span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>server_name</span> <span style=color:#b44>www.my.com</span>;
-
-    <span style=color:#a2f;font-weight:700>ssl_certificate</span> <span style=color:#b44>/path/to/public.crt</span>;
-    <span style=color:#a2f;font-weight:700>ssl_certificate_key</span> <span style=color:#b44>/path/to/private.key</span>;
-    <span style=color:#a2f;font-weight:700>...</span>
-<span>}</span>
-</code></pre></div><h2 id=对比>对比</h2>
-<h4 id=http2与websocket比较>HTTP/2与WebSocket比较</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>HTTP/2</th>
-<th>WebSocket</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Headers</td>
-<td>Compressed (HPACK) 请求头部压缩</td>
-<td>None</td>
-</tr>
-<tr>
-<td>Binary</td>
-<td>Yes</td>
-<td>Binary or Textual</td>
-</tr>
-<tr>
-<td>多路复用</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>优先级</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr>
-<td>压缩</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>传送方向</td>
-<td>Client/Server + Server Push (Server Push只能浏览器消化，不支持API,也就是代码无法使用)</td>
-<td>双向</td>
-</tr>
-<tr>
-<td>全双工</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<p>HTTP/2中服务端推送跟WebSocket的区别</p>
-<ul>
-<li>HTTP2 Server Push，一般用以服务器根据解析 <code>index.html</code> 同时推送 <code>JPG/JS/CSS</code> 等资源，而免了服务器发送多次请求。</li>
-<li>websocket，用以服务器与客户端手动编写代码去推送进行数据通信。</li>
-</ul>
-<p>HTTP/2不是类似于Websocket或者SSE这样的推送技术的替代品。将HTTP/2和SSE（Server-Sent Events SSE）结合起来提供高效的基于HTTP的双向通信。Websocket技术可能会继续使用，但是SSE和其EventSource API同HTTP/2的能力相结合可以在多数场景下达到同样的效果，但是会更简单。</p>
-<blockquote>
-<p>SSE(Server-Sent Events)服务器发送事件，SSE是一种让服务器能够在客户端服务器建立连接之后异步推送数据给客户端的机制。这样服务器就可以在数据“块”准备好之后再发送数据。这可以被看成是一种单向的发布订阅模型。多数的现代浏览器也实现了W3C HTML5标准中一个叫做EventSource的标准JavaScript客户端API。那些不支持EventSource API的浏览器，也可以方便地通过填充的方式来获得相应的支持。</p>
-</blockquote>
-<h2 id=引用>引用</h2>
-<ol>
-<li><a href=https://www.rfc-editor.org/rfc/rfc6455 target=_blank rel=noopener>rfc6455 WebSocket协议</a>
-</li>
-<li><a href=https://blog.csdn.net/cnweike/article/details/116056371 target=_blank rel=noopener>有了HTTP/2，Websocket还有市场吗？</a>
-</li>
-<li><a href=https://www.cnblogs.com/yrxing/p/15799678.html target=_blank rel=noopener>HTTP2和WebSocket</a>
-</li>
-<li><a href=https://www.cnblogs.com/zhangmingda/p/12678630.html target=_blank rel=noopener>WebSocket的诞生</a>
-</li>
-</ol>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/http rel=tag title=HTTP>#HTTP#</a>
+服务器可以对一个客户端请求发送多个响应，服务器向客户端推送资源无需客户端明确地请求。并且服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。</p></li></ol><blockquote><p>注意两点：<br>1、推送遵循同源策略；<br>2、这种服务端的推送是基于客户端的请求响应来确定的。</p></blockquote><h3 id=nginx支持http2>Nginx支持HTTP/2</h3><p>Nginx最新版本(1.23)已经支持HTTP/2，需要特殊指令开启HTTP/2</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#a2f;font-weight:700>server</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>listen</span> <span style=color:#666>443</span> <span style=color:#b44>ssl</span> <span style=color:#b44>http2</span> <span style=color:#b44>reuseport</span>;    <span style=color:#080;font-style:italic># HTTP/2默认需要开启SSL
+</span></span></span><span style=display:flex><span><span style=color:#080;font-style:italic></span>    <span style=color:#a2f;font-weight:700>server_name</span> <span style=color:#b44>www.my.com</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>ssl_certificate</span> <span style=color:#b44>/path/to/public.crt</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>ssl_certificate_key</span> <span style=color:#b44>/path/to/private.key</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a2f;font-weight:700>...</span>
+</span></span><span style=display:flex><span><span>}</span>
+</span></span></code></pre></div><h2 id=对比>对比</h2><h4 id=http2与websocket比较>HTTP/2与WebSocket比较</h4><table><thead><tr><th></th><th>HTTP/2</th><th>WebSocket</th></tr></thead><tbody><tr><td>Headers</td><td>Compressed (HPACK) 请求头部压缩</td><td>None</td></tr><tr><td>Binary</td><td>Yes</td><td>Binary or Textual</td></tr><tr><td>多路复用</td><td>Yes</td><td>Yes</td></tr><tr><td>优先级</td><td>Yes</td><td>No</td></tr><tr><td>压缩</td><td>Yes</td><td>Yes</td></tr><tr><td>传送方向</td><td>Client/Server + Server Push (Server Push只能浏览器消化，不支持API,也就是代码无法使用)</td><td>双向</td></tr><tr><td>全双工</td><td>Yes</td><td>Yes</td></tr></tbody></table><p>HTTP/2中服务端推送跟WebSocket的区别</p><ul><li>HTTP2 Server Push，一般用以服务器根据解析 <code>index.html</code> 同时推送 <code>JPG/JS/CSS</code> 等资源，而免了服务器发送多次请求。</li><li>websocket，用以服务器与客户端手动编写代码去推送进行数据通信。</li></ul><p>HTTP/2不是类似于Websocket或者SSE这样的推送技术的替代品。将HTTP/2和SSE（Server-Sent Events SSE）结合起来提供高效的基于HTTP的双向通信。Websocket技术可能会继续使用，但是SSE和其EventSource API同HTTP/2的能力相结合可以在多数场景下达到同样的效果，但是会更简单。</p><blockquote><p>SSE(Server-Sent Events)服务器发送事件，SSE是一种让服务器能够在客户端服务器建立连接之后异步推送数据给客户端的机制。这样服务器就可以在数据“块”准备好之后再发送数据。这可以被看成是一种单向的发布订阅模型。多数的现代浏览器也实现了W3C HTML5标准中一个叫做EventSource的标准JavaScript客户端API。那些不支持EventSource API的浏览器，也可以方便地通过填充的方式来获得相应的支持。</p></blockquote><h2 id=引用>引用</h2><ol><li><a href=https://www.rfc-editor.org/rfc/rfc6455 target=_blank rel=noopener>rfc6455 WebSocket协议</a></li><li><a href=https://blog.csdn.net/cnweike/article/details/116056371 target=_blank rel=noopener>有了HTTP/2，Websocket还有市场吗？</a></li><li><a href=https://www.cnblogs.com/yrxing/p/15799678.html target=_blank rel=noopener>HTTP2和WebSocket</a></li><li><a href=https://www.cnblogs.com/zhangmingda/p/12678630.html target=_blank rel=noopener>WebSocket的诞生</a></li></ol></div><footer class=post-footer><div class=post-tags><a href=/tags/http rel=tag title=HTTP>#HTTP#</a>
 <a href=/tags/websocket rel=tag title=WebSocket>#WebSocket#</a>
-<a href=/tags/%e5%8d%8f%e8%ae%ae rel=tag title=协议>#协议#</a>
-</div>
-<div class=addthis_inline_share_toolbox></div>
-<div class=post-nav>
-<div class=article-copyright>
-<div class=article-copyright-img>
-<img src=/img/qq_qrcode.png width=129px height=129px>
-<div style=text-align:center>QQ扫一扫交流</div>
-</div>
-<div class=article-copyright-info>
-<p>
-<span>标题：</span>WebSocket与HTTP2对比
-</p>
-<p>
-<span>链接：</span>/post/ws-h2/
-</p>
-<p>
-<span>作者：</span>lizj3624
-</p>
-<p>
-<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
-</p>
-</div>
-</div>
-<div class=clear></div>
-</div>
-<div class=reward-qr-info>
-<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
-<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
-<span>赏</span>
-</button>
-<div id=QR style=display:none>
-<div id=wechat style=display:inline-block>
-<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
-<p>微信打赏</p>
-</div>
-<div id=alipay style=display:inline-block>
-<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
-<p>支付宝打赏</p>
-</div>
-</div>
-</div>
-<div class=post-nav>
-<div class="post-nav-next post-nav-item">
-<a href=/post/2022-summary/ rel=next title=2022年总结>
-<i class="fa fa-chevron-left"></i> 2022年总结
-</a>
-</div>
-<div class="post-nav-prev post-nav-item">
-<a href=/post/jingyitouzi02/ rel=prev title=静逸投资2022年度致投资人的信>
-静逸投资2022年度致投资人的信
-<i class="fa fa-chevron-right"></i>
-</a>
-</div>
-</div>
-<div id=wcomments></div>
-</footer>
-</article>
-</section>
-</div>
-</div>
-<div class=sidebar-toggle>
-<div class=sidebar-toggle-line-wrap>
-<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<a href=/tags/%e5%8d%8f%e8%ae%ae rel=tag title=协议>#协议#</a></div><div class=addthis_inline_share_toolbox></div><div class=post-nav><div class=article-copyright><div class=article-copyright-img><img src=/img/qq_qrcode.png width=129px height=129px><div style=text-align:center>QQ扫一扫交流</div></div><div class=article-copyright-info><p><span>标题：</span>WebSocket与HTTP2对比</p><p><span>链接：</span>/post/ws-h2/</p><p><span>作者：</span>lizj3624</p><p><span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！</p></div></div><div class=clear></div></div><div class=reward-qr-info><div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div><button id=rewardButton disable=enable onclick='var qr=document.getElementById("QR");qr.style.display==="none"?qr.style.display="block":qr.style.display="none"'>
+<span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay"><p>微信打赏</p></div><div id=alipay style=display:inline-block><img id=alipay_qr src=/img/ali-pay.png alt=Alipay><p>支付宝打赏</p></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/2022-summary/ rel=next title=2022年总结><i class="fa fa-chevron-left"></i> 2022年总结</a></div><div class="post-nav-prev post-nav-item"><a href=/post/jingyitouzi02/ rel=prev title=静逸投资2022年度致投资人的信>静逸投资2022年度致投资人的信
+<i class="fa fa-chevron-right"></i></a></div></div><div id=wcomments></div></footer></article></section></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
 <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-</div>
-</div>
-<aside id=sidebar class=sidebar>
-<div class=sidebar-inner>
-<ul class="sidebar-nav motion-element">
-<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
-文章目录
-</li>
-<li class=sidebar-nav-overview data-target=site-overview>
-站点概览
-</li>
-</ul>
-<section class="site-overview sidebar-panel">
-<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
-<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
-<p class=site-author-name itemprop=name>lizj3624</p>
-<p class="site-description motion-element" itemprop=description>
-幸福和富有的过一生!
-</p>
-</div>
-<nav class="site-state motion-element">
-<div class="site-state-item site-state-posts">
-<a href=/post/>
-<span class=site-state-item-count>88</span>
-<span class=site-state-item-name>日志</span>
-</a>
-</div>
-<div class="site-state-item site-state-categories">
-<a href=/categories/>
-<span class=site-state-item-count>86</span>
-<span class=site-state-item-name>分类</span>
-</a>
-</div>
-<div class="site-state-item site-state-tags">
-<a href=/tags/>
-<span class=site-state-item-count>103</span>
-<span class=site-state-item-name>标签</span>
-</a>
-</div>
-</nav>
-<div class="links-of-author motion-element">
-<span class=links-of-author-item>
-<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
-<i class="fa fa-fw fa-github"></i>
-GitHub
-</a>
-</span>
-<span class=links-of-author-item>
-<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
-<i class="fa fa-fw fa-globe"></i>
-知乎
-</a>
-</span>
-</div>
-<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
-<div class=tagcloud-of-blogroll-title>
-<i class="fa fa-fw fa-tags"></i>
-标签云
-</div>
-<ul class=tagcloud-of-blogroll-list>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative
-<sup>13</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
-<sup>11</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes
-<sup>10</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx
-<sup>9</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix
-<sup>7</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E6%8A%95%E8%B5%84>投资
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux
-<sup>4</sup>
-</a>
-</li>
-</ul>
-</div>
-</section>
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-<div class=post-toc>
-<div class=post-toc-content><nav id=TableOfContents>
-<ul>
-<li><a href=#websocket>WebSocket</a>
-<ul>
-<li><a href=#握手过程>握手过程</a></li>
-<li><a href=#websocket通信格式>WebSocket通信格式</a></li>
-<li><a href=#nginx支持websocket的配置>Nginx支持WebSocket的配置</a></li>
-<li><a href=#使用场景>使用场景</a></li>
-</ul>
-</li>
-<li><a href=#http2>HTTP/2</a>
-<ul>
-<li><a href=#nginx支持http2>Nginx支持HTTP/2</a></li>
-</ul>
-</li>
-<li><a href=#对比>对比</a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href=#引用>引用</a></li>
-</ul>
-</nav></div>
-</div>
-</section>
-</div>
-</aside>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=footer-inner>
-<div class=copyright>
-<span class=copyright-year>
-&copy; 2010 - 2023
-</span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624><p class=site-author-name itemprop=name>lizj3624</p><p class="site-description motion-element" itemprop=description>幸福和富有的过一生!</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>90</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>88</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>105</span>
+<span class=site-state-item-name>标签</span></a></div></nav><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/lizj3624/ target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>
+GitHub</a></span>
+<span class=links-of-author-item><a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎><i class="fa fa-fw fa-globe"></i>
+知乎</a></span></div><div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline"><div class=tagcloud-of-blogroll-title><i class="fa fa-fw fa-tags"></i>
+标签云</div><ul class=tagcloud-of-blogroll-list><li class=tagcloud-of-blogroll-item><a href=/tags/cloudnative>Cloudnative
+<sup>13</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/kubernetes>Kubernetes
+<sup>10</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/nginx>Nginx
+<sup>9</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/apisix>Apisix
+<sup>7</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/video>Video
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E6%8A%95%E8%B5%84>投资
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/linux>Linux
+<sup>4</sup></a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#websocket>WebSocket</a><ul><li><a href=#握手过程>握手过程</a></li><li><a href=#websocket通信格式>WebSocket通信格式</a></li><li><a href=#nginx支持websocket的配置>Nginx支持WebSocket的配置</a></li><li><a href=#使用场景>使用场景</a></li></ul></li><li><a href=#http2>HTTP/2</a><ul><li><a href=#nginx支持http2>Nginx支持HTTP/2</a></li></ul></li><li><a href=#对比>对比</a><ul><li></li></ul></li><li><a href=#引用>引用</a></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2023</span>
 <span class=with-love><i class="fa fa-heart"></i></span>
-<span class=copyright-author>幸福和富有的过一生</span>
-</div>
-<div class=powered-info>
-<span class=powered-by>
-Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
-</span>
+<span class=copyright-author>幸福和富有的过一生</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.119.0</a></span>
 <span class=separator-line>/</span>
-<span class=theme-info>
-Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
-</a>
-</span>
-</div>
-<div class=vistor-info>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<span class=site-uv>
-<i class="fa fa-user"></i>
-<span class=busuanzi-value id=busuanzi_value_site_uv></span>
-</span>
+<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv><i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span></span>
 <span class=separator-line>/</span>
-<span class=site-pv>
-<i class="fa fa-eye"></i>
-<span class=busuanzi-value id=busuanzi_value_site_pv></span>
-</span>
-</div>
-<div class=license-info>
-<span class=storage-info>
-Storage by
-<a href style=font-weight:700 target=_blank></a>
-</span>
+<span class=site-pv><i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div><div class=license-info><span class=storage-info>Storage by
+<a href style=font-weight:700 target=_blank></a></span>
 <span class=separator-line>/</span>
-<span class=license-num>
-<a href target=_blank></a>
-</span>
-</div>
-</div>
-</footer>
-<div class=back-to-top>
-<i class="fa fa-arrow-up"></i>
-<span id=scrollpercent><span>0</span>%</span>
-</div>
-</div>
-<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
+<span class=license-num><a href target=_blank></a></span></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
-<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
-<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
-<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".footer").outerHeight(!0),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var e,t,n,s,o=$(".header-inner").height()+10;$("#sidebar").css({"margin-top":o}).show(),t=parseInt($("#sidebar").css("margin-top")),n=parseInt($(".sidebar-inner").css("height")),e=t+n,s=$(".content-wrap").height(),s<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
+<script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>const locale={placeholder:"欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^"};$(function(){detectIE()>0?$.getScript(document.location.protocol+"//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,emoji:[],wordLimit:"200",uploadImage:!1,locale,requiredMeta:["nick","mail"],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

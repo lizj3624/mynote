@@ -1,596 +1,74 @@
-<!doctype html><html lang=zh-cn dir=content/zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests">
-<title> 区块链技术快速入门 - 幸福和富有的过一生 </title>
-<meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链">
-<meta name=author content="lizj3624">
-<meta property="og:title" content="区块链技术快速入门">
-<meta property="og:site_name" content="幸福和富有的过一生">
-<meta property="og:image" content="/img/author.jpg">
-<meta name=title content="区块链技术快速入门 - 幸福和富有的过一生">
-<meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。">
-<link rel="shortcut icon" href=/img/favicon.ico>
-<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
-<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
-<link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet>
-<link href=/css/main.css rel=stylesheet type=text/css>
-<link href=/css/syntax.css rel=stylesheet type=text/css>
-</head>
-<body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
-<div class="container one-collumn sidebar-position-left page-home">
-<div class=headband></div>
-<header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
-<div class=header-inner> <div class=site-brand-container>
-<div class=site-nav-toggle>
-<div class=toggle role=button style=opacity:1;top:0>
+<!doctype html><html lang=zh-cn dir=zh><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=content-security-policy content="upgrade-insecure-requests"><title>区块链技术快速入门 - 幸福和富有的过一生</title><meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链"><meta name=author content="lizj3624"><meta property="og:title" content="区块链技术快速入门"><meta property="og:site_name" content="幸福和富有的过一生"><meta property="og:image" content="/img/author.jpg"><meta name=title content="区块链技术快速入门 - 幸福和富有的过一生"><meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
 <span class=toggle-line></span>
-<span class=toggle-line></span>
-<span class=toggle-line></span>
-</div>
-</div>
-<div class=site-meta>
-<div class=custom-logo-site-title>
-<a href=/ class=brand rel=start>
-<span class=logo-line-before><i></i></span>
+<span class=toggle-line></span></div></div><div class=site-meta><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span>
 <span class=site-title>幸福和富有的过一生</span>
-<span class=logo-line-after><i></i></span>
-</a>
-</div>
-<p class=site-subtitle>幸福和富有的过一生!</p>
-</div>
-<div class=site-nav-right>
-<div class="toggle popup-trigger" style=opacity:1;top:0>
-<i class="fa fa-search fa-fw fa-lg"></i>
-</div>
-</div>
-</div>
-<nav class=site-nav>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a href=/ rel=section>
-<i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页
-</a>
-</li>
-<li class="menu-item menu-item-active">
-<a href=/post rel=section>
-<i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档
-</a>
-</li>
-<li class=menu-item>
-<a href=/about.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我
-</a>
-</li>
-<li class=menu-item>
-<a href=/404.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益404
-</a>
-</li>
-<li class="menu-item menu-item-search">
-<a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> 搜索</a>
-</li>
-</ul>
-<div class=site-search>
-<div class="popup search-popup local-search-popup">
-<div class="local-search-header clearfix">
-<span class=search-icon><i class="fa fa-search"></i> </span>
-<span class=popup-btn-close><i class="fa fa-times-circle"></i></span>
-<div class=local-search-input-wrapper>
-<input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off>
-</div>
-</div>
-<div id=local-search-result></div>
-</div>
-</div>
-</nav> </div>
-</header>
-<main id=main class=main>
-<div class=main-inner>
-<div class=content-wrap>
-<div id=content class=content>
-<section id=posts class=posts-expand>
-<article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
-<header class=post-header>
-<h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=/post/learn-block-chain/ itemprop=url>
-区块链技术快速入门
-</a>
-</h1>
-<div class=post-meta>
-<span class=post-pushdate>
-<i class="fa fa-calendar-o fa-fw"></i>
+<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>幸福和富有的过一生!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-active"><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=/post/learn-block-chain/ itemprop=url>区块链技术快速入门</a></h1><div class=post-meta><span class=post-pushdate><i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-03-10">
-2022-03-10
-</time>
-</span>
-<span class=post-category>
-<i class="fa fa-folder-o fa-fw"></i>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-03-10">2022-03-10</time></span>
+<span class=post-category><i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/%E5%8C%BA%E5%9D%97%E9%93%BE itemprop=url rel=index>
-<span itemprop=name>区块链</span>
-</a>
-&nbsp;
-</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a class=post-category-a href=/categories/blockchain itemprop=url rel=index>
-<span itemprop=name>blockchain</span>
-</a>
-&nbsp;
-</span>
-</span>
-<span class=post-wordcount>
-<i class="fa fa-file-word-o fa-fw"></i>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/%E5%8C%BA%E5%9D%97%E9%93%BE itemprop=url rel=index><span itemprop=name>区块链</span></a>
+&nbsp;</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/blockchain itemprop=url rel=index><span itemprop=name>blockchain</span></a>
+&nbsp;</span></span>
+<span class=post-wordcount><i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>3088 字</span>
-</span>
-<span class=post-readtime>
-<i class="fa fa-eye fa-fw"></i>
+<span class=leancloud-world-count>3088 字</span></span>
+<span class=post-readtime><i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>7分钟</span>
-</span>
-<span id=/post/learn-block-chain/ class="leancloud_visitors post-visitor" data-flag-title=区块链技术快速入门>
-<i class="fa fa-binoculars fa-fw"></i>
+<span class=leancloud-view-count>7分钟</span></span>
+<span id=/post/learn-block-chain/ class="leancloud_visitors post-visitor" data-flag-title=区块链技术快速入门><i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
-<span class=leancloud-visitors-count></span>
-</span>
-</div>
-</header>
-<div class=post-body itemprop=articleBody>
-<blockquote>
-<p>知乎一网友写快速学习区块链技术的文章，从读书学习构建区块链技术体系，然后去实践，我感觉非常不错，再次收藏一下。
-对格式、文章结构、部分引用url略有改动，<a href="https://www.zhihu.com/question/51047975/answer/1077996076?utm_source=wechat_session&utm_medium=social&utm_oi=1164288090926637056&utm_content=group2_Answer&utm_campaign=shareopn" target=_blank rel=noopener>原文</a>
-</p>
-</blockquote>
-<p>2019年从互联网后端开发工程师转型为区块链工程师。一个月时间系统学习区块链技术，参与到链研发工作当中。下面来谈谈自己的学习心得，希望能够帮助到你。</p>
-<p>关于「如何高效的自学一项新技能」，我通常分为两步走：</p>
-<ol>
-<li>搜集高质量学习材料和工具。</li>
-<li>应用合适的学习方法。</li>
-</ol>
-<p>区块链经过18、19年的火热发展后，网络上大家都能轻易的找到各种各样的高质量学习资料。此外，本问题的大部分答案都是围绕「学习什么」，因此，下文我将重点介绍「如何学习」的方法论。</p>
-<h2 id=一泛读通读建立框架不求甚解><strong>一、泛读通读，建立框架，「不求甚解」</strong></h2>
-<p>尽管区块链和其他的计算机技术没有本质上的区别，但有一个很重要的差异是，区块链技术涉及的技术面非常广。事实上，当我们把<a href="https://www.zhihu.com/search?q=%E4%B8%AD%E6%9C%AC%E8%81%AA&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1077996076%7D" target=_blank rel=noopener>中本聪</a>
-的区块链技术拆解后可发现，区块链技术是由20世纪提出的一些老技术和知识的组合而成的，换句话说，区块链的创新在于老技术的组合创新，正正体现了区块链技术的系统之美。也正是如此，区块链技术涉及知识面非常广，其中包括：分布式系统、<a href="https://www.zhihu.com/search?q=%E6%8B%9C%E5%8D%A0%E5%BA%AD%E9%97%AE%E9%A2%98&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1077996076%7D" target=_blank rel=noopener>拜占庭问题</a>
-、密码学、数据结构、P2P网络等技术，以及博弈论、经济学等思想。</p>
-<p>如果你一开始就针对某一方面孤立学习，不但无法系统化的学习，并且容易迷失在繁多复杂的新概念当中。因此，我建议的方法：<strong>以泛读通读的方式，先建立知识框架，对区块链有个大致的认识</strong>。</p>
-<p>区块链是伴随比特币而产生的，因此要搞明白区块链，首先需要了解比特币：</p>
-<ul>
-<li>普林斯顿大学课程 <a href=https://www.coursera.org/learn/cryptocurrency target=_blank rel=noopener>Bitcoin and Cryptocurrency Technologies</a>
-</li>
-<li><a href=https://github.com/lizj3624/MasterBitcoin2CN/blob/master/SUMMARY.md target=_blank rel=noopener>《精通比特币》</a>
-</li>
-<li><a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html target=_blank rel=noopener>比特币白皮书</a>
-</li>
-</ul>
-<p>除此之外，对区块链技术的演变也要有一定的了解。作为区块链2.0的代表的以太坊是同样值得学习：</p>
-<ul>
-<li><a href=https://github.com/lizj3624/mynote/blob/master/blockchain/ETH/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6-zh.md target=_blank rel=noopener>以太坊白皮书</a>
-</li>
-<li><a href=https://learnblockchain.cn/2017/11/20/whatiseth/ target=_blank rel=noopener>以太坊开发入门指南</a>
-</li>
-<li><a href=https://github.com/lizj3624/ethereum_book target=_blank rel=noopener>精通以太坊（中文版）</a>
-</li>
-<li><a href=https://github.com/yeasy/blockchain_guide/blob/master/SUMMARY.md target=_blank rel=noopener>《区块链技术指南》</a>
-</li>
-</ul>
-<p>记住！你不需要一字一句全部读完，遇到不懂的概念和知识点记录下来和忽略。在这个过程中，配合搜索引擎，你需要不断的去思考和回答以下几个问题：</p>
-<ul>
-<li>区块链、比特币和以太坊是什么？它们的工作原理大概是如何的？比特币和以太坊的区别？</li>
-<li>它们具备什么性质？包含哪些关键的技术点？</li>
-<li>区块链的发明目的是解决什么问题？除此以外，还能解决什么问题？</li>
-<li>区块链具备什么优缺点？</li>
-</ul>
-<p>完成这一步后，你已经对区块链和比特币有一个相对宏观、整体的认识，并初步建立了一个属于你自己的知识框架，此框架在后面的学习中会起到重要的作用。
-也许你会觉得你建立的框架并不正确和完整，但不要紧，随着你的认识加深，不断的修正和完善框架。学习本身就是一个螺旋式上升的过程。</p>
-<h2 id=二从外到内逐一突破>二、从外到内，逐一突破</h2>
-<p>建立知识框架之后，下一步你需要做的就是丰富和完善它。对于第一步中遗留的那些「似懂非懂」的概念和知识点，便可以在这个环节中逐一突破。</p>
-<p>简单来说，你要做的便是：<strong>主动学习——快速定位你存在疑惑的概念和知识点，用一切办法来攻克它。</strong></p>
-<p>在这个阶段中， 除了回顾上面推荐的材料以外， 你需要广泛的搜索，不局限任何的形式。高质量的搜索结果依赖于准确的问题定义，
-因此在查询过程中也逐渐帮助定义清楚你的疑惑。此外推荐两个关于区块链技术的中文社区：</p>
-<ul>
-<li><a href=https://learnblockchain.cn/ target=_blank rel=noopener>深入浅出区块链</a>
-</li>
-<li><a href=http://btc.mom/ target=_blank rel=noopener>比特币布道者</a>
-</li>
-</ul>
-<p>当你在攻克某一个知识点和概念的过程中，你一定会遇到其他新的知识点，此时你便可以顺藤摸瓜，把相关的知识一并学习吸收。
-值得注意的是，在这个过程中需要把握好知识扩展的度，避免过度分散注意力，重点还是关注原来的疑惑本身，以目标为导向。至于如何把握，我的建议是：</p>
-<ul>
-<li>判断新遇到的概念是否直接影响到你理解原来的概念？若是，务必一切办法攻克它；</li>
-<li>新概念在整个框架（知识体系）中是否占有很重要的地位？还是说只是某个知识点延伸出来的小分支？
-比如：在你了解P2P网络时遇到新概念分布式哈希表（DHT），此概念只不过是P2P网络中用于定位特定节点或数据的一个技术手段，显然可暂时不需要深入了解；</li>
-<li>要理解新知识点的要求是否远超过当前的知识储备？若是，你也可以暂且先放一放，如：<a href=https://cnodejs.org/topic/5aeecba802591040485bab2a target=_blank rel=noopener>EVM原理</a>
-。</li>
-</ul>
-<p>重点关注的范围还是围绕区块链的工作原理相关的概念为主，如：1）如何处理交易和记账；2）如何产生区块及达成共识；如何验证和储存状态等过程中的重要概念。此外，不必过分追求技术的实现细节。</p>
-<p>而关于如何判断是否真正理解透彻，我建议使用「<a href=https://zhuanlan.zhihu.com/p/152547764 target=_blank rel=noopener>费曼方法</a>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-body itemprop=articleBody><blockquote><p>知乎一网友写快速学习区块链技术的文章，从读书学习构建区块链技术体系，然后去实践，我感觉非常不错，再次收藏一下。
+对格式、文章结构、部分引用url略有改动，<a href="https://www.zhihu.com/question/51047975/answer/1077996076?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=1164288090926637056&amp;utm_content=group2_Answer&amp;utm_campaign=shareopn" target=_blank rel=noopener>原文</a></p></blockquote><p>2019年从互联网后端开发工程师转型为区块链工程师。一个月时间系统学习区块链技术，参与到链研发工作当中。下面来谈谈自己的学习心得，希望能够帮助到你。</p><p>关于「如何高效的自学一项新技能」，我通常分为两步走：</p><ol><li>搜集高质量学习材料和工具。</li><li>应用合适的学习方法。</li></ol><p>区块链经过18、19年的火热发展后，网络上大家都能轻易的找到各种各样的高质量学习资料。此外，本问题的大部分答案都是围绕「学习什么」，因此，下文我将重点介绍「如何学习」的方法论。</p><h2 id=一泛读通读建立框架不求甚解><strong>一、泛读通读，建立框架，「不求甚解」</strong></h2><p>尽管区块链和其他的计算机技术没有本质上的区别，但有一个很重要的差异是，区块链技术涉及的技术面非常广。事实上，当我们把<a href="https://www.zhihu.com/search?q=%E4%B8%AD%E6%9C%AC%E8%81%AA&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1077996076%7D" target=_blank rel=noopener>中本聪</a>
+的区块链技术拆解后可发现，区块链技术是由20世纪提出的一些老技术和知识的组合而成的，换句话说，区块链的创新在于老技术的组合创新，正正体现了区块链技术的系统之美。也正是如此，区块链技术涉及知识面非常广，其中包括：分布式系统、<a href="https://www.zhihu.com/search?q=%E6%8B%9C%E5%8D%A0%E5%BA%AD%E9%97%AE%E9%A2%98&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1077996076%7D" target=_blank rel=noopener>拜占庭问题</a>
+、密码学、数据结构、P2P网络等技术，以及博弈论、经济学等思想。</p><p>如果你一开始就针对某一方面孤立学习，不但无法系统化的学习，并且容易迷失在繁多复杂的新概念当中。因此，我建议的方法：<strong>以泛读通读的方式，先建立知识框架，对区块链有个大致的认识</strong>。</p><p>区块链是伴随比特币而产生的，因此要搞明白区块链，首先需要了解比特币：</p><ul><li>普林斯顿大学课程 <a href=https://www.coursera.org/learn/cryptocurrency target=_blank rel=noopener>Bitcoin and Cryptocurrency Technologies</a></li><li><a href=https://github.com/lizj3624/MasterBitcoin2CN/blob/master/SUMMARY.md target=_blank rel=noopener>《精通比特币》</a></li><li><a href=http://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html target=_blank rel=noopener>比特币白皮书</a></li></ul><p>除此之外，对区块链技术的演变也要有一定的了解。作为区块链2.0的代表的以太坊是同样值得学习：</p><ul><li><a href=https://github.com/lizj3624/mynote/blob/master/blockchain/ETH/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6-zh.md target=_blank rel=noopener>以太坊白皮书</a></li><li><a href=https://learnblockchain.cn/2017/11/20/whatiseth/ target=_blank rel=noopener>以太坊开发入门指南</a></li><li><a href=https://github.com/lizj3624/ethereum_book target=_blank rel=noopener>精通以太坊（中文版）</a></li><li><a href=https://github.com/yeasy/blockchain_guide/blob/master/SUMMARY.md target=_blank rel=noopener>《区块链技术指南》</a></li></ul><p>记住！你不需要一字一句全部读完，遇到不懂的概念和知识点记录下来和忽略。在这个过程中，配合搜索引擎，你需要不断的去思考和回答以下几个问题：</p><ul><li>区块链、比特币和以太坊是什么？它们的工作原理大概是如何的？比特币和以太坊的区别？</li><li>它们具备什么性质？包含哪些关键的技术点？</li><li>区块链的发明目的是解决什么问题？除此以外，还能解决什么问题？</li><li>区块链具备什么优缺点？</li></ul><p>完成这一步后，你已经对区块链和比特币有一个相对宏观、整体的认识，并初步建立了一个属于你自己的知识框架，此框架在后面的学习中会起到重要的作用。
+也许你会觉得你建立的框架并不正确和完整，但不要紧，随着你的认识加深，不断的修正和完善框架。学习本身就是一个螺旋式上升的过程。</p><h2 id=二从外到内逐一突破>二、从外到内，逐一突破</h2><p>建立知识框架之后，下一步你需要做的就是丰富和完善它。对于第一步中遗留的那些「似懂非懂」的概念和知识点，便可以在这个环节中逐一突破。</p><p>简单来说，你要做的便是：<strong>主动学习——快速定位你存在疑惑的概念和知识点，用一切办法来攻克它。</strong></p><p>在这个阶段中， 除了回顾上面推荐的材料以外， 你需要广泛的搜索，不局限任何的形式。高质量的搜索结果依赖于准确的问题定义，
+因此在查询过程中也逐渐帮助定义清楚你的疑惑。此外推荐两个关于区块链技术的中文社区：</p><ul><li><a href=https://learnblockchain.cn/ target=_blank rel=noopener>深入浅出区块链</a></li><li><a href=http://btc.mom/ target=_blank rel=noopener>比特币布道者</a></li></ul><p>当你在攻克某一个知识点和概念的过程中，你一定会遇到其他新的知识点，此时你便可以顺藤摸瓜，把相关的知识一并学习吸收。
+值得注意的是，在这个过程中需要把握好知识扩展的度，避免过度分散注意力，重点还是关注原来的疑惑本身，以目标为导向。至于如何把握，我的建议是：</p><ul><li>判断新遇到的概念是否直接影响到你理解原来的概念？若是，务必一切办法攻克它；</li><li>新概念在整个框架（知识体系）中是否占有很重要的地位？还是说只是某个知识点延伸出来的小分支？
+比如：在你了解P2P网络时遇到新概念分布式哈希表（DHT），此概念只不过是P2P网络中用于定位特定节点或数据的一个技术手段，显然可暂时不需要深入了解；</li><li>要理解新知识点的要求是否远超过当前的知识储备？若是，你也可以暂且先放一放，如：<a href=https://cnodejs.org/topic/5aeecba802591040485bab2a target=_blank rel=noopener>EVM原理</a>
+。</li></ul><p>重点关注的范围还是围绕区块链的工作原理相关的概念为主，如：1）如何处理交易和记账；2）如何产生区块及达成共识；如何验证和储存状态等过程中的重要概念。此外，不必过分追求技术的实现细节。</p><p>而关于如何判断是否真正理解透彻，我建议使用「<a href=https://zhuanlan.zhihu.com/p/152547764 target=_blank rel=noopener>费曼方法</a>
 ，
-尝试用自己的方式，用通熟易懂的语言描述清楚。当解决完成相关的概念后，把它们重新放在框架里，不断修正和完善框架。</p>
-<p>完成这一步后，我相信你已经对区块链及两个应用的大部分重要概念都理解通透了，基本概念如：</p>
-<ul>
-<li>去中心化</li>
-<li><a href=https://yeasy.gitbook.io/blockchain_guide/06_bitcoin/consensus target=_blank rel=noopener>共识机制</a>
-</li>
-<li>工作量证明PoW、PoS</li>
-<li>非对称加密</li>
-<li>硬（软）分叉</li>
-<li>双花</li>
-<li>智能合约</li>
-<li>Merkle Tree(默克尔树)</li>
-<li>51%攻击</li>
-</ul>
-<h2 id=三从点到面构建知识网络>三、从点到面，构建知识网络</h2>
-<p>进入第三部以后，你的区块链技术算是入门了。基于你所建立的框架，你已经有能力去理解之前晦涩难懂的概念。接下来，你便可以进一步扩大区块链技术的广度和深度，如：</p>
-<ul>
-<li>其他的区块链项目，如：Filecoin、Fabric、EOS等</li>
-<li>不同类型的共识算法</li>
-<li>零知识证明</li>
-<li>区块链的可扩展性方案</li>
-<li>智能合约的编写</li>
-<li>……</li>
-</ul>
-<p>当你学习上述新的知识的过程中，你需要刻意的去思考和构建知识间的「<strong>联系</strong>」——此知识和别的知识有什么关系？是如何关联一起的？</p>
-<blockquote>
-<p><strong>知识的本质永远不是信息本身，而是信息之间的联系。正是这种联系，涌现出了超越单个信息点总和的「系统性」。</strong></p>
-</blockquote>
-<p><strong>而区块链技术的创新本身也恰恰是「系统性」。</strong> 在这个过程中，我主要的使用如下的系统性方法</p>
-<h3 id=对比>对比</h3>
-<p>将解决同一个问题的不同技术手段归纳整理在一起，多维度进行对比，找出共性和异性。比如：PoW与PoS之间的区别？</p>
-<p><img src=./bc-01.jpg alt=01></p>
-<blockquote>
-<p>PoW vs PoS</p>
-</blockquote>
-<h3 id=分类>分类</h3>
-<p>目前解决区块链的可行性方案有哪些潜在的研发方向？具体有哪些技术手段？</p>
-<p><img src=./bc-02.jpg alt=02></p>
-<blockquote>
-<p>区块链技术可扩展方案</p>
-</blockquote>
-<h3 id=提炼>提炼</h3>
-<p>尝试用最精炼的语言貌似一类相关的知识点，比如比特币的核心原理：</p>
-<blockquote>
-<ol>
-<li>中本聪使用非对称加密解决电子货币的所有权问题；</li>
-<li>用区块时间戳解决交易的存在性问题；</li>
-<li>用分布式账本解决剔除第三方机构后交易的验证问题；</li>
-<li>用工作量证明和最长链约定来保证节点状态的一致性，已解决「双花」问题。</li>
-</ol>
-</blockquote>
-<h3 id=架构>架构</h3>
-<p>尝试对系统中的关键模块和模块间的关系进行抽象，并绘制成架构图，如：区块链的分层架构。</p>
-<p><img src=./bc-03.jpg alt=03></p>
-<blockquote>
-<p>区块链分层架构</p>
-</blockquote>
-<h3 id=流程>流程</h3>
-<p>也可以将根据信息流将不同的知识点串联在一起，绘制成流程图。如：以太坊交易打包流程。</p>
-<p><img src=./bc-04.jpg alt=04></p>
-<blockquote>
-<p>以太坊交易打包流程，来源：CSDN</p>
-</blockquote>
-<p>总之，你需要想尽一些的办法，将知识点关联在一起，逐渐结构化、系统化。</p>
-<h2 id=四实践是检验真理的唯一标准><strong>四、实践是检验真理的唯一标准</strong></h2>
-<p>到这一步后，你掌握的区块链技术的知识体系逐步成型，接下来需要做的便是将技术落地到应用中。</p>
-<p>首先，尝试在本地搭建比特币、以太坊的测试网络，和做不同类型的交易交易。对于以太坊，你还可以部署和调用智能合约等等。</p>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//ethfans.org/posts/ethereum-private-network-bootstrap" target=_blank rel=noopener>以太坊本地私有链开发环境搭建</a>
-</li>
-</ul>
-<p>开始编写更加复杂的Dapp应用：</p>
-<ul>
-<li><a href="https://link.zhihu.com/?target=http%3A//www.tryblockchain.org/" target=_blank rel=noopener>Solidity语言文档</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=http%3A//web3.tryblockchain.org/" target=_blank rel=noopener>Web3.JS接口文档</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=http%3A//truffle.tryblockchain.org/" target=_blank rel=noopener>Truffle框架文档</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=http%3A//zeppelin.tryblockchain.org/" target=_blank rel=noopener>Open Zeppelin框架文档</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=https%3A//consensys.github.io/smart-contract-best-practices/" target=_blank rel=noopener>Ethereum Smart Contract Security Best Practices</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=https%3A//github.com/maheshmurthy/ethereum_voting_dapp" target=_blank rel=noopener>Ethereum Voting Dapp</a>
-</li>
-<li><a href="https://link.zhihu.com/?target=https%3A//github.com/leopoldjoy/react-ethereum-dapp-example" target=_blank rel=noopener>React Ethereum Dapp Example</a>
-</li>
-</ul>
-<p>在此环节，你的主要目标是熟悉并掌握开发Dapp的相关技能和工具。</p>
-<h2 id=五code-as-documentation>五、Code As Documentation</h2>
-<p>最后一步，选择一个你感兴趣的项目，阅读它的源码，了解底层技术的实现原理，将理论与实践进一步融会贯通。
-关于项目的选择，我个人建议是以太坊，至今为止，以太坊的应用面还是最广的，受到各大互联网公司的青睐。</p>
-<p><img src=./bc-05.jpg alt=05></p>
-<p>至于如何阅读和学习以太坊的源码，个人建议结合以太坊的黄皮书对比阅读学习。可参考：</p>
-<ul>
-<li><a href=https://github.com/wanshan1024/ethereum_yellowpaper/blob/master/ethereum_yellow_paper_cn.pdf target=_blank rel=noopener>以太坊黄皮书-中文版</a>
-</li>
-<li><a href=https://mindcarver.cn/ target=_blank rel=noopener>以太坊代码剖析</a>
-</li>
-<li><a href=https://github.com/lizj3624/mynote/tree/master/blockchain/ETH target=_blank rel=noopener>解读以太坊黄皮书</a>
-</li>
-<li><a href=https://www.jianshu.com/u/78a086870bbe target=_blank rel=noopener>以太坊源代码分析</a>
-</li>
-<li><a href=https://github.com/ZtesoftCS/go-ethereum-code-analysis target=_blank rel=noopener>Go Ethereum Code Analysis</a>
-</li>
-</ul>
-<h2 id=七最后的最后>七、最后的最后</h2>
-<p>区块链行业真处于高速发展的时候，作为区块链从业人员，不仅仅要掌握技术，还需要时刻掌握行业动态，挖掘其他有价值的项目，把握认知变现的机会。</p>
-<ul>
-<li><a href=https://book.douban.com/subject/26871829/ target=_blank rel=noopener>《区块链革命》</a>
-</li>
-<li><a href=https://book.douban.com/subject/2155342/ target=_blank rel=noopener>《货币的非国家化》</a>
-</li>
-</ul>
-<p>希望以上答案可以对你有所帮助！</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/%e5%8c%ba%e5%9d%97%e9%93%be rel=tag title=区块链>#区块链#</a>
-<a href=/tags/blockchain rel=tag title=blockchain>#blockchain#</a>
-</div>
-<div class=addthis_inline_share_toolbox></div>
-<div class=post-nav>
-<div class=article-copyright>
-<div class=article-copyright-img>
-<img src=/img/qq_qrcode.png width=129px height=129px>
-<div style=text-align:center>QQ扫一扫交流</div>
-</div>
-<div class=article-copyright-info>
-<p>
-<span>标题：</span>区块链技术快速入门
-</p>
-<p>
-<span>链接：</span>/post/learn-block-chain/
-</p>
-<p>
-<span>作者：</span>lizj3624
-</p>
-<p>
-<span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！
-</p>
-</div>
-</div>
-<div class=clear></div>
-</div>
-<div class=reward-qr-info>
-<div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div>
-<button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
-<span>赏</span>
-</button>
-<div id=QR style=display:none>
-<div id=wechat style=display:inline-block>
-<img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay">
-<p>微信打赏</p>
-</div>
-<div id=alipay style=display:inline-block>
-<img id=alipay_qr src=/img/ali-pay.png alt=Alipay>
-<p>支付宝打赏</p>
-</div>
-</div>
-</div>
-<div class=post-nav>
-<div class="post-nav-next post-nav-item">
-<a href=/post/apisix-quick-start/ rel=next title=APISIX快速入门>
-<i class="fa fa-chevron-left"></i> APISIX快速入门
-</a>
-</div>
-<div class="post-nav-prev post-nav-item">
-<a href=/post/grab-2021/ rel=prev title="Grab 2021Q4以及全年财报">
-Grab 2021Q4以及全年财报
-<i class="fa fa-chevron-right"></i>
-</a>
-</div>
-</div>
-<div id=wcomments></div>
-</footer>
-</article>
-</section>
-</div>
-</div>
-<div class=sidebar-toggle>
-<div class=sidebar-toggle-line-wrap>
-<span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+尝试用自己的方式，用通熟易懂的语言描述清楚。当解决完成相关的概念后，把它们重新放在框架里，不断修正和完善框架。</p><p>完成这一步后，我相信你已经对区块链及两个应用的大部分重要概念都理解通透了，基本概念如：</p><ul><li>去中心化</li><li><a href=https://yeasy.gitbook.io/blockchain_guide/06_bitcoin/consensus target=_blank rel=noopener>共识机制</a></li><li>工作量证明PoW、PoS</li><li>非对称加密</li><li>硬（软）分叉</li><li>双花</li><li>智能合约</li><li>Merkle Tree(默克尔树)</li><li>51%攻击</li></ul><h2 id=三从点到面构建知识网络>三、从点到面，构建知识网络</h2><p>进入第三部以后，你的区块链技术算是入门了。基于你所建立的框架，你已经有能力去理解之前晦涩难懂的概念。接下来，你便可以进一步扩大区块链技术的广度和深度，如：</p><ul><li>其他的区块链项目，如：Filecoin、Fabric、EOS等</li><li>不同类型的共识算法</li><li>零知识证明</li><li>区块链的可扩展性方案</li><li>智能合约的编写</li><li>……</li></ul><p>当你学习上述新的知识的过程中，你需要刻意的去思考和构建知识间的「<strong>联系</strong>」——此知识和别的知识有什么关系？是如何关联一起的？</p><blockquote><p><strong>知识的本质永远不是信息本身，而是信息之间的联系。正是这种联系，涌现出了超越单个信息点总和的「系统性」。</strong></p></blockquote><p><strong>而区块链技术的创新本身也恰恰是「系统性」。</strong> 在这个过程中，我主要的使用如下的系统性方法</p><h3 id=对比>对比</h3><p>将解决同一个问题的不同技术手段归纳整理在一起，多维度进行对比，找出共性和异性。比如：PoW与PoS之间的区别？</p><p><img src=./bc-01.jpg alt=01></p><blockquote><p>PoW vs PoS</p></blockquote><h3 id=分类>分类</h3><p>目前解决区块链的可行性方案有哪些潜在的研发方向？具体有哪些技术手段？</p><p><img src=./bc-02.jpg alt=02></p><blockquote><p>区块链技术可扩展方案</p></blockquote><h3 id=提炼>提炼</h3><p>尝试用最精炼的语言貌似一类相关的知识点，比如比特币的核心原理：</p><blockquote><ol><li>中本聪使用非对称加密解决电子货币的所有权问题；</li><li>用区块时间戳解决交易的存在性问题；</li><li>用分布式账本解决剔除第三方机构后交易的验证问题；</li><li>用工作量证明和最长链约定来保证节点状态的一致性，已解决「双花」问题。</li></ol></blockquote><h3 id=架构>架构</h3><p>尝试对系统中的关键模块和模块间的关系进行抽象，并绘制成架构图，如：区块链的分层架构。</p><p><img src=./bc-03.jpg alt=03></p><blockquote><p>区块链分层架构</p></blockquote><h3 id=流程>流程</h3><p>也可以将根据信息流将不同的知识点串联在一起，绘制成流程图。如：以太坊交易打包流程。</p><p><img src=./bc-04.jpg alt=04></p><blockquote><p>以太坊交易打包流程，来源：CSDN</p></blockquote><p>总之，你需要想尽一些的办法，将知识点关联在一起，逐渐结构化、系统化。</p><h2 id=四实践是检验真理的唯一标准><strong>四、实践是检验真理的唯一标准</strong></h2><p>到这一步后，你掌握的区块链技术的知识体系逐步成型，接下来需要做的便是将技术落地到应用中。</p><p>首先，尝试在本地搭建比特币、以太坊的测试网络，和做不同类型的交易交易。对于以太坊，你还可以部署和调用智能合约等等。</p><ul><li><a href="https://link.zhihu.com/?target=https%3A//ethfans.org/posts/ethereum-private-network-bootstrap" target=_blank rel=noopener>以太坊本地私有链开发环境搭建</a></li></ul><p>开始编写更加复杂的Dapp应用：</p><ul><li><a href="https://link.zhihu.com/?target=http%3A//www.tryblockchain.org/" target=_blank rel=noopener>Solidity语言文档</a></li><li><a href="https://link.zhihu.com/?target=http%3A//web3.tryblockchain.org/" target=_blank rel=noopener>Web3.JS接口文档</a></li><li><a href="https://link.zhihu.com/?target=http%3A//truffle.tryblockchain.org/" target=_blank rel=noopener>Truffle框架文档</a></li><li><a href="https://link.zhihu.com/?target=http%3A//zeppelin.tryblockchain.org/" target=_blank rel=noopener>Open Zeppelin框架文档</a></li><li><a href="https://link.zhihu.com/?target=https%3A//consensys.github.io/smart-contract-best-practices/" target=_blank rel=noopener>Ethereum Smart Contract Security Best Practices</a></li><li><a href="https://link.zhihu.com/?target=https%3A//github.com/maheshmurthy/ethereum_voting_dapp" target=_blank rel=noopener>Ethereum Voting Dapp</a></li><li><a href="https://link.zhihu.com/?target=https%3A//github.com/leopoldjoy/react-ethereum-dapp-example" target=_blank rel=noopener>React Ethereum Dapp Example</a></li></ul><p>在此环节，你的主要目标是熟悉并掌握开发Dapp的相关技能和工具。</p><h2 id=五code-as-documentation>五、Code As Documentation</h2><p>最后一步，选择一个你感兴趣的项目，阅读它的源码，了解底层技术的实现原理，将理论与实践进一步融会贯通。
+关于项目的选择，我个人建议是以太坊，至今为止，以太坊的应用面还是最广的，受到各大互联网公司的青睐。</p><p><img src=./bc-05.jpg alt=05></p><p>至于如何阅读和学习以太坊的源码，个人建议结合以太坊的黄皮书对比阅读学习。可参考：</p><ul><li><a href=https://github.com/wanshan1024/ethereum_yellowpaper/blob/master/ethereum_yellow_paper_cn.pdf target=_blank rel=noopener>以太坊黄皮书-中文版</a></li><li><a href=https://mindcarver.cn/ target=_blank rel=noopener>以太坊代码剖析</a></li><li><a href=https://github.com/lizj3624/mynote/tree/master/blockchain/ETH target=_blank rel=noopener>解读以太坊黄皮书</a></li><li><a href=https://www.jianshu.com/u/78a086870bbe target=_blank rel=noopener>以太坊源代码分析</a></li><li><a href=https://github.com/ZtesoftCS/go-ethereum-code-analysis target=_blank rel=noopener>Go Ethereum Code Analysis</a></li></ul><h2 id=七最后的最后>七、最后的最后</h2><p>区块链行业真处于高速发展的时候，作为区块链从业人员，不仅仅要掌握技术，还需要时刻掌握行业动态，挖掘其他有价值的项目，把握认知变现的机会。</p><ul><li><a href=https://book.douban.com/subject/26871829/ target=_blank rel=noopener>《区块链革命》</a></li><li><a href=https://book.douban.com/subject/2155342/ target=_blank rel=noopener>《货币的非国家化》</a></li></ul><p>希望以上答案可以对你有所帮助！</p></div><footer class=post-footer><div class=post-tags><a href=/tags/%e5%8c%ba%e5%9d%97%e9%93%be rel=tag title=区块链>#区块链#</a>
+<a href=/tags/blockchain rel=tag title=blockchain>#blockchain#</a></div><div class=addthis_inline_share_toolbox></div><div class=post-nav><div class=article-copyright><div class=article-copyright-img><img src=/img/qq_qrcode.png width=129px height=129px><div style=text-align:center>QQ扫一扫交流</div></div><div class=article-copyright-info><p><span>标题：</span>区块链技术快速入门</p><p><span>链接：</span>/post/learn-block-chain/</p><p><span>作者：</span>lizj3624</p><p><span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！</p></div></div><div class=clear></div></div><div class=reward-qr-info><div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div><button id=rewardButton disable=enable onclick='var qr=document.getElementById("QR");qr.style.display==="none"?qr.style.display="block":qr.style.display="none"'>
+<span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay"><p>微信打赏</p></div><div id=alipay style=display:inline-block><img id=alipay_qr src=/img/ali-pay.png alt=Alipay><p>支付宝打赏</p></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/apisix-quick-start/ rel=next title=APISIX快速入门><i class="fa fa-chevron-left"></i> APISIX快速入门</a></div><div class="post-nav-prev post-nav-item"><a href=/post/grab-2021/ rel=prev title="Grab 2021Q4以及全年财报">Grab 2021Q4以及全年财报
+<i class="fa fa-chevron-right"></i></a></div></div><div id=wcomments></div></footer></article></section></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
 <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-<span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-</div>
-</div>
-<aside id=sidebar class=sidebar>
-<div class=sidebar-inner>
-<ul class="sidebar-nav motion-element">
-<li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>
-文章目录
-</li>
-<li class=sidebar-nav-overview data-target=site-overview>
-站点概览
-</li>
-</ul>
-<section class="site-overview sidebar-panel">
-<div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person>
-<img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624>
-<p class=site-author-name itemprop=name>lizj3624</p>
-<p class="site-description motion-element" itemprop=description>
-幸福和富有的过一生!
-</p>
-</div>
-<nav class="site-state motion-element">
-<div class="site-state-item site-state-posts">
-<a href=/post/>
-<span class=site-state-item-count>88</span>
-<span class=site-state-item-name>日志</span>
-</a>
-</div>
-<div class="site-state-item site-state-categories">
-<a href=/categories/>
-<span class=site-state-item-count>86</span>
-<span class=site-state-item-name>分类</span>
-</a>
-</div>
-<div class="site-state-item site-state-tags">
-<a href=/tags/>
-<span class=site-state-item-count>103</span>
-<span class=site-state-item-name>标签</span>
-</a>
-</div>
-</nav>
-<div class="links-of-author motion-element">
-<span class=links-of-author-item>
-<a href=https://github.com/lizj3624/ target=_blank title=GitHub>
-<i class="fa fa-fw fa-github"></i>
-GitHub
-</a>
-</span>
-<span class=links-of-author-item>
-<a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎>
-<i class="fa fa-fw fa-globe"></i>
-知乎
-</a>
-</span>
-</div>
-<div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline">
-<div class=tagcloud-of-blogroll-title>
-<i class="fa fa-fw fa-tags"></i>
-标签云
-</div>
-<ul class=tagcloud-of-blogroll-list>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/cloudnative>Cloudnative
-<sup>13</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E8%B4%A2%E6%8A%A5>财报
-<sup>11</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/kubernetes>Kubernetes
-<sup>10</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/nginx>Nginx
-<sup>9</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/apisix>Apisix
-<sup>7</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/video>Video
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E6%8A%95%E8%B5%84>投资
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/%E7%BE%8E%E8%82%A1>美股
-<sup>5</sup>
-</a>
-</li>
-<li class=tagcloud-of-blogroll-item>
-<a href=/tags/linux>Linux
-<sup>4</sup>
-</a>
-</li>
-</ul>
-</div>
-</section>
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-<div class=post-toc>
-<div class=post-toc-content><nav id=TableOfContents>
-<ul>
-<li><a href=#一泛读通读建立框架不求甚解><strong>一、泛读通读，建立框架，「不求甚解」</strong></a></li>
-<li><a href=#二从外到内逐一突破>二、从外到内，逐一突破</a></li>
-<li><a href=#三从点到面构建知识网络>三、从点到面，构建知识网络</a>
-<ul>
-<li><a href=#对比>对比</a></li>
-<li><a href=#分类>分类</a></li>
-<li><a href=#提炼>提炼</a></li>
-<li><a href=#架构>架构</a></li>
-<li><a href=#流程>流程</a></li>
-</ul>
-</li>
-<li><a href=#四实践是检验真理的唯一标准><strong>四、实践是检验真理的唯一标准</strong></a></li>
-<li><a href=#五code-as-documentation>五、Code As Documentation</a></li>
-<li><a href=#七最后的最后>七、最后的最后</a></li>
-</ul>
-</nav></div>
-</div>
-</section>
-</div>
-</aside>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=footer-inner>
-<div class=copyright>
-<span class=copyright-year>
-&copy; 2010 - 2023
-</span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624><p class=site-author-name itemprop=name>lizj3624</p><p class="site-description motion-element" itemprop=description>幸福和富有的过一生!</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>90</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>88</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>105</span>
+<span class=site-state-item-name>标签</span></a></div></nav><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/lizj3624/ target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>
+GitHub</a></span>
+<span class=links-of-author-item><a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎><i class="fa fa-fw fa-globe"></i>
+知乎</a></span></div><div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline"><div class=tagcloud-of-blogroll-title><i class="fa fa-fw fa-tags"></i>
+标签云</div><ul class=tagcloud-of-blogroll-list><li class=tagcloud-of-blogroll-item><a href=/tags/cloudnative>Cloudnative
+<sup>13</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E8%B4%A2%E6%8A%A5>财报
+<sup>11</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/kubernetes>Kubernetes
+<sup>10</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/nginx>Nginx
+<sup>9</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/apisix>Apisix
+<sup>7</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/video>Video
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E6%8A%95%E8%B5%84>投资
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E7%BE%8E%E8%82%A1>美股
+<sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/linux>Linux
+<sup>4</sup></a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#一泛读通读建立框架不求甚解><strong>一、泛读通读，建立框架，「不求甚解」</strong></a></li><li><a href=#二从外到内逐一突破>二、从外到内，逐一突破</a></li><li><a href=#三从点到面构建知识网络>三、从点到面，构建知识网络</a><ul><li><a href=#对比>对比</a></li><li><a href=#分类>分类</a></li><li><a href=#提炼>提炼</a></li><li><a href=#架构>架构</a></li><li><a href=#流程>流程</a></li></ul></li><li><a href=#四实践是检验真理的唯一标准><strong>四、实践是检验真理的唯一标准</strong></a></li><li><a href=#五code-as-documentation>五、Code As Documentation</a></li><li><a href=#七最后的最后>七、最后的最后</a></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2023</span>
 <span class=with-love><i class="fa fa-heart"></i></span>
-<span class=copyright-author>幸福和富有的过一生</span>
-</div>
-<div class=powered-info>
-<span class=powered-by>
-Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.92.1</a>
-</span>
+<span class=copyright-author>幸福和富有的过一生</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.119.0</a></span>
 <span class=separator-line>/</span>
-<span class=theme-info>
-Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank> NexT
-</a>
-</span>
-</div>
-<div class=vistor-info>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<span class=site-uv>
-<i class="fa fa-user"></i>
-<span class=busuanzi-value id=busuanzi_value_site_uv></span>
-</span>
+<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv><i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span></span>
 <span class=separator-line>/</span>
-<span class=site-pv>
-<i class="fa fa-eye"></i>
-<span class=busuanzi-value id=busuanzi_value_site_pv></span>
-</span>
-</div>
-<div class=license-info>
-<span class=storage-info>
-Storage by
-<a href style=font-weight:700 target=_blank></a>
-</span>
+<span class=site-pv><i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div><div class=license-info><span class=storage-info>Storage by
+<a href style=font-weight:700 target=_blank></a></span>
 <span class=separator-line>/</span>
-<span class=license-num>
-<a href target=_blank></a>
-</span>
-</div>
-</div>
-</footer>
-<div class=back-to-top>
-<i class="fa fa-arrow-up"></i>
-<span id=scrollpercent><span>0</span>%</span>
-</div>
-</div>
-<script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
+<span class=license-num><a href target=_blank></a></span></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
 <script type=text/javascript src=/js/search.js></script>
 <script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript>function detectIE(){var a=window.navigator.userAgent,b=a.indexOf('MSIE '),c=a.indexOf('Trident/'),d=a.indexOf('Edge/');return b>0||c>0||d>0?-1:1}function getCntViewHeight(){var b=$('#content').height(),a=$(window).height(),c=b>a?b-a:$(document).height()-a;return c}function getScrollbarWidth(){var a=$('<div />').addClass('scrollbar-measure').prependTo('body'),b=a[0],c=b.offsetWidth-b.clientWidth;return a.remove(),c}function registerBackTop(){var b=50,a=$('.back-to-top');$(window).on('scroll',function(){var d,e,f,c,g;a.toggleClass('back-to-top-on',window.pageYOffset>b),d=$(window).scrollTop(),e=getCntViewHeight(),f=d/e,c=Math.round(f*100),g=c>100?100:c,$('#scrollpercent>span').html(g)}),a.on('click',function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var a='.post-toc',d=$(a),b='.active-current';d.on('activate.bs.scrollspy',function(){var b=$(a+' .active').last();c(),b.addClass('active-current')}).on('clear.bs.scrollspy',c),$('body').scrollspy({target:a});function c(){$(a+' '+b).removeClass(b.substring(1))}}function initAffix(){var a=$('.header-inner').height(),b=parseInt($('.footer').outerHeight(!0),10),c=a+10;$('.sidebar-inner').affix({offset:{top:c,bottom:b}})}function initTOCDimension(){var a,b;$(window).on('resize',function(){a&&clearTimeout(a),a=setTimeout(function(){var a=document.body.clientHeight-100;updateTOCHeight(a)},0)}),updateTOCHeight(document.body.clientHeight-100),b=getScrollbarWidth(),$('.post-toc').css('width','calc(100% + '+b+'px)')}function updateTOCHeight(a){a=a||'auto',$('.post-toc').css('max-height',a)}$(function(){var b=$('.header-inner').height()+10,c,d,a,e;$('#sidebar').css({'margin-top':b}).show(),c=parseInt($('#sidebar').css('margin-top')),d=parseInt($('.sidebar-inner').css('height')),a=c+d,e=$('.content-wrap').height(),e<a&&$('.content-wrap').css('min-height',a),$('.site-nav-toggle').on('click',function(){var a=$('.site-nav'),e=$('.toggle'),b='site-nav-on',f='toggle-close',c=a.hasClass(b),g=c?'slideUp':'slideDown',d=c?'removeClass':'addClass';a.stop()[g]('normal',function(){a[d](b),e[d](f)})}),registerBackTop(),initAffix(),initTOCDimension(),$('.sidebar-nav-toc').click(function(){$(this).addClass('sidebar-nav-active'),$(this).next().removeClass('sidebar-nav-active'),$('.'+$(this).next().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)}),$('.sidebar-nav-overview').click(function(){$(this).addClass('sidebar-nav-active'),$(this).prev().removeClass('sidebar-nav-active'),$('.'+$(this).prev().attr('data-target')).toggle(500),$('.'+$(this).attr('data-target')).toggle(500)})})</script>
-<script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
-<script type=text/javascript>$(function(){$('.post-body').viewer()})</script>
-<script type=text/javascript>const locale={placeholder:'欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^'};$(function(){detectIE()>0?$.getScript(document.location.protocol+'//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js',function(){new Waline({el:'#wcomments',visitor:!0,emoji:[],wordLimit:'200',uploadImage:!1,locale,requiredMeta:['nick','mail'],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$('#wcomments').html('抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。')})</script>
-<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
-<script>(function(){var a=document.createElement('script'),c=window.location.protocol.split(':')[0],b;c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".footer").outerHeight(!0),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var e,t,n,s,o=$(".header-inner").height()+10;$("#sidebar").css({"margin-top":o}).show(),t=parseInt($("#sidebar").css("margin-top")),n=parseInt($(".sidebar-inner").css("height")),e=t+n,s=$(".content-wrap").height(),s<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
+<script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>const locale={placeholder:"欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^"};$(function(){detectIE()>0?$.getScript(document.location.protocol+"//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,emoji:[],wordLimit:"200",uploadImage:!1,locale,requiredMeta:["nick","mail"],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
