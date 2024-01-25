@@ -24,3 +24,5 @@
 12. [Envoy WASM 源码抽丝剥茧](https://mp.weixin.qq.com/s?__biz=Mzg3Mzg2ODA4Ng==&mid=2247489930&idx=1&sn=0962916a99c487dd1c58b511b2b4d1c5&source=41#wechat_redirect)
 
 13. [网易数帆Envoy Gateway实践之旅：坚守6年，峥嵘渐显](https://xie.infoq.cn/article/2b9bf72f2d1bc08b99ec91158)
+
+14. [Envoy学习笔记](https://github.com/dzdx/notes/tree/master/envoy)
