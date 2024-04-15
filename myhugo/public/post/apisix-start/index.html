@@ -1,24 +1,23 @@
-<!doctype html><html lang=zh-cn dir=zh><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=content-security-policy content="upgrade-insecure-requests"><title>APISIX源码-启动过程 - 幸福和富有的过一生</title><meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链"><meta name=author content="lizj3624"><meta property="og:title" content="APISIX源码-启动过程"><meta property="og:site_name" content="幸福和富有的过一生"><meta property="og:image" content="/img/author.jpg"><meta name=title content="APISIX源码-启动过程 - 幸福和富有的过一生"><meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
+<!doctype html><html lang=zh-cn dir=zh><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=Content-Security-Policy content="upgrade-insecure-requests"><title>APISIX源码-启动过程 - 幸福和富有的过一生 </title><meta name=keywords content="云计算,软件开发,架构师,思考,读书,笔记,技术,投资,加密货币,区块链"><meta name=author content="lizj3624"><meta property="og:title" content="APISIX源码-启动过程"><meta property="og:site_name" content="幸福和富有的过一生"><meta property="og:image" content="/img/author.jpg"><meta name=title content="APISIX源码-启动过程 - 幸福和富有的过一生"><meta name=description content="欢迎来到我的空间站，个人主要专注于软件开发，科技技术，云计算，加密货币。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
 <span class=toggle-line></span>
 <span class=toggle-line></span></div></div><div class=site-meta><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span>
 <span class=site-title>幸福和富有的过一生</span>
-<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>幸福和富有的过一生!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-active"><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span>
-<span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=/post/apisix-start/ itemprop=url>APISIX源码-启动过程</a></h1><div class=post-meta><span class=post-pushdate><i class="fa fa-calendar-o fa-fw"></i>
+<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>幸福和富有的过一生!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-active"><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i> </span><span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=/post/apisix-start/ itemprop=url>APISIX源码-启动过程</a></h1><div class=post-meta><span class=post-pushdate><i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-03">2022-04-03</time></span>
-<span class=post-category><i class="fa fa-folder-o fa-fw"></i>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-04-03">2022-04-03
+</time></span><span class=post-category><i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/apisix itemprop=url rel=index><span itemprop=name>apisix</span></a>
-&nbsp;</span>
-<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/nginx itemprop=url rel=index><span itemprop=name>nginx</span></a>
-&nbsp;</span></span>
-<span class=post-wordcount><i class="fa fa-file-word-o fa-fw"></i>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/apisix itemprop=url rel=index><span itemprop=name>apisix</span>
+</a>&nbsp;
+</span><span itemprop=about itemscope itemtype=https://schema.org/Thing><a class=post-category-a href=/categories/nginx itemprop=url rel=index><span itemprop=name>nginx</span>
+</a>&nbsp;
+</span></span><span class=post-wordcount><i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>2737 字</span></span>
-<span class=post-readtime><i class="fa fa-eye fa-fw"></i>
+<span class=leancloud-world-count>2737 字</span>
+</span><span class=post-readtime><i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>6分钟</span></span>
-<span id=/post/apisix-start/ class="leancloud_visitors post-visitor" data-flag-title=APISIX源码-启动过程><i class="fa fa-binoculars fa-fw"></i>
+<span class=leancloud-view-count>6分钟</span>
+</span><span id=/post/apisix-start/ class="leancloud_visitors post-visitor" data-flag-title=APISIX源码-启动过程><i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
 <span class=leancloud-visitors-count></span></span></div></header><div class=post-body itemprop=articleBody><h2 id=apisix启动命令>apisix启动命令</h2><p>APISIX<a href=https://github.com/apache/apisix/blob/master/docs/en/latest/how-to-build.md target=_blank rel=noopener>安装</a>
 之后，开始启动APISIX，APISIX写一套启动命令工具。
@@ -35,7 +34,7 @@
 </span></span><span style=display:flex><span>restart:    restart the apisix server
 </span></span><span style=display:flex><span>reload:     reload the apisix server
 </span></span><span style=display:flex><span>version:    print the version of apisix
-</span></span></code></pre></div><h2 id=启动源码简析>启动源码简析</h2><h3 id=启动流程>启动流程</h3><p><img src=./start-flow.png alt=01></p><blockquote><p>如果OpenResty版本不是1.19，就通过lua启动apisix.lua</p></blockquote><h3 id=源码分析>源码分析</h3><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ tree -L <span style=color:#666>2</span>
+</span></span></code></pre></div><h2 id=启动源码简析>启动源码简析</h2><h3 id=启动流程>启动流程</h3><p><img alt=01 src=./start-flow.png></p><blockquote><p>如果OpenResty版本不是1.19，就通过lua启动apisix.lua</p></blockquote><h3 id=源码分析>源码分析</h3><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ tree -L <span style=color:#666>2</span>
 </span></span><span style=display:flex><span>.
 </span></span><span style=display:flex><span>├── apisix
 </span></span><span style=display:flex><span>│   ├── admin
@@ -171,143 +170,143 @@
 ，<code>nginx.conf</code>不能手工修改，应该它
 每次启动时会重新生成，apisix也是支持自定义配置的，<a href=https://apisix.apache.org/zh/docs/apisix/customize-nginx-configuration target=_blank rel=noopener>自定义配置</a>
 。
-看一下渲染生成的<code>nginx.conf</code>配置，我这个没有设置4层(stream)的配置，apisix也是支持4层转发的。</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># Configuration File - Nginx Server Configs
-</span></span><span style=display:flex><span># This is a read-only file, do not try to modify it.
+看一下渲染生成的<code>nginx.conf</code>配置，我这个没有设置4层(stream)的配置，apisix也是支持4层转发的。</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span><span style=color:#080;font-style:italic># Configuration File - Nginx Server Configs</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># This is a read-only file, do not try to modify it.</span>
 </span></span><span style=display:flex><span>master_process on;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>worker_processes auto;
 </span></span><span style=display:flex><span>worker_cpu_affinity auto;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># main configuration snippet starts
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># main configuration snippet starts</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># main configuration snippet ends
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># main configuration snippet ends</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>error_log logs/error.log warn;
-</span></span><span style=display:flex><span>pid logs/nginx.pid;
+</span></span><span style=display:flex><span>error_log logs<span style=color:#666>/</span>error<span style=color:#666>.</span>log warn;
+</span></span><span style=display:flex><span>pid logs<span style=color:#666>/</span>nginx<span style=color:#666>.</span>pid;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>worker_rlimit_nofile 20480;
+</span></span><span style=display:flex><span>worker_rlimit_nofile <span style=color:#666>20480</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>events {
 </span></span><span style=display:flex><span>    accept_mutex off;
-</span></span><span style=display:flex><span>    worker_connections 10620;
+</span></span><span style=display:flex><span>    worker_connections <span style=color:#666>10620</span>;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>worker_rlimit_core  16G;
+</span></span><span style=display:flex><span>worker_rlimit_core  <span style=color:#666>16</span>G;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>worker_shutdown_timeout 240s;
+</span></span><span style=display:flex><span>worker_shutdown_timeout <span style=color:#666>240</span>s;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>env APISIX_PROFILE;
-</span></span><span style=display:flex><span>env PATH; # for searching external plugin runner&#39;s binary
+</span></span><span style=display:flex><span>env PATH; <span style=color:#080;font-style:italic># for searching external plugin runner&#39;s binary</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>http {
-</span></span><span style=display:flex><span>    # put extra_lua_path in front of the builtin path
-</span></span><span style=display:flex><span>    # so user can override the source code
-</span></span><span style=display:flex><span>    lua_package_path  &#34;$prefix/deps/share/lua/5.1/?.lua;$prefix/deps/share/lua/5.1/?/init.lua;/usr/local/apisix/?.lua;/usr/local/apisix/?/init.lua;;/usr/local/apisix/?.lua;./?.lua;/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/?.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/local/openresty/luajit/share/lua/5.1/?.lua;/usr/local/openresty/luajit/share/lua/5.1/?/init.lua;&#34;;
-</span></span><span style=display:flex><span>    lua_package_cpath &#34;$prefix/deps/lib64/lua/5.1/?.so;$prefix/deps/lib/lua/5.1/?.so;;./?.so;/usr/local/lib/lua/5.1/?.so;/usr/local/openresty/luajit/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so;&#34;;
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># put extra_lua_path in front of the builtin path</span>
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># so user can override the source code</span>
+</span></span><span style=display:flex><span>    lua_package_path  <span style=color:#b44>&#34;$prefix/deps/share/lua/5.1/?.lua;$prefix/deps/share/lua/5.1/?/init.lua;/usr/local/apisix/?.lua;/usr/local/apisix/?/init.lua;;/usr/local/apisix/?.lua;./?.lua;/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/?.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/local/openresty/luajit/share/lua/5.1/?.lua;/usr/local/openresty/luajit/share/lua/5.1/?/init.lua;&#34;</span>;
+</span></span><span style=display:flex><span>    lua_package_cpath <span style=color:#b44>&#34;$prefix/deps/lib64/lua/5.1/?.so;$prefix/deps/lib/lua/5.1/?.so;;./?.so;/usr/local/lib/lua/5.1/?.so;/usr/local/openresty/luajit/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so;&#34;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    lua_max_pending_timers 16384;
-</span></span><span style=display:flex><span>    lua_max_running_timers 4096;
+</span></span><span style=display:flex><span>    lua_max_pending_timers <span style=color:#666>16384</span>;
+</span></span><span style=display:flex><span>    lua_max_running_timers <span style=color:#666>4096</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    lua_shared_dict internal-status 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict plugin-limit-req 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict plugin-limit-count 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict prometheus-metrics 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict plugin-limit-conn 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict upstream-healthcheck 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict worker-events 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict lrucache-lock 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict balancer-ewma 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict balancer-ewma-locks 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict balancer-ewma-last-touched-at 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict plugin-limit-count-redis-cluster-slot-lock 1m;
-</span></span><span style=display:flex><span>    lua_shared_dict tracing_buffer 10m; # plugin: skywalking
-</span></span><span style=display:flex><span>    lua_shared_dict plugin-api-breaker 10m;
-</span></span><span style=display:flex><span>    lua_shared_dict etcd-cluster-health-check 10m; # etcd health check
+</span></span><span style=display:flex><span>    lua_shared_dict internal<span style=color:#666>-</span>status <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict plugin<span style=color:#666>-</span>limit<span style=color:#666>-</span>req <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict plugin<span style=color:#666>-</span>limit<span style=color:#666>-</span>count <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict prometheus<span style=color:#666>-</span>metrics <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict plugin<span style=color:#666>-</span>limit<span style=color:#666>-</span>conn <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict upstream<span style=color:#666>-</span>healthcheck <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict worker<span style=color:#666>-</span>events <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict lrucache<span style=color:#666>-</span>lock <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict balancer<span style=color:#666>-</span>ewma <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict balancer<span style=color:#666>-</span>ewma<span style=color:#666>-</span>locks <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict balancer<span style=color:#666>-</span>ewma<span style=color:#666>-</span>last<span style=color:#666>-</span>touched<span style=color:#666>-</span>at <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict plugin<span style=color:#666>-</span>limit<span style=color:#666>-</span>count<span style=color:#666>-</span>redis<span style=color:#666>-</span>cluster<span style=color:#666>-</span>slot<span style=color:#666>-</span>lock <span style=color:#666>1</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict tracing_buffer <span style=color:#666>10</span>m; <span style=color:#080;font-style:italic># plugin: skywalking</span>
+</span></span><span style=display:flex><span>    lua_shared_dict plugin<span style=color:#666>-</span>api<span style=color:#666>-</span>breaker <span style=color:#666>10</span>m;
+</span></span><span style=display:flex><span>    lua_shared_dict etcd<span style=color:#666>-</span>cluster<span style=color:#666>-</span>health<span style=color:#666>-</span>check <span style=color:#666>10</span>m; <span style=color:#080;font-style:italic># etcd health check</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for openid-connect and authz-keycloak plugin
-</span></span><span style=display:flex><span>    lua_shared_dict discovery 1m; # cache for discovery metadata documents
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for openid-connect and authz-keycloak plugin</span>
+</span></span><span style=display:flex><span>    lua_shared_dict discovery <span style=color:#666>1</span>m; <span style=color:#080;font-style:italic># cache for discovery metadata documents</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for openid-connect plugin
-</span></span><span style=display:flex><span>    lua_shared_dict jwks 1m; # cache for JWKs
-</span></span><span style=display:flex><span>    lua_shared_dict introspection 10m; # cache for JWT verification results
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for openid-connect plugin</span>
+</span></span><span style=display:flex><span>    lua_shared_dict jwks <span style=color:#666>1</span>m; <span style=color:#080;font-style:italic># cache for JWKs</span>
+</span></span><span style=display:flex><span>    lua_shared_dict introspection <span style=color:#666>10</span>m; <span style=color:#080;font-style:italic># cache for JWT verification results</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for authz-keycloak
-</span></span><span style=display:flex><span>    lua_shared_dict access-tokens 1m; # cache for service account access tokens
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for authz-keycloak</span>
+</span></span><span style=display:flex><span>    lua_shared_dict access<span style=color:#666>-</span>tokens <span style=color:#666>1</span>m; <span style=color:#080;font-style:italic># cache for service account access tokens</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for ext-plugin
-</span></span><span style=display:flex><span>    lua_shared_dict ext-plugin 1m; # cache for ext-plugin
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for ext-plugin</span>
+</span></span><span style=display:flex><span>    lua_shared_dict ext<span style=color:#666>-</span>plugin <span style=color:#666>1</span>m; <span style=color:#080;font-style:italic># cache for ext-plugin</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for custom shared dict
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for custom shared dict</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for proxy cache
-</span></span><span style=display:flex><span>    proxy_cache_path /tmp/disk_cache_one levels=1:2 keys_zone=disk_cache_one:50m inactive=1d max_size=1G use_temp_path=off;
-</span></span><span style=display:flex><span>    lua_shared_dict memory_cache 50m;
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for proxy cache</span>
+</span></span><span style=display:flex><span>    proxy_cache_path <span style=color:#666>/</span>tmp<span style=color:#666>/</span>disk_cache_one levels<span style=color:#666>=</span><span style=color:#666>1</span>:<span style=color:#666>2</span> keys_zone<span style=color:#666>=</span>disk_cache_one:<span style=color:#666>50</span>m inactive<span style=color:#666>=</span><span style=color:#666>1</span>d max_size<span style=color:#666>=</span><span style=color:#666>1</span>G use_temp_path<span style=color:#666>=</span>off;
+</span></span><span style=display:flex><span>    lua_shared_dict memory_cache <span style=color:#666>50</span>m;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # for proxy cache
-</span></span><span style=display:flex><span>    map $upstream_cache_zone $upstream_cache_zone_info {
-</span></span><span style=display:flex><span>        disk_cache_one /tmp/disk_cache_one,1:2;
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># for proxy cache</span>
+</span></span><span style=display:flex><span>    map <span style=color:#666>$</span>upstream_cache_zone <span style=color:#666>$</span>upstream_cache_zone_info {
+</span></span><span style=display:flex><span>        disk_cache_one <span style=color:#666>/</span>tmp<span style=color:#666>/</span>disk_cache_one,<span style=color:#666>1</span>:<span style=color:#666>2</span>;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    lua_ssl_verify_depth 5;
-</span></span><span style=display:flex><span>    ssl_session_timeout 86400;
+</span></span><span style=display:flex><span>    lua_ssl_verify_depth <span style=color:#666>5</span>;
+</span></span><span style=display:flex><span>    ssl_session_timeout <span style=color:#666>86400</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    underscores_in_headers on;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    lua_socket_log_errors off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    resolver 10.2.255.200 ipv6=on;
-</span></span><span style=display:flex><span>    resolver_timeout 5;
+</span></span><span style=display:flex><span>    resolver <span style=color:#666>10.2</span><span style=color:#666>.</span><span style=color:#666>255.200</span> ipv6<span style=color:#666>=</span>on;
+</span></span><span style=display:flex><span>    resolver_timeout <span style=color:#666>5</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    lua_http10_buffering off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    lua_regex_match_limit 100000;
-</span></span><span style=display:flex><span>    lua_regex_cache_max_entries 8192;
+</span></span><span style=display:flex><span>    lua_regex_match_limit <span style=color:#666>100000</span>;
+</span></span><span style=display:flex><span>    lua_regex_cache_max_entries <span style=color:#666>8192</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    log_format main escape=default &#39;$remote_addr - $remote_user [$time_local] $http_host &#34;$request&#34; $status $body_bytes_sent $request_time &#34;$http_referer&#34; &#34;$http_user_agent&#34; $upstream_addr $upstream_status $upstream_response_time &#34;$upstream_scheme://$upstream_host$upstream_uri&#34;&#39;;
+</span></span><span style=display:flex><span>    log_format main escape<span style=color:#666>=</span>default <span style=color:#b44>&#39;$remote_addr - $remote_user [$time_local] $http_host &#34;$request&#34; $status $body_bytes_sent $request_time &#34;$http_referer&#34; &#34;$http_user_agent&#34; $upstream_addr $upstream_status $upstream_response_time &#34;$upstream_scheme://$upstream_host$upstream_uri&#34;&#39;</span>;
 </span></span><span style=display:flex><span>    uninitialized_variable_warn off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    access_log logs/access.log main buffer=16384 flush=3;
-</span></span><span style=display:flex><span>    open_file_cache  max=1000 inactive=60;
-</span></span><span style=display:flex><span>    client_max_body_size 0;
-</span></span><span style=display:flex><span>    keepalive_timeout 60s;
-</span></span><span style=display:flex><span>    client_header_timeout 60s;
-</span></span><span style=display:flex><span>    client_body_timeout 60s;
-</span></span><span style=display:flex><span>    send_timeout 10s;
-</span></span><span style=display:flex><span>    variables_hash_max_size 2048;
+</span></span><span style=display:flex><span>    access_log logs<span style=color:#666>/</span>access<span style=color:#666>.</span>log main buffer<span style=color:#666>=</span><span style=color:#666>16384</span> flush<span style=color:#666>=</span><span style=color:#666>3</span>;
+</span></span><span style=display:flex><span>    open_file_cache  <span style=color:#a2f>max</span><span style=color:#666>=</span><span style=color:#666>1000</span> inactive<span style=color:#666>=</span><span style=color:#666>60</span>;
+</span></span><span style=display:flex><span>    client_max_body_size <span style=color:#666>0</span>;
+</span></span><span style=display:flex><span>    keepalive_timeout <span style=color:#666>60</span>s;
+</span></span><span style=display:flex><span>    client_header_timeout <span style=color:#666>60</span>s;
+</span></span><span style=display:flex><span>    client_body_timeout <span style=color:#666>60</span>s;
+</span></span><span style=display:flex><span>    send_timeout <span style=color:#666>10</span>s;
+</span></span><span style=display:flex><span>    variables_hash_max_size <span style=color:#666>2048</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    server_tokens off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    include mime.types;
-</span></span><span style=display:flex><span>    charset utf-8;
+</span></span><span style=display:flex><span>    include mime<span style=color:#666>.</span>types;
+</span></span><span style=display:flex><span>    charset utf<span style=color:#666>-</span><span style=color:#666>8</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # error_page
-</span></span><span style=display:flex><span>    error_page 500 @50x.html;
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># error_page</span>
+</span></span><span style=display:flex><span>    error_page <span style=color:#666>500</span> <span>@</span><span style=color:#666>50</span>x<span style=color:#666>.</span>html;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    real_ip_header X-Real-IP;
+</span></span><span style=display:flex><span>    real_ip_header X<span style=color:#666>-</span>Real<span style=color:#666>-</span><span style=color:#d2413a;font-weight:700>IP</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    real_ip_recursive off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    set_real_ip_from 127.0.0.1;
+</span></span><span style=display:flex><span>    set_real_ip_from <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.1</span>;
 </span></span><span style=display:flex><span>    set_real_ip_from unix:;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    # http configuration snippet starts
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># http configuration snippet starts</span>
 </span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    # http configuration snippet ends
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># http configuration snippet ends</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    upstream apisix_backend {
-</span></span><span style=display:flex><span>        server 0.0.0.1;
+</span></span><span style=display:flex><span>        server <span style=color:#666>0.0</span><span style=color:#666>.</span><span style=color:#666>0.1</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        keepalive 320;
-</span></span><span style=display:flex><span>        keepalive_requests 1000;
-</span></span><span style=display:flex><span>        keepalive_timeout 60s;
-</span></span><span style=display:flex><span>        # we put the static configuration above so that we can override it in the Lua code
+</span></span><span style=display:flex><span>        keepalive <span style=color:#666>320</span>;
+</span></span><span style=display:flex><span>        keepalive_requests <span style=color:#666>1000</span>;
+</span></span><span style=display:flex><span>        keepalive_timeout <span style=color:#666>60</span>s;
+</span></span><span style=display:flex><span>        <span style=color:#080;font-style:italic># we put the static configuration above so that we can override it in the Lua code</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        balancer_by_lua_block {
-</span></span><span style=display:flex><span>            apisix.http_balancer_phase()
+</span></span><span style=display:flex><span>            apisix<span style=color:#666>.</span>http_balancer_phase()
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
@@ -317,57 +316,57 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    init_by_lua_block {
-</span></span><span style=display:flex><span>        require &#34;resty.core&#34;
-</span></span><span style=display:flex><span>        apisix = require(&#34;apisix&#34;)
+</span></span><span style=display:flex><span>        require <span style=color:#b44>&#34;resty.core&#34;</span>
+</span></span><span style=display:flex><span>        apisix <span style=color:#666>=</span> require(<span style=color:#b44>&#34;apisix&#34;</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        local dns_resolver = { &#34;10.2.255.200&#34;, }
-</span></span><span style=display:flex><span>        local args = {
-</span></span><span style=display:flex><span>            dns_resolver = dns_resolver,
+</span></span><span style=display:flex><span>        local dns_resolver <span style=color:#666>=</span> { <span style=color:#b44>&#34;10.2.255.200&#34;</span>, }
+</span></span><span style=display:flex><span>        local args <span style=color:#666>=</span> {
+</span></span><span style=display:flex><span>            dns_resolver <span style=color:#666>=</span> dns_resolver,
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        apisix.http_init(args)
+</span></span><span style=display:flex><span>        apisix<span style=color:#666>.</span>http_init(args)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    init_worker_by_lua_block {
-</span></span><span style=display:flex><span>        apisix.http_init_worker()
+</span></span><span style=display:flex><span>        apisix<span style=color:#666>.</span>http_init_worker()
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    exit_worker_by_lua_block {
-</span></span><span style=display:flex><span>        apisix.http_exit_worker()
+</span></span><span style=display:flex><span>        apisix<span style=color:#666>.</span>http_exit_worker()
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    server {
-</span></span><span style=display:flex><span>        listen 127.0.0.1:9090;
+</span></span><span style=display:flex><span>        listen <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.1</span>:<span style=color:#666>9090</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        access_log off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location / {
+</span></span><span style=display:flex><span>        location <span style=color:#666>/</span> {
 </span></span><span style=display:flex><span>            content_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_control()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_control()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location @50x.html {
-</span></span><span style=display:flex><span>            set $from_error_page &#39;true&#39;;
+</span></span><span style=display:flex><span>        location <span>@</span><span style=color:#666>50</span>x<span style=color:#666>.</span>html {
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>from_error_page <span style=color:#b44>&#39;true&#39;</span>;
 </span></span><span style=display:flex><span>            content_by_lua_block {
-</span></span><span style=display:flex><span>                require(&#34;apisix.error_handling&#34;).handle_500()
+</span></span><span style=display:flex><span>                require(<span style=color:#b44>&#34;apisix.error_handling&#34;</span>)<span style=color:#666>.</span>handle_500()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    server {
-</span></span><span style=display:flex><span>        listen 127.0.0.1:9091;
+</span></span><span style=display:flex><span>        listen <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.1</span>:<span style=color:#666>9091</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        access_log off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location / {
+</span></span><span style=display:flex><span>        location <span style=color:#666>/</span> {
 </span></span><span style=display:flex><span>            content_by_lua_block {
-</span></span><span style=display:flex><span>                local prometheus = require(&#34;apisix.plugins.prometheus&#34;)
-</span></span><span style=display:flex><span>                prometheus.export_metrics()
+</span></span><span style=display:flex><span>                local prometheus <span style=color:#666>=</span> require(<span style=color:#b44>&#34;apisix.plugins.prometheus&#34;</span>)
+</span></span><span style=display:flex><span>                prometheus<span style=color:#666>.</span>export_metrics()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location = /apisix/nginx_status {
-</span></span><span style=display:flex><span>            allow 127.0.0.0/24;
+</span></span><span style=display:flex><span>        location <span style=color:#666>=</span> <span style=color:#666>/</span>apisix<span style=color:#666>/</span>nginx_status {
+</span></span><span style=display:flex><span>            allow <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.0</span><span style=color:#666>/</span><span style=color:#666>24</span>;
 </span></span><span style=display:flex><span>            deny all;
 </span></span><span style=display:flex><span>            stub_status;
 </span></span><span style=display:flex><span>        }
@@ -375,188 +374,188 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    server {
-</span></span><span style=display:flex><span>        listen 0.0.0.0:9080 default_server reuseport;
-</span></span><span style=display:flex><span>        listen [::]:9080 default_server reuseport;
-</span></span><span style=display:flex><span>        listen 0.0.0.0:9443 ssl default_server http2 reuseport;
-</span></span><span style=display:flex><span>        listen [::]:9443 ssl default_server http2 reuseport;
+</span></span><span style=display:flex><span>        listen <span style=color:#666>0.0</span><span style=color:#666>.</span><span style=color:#666>0.0</span>:<span style=color:#666>9080</span> default_server reuseport;
+</span></span><span style=display:flex><span>        listen [::]:<span style=color:#666>9080</span> default_server reuseport;
+</span></span><span style=display:flex><span>        listen <span style=color:#666>0.0</span><span style=color:#666>.</span><span style=color:#666>0.0</span>:<span style=color:#666>9443</span> ssl default_server http2 reuseport;
+</span></span><span style=display:flex><span>        listen [::]:<span style=color:#666>9443</span> ssl default_server http2 reuseport;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        server_name _;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        ssl_certificate      cert/ssl_PLACE_HOLDER.crt;
-</span></span><span style=display:flex><span>        ssl_certificate_key  cert/ssl_PLACE_HOLDER.key;
-</span></span><span style=display:flex><span>        ssl_session_cache    shared:SSL:20m;
-</span></span><span style=display:flex><span>        ssl_session_timeout 10m;
+</span></span><span style=display:flex><span>        ssl_certificate      cert<span style=color:#666>/</span>ssl_PLACE_HOLDER<span style=color:#666>.</span>crt;
+</span></span><span style=display:flex><span>        ssl_certificate_key  cert<span style=color:#666>/</span>ssl_PLACE_HOLDER<span style=color:#666>.</span>key;
+</span></span><span style=display:flex><span>        ssl_session_cache    shared:SSL:<span style=color:#666>20</span>m;
+</span></span><span style=display:flex><span>        ssl_session_timeout <span style=color:#666>10</span>m;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        ssl_protocols TLSv1.2 TLSv1.3;
-</span></span><span style=display:flex><span>        ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+</span></span><span style=display:flex><span>        ssl_protocols TLSv1<span style=color:#666>.</span><span style=color:#666>2</span> TLSv1<span style=color:#666>.</span><span style=color:#666>3</span>;
+</span></span><span style=display:flex><span>        ssl_ciphers ECDHE<span style=color:#666>-</span>ECDSA<span style=color:#666>-</span>AES128<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA256:ECDHE<span style=color:#666>-</span>RSA<span style=color:#666>-</span>AES128<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA256:ECDHE<span style=color:#666>-</span>ECDSA<span style=color:#666>-</span>AES256<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA384:ECDHE<span style=color:#666>-</span>RSA<span style=color:#666>-</span>AES256<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA384:ECDHE<span style=color:#666>-</span>ECDSA<span style=color:#666>-</span>CHACHA20<span style=color:#666>-</span>POLY1305:ECDHE<span style=color:#666>-</span>RSA<span style=color:#666>-</span>CHACHA20<span style=color:#666>-</span>POLY1305:DHE<span style=color:#666>-</span>RSA<span style=color:#666>-</span>AES128<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA256:DHE<span style=color:#666>-</span>RSA<span style=color:#666>-</span>AES256<span style=color:#666>-</span>GCM<span style=color:#666>-</span>SHA384;
 </span></span><span style=display:flex><span>        ssl_prefer_server_ciphers on;
 </span></span><span style=display:flex><span>        ssl_session_tickets off;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        # http server configuration snippet starts
+</span></span><span style=display:flex><span>        <span style=color:#080;font-style:italic># http server configuration snippet starts</span>
 </span></span><span style=display:flex><span>        
-</span></span><span style=display:flex><span>        # http server configuration snippet ends
+</span></span><span style=display:flex><span>        <span style=color:#080;font-style:italic># http server configuration snippet ends</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location = /apisix/nginx_status {
-</span></span><span style=display:flex><span>            allow 127.0.0.0/24;
+</span></span><span style=display:flex><span>        location <span style=color:#666>=</span> <span style=color:#666>/</span>apisix<span style=color:#666>/</span>nginx_status {
+</span></span><span style=display:flex><span>            allow <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.0</span><span style=color:#666>/</span><span style=color:#666>24</span>;
 </span></span><span style=display:flex><span>            deny all;
 </span></span><span style=display:flex><span>            access_log off;
 </span></span><span style=display:flex><span>            stub_status;
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location /apisix/admin {
-</span></span><span style=display:flex><span>            set $upstream_scheme             &#39;http&#39;;
-</span></span><span style=display:flex><span>            set $upstream_host               $http_host;
-</span></span><span style=display:flex><span>            set $upstream_uri                &#39;&#39;;
+</span></span><span style=display:flex><span>        location <span style=color:#666>/</span>apisix<span style=color:#666>/</span>admin {
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_scheme             <span style=color:#b44>&#39;http&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_host               <span style=color:#666>$</span>http_host;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_uri                <span style=color:#b44>&#39;&#39;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                allow 127.0.0.0/24;
+</span></span><span style=display:flex><span>                allow <span style=color:#666>127.0</span><span style=color:#666>.</span><span style=color:#666>0.0</span><span style=color:#666>/</span><span style=color:#666>24</span>;
 </span></span><span style=display:flex><span>                deny all;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            content_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_admin()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_admin()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        ssl_certificate_by_lua_block {
-</span></span><span style=display:flex><span>            apisix.http_ssl_phase()
+</span></span><span style=display:flex><span>            apisix<span style=color:#666>.</span>http_ssl_phase()
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        proxy_ssl_name $upstream_host;
+</span></span><span style=display:flex><span>        proxy_ssl_name <span style=color:#666>$</span>upstream_host;
 </span></span><span style=display:flex><span>        proxy_ssl_server_name on;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location / {
-</span></span><span style=display:flex><span>            set $upstream_mirror_host        &#39;&#39;;
-</span></span><span style=display:flex><span>            set $upstream_upgrade            &#39;&#39;;
-</span></span><span style=display:flex><span>            set $upstream_connection         &#39;&#39;;
+</span></span><span style=display:flex><span>        location <span style=color:#666>/</span> {
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_mirror_host        <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_upgrade            <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_connection         <span style=color:#b44>&#39;&#39;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            set $upstream_scheme             &#39;http&#39;;
-</span></span><span style=display:flex><span>            set $upstream_host               $http_host;
-</span></span><span style=display:flex><span>            set $upstream_uri                &#39;&#39;;
-</span></span><span style=display:flex><span>            set $ctx_ref                     &#39;&#39;;
-</span></span><span style=display:flex><span>            set $from_error_page             &#39;&#39;;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_scheme             <span style=color:#b44>&#39;http&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_host               <span style=color:#666>$</span>http_host;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_uri                <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>ctx_ref                     <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>from_error_page             <span style=color:#b44>&#39;&#39;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            # http server location configuration snippet starts
+</span></span><span style=display:flex><span>            <span style=color:#080;font-style:italic># http server location configuration snippet starts</span>
 </span></span><span style=display:flex><span>            
-</span></span><span style=display:flex><span>            # http server location configuration snippet ends
+</span></span><span style=display:flex><span>            <span style=color:#080;font-style:italic># http server location configuration snippet ends</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            access_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_access_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_access_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            proxy_http_version 1.1;
-</span></span><span style=display:flex><span>            proxy_set_header   Host              $upstream_host;
-</span></span><span style=display:flex><span>            proxy_set_header   Upgrade           $upstream_upgrade;
-</span></span><span style=display:flex><span>            proxy_set_header   Connection        $upstream_connection;
-</span></span><span style=display:flex><span>            proxy_set_header   X-Real-IP         $remote_addr;
+</span></span><span style=display:flex><span>            proxy_http_version <span style=color:#666>1.1</span>;
+</span></span><span style=display:flex><span>            proxy_set_header   Host              <span style=color:#666>$</span>upstream_host;
+</span></span><span style=display:flex><span>            proxy_set_header   Upgrade           <span style=color:#666>$</span>upstream_upgrade;
+</span></span><span style=display:flex><span>            proxy_set_header   Connection        <span style=color:#666>$</span>upstream_connection;
+</span></span><span style=display:flex><span>            proxy_set_header   X<span style=color:#666>-</span>Real<span style=color:#666>-</span><span style=color:#d2413a;font-weight:700>IP</span>         <span style=color:#666>$</span>remote_addr;
 </span></span><span style=display:flex><span>            proxy_pass_header  Date;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            ### the following x-forwarded-* headers is to send to upstream server
+</span></span><span style=display:flex><span>            <span style=color:#080;font-style:italic>### the following x-forwarded-* headers is to send to upstream server</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            set $var_x_forwarded_for        $remote_addr;
-</span></span><span style=display:flex><span>            set $var_x_forwarded_proto      $scheme;
-</span></span><span style=display:flex><span>            set $var_x_forwarded_host       $host;
-</span></span><span style=display:flex><span>            set $var_x_forwarded_port       $server_port;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>var_x_forwarded_for        <span style=color:#666>$</span>remote_addr;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>var_x_forwarded_proto      <span style=color:#666>$</span>scheme;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>var_x_forwarded_host       <span style=color:#666>$</span>host;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>var_x_forwarded_port       <span style=color:#666>$</span>server_port;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            if ($http_x_forwarded_for != &#34;&#34;) {
-</span></span><span style=display:flex><span>                set $var_x_forwarded_for &#34;${http_x_forwarded_for}, ${realip_remote_addr}&#34;;
+</span></span><span style=display:flex><span>            <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>$</span>http_x_forwarded_for <span style=color:#666>!=</span> <span style=color:#b44>&#34;&#34;</span>) {
+</span></span><span style=display:flex><span>                set <span style=color:#666>$</span>var_x_forwarded_for <span style=color:#b44>&#34;${http_x_forwarded_for}, ${realip_remote_addr}&#34;</span>;
 </span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            if ($http_x_forwarded_host != &#34;&#34;) {
-</span></span><span style=display:flex><span>                set $var_x_forwarded_host $http_x_forwarded_host;
+</span></span><span style=display:flex><span>            <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>$</span>http_x_forwarded_host <span style=color:#666>!=</span> <span style=color:#b44>&#34;&#34;</span>) {
+</span></span><span style=display:flex><span>                set <span style=color:#666>$</span>var_x_forwarded_host <span style=color:#666>$</span>http_x_forwarded_host;
 </span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            if ($http_x_forwarded_port != &#34;&#34;) {
-</span></span><span style=display:flex><span>                set $var_x_forwarded_port $http_x_forwarded_port;
+</span></span><span style=display:flex><span>            <span style=color:#a2f;font-weight:700>if</span> (<span style=color:#666>$</span>http_x_forwarded_port <span style=color:#666>!=</span> <span style=color:#b44>&#34;&#34;</span>) {
+</span></span><span style=display:flex><span>                set <span style=color:#666>$</span>var_x_forwarded_port <span style=color:#666>$</span>http_x_forwarded_port;
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            proxy_set_header   X-Forwarded-For      $var_x_forwarded_for;
-</span></span><span style=display:flex><span>            proxy_set_header   X-Forwarded-Proto    $var_x_forwarded_proto;
-</span></span><span style=display:flex><span>            proxy_set_header   X-Forwarded-Host     $var_x_forwarded_host;
-</span></span><span style=display:flex><span>            proxy_set_header   X-Forwarded-Port     $var_x_forwarded_port;
+</span></span><span style=display:flex><span>            proxy_set_header   X<span style=color:#666>-</span>Forwarded<span style=color:#666>-</span>For      <span style=color:#666>$</span>var_x_forwarded_for;
+</span></span><span style=display:flex><span>            proxy_set_header   X<span style=color:#666>-</span>Forwarded<span style=color:#666>-</span>Proto    <span style=color:#666>$</span>var_x_forwarded_proto;
+</span></span><span style=display:flex><span>            proxy_set_header   X<span style=color:#666>-</span>Forwarded<span style=color:#666>-</span>Host     <span style=color:#666>$</span>var_x_forwarded_host;
+</span></span><span style=display:flex><span>            proxy_set_header   X<span style=color:#666>-</span>Forwarded<span style=color:#666>-</span>Port     <span style=color:#666>$</span>var_x_forwarded_port;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            ###  the following configuration is to cache response content from upstream server
+</span></span><span style=display:flex><span>            <span style=color:#080;font-style:italic>###  the following configuration is to cache response content from upstream server</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            set $upstream_cache_zone            off;
-</span></span><span style=display:flex><span>            set $upstream_cache_key             &#39;&#39;;
-</span></span><span style=display:flex><span>            set $upstream_cache_bypass          &#39;&#39;;
-</span></span><span style=display:flex><span>            set $upstream_no_cache              &#39;&#39;;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_cache_zone            off;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_cache_key             <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_cache_bypass          <span style=color:#b44>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>upstream_no_cache              <span style=color:#b44>&#39;&#39;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            proxy_cache                         $upstream_cache_zone;
-</span></span><span style=display:flex><span>            proxy_cache_valid                   any 10s;
-</span></span><span style=display:flex><span>            proxy_cache_min_uses                1;
+</span></span><span style=display:flex><span>            proxy_cache                         <span style=color:#666>$</span>upstream_cache_zone;
+</span></span><span style=display:flex><span>            proxy_cache_valid                   any <span style=color:#666>10</span>s;
+</span></span><span style=display:flex><span>            proxy_cache_min_uses                <span style=color:#666>1</span>;
 </span></span><span style=display:flex><span>            proxy_cache_methods                 GET HEAD POST;
-</span></span><span style=display:flex><span>            proxy_cache_lock_timeout            5s;
+</span></span><span style=display:flex><span>            proxy_cache_lock_timeout            <span style=color:#666>5</span>s;
 </span></span><span style=display:flex><span>            proxy_cache_use_stale               off;
-</span></span><span style=display:flex><span>            proxy_cache_key                     $upstream_cache_key;
-</span></span><span style=display:flex><span>            proxy_no_cache                      $upstream_no_cache;
-</span></span><span style=display:flex><span>            proxy_cache_bypass                  $upstream_cache_bypass;
+</span></span><span style=display:flex><span>            proxy_cache_key                     <span style=color:#666>$</span>upstream_cache_key;
+</span></span><span style=display:flex><span>            proxy_no_cache                      <span style=color:#666>$</span>upstream_no_cache;
+</span></span><span style=display:flex><span>            proxy_cache_bypass                  <span style=color:#666>$</span>upstream_cache_bypass;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            proxy_pass      $upstream_scheme://apisix_backend$upstream_uri;
+</span></span><span style=display:flex><span>            proxy_pass      <span style=color:#666>$</span>upstream_scheme:<span style=color:#666>//</span>apisix_backend<span style=color:#666>$</span>upstream_uri;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            mirror          /proxy_mirror;
+</span></span><span style=display:flex><span>            mirror          <span style=color:#666>/</span>proxy_mirror;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            header_filter_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_header_filter_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_header_filter_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            body_filter_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_body_filter_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_body_filter_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            log_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_log_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_log_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location @grpc_pass {
+</span></span><span style=display:flex><span>        location <span>@</span>grpc_pass {
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            access_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.grpc_access_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>grpc_access_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            grpc_set_header   Content-Type application/grpc;
+</span></span><span style=display:flex><span>            grpc_set_header   Content<span style=color:#666>-</span>Type application<span style=color:#666>/</span>grpc;
 </span></span><span style=display:flex><span>            grpc_socket_keepalive on;
-</span></span><span style=display:flex><span>            grpc_pass         $upstream_scheme://apisix_backend;
+</span></span><span style=display:flex><span>            grpc_pass         <span style=color:#666>$</span>upstream_scheme:<span style=color:#666>//</span>apisix_backend;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            header_filter_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_header_filter_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_header_filter_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            body_filter_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_body_filter_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_body_filter_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            log_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_log_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_log_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location = /proxy_mirror {
+</span></span><span style=display:flex><span>        location <span style=color:#666>=</span> <span style=color:#666>/</span>proxy_mirror {
 </span></span><span style=display:flex><span>            internal;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            proxy_http_version 1.1;
-</span></span><span style=display:flex><span>            proxy_set_header Host $upstream_host;
-</span></span><span style=display:flex><span>            proxy_pass $upstream_mirror_host$request_uri;
+</span></span><span style=display:flex><span>            proxy_http_version <span style=color:#666>1.1</span>;
+</span></span><span style=display:flex><span>            proxy_set_header Host <span style=color:#666>$</span>upstream_host;
+</span></span><span style=display:flex><span>            proxy_pass <span style=color:#666>$</span>upstream_mirror_host<span style=color:#666>$</span>request_uri;
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location @50x.html {
-</span></span><span style=display:flex><span>            set $from_error_page &#39;true&#39;;
+</span></span><span style=display:flex><span>        location <span>@</span><span style=color:#666>50</span>x<span style=color:#666>.</span>html {
+</span></span><span style=display:flex><span>            set <span style=color:#666>$</span>from_error_page <span style=color:#b44>&#39;true&#39;</span>;
 </span></span><span style=display:flex><span>            content_by_lua_block {
-</span></span><span style=display:flex><span>                require(&#34;apisix.error_handling&#34;).handle_500()
+</span></span><span style=display:flex><span>                require(<span style=color:#b44>&#34;apisix.error_handling&#34;</span>)<span style=color:#666>.</span>handle_500()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>            header_filter_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_header_filter_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_header_filter_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            log_by_lua_block {
-</span></span><span style=display:flex><span>                apisix.http_log_phase()
+</span></span><span style=display:flex><span>                apisix<span style=color:#666>.</span>http_log_phase()
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    # http end configuration snippet starts
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># http end configuration snippet starts</span>
 </span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    # http end configuration snippet ends
+</span></span><span style=display:flex><span>    <span style=color:#080;font-style:italic># http end configuration snippet ends</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><ol><li><p>根据模板生成的<code>nginx.conf</code>监听的<code>9080</code>和<code>9443</code>端口，IP则是<code>0.0.0.0</code>和<code>[::]</code>这是特殊IP，允许所有IP的请求进入</p></li><li><p><code>/apisix/admin</code>的location主要是处理控制面的接口。</p></li><li><p>在OpenResty的<code>init</code>阶段嵌入<code>apisix.http_init(args)</code></p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>init_by_lua_block {
 </span></span><span style=display:flex><span>     require &#34;resty.core&#34;
@@ -586,12 +585,12 @@
 <span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay"><p>微信打赏</p></div><div id=alipay style=display:inline-block><img id=alipay_qr src=/img/ali-pay.png alt=Alipay><p>支付宝打赏</p></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/fisher-common-stocks-and-uncommon-profits-reading/ rel=next title=怎样选择成长股-费雪读书笔记><i class="fa fa-chevron-left"></i> 怎样选择成长股-费雪读书笔记</a></div><div class="post-nav-prev post-nav-item"><a href=/post/tencent-2021q4-fy/ rel=prev title=腾讯2021Q4以及全年财报>腾讯2021Q4以及全年财报
 <i class="fa fa-chevron-right"></i></a></div></div><div id=wcomments></div></footer></article></section></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
 <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624><p class=site-author-name itemprop=name>lizj3624</p><p class="site-description motion-element" itemprop=description>幸福和富有的过一生!</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>92</span>
-<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>89</span>
-<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>106</span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.png alt=lizj3624><p class=site-author-name itemprop=name>lizj3624</p><p class="site-description motion-element" itemprop=description>幸福和富有的过一生!</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>93</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>90</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>107</span>
 <span class=site-state-item-name>标签</span></a></div></nav><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/lizj3624/ target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>
-GitHub</a></span>
-<span class=links-of-author-item><a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎><i class="fa fa-fw fa-globe"></i>
+GitHub
+</a></span><span class=links-of-author-item><a href=https://www.zhihu.com/people/li-zun-ju target=_blank title=知乎><i class="fa fa-fw fa-globe"></i>
 知乎</a></span></div><div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline"><div class=tagcloud-of-blogroll-title><i class="fa fa-fw fa-tags"></i>
 标签云</div><ul class=tagcloud-of-blogroll-list><li class=tagcloud-of-blogroll-item><a href=/tags/cloudnative>Cloudnative
 <sup>13</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E8%B4%A2%E6%8A%A5>财报
@@ -603,22 +602,15 @@ GitHub</a></span>
 <sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E>宏观经济
 <sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E6%8A%95%E8%B5%84>投资
 <sup>5</sup></a></li><li class=tagcloud-of-blogroll-item><a href=/tags/linux>Linux
-<sup>4</sup></a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#apisix启动命令>apisix启动命令</a></li><li><a href=#启动源码简析>启动源码简析</a><ul><li><a href=#启动流程>启动流程</a></li><li><a href=#源码分析>源码分析</a></li></ul></li><li><a href=#引用>引用</a></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2024</span>
-<span class=with-love><i class="fa fa-heart"></i></span>
-<span class=copyright-author>幸福和富有的过一生</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.119.0</a></span>
-<span class=separator-line>/</span>
-<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<span class=site-uv><i class="fa fa-user"></i>
-<span class=busuanzi-value id=busuanzi_value_site_uv></span></span>
-<span class=separator-line>/</span>
+<sup>4</sup></a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#apisix启动命令>apisix启动命令</a></li><li><a href=#启动源码简析>启动源码简析</a><ul><li><a href=#启动流程>启动流程</a></li><li><a href=#源码分析>源码分析</a></li></ul></li><li><a href=#引用>引用</a></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2024
+</span><span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>幸福和富有的过一生</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.124.1</a>
+</span><span class=separator-line>/</span>
+<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span class=site-uv><i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span>
+</span><span class=separator-line>/</span>
 <span class=site-pv><i class="fa fa-eye"></i>
 <span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div><div class=license-info><span class=storage-info>Storage by
-<a href style=font-weight:700 target=_blank></a></span>
-<span class=separator-line>/</span>
+<a href style=font-weight:700 target=_blank></a></span><span class=separator-line>/</span>
 <span class=license-num><a href target=_blank></a></span></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i>
-<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script>
-<script type=text/javascript src=/js/search.js></script>
-<script type=text/javascript src=/js/affix.js></script>
-<script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".footer").outerHeight(!0),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var e,t,n,s,o=$(".header-inner").height()+10;$("#sidebar").css({"margin-top":o}).show(),t=parseInt($("#sidebar").css("margin-top")),n=parseInt($(".sidebar-inner").css("height")),e=t+n,s=$(".content-wrap").height(),s<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script>
-<script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>const locale={placeholder:"欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^"};$(function(){detectIE()>0?$.getScript(document.location.protocol+"//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,emoji:[],wordLimit:"200",uploadImage:!1,locale,requiredMeta:["nick","mail"],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
-<script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
+<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//unpkg.com/jquery@2.1.4/dist/jquery.min.js></script><script type=text/javascript src=/js/search.js></script><script type=text/javascript src=/js/affix.js></script><script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".footer").outerHeight(!0),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var e,t,n,s,o=$(".header-inner").height()+10;$("#sidebar").css({"margin-top":o}).show(),t=parseInt($("#sidebar").css("margin-top")),n=parseInt($(".sidebar-inner").css("height")),e=t+n,s=$(".content-wrap").height(),s<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//unpkg.com/imageviewer@1.1.0/dist/viewer.min.js></script><script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>const locale={placeholder:"欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^"};$(function(){detectIE()>0?$.getScript(document.location.protocol+"//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,emoji:[],wordLimit:"200",uploadImage:!1,locale,requiredMeta:["nick","mail"],serverURL:"lizj3624-comment.vercel.app",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
